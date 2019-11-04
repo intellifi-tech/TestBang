@@ -35,8 +35,8 @@ namespace TestBang.Splashh
             //Log.Debug(TAG, "Performing some startup work that takes a bit of time.");
             await Task.Delay(2000); // Simulate a bit of startup work.
             //Log.Debug(TAG, "Startup work is finished - starting MainActivity.");
-            this.Finish();
             StartActivity(new Intent(Application.Context, typeof(AppIntroBaseActivity)));
+            this.Finish();
         }
         async void HazirlikYap()
         {

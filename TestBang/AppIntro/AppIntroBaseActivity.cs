@@ -24,6 +24,7 @@ namespace TestBang.AppIntro
         ViewPager viewpager;
         protected IPageIndicator _indicator;
         RelativeLayout Transformiew;
+       
         #endregion
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -44,6 +45,7 @@ namespace TestBang.AppIntro
             ((CirclePageIndicator)_indicator).FillColor = Color.Transparent;
             ((CirclePageIndicator)_indicator).StrokeColor = Color.White;
             ((CirclePageIndicator)_indicator).StrokeWidth = 2f;
+
             //BaslangicIslemleri();
         }
 
@@ -120,8 +122,9 @@ namespace TestBang.AppIntro
 
             private void Devamet_Click(object sender, EventArgs e)
             {
-                this.Activity.Finish();
                 this.Activity.StartActivity(typeof(GirisBaseActivity));
+                this.Activity.Finish();
+
             }
         }
     }

@@ -30,6 +30,13 @@ namespace TestBang.GenericClass
             window.SetStatusBarColor(Color.Rgb(17, 18, 46));
             window.SetNavigationBarColor(Color.Rgb(17, 18, 46));
         }
+        public void Beyaz(Activity Act)
+        {
+            Window window = Act.Window;
+            window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
+            window.SetStatusBarColor(Color.Rgb(255,255,255));
+            window.SetNavigationBarColor(Color.Rgb(255, 255, 255));
+        }
         public void ShowCase(Activity Act)
         {
             if (Build.VERSION.SdkInt >= Build.VERSION_CODES.Lollipop)

@@ -139,7 +139,8 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayout3" >
+        android:id="@+id/linearLayout3"
+        android:layout_marginBottom="12dp">
         <TextView
             android:textColor="#F05070"
             android:textSize="12dp"
