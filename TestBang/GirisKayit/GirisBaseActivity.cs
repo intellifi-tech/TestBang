@@ -12,6 +12,7 @@ using Android.Support.V4.Content;
 using Android.Views;
 using Android.Widget;
 using TestBang.GenericClass;
+using TestBang.MainPage;
 using TestBang.SifremiUnuttum;
 
 namespace TestBang.GirisKayit
@@ -46,8 +47,8 @@ namespace TestBang.GirisKayit
 
         private void GirisButton_Click(object sender, EventArgs e)
         {
-            Drawable myIcon = ContextCompat.GetDrawable(this, Resource.Mipmap.ic_launcher_round);
-            MailText.SetError("Hataaaaaaaaa", myIcon);
+            StartActivity(typeof(MainPageBaseActivity));
+            this.Finish();
         }
 
         private void SifremiUnuttum_Click(object sender, EventArgs e)

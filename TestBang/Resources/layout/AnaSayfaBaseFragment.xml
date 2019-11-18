@@ -1,0 +1,545 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:scrollbars="none"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView1">
+        <LinearLayout
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/linearLayout11">
+            <android.support.v7.widget.CardView
+                app:cardElevation="10dp"
+                app:cardCornerRadius="20dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cardView1" >
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/linearLayout1" >
+                    <RelativeLayout
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/relativeLayout1">
+                        <RelativeLayout
+                            android:minWidth="25px"
+                            android:minHeight="25px"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/relativeLayout2">
+                            <LinearLayout
+                                android:layout_toLeftOf="@+id/relativeLayout3"
+                                android:orientation="vertical"
+                                android:minWidth="25px"
+                                android:minHeight="25px"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/linearLayout2">
+                                <TextView
+                                    android:textColor="#11122e"
+                                    android:text="Selam,"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/textView1" />
+                                <TextView
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"
+                                    android:textColor="#F05070"
+                                    android:text="MERVE TUĞAL"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/textView1" />
+                                <Button
+                                    android:textSize="11dp"
+                                    android:textColor="#1eb04b"
+                                    android:background="@drawable/profilegoruntulebuttonbg"
+                                    android:text="Profili Görüntüle"
+                                    android:layout_width="107.0dp"
+                                    android:layout_height="30.0dp"
+                                    android:id="@+id/button1" />
+                                <LinearLayout
+                                    android:layout_marginTop="10dp"
+                                    android:weightSum="100"
+                                    android:orientation="horizontal"
+                                    android:minWidth="25px"
+                                    android:minHeight="25px"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/linearLayout3" >
+                                    <LinearLayout
+                                        android:orientation="vertical"
+                                        android:minWidth="25px"
+                                        android:minHeight="25px"
+                                        android:layout_weight="25"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/linearLayout4" >
+                                    <ImageView
+                                        android:padding="5dp"
+                                        android:scaleType="centerInside"
+                                        android:src="@mipmap/femaleimg1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="35dp"
+                                        android:id="@+id/ımageView1" />
+                                        <TextView
+                                            android:textSize="12dp"
+                                            android:textColor="#11122e"
+                                            android:gravity="center"
+                                            android:text="KADIN"
+                                            android:textAppearance="?android:attr/textAppearanceSmall"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:id="@+id/textView2" />
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:orientation="vertical"
+                                        android:minWidth="25px"
+                                        android:minHeight="25px"
+                                        android:layout_weight="25"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/linearLayout4" >
+                                    <ImageView
+                                        android:padding="5dp"
+                                        android:scaleType="centerInside"
+                                        android:src="@mipmap/yasimg1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="35dp"
+                                        android:id="@+id/ımageView1" />
+                                        <TextView
+                                            android:textSize="12dp"
+                                            android:textColor="#11122e"
+                                            android:gravity="center"
+                                            android:text="22"
+                                            android:textAppearance="?android:attr/textAppearanceSmall"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:id="@+id/textView2" />
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:orientation="vertical"
+                                        android:minWidth="25px"
+                                        android:minHeight="25px"
+                                        android:layout_weight="25"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/linearLayout4" >
+                                    <ImageView
+                                        android:padding="5dp"
+                                        android:scaleType="centerInside"
+                                        android:src="@mipmap/konumimg1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="35dp"
+                                        android:id="@+id/ımageView1" />
+                                        <TextView
+                                            android:textSize="12dp"
+                                            android:textColor="#11122e"
+                                            android:gravity="center"
+                                            android:text="ORDU"
+                                            android:textAppearance="?android:attr/textAppearanceSmall"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:id="@+id/textView2" />
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:orientation="vertical"
+                                        android:minWidth="25px"
+                                        android:minHeight="25px"
+                                        android:layout_weight="25"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/linearLayout4" >
+                                    <ImageView
+                                        android:padding="5dp"
+                                        android:scaleType="centerInside"
+                                        android:src="@mipmap/okulimg1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="35dp"
+                                        android:id="@+id/ımageView1" />
+                                        <TextView
+                                            android:textSize="12dp"
+                                            android:textColor="#11122e"
+                                            android:gravity="center"
+                                            android:text="ORDU KOLEJİ"
+                                            android:textAppearance="?android:attr/textAppearanceSmall"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:id="@+id/textView2" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                            <RelativeLayout
+                                android:layout_alignParentRight="true"
+                                android:minWidth="25px"
+                                android:minHeight="25px"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:id="@+id/relativeLayout3" >
+                                <refractored.controls.CircleImageView
+                                    android:background="@mipmap/profilebgimg1"
+                                      android:layout_centerInParent="true"
+                                      android:id="@+id/profile_image"
+                                      android:layout_width="match_parent"
+                                      android:layout_height="match_parent"
+                                      android:src="@mipmap/ornekfoto"
+                                      app:civ_border_width="16dp"
+                                      app:civ_border_color="@android:color/transparent"/>
+                            </RelativeLayout>
+                    </RelativeLayout>
+                </RelativeLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                    app:cardElevation="10dp"
+                    app:cardCornerRadius="20dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="15dp"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cardView2" >
+                <LinearLayout
+                    android:paddingTop="10dp"
+                    android:weightSum="100"
+                    android:orientation="horizontal"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/linearLayout5">
+                    <LinearLayout
+                        android:layout_weight="50"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:id="@+id/linearLayout6">
+                        <TextView
+                            android:textColor="#11122E"
+                            android:gravity="center_horizontal"
+                            android:textSize="12dp"
+                            android:text="ULUSAL SIRALAMA"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView3" />
+                        <View
+                            android:layout_marginTop="5dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="#F05070"
+                            android:layout_width="60dp"
+                            android:layout_height="1dp"
+                            android:id="@+id/view2" />
+                        <TextView
+                            android:textSize="50dp"
+                            android:textColor="#F05070"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:text="263."
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/textView4" />
+                      </LinearLayout>
+                    <View
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:background="#DCD5D6"
+                        android:layout_width="0.5dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/view1" />
+                    <LinearLayout
+                        android:layout_weight="50"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:id="@+id/linearLayout6">
+                        <TextView
+                            android:textColor="#11122E"
+                            android:gravity="center_horizontal"
+                            android:textSize="12dp"
+                            android:text="ŞEHİR SIRALAMASI"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView3" />
+                        <View
+                            android:layout_marginTop="5dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="#1EB04B"
+                            android:layout_width="60dp"
+                            android:layout_height="1dp"
+                            android:id="@+id/view2" />
+                        <TextView
+                            android:textSize="50dp"
+                            android:textColor="#1EB04B"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:text="263."
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/textView4" />
+                      </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <LinearLayout
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout7">
+                <TextView
+                    android:textSize="12dp"
+                    android:gravity="center_horizontal"
+                    android:textColor="#11122E"
+                    android:text="GENEL TEST SONUÇLARI"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView5"
+                    android:layout_marginBottom="4.0dp" />
+                <LinearLayout
+                    android:weightSum="99"
+                    android:orientation="horizontal"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linearLayout8">
+                    <LinearLayout
+                        android:layout_weight="33"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/linearLayout9">
+                        <TextView
+                            android:textSize="10dp"
+                            android:gravity="center_horizontal"
+                            android:textColor="#1EB04B"
+                            android:text="Doğru Cevap"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView6" />
+                        <TextView
+                            android:textSize="10dp"
+                            android:gravity="center_horizontal"
+                            android:textColor="#1EB04B"
+                            android:text="%39"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView7" />
+                          <RelativeLayout
+		                    android:layout_marginTop="5dp"
+		                    android:minWidth="25px"
+		                    android:minHeight="25px"
+		                    android:layout_width="match_parent"
+		                    android:layout_height="wrap_content"
+		                    android:id="@+id/relativeLayout1">
+		                    <ProgressBar
+			                    android:layout_centerHorizontal="true"
+			                    android:id="@+id/progressBar"
+			                    android:layout_width="80dp"
+			                    android:layout_height="80dp"
+			                    android:indeterminate="false"
+			                    android:progressDrawable="@drawable/progres_dogru"
+			                    android:background="@drawable/circle_shape"
+			                    style="?android:attr/progressBarStyleHorizontal"
+			                    android:max="100"
+			                    android:progress="50" />
+		                    <TextView
+			                    android:textStyle="bold"
+			                    android:textSize="10dp"
+			                    android:textColor="#1EB04B"
+			                    android:layout_centerInParent="true"
+			                    android:text="1.249"
+			                    android:textAppearance="?android:attr/textAppearanceLarge"
+			                    android:layout_width="wrap_content"
+			                    android:layout_height="wrap_content"
+			                    android:id="@+id/textView2" />
+	                    </RelativeLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_weight="33"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/linearLayout9">
+                        <TextView
+                            android:textSize="10dp"
+                            android:gravity="center_horizontal"
+                            android:textColor="#F40621"
+                            android:text="Yanlış Cevap"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView6" />
+                        <TextView
+                            android:textSize="10dp"
+                            android:gravity="center_horizontal"
+                            android:textColor="#F40621"
+                            android:text="%39"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView7" />
+                          <RelativeLayout
+		                    android:layout_marginTop="5dp"
+		                    android:minWidth="25px"
+		                    android:minHeight="25px"
+		                    android:layout_width="match_parent"
+		                    android:layout_height="wrap_content"
+		                    android:id="@+id/relativeLayout1">
+		                    <ProgressBar
+			                    android:layout_centerHorizontal="true"
+			                    android:id="@+id/progressBar"
+			                    android:layout_width="80dp"
+			                    android:layout_height="80dp"
+			                    android:indeterminate="false"
+			                    android:progressDrawable="@drawable/progres_yanlis"
+			                    android:background="@drawable/circle_shape"
+			                    style="?android:attr/progressBarStyleHorizontal"
+			                    android:max="100"
+			                    android:progress="70" />
+		                    <TextView
+			                    android:textStyle="bold"
+			                    android:textSize="10dp"
+			                    android:textColor="#F40621"
+			                    android:layout_centerInParent="true"
+			                    android:text="1.249"
+			                    android:textAppearance="?android:attr/textAppearanceLarge"
+			                    android:layout_width="wrap_content"
+			                    android:layout_height="wrap_content"
+			                    android:id="@+id/textView2" />
+	                    </RelativeLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_weight="33"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/linearLayout9">
+                        <TextView
+                            android:textSize="10dp"
+                            android:gravity="center_horizontal"
+                            android:textColor="#EF506F"
+                            android:text="Cevapsız"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView6" />
+                        <TextView
+                            android:textSize="10dp"
+                            android:gravity="center_horizontal"
+                            android:textColor="#EF506F"
+                            android:text="%39"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView7" />
+                          <RelativeLayout
+		                    android:layout_marginTop="5dp"
+		                    android:minWidth="25px"
+		                    android:minHeight="25px"
+		                    android:layout_width="match_parent"
+		                    android:layout_height="wrap_content"
+		                    android:id="@+id/relativeLayout1">
+		                    <ProgressBar
+			                    android:layout_centerHorizontal="true"
+			                    android:id="@+id/progressBar"
+			                    android:layout_width="80dp"
+			                    android:layout_height="80dp"
+			                    android:indeterminate="false"
+			                    android:progressDrawable="@drawable/progres_cevapsiz"
+			                    android:background="@drawable/circle_shape"
+			                    style="?android:attr/progressBarStyleHorizontal"
+			                    android:max="100"
+			                    android:progress="30" />
+		                    <TextView
+			                    android:textStyle="bold"
+			                    android:textSize="10dp"
+			                    android:textColor="#EF506F"
+			                    android:layout_centerInParent="true"
+			                    android:text="1.249"
+			                    android:textAppearance="?android:attr/textAppearanceLarge"
+			                    android:layout_width="wrap_content"
+			                    android:layout_height="wrap_content"
+			                    android:id="@+id/textView2" />
+	                    </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:orientation="vertical"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout10" >
+                <Button
+                    android:textSize="10dp"
+                    android:textColor="#fff"
+                    android:background="@drawable/performansanalizbuttonbg"
+                    android:text="PERFORMANS / ANALİZ"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:id="@+id/button2" />
+                <Button
+                    android:layout_marginTop="10dp"
+                    android:textSize="10dp"
+                    android:textColor="#fff"
+                    android:background="@drawable/girisbuttonbg"
+                    android:text="TEST ÇÖZMEYE BAŞLA"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:id="@+id/button3" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
