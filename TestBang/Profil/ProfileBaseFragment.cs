@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using TestBang.Profil.DersProgrami;
 using TestBang.Profil.ProfilDuzenle;
 using TestBang.Profil.UyelikBilgileri;
 
@@ -17,7 +18,7 @@ namespace TestBang.Profil
 {
     public class ProfileBaseFragment : Android.Support.V4.App.Fragment
     {
-        TextView ProfilDuzenle,UyelikBilgileri;
+        TextView ProfilDuzenleButton, UyelikBilgileriButton, DersProgramiButton;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -29,11 +30,18 @@ namespace TestBang.Profil
         {
             // Use this to return your custom view for this Fragment
             View Viewww = inflater.Inflate(Resource.Layout.ProfileBaseFragment, container, false);
-            ProfilDuzenle = Viewww.FindViewById<TextView>(Resource.Id.profilim);
-            UyelikBilgileri = Viewww.FindViewById<TextView>(Resource.Id.uyelik);
-            UyelikBilgileri.Click += UyelikBilgileri_Click;
-            ProfilDuzenle.Click += ProfilDuzenle_Click;
+            ProfilDuzenleButton = Viewww.FindViewById<TextView>(Resource.Id.profilim);
+            UyelikBilgileriButton = Viewww.FindViewById<TextView>(Resource.Id.uyelik);
+            DersProgramiButton = Viewww.FindViewById<TextView>(Resource.Id.dersprogrami);
+            UyelikBilgileriButton.Click += UyelikBilgileri_Click;
+            ProfilDuzenleButton.Click += ProfilDuzenle_Click;
+            DersProgramiButton.Click += DersProgramiButton_Click;
             return Viewww;
+        }
+
+        private void DersProgramiButton_Click(object sender, EventArgs e)
+        {
+            this.Activity.StartActivity(typeof(DersProgramiBaseActivity));
         }
 
         private void UyelikBilgileri_Click(object sender, EventArgs e)

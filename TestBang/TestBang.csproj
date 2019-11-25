@@ -93,6 +93,9 @@
     <Compile Include="GirisKayit\HesapOlusturActivity.cs" />
     <Compile Include="GirisKayit\HosgeldinActivity.cs" />
     <Compile Include="MainPage\MainPageBaseActivity.cs" />
+    <Compile Include="Profil\DersProgrami\DersProgramiBaseActivity.cs" />
+    <Compile Include="Profil\DersProgrami\DersProgramiEkleBaseActivity.cs" />
+    <Compile Include="Profil\DersProgrami\DersProgramiListeAdapter.cs" />
     <Compile Include="Profil\ProfilDuzenle\ProfilDuzenlePart1BaseActivity.cs" />
     <Compile Include="Profil\ProfilDuzenle\ProfilDuzenlePart2BaseActivity.cs" />
     <Compile Include="Profil\ProfileBaseFragment.cs" />
@@ -732,6 +735,33 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-xhdpi\cardnumbericon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\DersProgramiBaseActivity.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\DersProgramiCustomCardView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\closeicon1.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\DersProgramiEkleBaseActivity.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xhdpi\konuiconimg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\programekleinput.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\caret_down.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

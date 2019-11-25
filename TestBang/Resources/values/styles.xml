@@ -28,6 +28,18 @@
     <item name="colorAccent">@color/colorPrimary</item>
   </style>
 
+  <!-- CalenderView -->
+  <style name="CalenderViewTheme" parent="@android:Theme">
+    <item name="android:calendarViewStyle">@style/Widget.CalendarView.Custom</item>
+    <item name="android:colorControlActivated">#1EB04B</item>
+  </style>
+
+  <style name="Widget.CalendarView.Custom" parent="android:Widget.CalendarView">
+    <item name="android:focusedMonthDateColor">#1EB04B</item>
+    <item name="android:weekNumberColor">#1EB04B</item>
+  </style>
+  <!-- CalenderView End -->
+
   <style name="TextLabel" parent="TextAppearance.AppCompat">
     <!-- Hint color and label color in FALSE state -->
     <item name="android:textColorHint">#FFFFFF</item>
