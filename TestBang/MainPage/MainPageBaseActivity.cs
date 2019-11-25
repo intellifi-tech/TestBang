@@ -13,6 +13,7 @@ using Android.Views;
 using Android.Widget;
 using TestBang.AnaSayfa;
 using TestBang.GenericClass;
+using TestBang.Profil;
 
 namespace TestBang.MainPage
 {
@@ -47,7 +48,7 @@ namespace TestBang.MainPage
             ss2 = new AnaSayfaBaseFragment();
             ss3 = new AnaSayfaBaseFragment();
             ss4 = new AnaSayfaBaseFragment();
-            ss5 = new AnaSayfaBaseFragment();
+            ss5 = new ProfileBaseFragment();
 
             //Fragment array
             var fragments = new Android.Support.V4.App.Fragment[]
