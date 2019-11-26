@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Util;
@@ -12,13 +13,15 @@ using Android.Views;
 using Android.Widget;
 using TestBang.Profil.DersProgrami;
 using TestBang.Profil.ProfilDuzenle;
+using TestBang.Profil.Transkript;
 using TestBang.Profil.UyelikBilgileri;
 
 namespace TestBang.Profil
 {
     public class ProfileBaseFragment : Android.Support.V4.App.Fragment
     {
-        TextView ProfilDuzenleButton, UyelikBilgileriButton, DersProgramiButton;
+        TextView ProfilDuzenleButton, UyelikBilgileriButton, DersProgramiButton,TranskriptButton;
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -33,10 +36,18 @@ namespace TestBang.Profil
             ProfilDuzenleButton = Viewww.FindViewById<TextView>(Resource.Id.profilim);
             UyelikBilgileriButton = Viewww.FindViewById<TextView>(Resource.Id.uyelik);
             DersProgramiButton = Viewww.FindViewById<TextView>(Resource.Id.dersprogrami);
+            TranskriptButton = Viewww.FindViewById<TextView>(Resource.Id.transkriptt);
+            TranskriptButton.Click += TranskriptButton_Click;
             UyelikBilgileriButton.Click += UyelikBilgileri_Click;
             ProfilDuzenleButton.Click += ProfilDuzenle_Click;
             DersProgramiButton.Click += DersProgramiButton_Click;
+          
             return Viewww;
+        }
+
+        private void TranskriptButton_Click(object sender, EventArgs e)
+        {
+            this.Activity.StartActivity(typeof(TranskriptListeBaseActivity));
         }
 
         private void DersProgramiButton_Click(object sender, EventArgs e)

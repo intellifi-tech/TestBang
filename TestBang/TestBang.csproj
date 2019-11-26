@@ -69,6 +69,7 @@
     <Compile Include="GenericClass\AuthenticationState.cs" />
     <Compile Include="GenericClass\BitmapHelpers.cs" />
     <Compile Include="GenericClass\CustomLoadingViewHelper.cs" />
+    <Compile Include="GenericClass\CustomVerticalTextView.cs" />
     <Compile Include="GenericClass\DinamikStatusBarColor.cs" />
     <Compile Include="GenericClass\DPX.cs" />
     <Compile Include="GenericClass\ExtMethods.cs" />
@@ -99,6 +100,8 @@
     <Compile Include="Profil\ProfilDuzenle\ProfilDuzenlePart1BaseActivity.cs" />
     <Compile Include="Profil\ProfilDuzenle\ProfilDuzenlePart2BaseActivity.cs" />
     <Compile Include="Profil\ProfileBaseFragment.cs" />
+    <Compile Include="Profil\Transkript\TranskriptListRecyclerviewAdepter.cs" />
+    <Compile Include="Profil\Transkript\TranskriptListeBaseActivity.cs" />
     <Compile Include="Profil\UyelikBilgileri\UyelikBilgileriBaseActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -762,6 +765,16 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\caret_down.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\TranskriptListesiBaseActivity.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\TranskriptListesiCustomCardView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
