@@ -19,6 +19,11 @@
     <item name="android:windowContentOverlay">@null</item>
   </style>
 
+  <style name="MineCustomTabText" parent="TextAppearance.Design.Tab">
+    <item name="android:textSize">8sp</item>
+  </style>
+  
+  
   <style name="ProgressTheme" parent="Theme.AppCompat.Light.DarkActionBar">
     <item name="colorAccent">@color/colorPrimary</item>
   </style>

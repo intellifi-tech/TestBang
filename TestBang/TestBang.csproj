@@ -94,12 +94,15 @@
     <Compile Include="GirisKayit\HesapOlusturActivity.cs" />
     <Compile Include="GirisKayit\HosgeldinActivity.cs" />
     <Compile Include="MainPage\MainPageBaseActivity.cs" />
+    <Compile Include="Profil\ArkadasiniDavetEt\ArkadasiniDavetEtBaseActivity.cs" />
     <Compile Include="Profil\DersProgrami\DersProgramiBaseActivity.cs" />
     <Compile Include="Profil\DersProgrami\DersProgramiEkleBaseActivity.cs" />
     <Compile Include="Profil\DersProgrami\DersProgramiListeAdapter.cs" />
     <Compile Include="Profil\ProfilDuzenle\ProfilDuzenlePart1BaseActivity.cs" />
     <Compile Include="Profil\ProfilDuzenle\ProfilDuzenlePart2BaseActivity.cs" />
     <Compile Include="Profil\ProfileBaseFragment.cs" />
+    <Compile Include="Profil\TestBangHakkinda\TestBangHakkindaBaseActivity.cs" />
+    <Compile Include="Profil\Transkript\TranskriptDetayBaseActivity.cs" />
     <Compile Include="Profil\Transkript\TranskriptListRecyclerviewAdepter.cs" />
     <Compile Include="Profil\Transkript\TranskriptListeBaseActivity.cs" />
     <Compile Include="Profil\UyelikBilgileri\UyelikBilgileriBaseActivity.cs" />
@@ -775,6 +778,30 @@
     <AndroidResource Include="Resources\layout\TranskriptListesiCustomCardView.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\TranskriptDetayBaseActivity.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ArkadasiniDavetEtBaseActivity.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xhdpi\arkadasinidavetetimg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\davetgonderbuttonbg.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\TestBangHakkindaBaseActivity.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xhdpi\hakkindaimg1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

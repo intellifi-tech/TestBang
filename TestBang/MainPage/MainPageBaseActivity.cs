@@ -72,6 +72,26 @@ namespace TestBang.MainPage
             viewPager.Adapter = new TabPagerAdaptor(this.SupportFragmentManager, fragments, titles, true);
 
             tabLayout.SetupWithViewPager(viewPager);
+
+            //((TextView)tabLayout.GetTabAt(0).CustomView).SetTextSize(Android.Util.ComplexUnitType.Dip, 8);
+        }
+
+        public static void setTextViewsCapsOff(View view)
+        {
+            if (!(view is ViewGroup))
+            {
+                return;
+            }
+            ViewGroup group = (ViewGroup)view;
+            for (int i = 0; i < group.ChildCount; i++)
+            {
+                View child = group.GetChildAt(i);
+                if (child is TextView)
+                {
+                    ((TextView)child).SetTextSize(Android.Util.ComplexUnitType.Dip, 20);
+
+                }
+            }
         }
     }
 }

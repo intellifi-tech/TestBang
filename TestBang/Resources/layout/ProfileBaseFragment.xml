@@ -228,7 +228,7 @@
                                 android:textAppearance="?android:attr/textAppearanceLarge"
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
-                                android:id="@+id/textView2" />
+                                android:id="@+id/arkadasinidavetet" />
                             <TextView
                                 android:textStyle="bold"
                                 android:textSize="13dp"
@@ -248,7 +248,7 @@
                                 android:textAppearance="?android:attr/textAppearanceLarge"
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
-                                android:id="@+id/textView2" />
+                                android:id="@+id/testbanghakkinda" />
                             <TextView
                                 android:textStyle="bold"
                                 android:textSize="13dp"
