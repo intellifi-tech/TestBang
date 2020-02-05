@@ -1,0 +1,352 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v4.widget.NestedScrollView
+        android:scrollbars="none"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView1">
+        <LinearLayout
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/linearLayout11">
+            <android.support.v7.widget.CardView
+                app:cardElevation="10dp"
+                app:cardCornerRadius="20dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cardView1" >
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/linearLayout1" >
+                    <ImageView
+                        android:src="@mipmap/testcozheaderimg"
+                        android:layout_width="match_parent"
+                        android:layout_height="173dp"
+                        android:id="@+id/ımageView1" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <LinearLayout
+                app:cardElevation="10dp"
+                app:cardCornerRadius="20dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:weightSum="100"
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout12">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_weight="40"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/linearLayout13">
+                    <android.support.v7.widget.CardView
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardView1" >
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/linearLayout14" >
+                        <TextView
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:paddingTop="5dp"
+                                android:textColor="#11122E"
+                                android:gravity="center"
+                                android:text="En çok soru çözülen ders"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/textView1" />
+                        <TextView
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:paddingTop="5dp"
+                                android:textColor="#11122E"
+                                android:gravity="center"
+                                android:textSize="20dp"
+                                android:textStyle="bold"
+                                android:text="TÜRKÇE"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/textView2" />
+                            <LinearLayout
+                                android:layout_marginTop="5dp"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:weightSum="99"
+                                android:orientation="horizontal"
+                                android:minWidth="25px"
+                                android:minHeight="25px"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/linearLayout15" >
+                            <TextView
+                                android:gravity="center"
+			                    android:textStyle="bold"
+			                    android:textSize="10dp"
+			                    android:textColor="#11122E"
+			                    android:layout_centerInParent="true"
+			                    android:text="1.249"
+			                    android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:layout_weight="33"
+			                    android:layout_width="0dp"
+			                    android:layout_height="wrap_content"
+			                    android:id="@+id/textView3" />
+                                <View
+                                    android:background="#C5C5C5"
+                                    android:layout_width="0.5dp"
+                                    android:layout_height="match_parent"
+                                    android:id="@+id/view1" />
+                            <TextView
+                                android:gravity="center"
+			                    android:textStyle="bold"
+			                    android:textSize="10dp"
+			                    android:textColor="#1EB04B"
+			                    android:layout_centerInParent="true"
+			                    android:text="1.249"
+			                    android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:layout_weight="33"
+			                    android:layout_width="0dp"
+			                    android:layout_height="wrap_content"
+			                    android:id="@+id/textView4" />
+                                <View
+                                    android:background="#C5C5C5"
+                                    android:layout_width="0.5dp"
+                                    android:layout_height="match_parent"
+                                    android:id="@+id/view1" />
+                            <TextView
+                                android:gravity="center"
+			                    android:textStyle="bold"
+			                    android:textSize="10dp"
+			                    android:textColor="#EF506F"
+			                    android:layout_centerInParent="true"
+			                    android:text="1.249"
+			                    android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:layout_weight="33"
+			                    android:layout_width="0dp"
+			                    android:layout_height="wrap_content"
+			                    android:id="@+id/textView4" />
+                            </LinearLayout>
+                    </LinearLayout>
+                    </android.support.v7.widget.CardView>
+                    <android.support.v7.widget.CardView
+                        android:layout_marginTop="20dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardView1" >
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/linearLayout14" >
+                        <TextView
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:paddingTop="5dp"
+                                android:textColor="#11122E"
+                                android:gravity="center"
+                                android:text="Toplam çözülen soru sayısı"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/textView1" />
+                        <TextView
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:paddingTop="5dp"
+                                android:textColor="#11122E"
+                                android:gravity="center"
+                                android:textSize="20dp"
+                                android:textStyle="bold"
+                                android:text="8.540"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/textView2" />
+                            <LinearLayout
+                                android:layout_marginTop="5dp"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:weightSum="99"
+                                android:orientation="horizontal"
+                                android:minWidth="25px"
+                                android:minHeight="25px"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/linearLayout15" >
+                            <TextView
+                                android:gravity="center"
+			                    android:textStyle="bold"
+			                    android:textSize="10dp"
+			                    android:textColor="#11122E"
+			                    android:layout_centerInParent="true"
+			                    android:text="6.175"
+			                    android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:layout_weight="33"
+			                    android:layout_width="0dp"
+			                    android:layout_height="wrap_content"
+			                    android:id="@+id/textView3" />
+                                <View
+                                    android:background="#C5C5C5"
+                                    android:layout_width="0.5dp"
+                                    android:layout_height="match_parent"
+                                    android:id="@+id/view1" />
+                            <TextView
+                                android:gravity="center"
+			                    android:textStyle="bold"
+			                    android:textSize="10dp"
+			                    android:textColor="#1EB04B"
+			                    android:layout_centerInParent="true"
+			                    android:text="6.175"
+			                    android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:layout_weight="33"
+			                    android:layout_width="0dp"
+			                    android:layout_height="wrap_content"
+			                    android:id="@+id/textView4" />
+                                <View
+                                    android:background="#C5C5C5"
+                                    android:layout_width="0.5dp"
+                                    android:layout_height="match_parent"
+                                    android:id="@+id/view1" />
+                            <TextView
+                                android:gravity="center"
+			                    android:textStyle="bold"
+			                    android:textSize="10dp"
+			                    android:textColor="#EF506F"
+			                    android:layout_centerInParent="true"
+			                    android:text="6.175"
+			                    android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:layout_weight="33"
+			                    android:layout_width="0dp"
+			                    android:layout_height="wrap_content"
+			                    android:id="@+id/textView4" />
+                            </LinearLayout>
+                    </LinearLayout>
+                    </android.support.v7.widget.CardView>
+                    <android.support.v7.widget.CardView
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardView3" >
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/linearLayout14" >
+                        <TextView
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:paddingTop="5dp"
+                                android:textColor="#11122E"
+                                android:gravity="center"
+                                android:text="Toplam geçirilen süre"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/textView1" />
+                        <TextView
+                                android:layout_marginBottom="5dp"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:paddingTop="5dp"
+                                android:textColor="#11122E"
+                                android:gravity="center"
+                                android:textSize="20dp"
+                                android:textStyle="bold"
+                                android:text="05:22:09:32"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/textView2" />
+                    </LinearLayout>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+                <RelativeLayout
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_weight="60"
+                    android:layout_width="0dp"
+                    android:layout_height="350dp"
+                    android:id="@+id/relativeLayout1">
+                    <android.support.v7.widget.RecyclerView
+                        android:nestedScrollingEnabled="true"
+                        android:layout_marginTop="0.0dp"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/recyclerView1" />
+                </RelativeLayout>
+            </LinearLayout>
+            <Button
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
+                     android:layout_marginBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="10dp"
+                    android:textColor="#fff"
+                    android:background="@drawable/girisbuttonbg"
+                    android:text="TEST ÇÖZMEYE BAŞLA"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:id="@+id/button3" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

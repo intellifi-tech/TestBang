@@ -14,6 +14,7 @@ using Android.Widget;
 using TestBang.AnaSayfa;
 using TestBang.GenericClass;
 using TestBang.Profil;
+using TestBang.Test;
 
 namespace TestBang.MainPage
 {
@@ -45,7 +46,7 @@ namespace TestBang.MainPage
             Android.Support.V4.App.Fragment ss1, ss2, ss3, ss4, ss5;
 
             ss1 = new AnaSayfaBaseFragment();
-            ss2 = new AnaSayfaBaseFragment();
+            ss2 = new TestCozBaseFragment();
             ss3 = new AnaSayfaBaseFragment();
             ss4 = new AnaSayfaBaseFragment();
             ss5 = new ProfileBaseFragment();

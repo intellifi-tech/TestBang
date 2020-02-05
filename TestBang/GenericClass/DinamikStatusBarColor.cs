@@ -23,6 +23,13 @@ namespace TestBang.GenericClass
             window.SetStatusBarColor(Color.Rgb(240, 80, 112));
             window.SetNavigationBarColor(Color.Rgb(240, 80, 112));
         }
+        public void Yesil(Activity Act)
+        {
+            Window window = Act.Window;
+            window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
+            window.SetStatusBarColor(Color.Rgb(30, 177, 76));
+            window.SetNavigationBarColor(Color.Rgb(30, 177, 76));
+        }
         public void Login(Activity Act)
         {
             Window window = Act.Window;
