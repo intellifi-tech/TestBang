@@ -12,9 +12,11 @@ using Android.Support.V4.View;
 using Android.Views;
 using Android.Widget;
 using TestBang.AnaSayfa;
+using TestBang.Deneme;
 using TestBang.GenericClass;
 using TestBang.Profil;
 using TestBang.Test;
+using static TestBang.Deneme.DenemeBaseFragment;
 
 namespace TestBang.MainPage
 {
@@ -46,8 +48,9 @@ namespace TestBang.MainPage
             Android.Support.V4.App.Fragment ss1, ss2, ss3, ss4, ss5;
 
             ss1 = new AnaSayfaBaseFragment();
-            ss2 = new TestCozBaseFragment();
-            ss3 = new AnaSayfaBaseFragment();
+            ss2 = new DenemeBaseFragment();
+            //ss2 = new DenemeChartFragment();
+            ss3 = new TestCozBaseFragment();
             ss4 = new AnaSayfaBaseFragment();
             ss5 = new ProfileBaseFragment();
 
