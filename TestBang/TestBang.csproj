@@ -117,8 +117,14 @@
     <Compile Include="Test\TestKonuCozumDetay\TestCozumKonuDetayRecyclerViewAdapter.cs" />
     <Compile Include="Test\TestKonuCozumDetay\TestCozumKonuDetayBaseActivity.cs" />
     <Compile Include="Test\TestOlustur\TestOlusturBaseActivity.cs" />
+    <Compile Include="Test\TestSinavAlani\TesteAraVerildiBaseActivity.cs" />
+    <Compile Include="Test\TestSinavAlani\TestSinavAlaniBaseActivity.cs" />
+    <Compile Include="Test\TestSinavAlani\TestSinavAlaniParcaFragment.cs" />
+    <Compile Include="Test\TestTamamlandi\TestCozumKonuDetayRecyclerViewAdapter.cs" />
+    <Compile Include="Test\TestTamamlandi\TestTamamlandiBaseActivity.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\testearaverildi1.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
@@ -850,6 +856,37 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\kirmiziborder.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\TestSinavAlaniBaseActivity.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\TestSoruParcaFragment.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\gributtonbg.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\TestTamamlandiBaseActivity.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\TestTamamlandiCardView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\TesteAraVerildiBaseActivity.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xhdpi\testearaverildiimg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

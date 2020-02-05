@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#1eb14c"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="65.5dp"
+        android:id="@+id/relativeLayout1"
+        android:layout_marginTop="17.5dp">
+        <ImageView
+            android:scaleType="centerInside"
+            android:src="@mipmap/testbang_logo_img2"
+            android:layout_width="163.5dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/ımageView1"
+            android:layout_marginLeft="25.0dp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/relativeLayout3"
+        android:layout_marginTop="0.0dp">
+        <RelativeLayout
+            android:background="#fff"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/relativeLayout4"
+            android:layout_marginTop="60dp" />
+        <android.support.v4.view.ViewPager
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/linearLayout14"
+            android:id="@+id/viewPager1" />
+         <LinearLayout
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout14" >
+                <LinearLayout
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/girisbuttonbg"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:weightSum="99"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout14" >
+            <Button
+                android:textSize="10dp"
+                android:textColor="#fff"
+                android:background="@android:color/transparent"
+                android:text="ÖNCEKİ SORU"
+                android:layout_width="0dp"
+                android:layout_weight="33"
+                android:layout_height="match_parent"
+                android:id="@+id/oncekisorubutton" />
+                <LinearLayout
+                    android:background="#11122E"
+                    android:orientation="vertical"
+                    android:minWidth="25px"
+                    android:weightSum="100"
+                    android:minHeight="25px"
+                    android:layout_width="0dp"
+                    android:layout_weight="33"
+                    android:layout_height="match_parent"
+                    android:id="@+id/linearLayout15">
+                    <TextView
+                        android:paddingBottom="3dp"
+                        android:gravity="center_horizontal|bottom"
+                        android:textColor="#fff"
+                        android:textSize="10dp"
+                        android:text="KALAN SÜRE"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="50"
+                        android:id="@+id/textView9" />
+                    <TextView
+                        android:textSize="15dp"
+                        android:gravity="center_horizontal|top"
+                        android:textColor="#fff"
+                        android:textStyle="bold"
+                        android:text="00:36:12"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="50"
+                        android:id="@+id/textView9" />
+                </LinearLayout>
+            <Button
+                android:textSize="10dp"
+                android:textColor="#fff"
+                android:background="@android:color/transparent"
+                android:text="SONRAKİ SORU"
+                android:layout_width="0dp"
+                android:layout_weight="33"
+                android:layout_height="match_parent"
+                android:id="@+id/sonrakisorubutton" />
+            </LinearLayout>
+                <Button
+                    android:background="@drawable/gributtonbg"
+                    android:text="TESTİ DURDUR"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/araverbutton" />
+         </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
