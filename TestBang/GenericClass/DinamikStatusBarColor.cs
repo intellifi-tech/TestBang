@@ -30,6 +30,13 @@ namespace TestBang.GenericClass
             window.SetStatusBarColor(Color.Rgb(30, 177, 76));
             window.SetNavigationBarColor(Color.Rgb(30, 177, 76));
         }
+        public void Lacivert(Activity Act)
+        {
+            Window window = Act.Window;
+            window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
+            window.SetStatusBarColor(Color.Rgb(17, 18, 46));
+            window.SetNavigationBarColor(Color.Rgb(17, 18, 46));
+        }
         public void Login(Activity Act)
         {
             Window window = Act.Window;

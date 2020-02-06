@@ -5252,121 +5252,130 @@ namespace TestBang
 			public const int design_text_input_password_icon = 2131427388;
 			
 			// aapt resource value: 0x7F0B003D
-			public const int GirisBaseActivity = 2131427389;
+			public const int GecmisDenemeSinaviBaseActivity = 2131427389;
 			
 			// aapt resource value: 0x7F0B003E
-			public const int HesapOlusturActivity = 2131427390;
+			public const int GirisBaseActivity = 2131427390;
 			
 			// aapt resource value: 0x7F0B003F
-			public const int HosgeldinActivity = 2131427391;
+			public const int HesapOlusturActivity = 2131427391;
 			
 			// aapt resource value: 0x7F0B0040
-			public const int MainPageBaseActivity = 2131427392;
+			public const int HosgeldinActivity = 2131427392;
 			
 			// aapt resource value: 0x7F0B0041
-			public const int mtrl_layout_snackbar = 2131427393;
+			public const int MainPageBaseActivity = 2131427393;
 			
 			// aapt resource value: 0x7F0B0042
-			public const int mtrl_layout_snackbar_include = 2131427394;
+			public const int mtrl_layout_snackbar = 2131427394;
 			
 			// aapt resource value: 0x7F0B0043
-			public const int notification_action = 2131427395;
+			public const int mtrl_layout_snackbar_include = 2131427395;
 			
 			// aapt resource value: 0x7F0B0044
-			public const int notification_action_tombstone = 2131427396;
+			public const int notification_action = 2131427396;
 			
 			// aapt resource value: 0x7F0B0045
-			public const int notification_template_custom_big = 2131427397;
+			public const int notification_action_tombstone = 2131427397;
 			
 			// aapt resource value: 0x7F0B0046
-			public const int notification_template_icon_group = 2131427398;
+			public const int notification_template_custom_big = 2131427398;
 			
 			// aapt resource value: 0x7F0B0047
-			public const int notification_template_part_chronometer = 2131427399;
+			public const int notification_template_icon_group = 2131427399;
 			
 			// aapt resource value: 0x7F0B0048
-			public const int notification_template_part_time = 2131427400;
+			public const int notification_template_part_chronometer = 2131427400;
 			
 			// aapt resource value: 0x7F0B0049
-			public const int ProfilDuzenlePart1 = 2131427401;
+			public const int notification_template_part_time = 2131427401;
 			
 			// aapt resource value: 0x7F0B004A
-			public const int ProfilDuzenlePart2BaseActivity = 2131427402;
+			public const int OyunBaseFragment = 2131427402;
 			
 			// aapt resource value: 0x7F0B004B
-			public const int ProfileBaseFragment = 2131427403;
+			public const int OyunKurBaseActivity = 2131427403;
 			
 			// aapt resource value: 0x7F0B004C
-			public const int Saat_Secim = 2131427404;
+			public const int ProfilDuzenlePart1 = 2131427404;
 			
 			// aapt resource value: 0x7F0B004D
-			public const int select_dialog_item_material = 2131427405;
+			public const int ProfilDuzenlePart2BaseActivity = 2131427405;
 			
 			// aapt resource value: 0x7F0B004E
-			public const int select_dialog_multichoice_material = 2131427406;
+			public const int ProfileBaseFragment = 2131427406;
 			
 			// aapt resource value: 0x7F0B004F
-			public const int select_dialog_singlechoice_material = 2131427407;
+			public const int Saat_Secim = 2131427407;
 			
 			// aapt resource value: 0x7F0B0050
-			public const int SifremiUnuttumMailGonder = 2131427408;
+			public const int select_dialog_item_material = 2131427408;
 			
 			// aapt resource value: 0x7F0B0051
-			public const int SifrenGuncellendi = 2131427409;
+			public const int select_dialog_multichoice_material = 2131427409;
 			
 			// aapt resource value: 0x7F0B0052
-			public const int SifreyiGuncelleActivity = 2131427410;
+			public const int select_dialog_singlechoice_material = 2131427410;
 			
 			// aapt resource value: 0x7F0B0053
-			public const int Splash = 2131427411;
+			public const int SifremiUnuttumMailGonder = 2131427411;
 			
 			// aapt resource value: 0x7F0B0054
-			public const int support_simple_spinner_dropdown_item = 2131427412;
+			public const int SifrenGuncellendi = 2131427412;
 			
 			// aapt resource value: 0x7F0B0055
-			public const int TestBangHakkindaBaseActivity = 2131427413;
+			public const int SifreyiGuncelleActivity = 2131427413;
 			
 			// aapt resource value: 0x7F0B0056
-			public const int TestCozBaseFragment = 2131427414;
+			public const int Splash = 2131427414;
 			
 			// aapt resource value: 0x7F0B0057
-			public const int TestCozListCardView = 2131427415;
+			public const int support_simple_spinner_dropdown_item = 2131427415;
 			
 			// aapt resource value: 0x7F0B0058
-			public const int TestCozumKonuDetayBaseActivity = 2131427416;
+			public const int TestBangHakkindaBaseActivity = 2131427416;
 			
 			// aapt resource value: 0x7F0B0059
-			public const int TestCozumKonuDetayCardView = 2131427417;
+			public const int TestCozBaseFragment = 2131427417;
 			
 			// aapt resource value: 0x7F0B005A
-			public const int TesteAraVerildiBaseActivity = 2131427418;
+			public const int TestCozListCardView = 2131427418;
 			
 			// aapt resource value: 0x7F0B005B
-			public const int TestOlusturBaseActivity = 2131427419;
+			public const int TestCozumKonuDetayBaseActivity = 2131427419;
 			
 			// aapt resource value: 0x7F0B005C
-			public const int TestSinavAlaniBaseActivity = 2131427420;
+			public const int TestCozumKonuDetayCardView = 2131427420;
 			
 			// aapt resource value: 0x7F0B005D
-			public const int TestSoruParcaFragment = 2131427421;
+			public const int TesteAraVerildiBaseActivity = 2131427421;
 			
 			// aapt resource value: 0x7F0B005E
-			public const int TestTamamlandiBaseActivity = 2131427422;
+			public const int TestOlusturBaseActivity = 2131427422;
 			
 			// aapt resource value: 0x7F0B005F
-			public const int TestTamamlandiCardView = 2131427423;
+			public const int TestSinavAlaniBaseActivity = 2131427423;
 			
 			// aapt resource value: 0x7F0B0060
-			public const int TranskriptDetayBaseActivity = 2131427424;
+			public const int TestSoruParcaFragment = 2131427424;
 			
 			// aapt resource value: 0x7F0B0061
-			public const int TranskriptListesiBaseActivity = 2131427425;
+			public const int TestTamamlandiBaseActivity = 2131427425;
 			
 			// aapt resource value: 0x7F0B0062
-			public const int TranskriptListesiCustomCardView = 2131427426;
+			public const int TestTamamlandiCardView = 2131427426;
 			
 			// aapt resource value: 0x7F0B0063
-			public const int UyelikBilgileriBaseActivity = 2131427427;
+			public const int TranskriptDetayBaseActivity = 2131427427;
+			
+			// aapt resource value: 0x7F0B0064
+			public const int TranskriptListesiBaseActivity = 2131427428;
+			
+			// aapt resource value: 0x7F0B0065
+			public const int TranskriptListesiCustomCardView = 2131427429;
+			
+			// aapt resource value: 0x7F0B0066
+			public const int UyelikBilgileriBaseActivity = 2131427430;
 			
 			static Layout()
 			{
@@ -5473,79 +5482,97 @@ namespace TestBang
 			public const int mapmarkerr1 = 2131558424;
 			
 			// aapt resource value: 0x7F0D0019
-			public const int notification1 = 2131558425;
-			
-			// aapt resource value: 0x7F0D001B
-			public const int okulimg1 = 2131558427;
+			public const int meydanokuimg = 2131558425;
 			
 			// aapt resource value: 0x7F0D001A
-			public const int okul_img1 = 2131558426;
+			public const int notification1 = 2131558426;
 			
 			// aapt resource value: 0x7F0D001C
-			public const int ornekfoto = 2131558428;
+			public const int okulimg1 = 2131558428;
 			
-			// aapt resource value: 0x7F0D0026
-			public const int profilebgimg1 = 2131558438;
+			// aapt resource value: 0x7F0D001B
+			public const int okul_img1 = 2131558427;
 			
 			// aapt resource value: 0x7F0D001D
-			public const int profile_icon_1 = 2131558429;
+			public const int ornekfoto = 2131558429;
 			
 			// aapt resource value: 0x7F0D001E
-			public const int profile_icon_2 = 2131558430;
+			public const int oyunukaybettinimg = 2131558430;
 			
 			// aapt resource value: 0x7F0D001F
-			public const int profile_icon_3 = 2131558431;
-			
-			// aapt resource value: 0x7F0D0020
-			public const int profile_icon_4 = 2131558432;
-			
-			// aapt resource value: 0x7F0D0021
-			public const int profile_icon_5 = 2131558433;
-			
-			// aapt resource value: 0x7F0D0022
-			public const int profile_icon_6 = 2131558434;
-			
-			// aapt resource value: 0x7F0D0023
-			public const int profile_icon_7 = 2131558435;
-			
-			// aapt resource value: 0x7F0D0024
-			public const int profile_icon_8 = 2131558436;
-			
-			// aapt resource value: 0x7F0D0025
-			public const int profile_icon_9 = 2131558437;
-			
-			// aapt resource value: 0x7F0D0027
-			public const int profilsetting = 2131558439;
-			
-			// aapt resource value: 0x7F0D0028
-			public const int sifremiunuttum_img1 = 2131558440;
+			public const int oyunukazandinimg = 2131558431;
 			
 			// aapt resource value: 0x7F0D0029
-			public const int sifremiunuttum_img2 = 2131558441;
+			public const int profilebgimg1 = 2131558441;
+			
+			// aapt resource value: 0x7F0D0020
+			public const int profile_icon_1 = 2131558432;
+			
+			// aapt resource value: 0x7F0D0021
+			public const int profile_icon_2 = 2131558433;
+			
+			// aapt resource value: 0x7F0D0022
+			public const int profile_icon_3 = 2131558434;
+			
+			// aapt resource value: 0x7F0D0023
+			public const int profile_icon_4 = 2131558435;
+			
+			// aapt resource value: 0x7F0D0024
+			public const int profile_icon_5 = 2131558436;
+			
+			// aapt resource value: 0x7F0D0025
+			public const int profile_icon_6 = 2131558437;
+			
+			// aapt resource value: 0x7F0D0026
+			public const int profile_icon_7 = 2131558438;
+			
+			// aapt resource value: 0x7F0D0027
+			public const int profile_icon_8 = 2131558439;
+			
+			// aapt resource value: 0x7F0D0028
+			public const int profile_icon_9 = 2131558440;
 			
 			// aapt resource value: 0x7F0D002A
-			public const int sorusayisisecimg = 2131558442;
+			public const int profilsetting = 2131558442;
 			
 			// aapt resource value: 0x7F0D002B
-			public const int splash_img = 2131558443;
+			public const int rakiparaimg = 2131558443;
 			
 			// aapt resource value: 0x7F0D002C
-			public const int suresecimg = 2131558444;
+			public const int rakipbulunduimg = 2131558444;
 			
 			// aapt resource value: 0x7F0D002D
-			public const int testbang_logo_img1 = 2131558445;
+			public const int sifremiunuttum_img1 = 2131558445;
 			
 			// aapt resource value: 0x7F0D002E
-			public const int testbang_logo_img2 = 2131558446;
+			public const int sifremiunuttum_img2 = 2131558446;
 			
 			// aapt resource value: 0x7F0D002F
-			public const int testcozheaderimg = 2131558447;
+			public const int sorusayisisecimg = 2131558447;
 			
 			// aapt resource value: 0x7F0D0030
-			public const int testearaverildiimg = 2131558448;
+			public const int splash_img = 2131558448;
 			
 			// aapt resource value: 0x7F0D0031
-			public const int yasimg1 = 2131558449;
+			public const int suresecimg = 2131558449;
+			
+			// aapt resource value: 0x7F0D0032
+			public const int testbang_logo_img1 = 2131558450;
+			
+			// aapt resource value: 0x7F0D0033
+			public const int testbang_logo_img2 = 2131558451;
+			
+			// aapt resource value: 0x7F0D0034
+			public const int testbang_logo_img3 = 2131558452;
+			
+			// aapt resource value: 0x7F0D0035
+			public const int testcozheaderimg = 2131558453;
+			
+			// aapt resource value: 0x7F0D0036
+			public const int testearaverildiimg = 2131558454;
+			
+			// aapt resource value: 0x7F0D0037
+			public const int yasimg1 = 2131558455;
 			
 			static Mipmap()
 			{

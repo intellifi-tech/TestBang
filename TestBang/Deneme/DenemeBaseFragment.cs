@@ -43,13 +43,14 @@ namespace TestBang.Deneme
             ButtonsHazne = Vieww.FindViewById<LinearLayout>(Resource.Id.buttonsHazne);
             mRecyclerView = Vieww.FindViewById<RecyclerView>(Resource.Id.recyclerView1);
             ButtonsHazne.ClipToOutline = true;
+            FnInitTabLayout();
             return Vieww;
         }
         public override void OnStart()
         {
             base.OnStart();
             FillDataModel();
-            FnInitTabLayout();
+            
         }
         void FillDataModel()
         {

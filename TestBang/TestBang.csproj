@@ -67,6 +67,7 @@
     <Compile Include="AnaSayfa\AnaSayfaBaseFragment.cs" />
     <Compile Include="AppIntro\AppIntroBaseActivity.cs" />
     <Compile Include="Deneme\DenemeBaseFragment.cs" />
+    <Compile Include="Deneme\GecmisDenemeSinavi\GecmisDenemeSinaviBaseActivity.cs" />
     <Compile Include="Deneme\TestCozumKonuDetayRecyclerViewAdapter.cs" />
     <Compile Include="GenericClass\AuthenticationState.cs" />
     <Compile Include="GenericClass\BitmapHelpers.cs" />
@@ -96,6 +97,8 @@
     <Compile Include="GirisKayit\HesapOlusturActivity.cs" />
     <Compile Include="GirisKayit\HosgeldinActivity.cs" />
     <Compile Include="MainPage\MainPageBaseActivity.cs" />
+    <Compile Include="Oyun\OyunBaseFragment.cs" />
+    <Compile Include="Oyun\OyunKur\OyunKurBaseActivity.cs" />
     <Compile Include="Profil\ArkadasiniDavetEt\ArkadasiniDavetEtBaseActivity.cs" />
     <Compile Include="Profil\DersProgrami\DersProgramiBaseActivity.cs" />
     <Compile Include="Profil\DersProgrami\DersProgramiEkleBaseActivity.cs" />
@@ -902,6 +905,39 @@
     <AndroidResource Include="Resources\layout\DenemeChartFragment.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\GecmisDenemeSinaviBaseActivity.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\OyunBaseFragment.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xhdpi\rakipbulunduimg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xhdpi\meydanokuimg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xhdpi\oyunukaybettinimg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xhdpi\oyunukazandinimg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xhdpi\rakiparaimg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\OyunKurBaseActivity.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xhdpi\testbang_logo_img3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -14,6 +14,7 @@ using Android.Widget;
 using TestBang.AnaSayfa;
 using TestBang.Deneme;
 using TestBang.GenericClass;
+using TestBang.Oyun;
 using TestBang.Profil;
 using TestBang.Test;
 using static TestBang.Deneme.DenemeBaseFragment;
@@ -35,6 +36,7 @@ namespace TestBang.MainPage
             dinamikStatusBarColor.Pembe(this);
             tabLayout = FindViewById<TabLayout>(Resource.Id.tabLayout);
             viewPager = FindViewById<ViewPager>(Resource.Id.viewPager1);
+            viewPager.OffscreenPageLimit = 10;
             FnInitTabLayout();
         }
 
@@ -49,9 +51,8 @@ namespace TestBang.MainPage
 
             ss1 = new AnaSayfaBaseFragment();
             ss2 = new DenemeBaseFragment();
-            //ss2 = new DenemeChartFragment();
             ss3 = new TestCozBaseFragment();
-            ss4 = new AnaSayfaBaseFragment();
+            ss4 = new OyunBaseFragment();
             ss5 = new ProfileBaseFragment();
 
             //Fragment array
