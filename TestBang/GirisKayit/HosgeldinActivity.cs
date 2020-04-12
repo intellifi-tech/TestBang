@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using TestBang.GenericClass;
+using TestBang.MainPage;
 
 namespace TestBang.GirisKayit
 {
@@ -29,6 +30,7 @@ namespace TestBang.GirisKayit
 
         private void TesteBasla_Click(object sender, EventArgs e)
         {
+            this.StartActivity(typeof(MainPageBaseActivity));
             this.Finish();
         }
     }

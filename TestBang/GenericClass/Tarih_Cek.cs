@@ -10,10 +10,9 @@ using Android.Views;
 using Android.Widget;
 using Android.Util;
 
-
 namespace TestBang.GenericClass
 {
-    class Tarih_Cek : DialogFragment, DatePickerDialog.IOnDateSetListener
+    class Tarih_Cek : Android.Support.V4.App.DialogFragment, DatePickerDialog.IOnDateSetListener
     {
         //public Sonuclari_Kaydet_Bolum2 Sonuclari_Kaydet_Bolum2_1;
         //public TarihAraligi TarihAraligi1;
@@ -22,21 +21,27 @@ namespace TestBang.GenericClass
         //public  int durum = 0;
         public static readonly string TAG = "X:" + typeof(Tarih_Cek).Name.ToUpper();
         Action<DateTime> _dateSelectedHandler = delegate { };
+        DateTime KayitliTarih;
         public override void OnActivityCreated(Bundle savedInstanceState)
         {
             Dialog.Window.RequestFeature(WindowFeatures.NoTitle);
             base.OnActivityCreated(savedInstanceState);
             Dialog.Window.Attributes.WindowAnimations = Resource.Style.dialog_animation;
         }
-        public static Tarih_Cek NewInstance(Action<DateTime> onDateSelected)
+        public static Tarih_Cek NewInstance(Action<DateTime> onDateSelected, DateTime SeciliTarih)
         {
             Tarih_Cek frag = new Tarih_Cek();
             frag._dateSelectedHandler = onDateSelected;
+            frag.KayitliTarih = SeciliTarih;
             return frag;
         }
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
         {
             DateTime currently = DateTime.Now;
+            if (KayitliTarih != null)
+            {
+                currently = KayitliTarih;
+            }
 
             DatePickerDialog dialog = new DatePickerDialog(Activity,
                                                            Resource.Style.datepicker,
@@ -45,9 +50,9 @@ namespace TestBang.GenericClass
                                                            currently.Month,
                                                            currently.Day);
             //dialog.DatePicker.MinDate  = new Java.Util.Date().Time;
-            double maxSeconds = (new DateTime(DateTime.Now.Year,12,31).AddYears(-18) - new DateTime(1970, 1, 1)).TotalMilliseconds;
+            double maxSeconds = (new DateTime(DateTime.Now.Year, 12, 31).AddYears(-7) - new DateTime(1970, 1, 1)).TotalMilliseconds;
             dialog.DatePicker.MaxDate = (long)maxSeconds;
-            
+
             return dialog;
         }
         public void OnDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)

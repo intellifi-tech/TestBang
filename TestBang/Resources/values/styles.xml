@@ -71,9 +71,9 @@
   </style>
 
   <style name="datepicker" parent="Theme.AppCompat.Light.Dialog">
-    <item name="colorAccent">#0000f5</item>
-    <item name="colorPrimaryDark">#000084</item>
-    <item name="colorAccent">#0000f5</item>
+    <item name="colorAccent">#F05070</item>
+    <item name="colorPrimaryDark">#1EB04B</item>
+    <item name="colorAccent">#F05070</item>
   </style>
 
   <style name="RadioButStyle" parent ="AppTheme.Base">

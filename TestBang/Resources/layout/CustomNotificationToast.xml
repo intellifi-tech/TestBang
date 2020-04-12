@@ -24,12 +24,12 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content">
 			<ImageView
-				android:src="@mipmap/ic_launcher_round"
+				android:src="@mipmap/custom_alert_icon"
 				android:id="@+id/ımageView1"
 				android:layout_width="40.5dp"
 				android:layout_height="37.0dp"
 				android:scaleType="centerInside"
-				android:padding="2dp" />
+				android:padding="4dp" />
 			<View
 				android:layout_width="1dp"
 				android:layout_height="match_parent"

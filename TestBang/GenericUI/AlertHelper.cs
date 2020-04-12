@@ -21,16 +21,16 @@ namespace TestBang.GenericUI
 
                 try
                 {
-                    var view = ((Activity)context).LayoutInflater.Inflate(Resource.Layout.CustommAlert, null);
+                    var view = ((Activity)context).LayoutInflater.Inflate(Resource.Layout.CustomNotificationToast, null);
                     var txt = view.FindViewById<TextView>(Resource.Id.textView2);
                     txt.Text = mesaj;
-                    txt.SetTypeface(Typeface.CreateFromAsset(context.Assets, "Fonts/muliRegular.ttf"), TypefaceStyle.Normal);
+                   // txt.SetTypeface(Typeface.CreateFromAsset(context.Assets, "Fonts/muliRegular.ttf"), TypefaceStyle.Normal);
                     var toast = new Toast(context)
                     {
                         Duration = ToastLength.Short,
                         View = view
                     };
-                    toast.SetGravity(GravityFlags.Center | GravityFlags.Center, 0, 0);
+                    toast.SetGravity(GravityFlags.Top | GravityFlags.Center, 0, 0);
                     toast.Show();
                 }
                 catch

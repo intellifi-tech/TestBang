@@ -45,8 +45,8 @@ namespace TestBang.GenericUI
             DesText.Text = Des1;
             progresss = rootView.FindViewById<ProgressBar>(Resource.Id.progressBar1);
             progresss.ProgressBackgroundTintList = ColorStateList.ValueOf(Color.Black);
-            boldd = Typeface.CreateFromAsset(this.Activity.Assets, "Fonts/muliBold.ttf");
-            normall = Typeface.CreateFromAsset(this.Activity.Assets, "Fonts/muliRegular.ttf");
+            //boldd = Typeface.CreateFromAsset(this.Activity.Assets, "Fonts/muliBold.ttf");
+            //normall = Typeface.CreateFromAsset(this.Activity.Assets, "Fonts/muliRegular.ttf");
             DesText.SetTypeface(normall, TypefaceStyle.Normal);
             return rootView;
         }

@@ -10,7 +10,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using TestBang.AppIntro;
+using TestBang.DataBasee;
 using TestBang.GenericClass;
+using TestBang.MainPage;
 
 namespace TestBang.Splashh
 {
@@ -23,6 +25,7 @@ namespace TestBang.Splashh
             DinamikStatusBarColor dinamikStatusBarColor = new DinamikStatusBarColor();
             dinamikStatusBarColor.SetFullScreen(this);
             SetContentView(Resource.Layout.Splash);
+            new DataBase();
         }
         protected override void OnResume()
         {
@@ -32,11 +35,21 @@ namespace TestBang.Splashh
         }
         async void SimulateStartup()
         {
-            //Log.Debug(TAG, "Performing some startup work that takes a bit of time.");
-            await Task.Delay(2000); // Simulate a bit of startup work.
-            //Log.Debug(TAG, "Startup work is finished - starting MainActivity.");
-            StartActivity(new Intent(Application.Context, typeof(AppIntroBaseActivity)));
-            this.Finish();
+            await Task.Delay(1000);
+            this.RunOnUiThread(delegate
+            {
+                var Kullanici = DataBase.MEMBER_DATA_GETIR();
+                if (Kullanici.Count > 0)
+                {
+                    StartActivity(typeof(MainPageBaseActivity));
+                }
+                else
+                {
+                    StartActivity(typeof(AppIntroBaseActivity));
+                }
+
+                this.Finish();
+            });
         }
         async void HazirlikYap()
         {
