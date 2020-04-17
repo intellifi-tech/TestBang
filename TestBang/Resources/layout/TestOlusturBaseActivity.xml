@@ -21,6 +21,7 @@
             android:id="@+id/ımageView1"
             android:layout_marginLeft="25.0dp" />
         <LinearLayout
+            android:visibility="gone"
             android:layout_alignParentRight="true"
             android:orientation="horizontal"
             android:minWidth="25px"
@@ -174,7 +175,7 @@
                         <Spinner
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:id="@+id/spinner1" />
+                            android:id="@+id/spinner2" />
                     </LinearLayout>
                      <LinearLayout
                         android:layout_marginTop="15dp"
@@ -198,7 +199,7 @@
                         <Spinner
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:id="@+id/spinner1" />
+                            android:id="@+id/spinner3" />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_marginTop="15dp"
@@ -222,7 +223,7 @@
                         <Spinner
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:id="@+id/spinner1" />
+                            android:id="@+id/spinner4" />
                     </LinearLayout>
                 <Button
                         android:layout_marginRight="30dp"

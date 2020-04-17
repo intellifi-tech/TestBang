@@ -45,4 +45,28 @@ namespace TestBang.DataBasee
         public string API_TOKEN { get; set; }
         public string password { get; set; }
     }
+
+    public class OLUSTURULAN_TESTLER
+    {
+        [PrimaryKey, AutoIncrement]
+        public int localid { get; set; }
+        public int? correctCount { get; set; }
+        public string description { get; set; }
+        public int? emptyCount { get; set; }
+        public bool finish { get; set; }
+        public string finishDate { get; set; }
+        public string id { get; set; }
+        public string lessonId { get; set; }
+        public string name { get; set; }
+        public int? net { get; set; }
+        public int? questionCount { get; set; }
+        public string startDate { get; set; }
+        public string testTime { get; set; }
+        public string time { get; set; }
+        public string topicId { get; set; }
+        public string userId { get; set; }
+        public int? wrongCount { get; set; }
+        //Custom
+        public string SorularJsonPath { get; set; }
+    }
 }

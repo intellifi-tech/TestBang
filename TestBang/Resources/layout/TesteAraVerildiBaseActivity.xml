@@ -112,10 +112,10 @@
                         android:textSize="10dp"
                         android:textColor="#fff"
                         android:background="@drawable/girisbuttonbg"
-                        android:text="TENİ BİR TEST ÇÖZ"
+                        android:text="YENİ BİR TEST ÇÖZ"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
-                        android:id="@+id/button3" />
+                        android:id="@+id/button4" />
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
       </LinearLayout>

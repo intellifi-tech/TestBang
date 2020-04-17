@@ -89,6 +89,7 @@
     <Compile Include="GenericClass\SosyalLoginHelper.cs" />
     <Compile Include="GenericClass\TabPagerAdaptor.cs" />
     <Compile Include="GenericClass\Tarih_Cek.cs" />
+    <Compile Include="GenericClass\TestBangHelpers.cs" />
     <Compile Include="GenericClass\ViewPagerStoryAnimation.cs" />
     <Compile Include="GenericClass\XamarinRecyclerViewOnScrollListener.cs" />
     <Compile Include="GenericUI\AlertHelper.cs" />
@@ -956,6 +957,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-xhdpi\gendericonn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\test_secenek_secim_bg.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

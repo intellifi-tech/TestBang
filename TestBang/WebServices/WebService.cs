@@ -23,10 +23,13 @@ namespace TestBang.WebServices
     class WebService
     {
         string kokurl = "http://185.184.210.20:8080/api/";
-        public string ServisIslem(string url, string istekler,bool isLogin=false, string Method = "POST", string ContentType = "application/json")
+        public string ServisIslem(string url, string istekler,bool isLogin=false, string Method = "POST", string ContentType = "application/json",bool UsePoll = false)
         {
             RestSharp.Method GelenMethod = RestSharp.Method.POST;
-
+            if (UsePoll)
+            {
+                kokurl = "http://185.184.210.20:8080/services/pool/api/";
+            }
             switch (Method)
             {
                 case "POST":
