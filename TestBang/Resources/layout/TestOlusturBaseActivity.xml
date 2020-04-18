@@ -130,7 +130,69 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView1" />
+                    <RelativeLayout
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/programekleinput"
+                        android:orientation="horizontal"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="50.0dp"
+                        android:id="@+id/linearLayout2">
+                        <ImageView
+                            android:tint="#F05070"
+                            android:padding="5dp"
+                            android:src="@mipmap/konuiconimg1"
+                            android:layout_width="30.5dp"
+                            android:layout_height="match_parent"
+                            android:id="@+id/ımageView2"
+                            android:layout_marginLeft="15.0dp" />
+                        <EditText
+                            android:textColor="#11122E"
+                            android:layout_marginLeft="5dp"
+                            android:textSize="13dp"
+                            android:hint="Test Adı"
+                            android:background="@android:color/transparent"
+                            android:layout_toRightOf="@+id/ımageView2"
+                            android:inputType="textPersonName"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/testadittext" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/programekleinput"
+                        android:orientation="horizontal"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="50.0dp"
+                        android:id="@+id/linearLayout2">
+                        <ImageView
+                            android:tint="#F05070"
+                            android:padding="5dp"
+                            android:src="@mipmap/konuiconimg1"
+                            android:layout_width="30.5dp"
+                            android:layout_height="match_parent"
+                            android:id="@+id/ımageView2"
+                            android:layout_marginLeft="15.0dp" />
+                        <EditText
+                            android:textColor="#11122E"
+                            android:layout_marginLeft="5dp"
+                            android:textSize="13dp"
+                            android:hint="Test Açıklaması"
+                            android:background="@android:color/transparent"
+                            android:layout_toRightOf="@+id/ımageView2"
+                            android:inputType="textPersonName"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/testaciklamasitext" />
+                    </RelativeLayout>
                     <LinearLayout
+                        android:layout_marginTop="15dp"
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="30dp"
                         android:background="@drawable/kirmiziborder"
@@ -177,7 +239,7 @@
                             android:layout_height="match_parent"
                             android:id="@+id/spinner2" />
                     </LinearLayout>
-                     <LinearLayout
+                    <LinearLayout
                         android:layout_marginTop="15dp"
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="30dp"

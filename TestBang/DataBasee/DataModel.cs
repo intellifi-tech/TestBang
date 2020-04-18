@@ -69,4 +69,16 @@ namespace TestBang.DataBasee
         //Custom
         public string SorularJsonPath { get; set; }
     }
+
+    public class DERS_PROGRAMI
+    {
+        [PrimaryKey, AutoIncrement]
+        public int localid { get; set; }
+        public DateTime date { get; set; }
+        public string description { get; set; }
+        public string id { get; set; }
+        public string testId { get; set; }
+        public string trialId { get; set; }
+        public int userId { get; set; }
+    }
 }

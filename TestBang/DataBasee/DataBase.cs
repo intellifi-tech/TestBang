@@ -31,6 +31,7 @@ namespace TestBang.DataBasee
             var conn = new SQLiteConnection(System.IO.Path.Combine(documentsFolder(), "TestBang.db"), false);
             conn.CreateTable<MEMBER_DATA>();
             conn.CreateTable<OLUSTURULAN_TESTLER>();
+            conn.CreateTable<DERS_PROGRAMI>();
             conn.Close();
         }
 
@@ -192,6 +193,113 @@ namespace TestBang.DataBasee
 
         }
         public static bool OLUSTURULAN_TESTLER_Guncelle(OLUSTURULAN_TESTLER Tablo)
+        {
+            try
+            {
+                var conn = new SQLiteConnection(System.IO.Path.Combine(documentsFolder(), "TestBang.db"), false);
+                conn.Update(Tablo);
+                conn.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                string ee = e.ToString();
+                return false;
+            }
+
+        }
+        #endregion
+
+        #region DERS_PROGRAMI
+        public static bool DERS_PROGRAMI_EKLE(DERS_PROGRAMI GelenDoluTablo)
+        {
+            try
+            {
+                var conn = new SQLiteConnection(System.IO.Path.Combine(documentsFolder(), "TestBang.db"), false);
+                conn.Insert(GelenDoluTablo);
+                conn.Close();
+                return true;
+            }
+            catch (Exception Ex)
+            {
+                var aa = Ex.Message;
+                return false;
+            }
+        }
+        public static List<DERS_PROGRAMI> DERS_PROGRAMI_GETIR()
+        {
+            Atla:
+            try
+            {
+                var conn = new SQLiteConnection(System.IO.Path.Combine(documentsFolder(), "TestBang.db"), false);
+                var gelenler = conn.Query<DERS_PROGRAMI>("Select * From DERS_PROGRAMI");
+                conn.Close();
+                return gelenler;
+            }
+            catch (Exception Ex)
+            {
+                goto Atla;
+                var aa = Ex.Message;
+                return null;
+            }
+        }
+
+        public static List<DERS_PROGRAMI> DERS_PROGRAMI_GETIR_TestID(string TestID)
+        {
+            Atla:
+            try
+            {
+                var conn = new SQLiteConnection(System.IO.Path.Combine(documentsFolder(), "TestBang.db"), false);
+                var gelenler = conn.Query<DERS_PROGRAMI>("Select * From DERS_PROGRAMI WHERE id=?", TestID);
+                conn.Close();
+                return gelenler;
+            }
+            catch (Exception Ex)
+            {
+                goto Atla;
+                var aa = Ex.Message;
+                return null;
+            }
+
+        }
+
+
+        public static List<DERS_PROGRAMI> DERS_PROGRAMI_LocalID(int LocalID)
+        {
+            Atla:
+            try
+            {
+                var conn = new SQLiteConnection(System.IO.Path.Combine(documentsFolder(), "TestBang.db"), false);
+                var gelenler = conn.Query<DERS_PROGRAMI>("Select * From DERS_PROGRAMI WHERE localid=?", LocalID);
+                conn.Close();
+                return gelenler;
+            }
+            catch (Exception Ex)
+            {
+                goto Atla;
+                var aa = Ex.Message;
+                return null;
+            }
+
+        }
+
+        public static bool DERS_PROGRAMI_TEMIZLE()
+        {
+            try
+            {
+                var conn = new SQLiteConnection(System.IO.Path.Combine(documentsFolder(), "TestBang.db"), false);
+                conn.Query<DERS_PROGRAMI>("Delete From DERS_PROGRAMI");
+                conn.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                string ee = e.ToString();
+                return false;
+            }
+
+        }
+        public static bool DERS_PROGRAMI_Guncelle(DERS_PROGRAMI Tablo)
         {
             try
             {

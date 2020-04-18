@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Newtonsoft.Json;
 using TestBang.GenericClass;
+using TestBang.Test.TestOlustur;
 using TestBang.WebServices;
 using static TestBang.Test.TestOlustur.TestOlusturBaseActivity;
 

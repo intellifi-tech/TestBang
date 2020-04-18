@@ -24,7 +24,7 @@ namespace TestBang.Test.TestOlustur
     {
         Button TesteBasla;
         Spinner DersSpinner, KonuSpinner, SoruSayisiSpinner,SureSpinner;
-
+        EditText TestAdiText, TestAciklamasiText;
         List<Lesson> Lesson1 = new List<Lesson>();
         List<Topic> Topic1 = new List<Topic>();
 
@@ -43,7 +43,8 @@ namespace TestBang.Test.TestOlustur
             SoruSayisiSpinner.OnItemSelectedListener = this;
             SureSpinner.OnItemSelectedListener = this;
             DersSpinner.ItemSelected += DersSpinner_ItemSelected;
-
+            TestAdiText = FindViewById<EditText>(Resource.Id.testadittext);
+            TestAciklamasiText = FindViewById<EditText>(Resource.Id.testaciklamasitext);
 
             ShowLoading.Show(this, "Lütfen Bekleyin...");
             new System.Threading.Thread(new System.Threading.ThreadStart(delegate
@@ -75,7 +76,8 @@ namespace TestBang.Test.TestOlustur
             {
                 OLUSTURULAN_TESTLER OLUSTURULAN_TESTLER1 = new OLUSTURULAN_TESTLER()
                 {
-                    name = DersSpinner.SelectedItem.ToString() +" / " + KonuSpinner.SelectedItem.ToString() + " - "+SoruSayisiSpinner.SelectedItem.ToString()+" Soru.",
+                    name = TestAdiText.Text.Trim(),
+                    description = TestAciklamasiText.Text.Trim()+"\n"+ DersSpinner.SelectedItem.ToString() +" / " + KonuSpinner.SelectedItem.ToString() + " - "+SoruSayisiSpinner.SelectedItem.ToString()+" Soru.",
                     startDate = DateTime.Now.ToString("yyyy-MM-dd'T'HH:mm:ssZ"),
                     userId = DataBase.MEMBER_DATA_GETIR()[0].id.ToString(),
                     lessonId = Lesson1[DersSpinner.SelectedItemPosition].id.ToString(),
@@ -114,7 +116,12 @@ namespace TestBang.Test.TestOlustur
 
         bool Bosmu()
         {
-            if (DersSpinner.SelectedItemPosition == -1)
+            if (string.IsNullOrEmpty(TestAdiText.Text.Trim()))
+            {
+                AlertHelper.AlertGoster("Lütfen Test Adı Belirtin.", this);
+                return false;
+            }
+            else if (DersSpinner.SelectedItemPosition == -1)
             {
                 AlertHelper.AlertGoster("Lütfen Ders Seç.", this);
                 return false;
