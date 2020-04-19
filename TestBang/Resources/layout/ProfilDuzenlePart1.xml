@@ -20,43 +20,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/ımageView1"
             android:layout_marginLeft="25.0dp" />
-        <LinearLayout
-            android:layout_alignParentRight="true"
-            android:orientation="horizontal"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/linearLayout1"
-            android:layout_marginRight="25dp">
-            <RelativeLayout
-                android:layout_gravity="center_vertical"
-                android:minWidth="25px"
-                android:minHeight="25px"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:id="@+id/relativeLayout2">
-                <ImageView
-                    android:layout_marginTop="10dp"
-                    android:scaleType="centerInside"
-                    android:src="@mipmap/notification1"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:id="@+id/ımageView2" />
-                <TextView
-                    android:textSize="13dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_alignParentRight="true"
-                    android:gravity="center"
-                    android:background="@drawable/bildirimIcinBadge"
-                    android:textColor="#F05070"
-                    android:text="3"
-                    android:layout_width="17dp"
-                    android:layout_height="17dp"
-                    android:id="@+id/textView1" />
-            </RelativeLayout>
-        </LinearLayout>
     </RelativeLayout>
     <RelativeLayout
         android:minWidth="25px"
@@ -142,7 +105,7 @@
                                     android:textAppearance="?android:attr/textAppearanceSmall"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:id="@+id/textView1" />
+                                    android:id="@+id/adsoyadtext" />
                             </LinearLayout>
                             <RelativeLayout
                                 android:layout_alignParentRight="true"
@@ -183,7 +146,7 @@
                                 android:src="@mipmap/femaleimg1"
                                 android:layout_width="60dp"
                                 android:layout_height="50dp"
-                                android:id="@+id/ımageView1" />
+                                android:id="@+id/cinsiyeticon" />
                             <ImageView
                                 android:padding="13dp"
                                 android:src="@mipmap/yasimg1"
@@ -225,7 +188,7 @@
                                 android:textAppearance="?android:attr/textAppearanceLarge"
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
-                                android:id="@+id/textView2" />
+                                android:id="@+id/cinsiyettext" />
                             <TextView
                                 android:textSize="17dp"
                                 android:textColor="#201632"
@@ -234,7 +197,7 @@
                                 android:textAppearance="?android:attr/textAppearanceLarge"
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
-                                android:id="@+id/textView2" />
+                                android:id="@+id/dogumtarihitext" />
                             <TextView
                                 android:textSize="17dp"
                                 android:textColorHint="#201632"
@@ -243,7 +206,7 @@
                                 android:textAppearance="?android:attr/textAppearanceLarge"
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
-                                android:id="@+id/textView2" />
+                                android:id="@+id/ililcetext" />
                             <TextView
                                 android:ellipsize="marquee"
                                 android:maxLines="1"
@@ -254,7 +217,7 @@
                                 android:textAppearance="?android:attr/textAppearanceLarge"
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
-                                android:id="@+id/textView2" />
+                                android:id="@+id/okultext" />
                             <TextView
                                 android:ellipsize="marquee"
                                 android:maxLines="1"
@@ -265,7 +228,7 @@
                                 android:textAppearance="?android:attr/textAppearanceLarge"
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
-                                android:id="@+id/textView2" />
+                                android:id="@+id/mailtext" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>

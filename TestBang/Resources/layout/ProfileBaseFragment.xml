@@ -69,6 +69,7 @@
                                     android:layout_height="wrap_content"
                                     android:id="@+id/textView1" />
                                 <TextView
+                                    android:maxLines="1"
                                     android:textSize="20dp"
                                     android:textStyle="bold"
                                     android:textColor="#F05070"
@@ -76,8 +77,9 @@
                                     android:textAppearance="?android:attr/textAppearanceSmall"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:id="@+id/textView1" />
+                                    android:id="@+id/adsoyadtext" />
                                <TextView
+                                    android:maxLines="1"
                                     android:layout_marginTop="5dp"
                                     android:textSize="11dp"
                                     android:textColor="#11122e"
@@ -85,7 +87,7 @@
                                     android:textAppearance="?android:attr/textAppearanceSmall"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:id="@+id/textView1" />
+                                    android:id="@+id/ililcetext" />
                             </LinearLayout>
                             <RelativeLayout
                                 android:layout_alignParentRight="true"
