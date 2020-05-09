@@ -64,6 +64,8 @@ namespace TestBang.DataBasee
         public string testTime { get; set; }
         public string time { get; set; }
         public string topicId { get; set; }
+        public string lessonName { get; set; }
+        public string topicName { get; set; }
         public string userId { get; set; }
         public int? wrongCount { get; set; }
         //Custom

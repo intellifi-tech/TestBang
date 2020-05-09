@@ -95,7 +95,9 @@ namespace TestBang.Profil.DersProgrami
                     lessonId = Lesson1[DersSpinner.SelectedItemPosition].id.ToString(),
                     topicId = Topic1[KonuSpinner.SelectedItemPosition].id.ToString(),
                     time = SureSpinner.SelectedItem.ToString().Replace(" dk.", ""),
-                    questionCount = Convert.ToInt32(SoruSayisiSpinner.SelectedItem.ToString())
+                    questionCount = Convert.ToInt32(SoruSayisiSpinner.SelectedItem.ToString()),
+                    lessonName = Lesson1[DersSpinner.SelectedItemPosition].name,
+                    topicName = Topic1[KonuSpinner.SelectedItemPosition].name
                 };
                 string jsonString = JsonConvert.SerializeObject(OLUSTURULAN_TESTLER1);
                 WebService webService = new WebService();

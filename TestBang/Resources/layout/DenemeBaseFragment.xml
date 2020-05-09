@@ -55,7 +55,7 @@
                         app:tabIndicatorColor="#F05070"
                         app:tabIndicatorHeight="2dp"
                         app:tabSelectedTextColor="#F05070"
-                        app:tabMode="scrollable"
+                        app:tabMode="fixed"
                         app:tabGravity="fill"
                         app:tabTextColor="#909090"
                         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>

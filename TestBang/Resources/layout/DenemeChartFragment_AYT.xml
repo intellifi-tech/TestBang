@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <microcharts.droid.ChartView
+            android:layout_marginTop="5dp"
+            android:id="@+id/chartView3"
+            android:layout_above="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1" >
+        <LinearLayout
+            android:background="#F05070"
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:id="@+id/linearLayout2" />
+        <TextView
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:textColor="#000"
+            android:gravity="center_vertical"
+            android:text="SAY"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1" />
+
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:background="#1EB04B"
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:id="@+id/linearLayout2" />
+        <TextView
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:textColor="#000"
+            android:gravity="center_vertical"
+            android:text="SÖZ"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1" />
+
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:background="#8F5CE8"
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:id="@+id/linearLayout2" />
+        <TextView
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:textColor="#000"
+            android:gravity="center_vertical"
+            android:text="EA"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1" />
+    </LinearLayout>>
+</RelativeLayout>

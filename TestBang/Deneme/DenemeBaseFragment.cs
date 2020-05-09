@@ -77,29 +77,20 @@ namespace TestBang.Deneme
             tabLayout.SetTabTextColors(Android.Graphics.Color.ParseColor("#11122E"), Android.Graphics.Color.ParseColor("#F05070"));
             Android.Support.V4.App.Fragment ss1, ss2, ss3, ss4, ss5;
 
-            ss1 = new DenemeChartFragment();
-            ss2 = new DenemeChartFragment();
-            ss3 = new DenemeChartFragment();
-            ss4 = new DenemeChartFragment();
-            ss5 = new DenemeChartFragment();
+            ss1 = new DenemeChartFragment_TYT();
+            ss2 = new DenemeChartFragment_AYT();
 
             //Fragment array
             var fragments = new Android.Support.V4.App.Fragment[]
             {
                 ss1,
                 ss2,
-                ss3,
-                ss4,
-                ss5,
 
             };
 
             var titles = CharSequence.ArrayFromStringArray(new[] {
-               "TÜRKÇE",
-               "KİMYA",
-               "FİZİK",
-               "TARİH",
-               "MATEMATİK",
+               "TYT",
+               "AYT",
             });
 
             viewPager.Adapter = new TabPagerAdaptor(this.Activity.SupportFragmentManager, fragments, titles, true);
@@ -116,7 +107,7 @@ namespace TestBang.Deneme
         }
 
 
-        public class DenemeChartFragment : Android.Support.V4.App.Fragment
+        public class DenemeChartFragment_TYT : Android.Support.V4.App.Fragment
         {
             ChartView ChartView1;
             public override void OnCreate(Bundle savedInstanceState)
@@ -138,8 +129,8 @@ namespace TestBang.Deneme
             }
             void CreateChart()
             {
-                    var entries = new[]
-                    {
+                var entries = new[]
+                {
                         new Entry(100)
                         {
                             Label = "Deneme 1",
@@ -171,8 +162,68 @@ namespace TestBang.Deneme
                             Color = SKColor.Parse("#F05070"),
                         },
                     };
-                    var lineChart = new LineChart() { Entries = entries };
-                    ChartView1.Chart = lineChart;
+
+                var lineChart = new LineChart() { Entries = entries };
+                lineChart.Margin = 15f;
+                //chart.PointAreaAlpha = 0;
+                lineChart.LineAreaAlpha = 0;
+                lineChart.LineSize = 3f;
+
+                ChartView1.Chart = lineChart;
+            }
+        }
+
+
+        public class DenemeChartFragment_AYT : Android.Support.V4.App.Fragment
+        {
+            ChartView ChartView1;
+            public override void OnCreate(Bundle savedInstanceState)
+            {
+                base.OnCreate(savedInstanceState);
+            }
+
+            public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+            {
+                View Vieww = inflater.Inflate(Resource.Layout.DenemeChartFragment_AYT, container, false);
+                ChartView1 = Vieww.FindViewById<ChartView>(Resource.Id.chartView3);
+                return Vieww;
+            }
+
+            public override void OnStart()
+            {
+                base.OnStart();
+                CreateChart();
+            }
+            void CreateChart()
+            {
+
+                var SAY = GetChartEntries("#F05070", "Deneme");
+                var SOZ = GetChartEntries("#1EB04B", "Deneme");
+                var EA = GetChartEntries("#8F5CE8", "Deneme");
+
+                var chart = new MultiLineChart() { multiline_entries = new List<List<Entry>> { SAY, SOZ, EA } };
+                chart.Margin = 15f;
+                //chart.PointAreaAlpha = 0;
+                chart.LineAreaAlpha = 0;
+                chart.LineSize = 3f;
+                
+                ChartView1.Chart = chart;
+            }
+
+            List<Entry> GetChartEntries(string Colorr, string labell)
+            {
+                List<Entry> entries = new List<Entry>();
+                for (int i = 0; i < 6; i++)
+                {
+                    entries.Add(
+                    new Entry(new Random().Next(20, 100))
+                    {
+                        Label = labell + " " + i.ToString(),
+                        ValueLabel = "",
+                        Color = SKColor.Parse(Colorr)
+                    });
+                }
+                return entries;
             }
         }
     }

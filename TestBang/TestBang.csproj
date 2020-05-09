@@ -84,6 +84,7 @@
     <Compile Include="GenericClass\GoogleMapPlaceClass.cs" />
     <Compile Include="GenericClass\IntroTransformer.cs" />
     <Compile Include="GenericClass\MapUtils.cs" />
+    <Compile Include="GenericClass\MultiLineChart.cs" />
     <Compile Include="GenericClass\Saat_Secim.cs" />
     <Compile Include="GenericClass\ScaleImageView.cs" />
     <Compile Include="GenericClass\SosyalLoginHelper.cs" />
@@ -983,6 +984,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\takvim_deneme_ve_test_gosterge.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\DenemeChartFragment_AYT.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
