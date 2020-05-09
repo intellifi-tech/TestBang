@@ -93,6 +93,9 @@ namespace TestBang.GenericClass
             public string finishDate { get; set; }
             public string questionCount { get; set; }
             public List<UserTestQuestion> userTestQuestions { get; set; }
+            //
+            public string lessonName { get; set; }
+            public string topicName { get; set; }
         }
     }
 }

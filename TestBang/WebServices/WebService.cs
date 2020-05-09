@@ -71,9 +71,12 @@ namespace TestBang.WebServices
                 return "Hata";
             }
         } 
-        public string OkuGetir(string url,bool DontUseHostURL = false,bool isLogin=false)
+        public string OkuGetir(string url,bool DontUseHostURL = false,bool isLogin=false, bool UsePoll = false)
         {
-
+            if (UsePoll)
+            {
+                kokurl = "http://185.184.210.20:8080/services/pool/api/";
+            }
             RestSharp.RestClient client;
             if (DontUseHostURL)
             {

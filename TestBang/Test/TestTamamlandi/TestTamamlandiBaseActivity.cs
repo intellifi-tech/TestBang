@@ -85,7 +85,7 @@ namespace TestBang.Test.TestTamamlandi
                 WebService webService = new WebService();
                 SecilenTest.OlusanTest.finish = true;
                 SecilenTest.OlusanTest.finishDate = DateTime.Now.ToString("yyyy-MM-dd'T'HH:mm:ssZ");
-                SecilenTest.OlusanTest.testTime = (TestSinavAlaniHelperClass.ToplamTestCozumSuresi - new DateTime(0)).TotalMinutes.ToString();
+                SecilenTest.OlusanTest.testTime = ((int)((TestSinavAlaniHelperClass.ToplamTestCozumSuresi - new DateTime(0)).TotalMinutes)).ToString();
                 string jsonString = JsonConvert.SerializeObject(SecilenTest.OlusanTest);
                 var Donus = webService.ServisIslem("user-tests", jsonString, Method: "PUT", UsePoll: true);
                 if (Donus != "Hata")
@@ -115,6 +115,7 @@ namespace TestBang.Test.TestTamamlandi
                                     DogruProgres.Progress = Convert.ToInt32(DogruYuzde.Text.Replace("%", ""));
                                     YanlisProgres.Progress = Convert.ToInt32(YanlisYuzde.Text.Replace("%", ""));
                                     BosProgres.Progress = Convert.ToInt32(BosYuzde.Text.Replace("%", ""));
+                                    ShowLoading.Hide();
                                 });
                             }
                             else

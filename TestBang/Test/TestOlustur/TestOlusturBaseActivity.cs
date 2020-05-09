@@ -79,7 +79,7 @@ namespace TestBang.Test.TestOlustur
                     name = TestAdiText.Text.Trim(),
                     description = TestAciklamasiText.Text.Trim()+"\n"+ DersSpinner.SelectedItem.ToString() +" / " + KonuSpinner.SelectedItem.ToString() + " - "+SoruSayisiSpinner.SelectedItem.ToString()+" Soru.",
                     startDate = DateTime.Now.ToString("yyyy-MM-dd'T'HH:mm:ssZ"),
-                    userId = DataBase.MEMBER_DATA_GETIR()[0].id.ToString(),
+                    userId = DataBase.MEMBER_DATA_GETIR()[0].email.ToString(),
                     lessonId = Lesson1[DersSpinner.SelectedItemPosition].id.ToString(),
                     topicId = Topic1[KonuSpinner.SelectedItemPosition].id.ToString(),
                     time = SureSpinner.SelectedItem.ToString().Replace(" dk.",""),
@@ -99,6 +99,8 @@ namespace TestBang.Test.TestOlustur
                     {
                         Icerik.questionCount = Convert.ToInt32(SoruSayisiSpinner.SelectedItem.ToString());
                         Icerik2.questionCount = SoruSayisiSpinner.SelectedItem.ToString();
+                        Icerik2.lessonName = OLUSTURULAN_TESTLER1.lessonName;
+                        Icerik2.topicName = OLUSTURULAN_TESTLER1.topicName;
                     }
 
                     var Yoll = new TestSoruKaydetGuncelle().KaydetGuncelle(Icerik2);

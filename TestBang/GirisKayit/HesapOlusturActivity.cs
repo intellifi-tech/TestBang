@@ -66,7 +66,7 @@ namespace TestBang.GirisKayit
 
             AdText.Text = "Mesut";
             SoyadText.Text = "Polat";
-            EmailText.Text = "mesut3@intellifi.tech";
+            EmailText.Text = "mesut4@intellifi.tech";
             SifreText.Text = "qwer1234";
             SifreTekrarText.Text = "qwer1234";
             DogumText.Text = new DateTime(1994, 12, 12).ToShortDateString();

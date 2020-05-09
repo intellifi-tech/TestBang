@@ -11,8 +11,10 @@ using Android.Support.V7.Widget;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using TestBang.GenericUI;
 using TestBang.Test.TestKonuCozumDetay;
 using TestBang.Test.TestOlustur;
+using TestBang.WebServices;
 
 namespace TestBang.Test
 {
@@ -23,6 +25,10 @@ namespace TestBang.Test
         TestCozListRecyclerViewAdapter mViewAdapter;
         public List<CozulenTestlerDTO> CozulenTestlerDTO1 = new List<CozulenTestlerDTO>();
         Button TestOlusturButton;
+
+        GenelTestSonuclariDTO GenelTestSonuclariDTO1 = new GenelTestSonuclariDTO();
+
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -47,8 +53,25 @@ namespace TestBang.Test
         public override void OnStart()
         {
             base.OnStart();
+            GenelTestSonuclariniGetir();
             FillDataModel();
         }
+
+        void GenelTestSonuclariniGetir()
+        {
+            new System.Threading.Thread(new System.Threading.ThreadStart(delegate
+            {
+                 WebService webService = new WebService();
+                var Donus = webService.OkuGetir("user-tests/test-results", UsePoll: true);
+                if (Donus!=null)
+                {
+                    var aa = Donus.ToString();
+                    GenelTestSonuclariDTO1 = Newtonsoft.Json.JsonConvert.DeserializeObject<GenelTestSonuclariDTO>(Donus.ToString());
+                }
+                //ShowLoading.Hide();
+            })).Start();
+        }
+
         void FillDataModel()
         {
 
@@ -73,6 +96,27 @@ namespace TestBang.Test
         public class CozulenTestlerDTO
         {
 
+        }
+
+
+        public class UserLessonInfoDTO
+        {
+            public int? correctCount { get; set; }
+            public int? emptyCount { get; set; }
+            public string lessonId { get; set; }
+            public string lessonName { get; set; }
+            public int? questionCount { get; set; }
+            public int? wrongCount { get; set; }
+        }
+
+        public class GenelTestSonuclariDTO
+        {
+            public int? sumOfCorrect { get; set; }
+            public int? sumOfEmpty { get; set; }
+            public int? sumOfQuestions { get; set; }
+            public int? sumOfWrong { get; set; }
+            public int? totalTime { get; set; }
+            public List<UserLessonInfoDTO> userLessonInfoDTOS { get; set; }
         }
     }
 }
