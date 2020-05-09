@@ -43,22 +43,31 @@
                         android:minHeight="25px"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_below="@+id/tabLayoutchart"
+                        android:layout_below="@+id/frameLayout1"
                         android:id="@+id/viewPager1chart" />
+                    <FrameLayout
+                        android:background="@drawable/tabhaznebg"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:id="@+id/frameLayout1" >
                     <android.support.design.widget.TabLayout
                         android:layout_alignParentTop="true"
                         android:id="@+id/tabLayoutchart"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#fff"
+                        android:layout_height="match_parent"
                         android:minHeight="?attr/actionBarSize"
+                        app:tabBackground="@drawable/tablayoutbgselector"
                         app:tabIndicatorColor="#F05070"
-                        app:tabIndicatorHeight="2dp"
-                        app:tabSelectedTextColor="#F05070"
+                        app:tabIndicatorHeight="0dp"
+                        app:tabSelectedTextColor="#000"
                         app:tabMode="fixed"
                         app:tabGravity="fill"
                         app:tabTextColor="#909090"
                         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+                </FrameLayout>
+                
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
              <TextView

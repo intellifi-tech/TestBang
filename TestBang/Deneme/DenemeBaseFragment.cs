@@ -74,7 +74,7 @@ namespace TestBang.Deneme
         }
         void FnInitTabLayout()
         {
-            tabLayout.SetTabTextColors(Android.Graphics.Color.ParseColor("#11122E"), Android.Graphics.Color.ParseColor("#F05070"));
+            tabLayout.SetTabTextColors(Android.Graphics.Color.ParseColor("#000000"), Android.Graphics.Color.ParseColor("#000000"));
             Android.Support.V4.App.Fragment ss1, ss2, ss3, ss4, ss5;
 
             ss1 = new DenemeChartFragment_TYT();
