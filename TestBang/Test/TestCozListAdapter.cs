@@ -21,8 +21,13 @@ namespace TestBang.Test
 {
     class TestCozListAdapterHolder : RecyclerView.ViewHolder
     {
+        public TextView DersAdiText, BosSayiText, DogruSayiText, YalnisSayiText;
         public TestCozListAdapterHolder(View itemView, Action<int> listener) : base(itemView)
         {
+            DersAdiText = itemView.FindViewById<TextView>(Resource.Id.dersaditext);
+            BosSayiText = itemView.FindViewById<TextView>(Resource.Id.boscevapsayi);
+            DogruSayiText = itemView.FindViewById<TextView>(Resource.Id.dogrucevapsayi);
+            YalnisSayiText = itemView.FindViewById<TextView>(Resource.Id.yalniscevapsayi);
             itemView.Click += (sender, e) => listener(base.Position);
         }
     }
@@ -30,8 +35,8 @@ namespace TestBang.Test
     {
         AppCompatActivity BaseActivity;
         public event EventHandler<int> ItemClick;
-        List<CozulenTestlerDTO> mData;
-        public TestCozListRecyclerViewAdapter(List<CozulenTestlerDTO> mData2, AppCompatActivity GelenContex)
+        List<UserLessonInfoDTO> mData;
+        public TestCozListRecyclerViewAdapter(List<UserLessonInfoDTO> mData2, AppCompatActivity GelenContex)
         {
             mData = mData2;
             BaseActivity = GelenContex;
@@ -48,13 +53,14 @@ namespace TestBang.Test
                 return mData.Count;
             }
         }
-        TestCozListAdapterHolder HolderForAnimation;
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             TestCozListAdapterHolder viewholder = holder as TestCozListAdapterHolder;
-            HolderForAnimation = holder as TestCozListAdapterHolder;
-            //var item = GelenBase.MapDataModel1[position];
-           
+            var item = mData[position];
+            viewholder.DersAdiText.Text = item.lessonName;
+            viewholder.BosSayiText.Text = item.emptyCount.ToString();
+            viewholder.DogruSayiText.Text = item.correctCount.ToString();
+            viewholder.YalnisSayiText.Text = item.wrongCount.ToString();
         }
        
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)

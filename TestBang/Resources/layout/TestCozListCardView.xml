@@ -37,7 +37,7 @@
                  android:textAppearance="?android:attr/textAppearanceSmall"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
-                 android:id="@+id/textView2" />
+                 android:id="@+id/dersaditext" />
             <LinearLayout
                      android:layout_centerVertical="true"
                      android:layout_alignParentRight="true"
@@ -51,50 +51,50 @@
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:id="@+id/linearLayout15" >
-                 <TextView
+                <TextView
                     android:layout_marginRight="5dp"
-                     android:gravity="center"
-			         android:textSize="10dp"
-			         android:textColor="#11122E"
-			         android:text="1.249"
-			         android:textAppearance="?android:attr/textAppearanceLarge"
-                     android:layout_weight="33"
-			         android:layout_width="0dp"
-			         android:layout_height="wrap_content"
-			         android:id="@+id/textView3" />
+                    android:gravity="center"
+                    android:textSize="10dp"
+                    android:textColor="#11122E"
+                    android:text="1.249"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_weight="33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@id/boscevapsayi" />
                      <View
                         android:layout_marginRight="5dp"
                          android:background="#C5C5C5"
                          android:layout_width="0.5dp"
                          android:layout_height="match_parent"
                          android:id="@+id/view1" />
-                 <TextView
+                <TextView
                     android:layout_marginRight="5dp"
-                     android:gravity="center"
-			         android:textSize="10dp"
-			         android:textColor="#1EB04B"
-			         android:text="1.249"
-			         android:textAppearance="?android:attr/textAppearanceLarge"
-                     android:layout_weight="33"
-			         android:layout_width="0dp"
-			         android:layout_height="wrap_content"
-			         android:id="@+id/textView4" />
+                    android:gravity="center"
+                    android:textSize="10dp"
+                    android:textColor="#1EB04B"
+                    android:text="1.249"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_weight="33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@id/dogrucevapsayi" />
                      <View
                         android:layout_marginRight="5dp"
                          android:background="#C5C5C5"
                          android:layout_width="0.5dp"
                          android:layout_height="match_parent"
                          android:id="@+id/view1" />
-                 <TextView
-                     android:gravity="center"
-			         android:textSize="10dp"
-			         android:textColor="#EF506F"
-			         android:text="1.249"
-			         android:textAppearance="?android:attr/textAppearanceLarge"
-                     android:layout_weight="33"
-			         android:layout_width="0dp"
-			         android:layout_height="wrap_content"
-			         android:id="@+id/textView4" />
+                <TextView
+                    android:gravity="center"
+                    android:textSize="10dp"
+                    android:textColor="#EF506F"
+                    android:text="1.249"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_weight="33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@id/yalniscevapsayi" />
                  </LinearLayout>
         </RelativeLayout>
     </android.support.v7.widget.CardView>

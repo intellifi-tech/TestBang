@@ -11,7 +11,9 @@ using Android.Runtime;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+using TestBang.DataBasee;
 using TestBang.GenericClass;
+using TestBang.WebServices;
 
 namespace TestBang.Profil.DersProgrami
 {
@@ -22,7 +24,7 @@ namespace TestBang.Profil.DersProgrami
         RecyclerView mRecyclerView;
         Android.Support.V7.Widget.LinearLayoutManager mLayoutManager;
         DersProgramiRecyclerViewAdapter mViewAdapter;
-        public List<DersProgramiDTO> DersProgramiList = new List<DersProgramiDTO>();
+        //public List<DersProgramiDTO> DersProgramiList = new List<DersProgramiDTO>();
         Button YeniEkle;
 
         List<TakvimTarihlerDTO> TakvimTarihlerDTO1 = new List<TakvimTarihlerDTO>();
@@ -31,7 +33,10 @@ namespace TestBang.Profil.DersProgrami
         DateTime SonTakvimTarihi;
         ImageButton TakvimIleriButton, TakvimGeriButton;
         TextView TakvimAyAdiText, TakvimYilText;
-
+        MEMBER_DATA UserData = DataBase.MEMBER_DATA_GETIR()[0];
+        List<UzakSunucuTakvimDTO> UzakSunucuTakvimDTO1 = new List<UzakSunucuTakvimDTO>();
+        List<UzakSunucuDenemeDTO> UzakSunucuDenemeDTO1 = new List<UzakSunucuDenemeDTO>();
+        List<DersProgramiDTO> DersProgramiDTO1 = new List<DersProgramiDTO>();
         #endregion
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -46,13 +51,26 @@ namespace TestBang.Profil.DersProgrami
             TakvimGeriButton = FindViewById<ImageButton>(Resource.Id.ımageButton2);
             TakvimAyAdiText = FindViewById<TextView>(Resource.Id.takvimayaditext);
             TakvimYilText = FindViewById<TextView>(Resource.Id.takvimyiltext);
-
+            TakvimGrid.ItemClick += TakvimGrid_ItemClick;
+            YeniEkle.Visibility = ViewStates.Gone;
             YeniEkle.Click += YeniEkle_Click;
             TakvimIleriButton.Click += TakvimIleriButton_Click;
             TakvimGeriButton.Click += TakvimGeriButton_Click;
-            FillDataModel();
+            
         }
 
+        private void TakvimGrid_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            DersProgramiBaseActivityHelper.SecilenTarih = (DateTime)TakvimTarihlerDTO1[e.Position].Tarih;
+            StartActivity(typeof(DersProgramiEkleBaseActivity));
+        }
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+            TakvimIcerikleriniCek();
+            CreateTakvimDayList(DateTime.Now);
+        }
         private void TakvimGeriButton_Click(object sender, EventArgs e)
         {
             CreateTakvimDayList(SonTakvimTarihi.AddMonths(1));
@@ -62,12 +80,27 @@ namespace TestBang.Profil.DersProgrami
         {
             CreateTakvimDayList(SonTakvimTarihi.AddMonths(-1));
         }
-
-        protected override void OnStart()
+        void TakvimIcerikleriniCek()
         {
-            base.OnStart();
-            CreateTakvimDayList(DateTime.Now);
+            WebService webService = new WebService();
+            var Donus = webService.OkuGetir("calendars/user/" + UserData.id.ToString());
+            if (Donus != null)
+            {
+                UzakSunucuTakvimDTO1 = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UzakSunucuTakvimDTO>>(Donus.ToString());
+            }
+            DenemeleriCek();
         }
+
+        void DenemeleriCek()
+        {
+            WebService webService = new WebService();
+            var Donus = webService.OkuGetir("trials",UsePoll:true);
+            if (Donus != null)
+            {
+                UzakSunucuDenemeDTO1 = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UzakSunucuDenemeDTO>>(Donus.ToString());
+            }
+        }
+        
         #region Takim Icin
 
         void CreateTakvimDayList(DateTime GelenAy)
@@ -106,11 +139,16 @@ namespace TestBang.Profil.DersProgrami
                     }
                 }
             }
-            var aaa = TakvimTarihlerDTO1;
-            TakvimTarihlerDTO1[25].DenemeSinaviVami = true;
-            TakvimTarihlerDTO1[10].KisiselTestVarmi = true;
-            TakvimTarihlerDTO1[22].KisiselTestVarmi = true;
-            TakvimTarihlerDTO1[22].DenemeSinaviVami = true;
+
+            TakvimdekiEventleriAyarla();
+
+
+            //var aaa = TakvimTarihlerDTO1;
+
+            //TakvimTarihlerDTO1[25].DenemeSinaviVami = true;
+            //TakvimTarihlerDTO1[10].KisiselTestVarmi = true;
+            //TakvimTarihlerDTO1[22].KisiselTestVarmi = true;
+            //TakvimTarihlerDTO1[22].DenemeSinaviVami = true;
 
             this.RunOnUiThread(() => {
                 TakvimGridAdapter1 = new TakvimGridAdapter(this, Resource.Layout.TakvimCustomGridCell, TakvimTarihlerDTO1);
@@ -122,6 +160,65 @@ namespace TestBang.Profil.DersProgrami
             SonTakvimTarihi = GelenAy;
         }
 
+
+        void TakvimdekiEventleriAyarla()
+        {
+            DersProgramiDTO1 = new List<DersProgramiDTO>();
+            for (int i = 0; i < TakvimTarihlerDTO1.Count; i++)
+            {
+                #region Takvim DTO Search
+                var TestVarmi = UzakSunucuTakvimDTO1.Find(item => !string.IsNullOrEmpty(item.testId) && ((DateTime)item.date).ToShortDateString() == ((DateTime)TakvimTarihlerDTO1[i].Tarih).ToShortDateString());
+                if (TestVarmi != null)
+                {
+                    if (TakvimTarihlerDTO1[i].GunGoster)
+                    {
+                        TakvimTarihlerDTO1[i].KisiselTestVarmi = true;
+                        DersProgramiDTO1.Add(new DersProgramiDTO()
+                        {
+                            Tarih = (DateTime)TakvimTarihlerDTO1[i].Tarih,
+                            TestMiDenemeMi = true,
+                            TestID = TestVarmi.testId.ToString()
+                        });
+
+                    }
+                }
+
+                var DenemeVarmi = UzakSunucuTakvimDTO1.Find(item => !string.IsNullOrEmpty(item.trialId) && ((DateTime)item.date).ToShortDateString() == ((DateTime)TakvimTarihlerDTO1[i].Tarih).ToShortDateString());
+                if (DenemeVarmi != null)
+                {
+                    if (TakvimTarihlerDTO1[i].GunGoster)
+                    {
+                        TakvimTarihlerDTO1[i].DenemeSinaviVami = true;
+                        DersProgramiDTO1.Add(new DersProgramiDTO()
+                        {
+                            Tarih = (DateTime)TakvimTarihlerDTO1[i].Tarih,
+                            TestMiDenemeMi = true,
+                            DenemeID = TestVarmi.trialId.ToString()
+                        });
+                    }
+                }
+
+                #endregion
+
+                #region Deneme List DTO Search
+                var HenuzKatilmadigiVarmi = UzakSunucuDenemeDTO1.Find(item => ((DateTime)item.startDate).ToShortDateString() == ((DateTime)TakvimTarihlerDTO1[i].Tarih).ToShortDateString());
+                if (HenuzKatilmadigiVarmi != null)
+                {
+                    if (TakvimTarihlerDTO1[i].GunGoster)
+                    {
+                        TakvimTarihlerDTO1[i].DenemeSinaviVami = true;
+                        DersProgramiDTO1.Add(new DersProgramiDTO()
+                        {
+                            Tarih = (DateTime)TakvimTarihlerDTO1[i].Tarih,
+                            TestMiDenemeMi = true,
+                            DenemeID = HenuzKatilmadigiVarmi.id
+                        });
+                    }
+                }
+                #endregion
+            }
+            FillDataModel();
+        }
 
 
         int OtelemeSayisi(DateTime GelenGun)
@@ -156,8 +253,29 @@ namespace TestBang.Profil.DersProgrami
             public bool KisiselTestVarmi { get; set; }
         }
 
+        public class UzakSunucuTakvimDTO
+        {
+            public DateTime? date { get; set; }
+            public string description { get; set; }
+            public string firebaseToken { get; set; }
+            public int? id { get; set; }
+            public string testId { get; set; }
+            public string trialId { get; set; }
+            public int? userId { get; set; }
+        }
 
-        class TakvimGridAdapter : BaseAdapter<TakvimTarihlerDTO>, View.IOnClickListener
+        public class UzakSunucuDenemeDTO
+        {
+            public string description { get; set; }
+            public DateTime finishDate { get; set; }
+            public string id { get; set; }
+            public string name { get; set; }
+            public string schoolId { get; set; }
+            public DateTime startDate { get; set; }
+            public string type { get; set; }
+        }
+
+        class TakvimGridAdapter : BaseAdapter<TakvimTarihlerDTO>
         {
             private Context mContext;
             private int mRowLayout;
@@ -240,23 +358,10 @@ namespace TestBang.Profil.DersProgrami
                 }
 
                 holder3.TarihLabel.Tag = position;
-                holder3.TarihLabel.SetOnClickListener(this);
+                
                 return row;
             }
 
-            public void OnClick(View v)
-            {
-                var TagDegerleri = v.Tag.ToString();
-                //if (TagDegerleri[0].ToString() == "Detaylar")
-                //{
-                //    ((UrunSec)mContext).ItemClikEvent(mUrunler[Convert.ToInt32(TagDegerleri[1])], 1);
-                //}
-                //else if (TagDegerleri[0].ToString() == "Sec")
-                //{
-                //    ((UrunSec)mContext).ItemClikEvent(mUrunler[Convert.ToInt32(TagDegerleri[1])], 0);
-                //}
-
-            }
 
             private class MyViewHolder3 : Java.Lang.Object
             {
@@ -264,11 +369,7 @@ namespace TestBang.Profil.DersProgrami
             }
         }
 
-
-
         #endregion
-
-
 
 
         private void YeniEkle_Click(object sender, EventArgs e)
@@ -278,17 +379,12 @@ namespace TestBang.Profil.DersProgrami
 
         void FillDataModel()
         {
-
-            for (int i = 0; i < 20; i++)
-            {
-                DersProgramiList.Add(new DersProgramiDTO());
-            }
             mRecyclerView.HasFixedSize = true;
             mLayoutManager = new LinearLayoutManager(this);
             mRecyclerView.SetLayoutManager(mLayoutManager);
-            mViewAdapter = new DersProgramiRecyclerViewAdapter(DersProgramiList, this);
+            mViewAdapter = new DersProgramiRecyclerViewAdapter(DersProgramiDTO1, this);
             mRecyclerView.SetAdapter(mViewAdapter);
-            mViewAdapter.ItemClick += MViewAdapter_ItemClick; ;
+            mViewAdapter.ItemClick += MViewAdapter_ItemClick; 
             mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.Horizontal, false);
             mRecyclerView.SetLayoutManager(mLayoutManager);
             try
@@ -308,7 +404,15 @@ namespace TestBang.Profil.DersProgrami
 
         public class DersProgramiDTO
         {
-
+            public DateTime Tarih { get; set; }
+            public string Baslik { get; set; }
+            public string Aciklama { get; set; }
+            public string TestSoruSayisi { get; set; }
+            public string TestKonuVeyaSinavAlani { get; set; }
+            public bool TestMiDenemeMi { get; set; }//Test true / Deneme false
+            public string TestID { get; set; }
+            public string DenemeID { get; set; }
+            public bool UIUygulandimi { get; set; }
         }
 
         public static class DersProgramiBaseActivityHelper

@@ -106,7 +106,7 @@
                                 android:textAppearance="?android:attr/textAppearanceSmall"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/textView2" />
+                                android:id="@+id/encokders_adi" />
                             <LinearLayout
                                 android:layout_marginTop="5dp"
                                 android:paddingLeft="10dp"
@@ -130,7 +130,7 @@
                                 android:layout_weight="33"
 			                    android:layout_width="0dp"
 			                    android:layout_height="wrap_content"
-			                    android:id="@+id/textView3" />
+			                    android:id="@+id/encokders_bos" />
                                 <View
                                     android:background="#C5C5C5"
                                     android:layout_width="0.5dp"
@@ -147,7 +147,7 @@
                                 android:layout_weight="33"
 			                    android:layout_width="0dp"
 			                    android:layout_height="wrap_content"
-			                    android:id="@+id/textView4" />
+			                    android:id="@+id/encokders_dogru" />
                                 <View
                                     android:background="#C5C5C5"
                                     android:layout_width="0.5dp"
@@ -164,7 +164,7 @@
                                 android:layout_weight="33"
 			                    android:layout_width="0dp"
 			                    android:layout_height="wrap_content"
-			                    android:id="@+id/textView4" />
+			                    android:id="@+id/encokders_yalnis" />
                             </LinearLayout>
                     </LinearLayout>
                     </android.support.v7.widget.CardView>
@@ -209,7 +209,7 @@
                                 android:textAppearance="?android:attr/textAppearanceSmall"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/textView2" />
+                                android:id="@+id/toplam_sorusayisi" />
                             <LinearLayout
                                 android:layout_marginTop="5dp"
                                 android:paddingLeft="10dp"
@@ -233,7 +233,7 @@
                                 android:layout_weight="33"
 			                    android:layout_width="0dp"
 			                    android:layout_height="wrap_content"
-			                    android:id="@+id/textView3" />
+			                    android:id="@+id/toplam_bos" />
                                 <View
                                     android:background="#C5C5C5"
                                     android:layout_width="0.5dp"
@@ -250,7 +250,7 @@
                                 android:layout_weight="33"
 			                    android:layout_width="0dp"
 			                    android:layout_height="wrap_content"
-			                    android:id="@+id/textView4" />
+			                    android:id="@+id/toplam_dogru" />
                                 <View
                                     android:background="#C5C5C5"
                                     android:layout_width="0.5dp"
@@ -267,7 +267,7 @@
                                 android:layout_weight="33"
 			                    android:layout_width="0dp"
 			                    android:layout_height="wrap_content"
-			                    android:id="@+id/textView4" />
+			                    android:id="@+id/toplam_yalnis" />
                             </LinearLayout>
                     </LinearLayout>
                     </android.support.v7.widget.CardView>
@@ -314,7 +314,7 @@
                                 android:textAppearance="?android:attr/textAppearanceSmall"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/textView2" />
+                                android:id="@+id/toplam_sure" />
                     </LinearLayout>
                     </android.support.v7.widget.CardView>
                 </LinearLayout>

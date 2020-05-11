@@ -92,7 +92,7 @@
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/textView3" />
+                        android:id="@+id/tarihtext" />
                      <TextView
                         android:layout_marginRight="20dp"
                         android:layout_marginLeft="20dp"

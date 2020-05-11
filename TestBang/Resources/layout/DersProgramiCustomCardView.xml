@@ -34,25 +34,27 @@
                          android:layout_height="match_parent"
                          android:id="@+id/linearLayout12">
                          <TextView
+                             android:maxLines="1"
+                             android:ellipsize="end"
                              android:gravity="center"
                              android:textSize="17dp"
                              android:textColor="#fff"
-                             android:text="NİSAN"
+                             android:text=".."
                              android:textAppearance="?android:attr/textAppearanceLarge"
                              android:layout_width="match_parent"
                              android:layout_height="0dp"
                              android:layout_weight="50"
-                             android:id="@+id/textView4" />
+                             android:id="@+id/aynametext" />
                          <TextView
                              android:gravity="center"
                              android:textSize="19dp"
                              android:textColor="#fff"
-                             android:text="22"
+                             android:text=".."
                              android:textAppearance="?android:attr/textAppearanceLarge"
                              android:layout_width="match_parent"
                              android:layout_height="0dp"
                              android:layout_weight="50"
-                             android:id="@+id/textView4" />
+                             android:id="@+id/guntext" />
                     </LinearLayout>
                     <RelativeLayout
                         android:layout_marginLeft="10dp"
@@ -73,22 +75,22 @@
                         android:ellipsize="end"
                         android:textColor="#11122E"
                         android:textSize="17dp"
-                        android:text="Test Adı"
+                        android:text=".."
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/textView5"
+                        android:id="@+id/basliktext"
                         android:layout_marginTop="5.5dp" />
                     <TextView
                         android:maxLines="1"
                         android:ellipsize="end"
                         android:textColor="#11122E"
                         android:textSize="12dp"
-                        android:text="Hafta başı sayısal testi"
+                        android:text=".."
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/textView5"
+                        android:id="@+id/aciklamatext"
                         android:layout_marginTop="0.0dp" />
                     <LinearLayout
                         android:orientation="horizontal"
@@ -103,44 +105,34 @@
                             android:ellipsize="end"
                             android:textColor="#11122E"
                             android:textSize="15dp"
-                            android:text="Kimya"
+                            android:text=".."
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView5" />
-                        <TextView
-                            android:maxLines="1"
-                            android:ellipsize="end"
-                            android:textColor="#11122E"
-                            android:textSize="15dp"
-                            android:text=" - Tepkimeler"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/textView5" />
+                            android:id="@+id/konutext" />
                     </LinearLayout>
                         <TextView
-                                    android:textStyle="bold"
-                                    android:gravity="right"
-                                    android:paddingRight="10dp"
-                                    android:textColor="#EF506F"
-                                    android:textSize="15dp"
-                                    android:text="50 Soru"
-                                    android:textAppearance="?android:attr/textAppearanceMedium"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/textView5" />
+                             android:textStyle="bold"
+                             android:gravity="right"
+                             android:paddingRight="10dp"
+                             android:textColor="#EF506F"
+                             android:textSize="15dp"
+                             android:text=".."
+                             android:textAppearance="?android:attr/textAppearanceMedium"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:id="@+id/textView5" />
                     </LinearLayout>
                      <ImageButton
-                    android:tint="#D1C5C5"
-                    android:padding="10dp"
-                    android:scaleType="centerInside"
-                    android:background="@android:color/transparent"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/closeicon1"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:id="@+id/ımageButton1" />
+                        android:tint="#D1C5C5"
+                        android:padding="10dp"
+                        android:scaleType="centerInside"
+                        android:background="@android:color/transparent"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/closeicon1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/takvimdenkaldirbutton" />
                   </RelativeLayout>
                 </LinearLayout>
             </android.support.v7.widget.CardView>

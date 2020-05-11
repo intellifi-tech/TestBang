@@ -24,10 +24,11 @@ namespace TestBang.Profil.DersProgrami
     {
         Spinner DersSpinner, KonuSpinner, SoruSayisiSpinner, SureSpinner;
         EditText TestAdiText, TestAciklamasiText;
-        TextView TestSaatiText;
+        TextView TestSaatiText,TarihText;
         List<Lesson> Lesson1 = new List<Lesson>();
         List<Topic> Topic1 = new List<Topic>();
         Button DersProgramiKaydetButton;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -39,6 +40,8 @@ namespace TestBang.Profil.DersProgrami
             KonuSpinner = FindViewById<Spinner>(Resource.Id.spinner2);
             SoruSayisiSpinner = FindViewById<Spinner>(Resource.Id.spinner3);
             SureSpinner = FindViewById<Spinner>(Resource.Id.spinner4);
+            TarihText = FindViewById<TextView>(Resource.Id.tarihtext);
+            TarihText.Text = DersProgramiBaseActivityHelper.SecilenTarih.ToShortDateString();
             SoruSayisiSpinner.OnItemSelectedListener = this;
             SureSpinner.OnItemSelectedListener = this;
             DersSpinner.ItemSelected += DersSpinner_ItemSelected;
@@ -89,8 +92,8 @@ namespace TestBang.Profil.DersProgrami
                 OLUSTURULAN_TESTLER OLUSTURULAN_TESTLER1 = new OLUSTURULAN_TESTLER()
                 {
                     name = TestAdiText.Text.Trim(),
-                    description = TestAciklamasiText.Text.Trim() + "\n" + DersSpinner.SelectedItem.ToString() + " / " + KonuSpinner.SelectedItem.ToString() + " - " + SoruSayisiSpinner.SelectedItem.ToString() + " Soru.",
-                    startDate = DateTime.Now.ToString("yyyy-MM-dd'T'HH:mm:ssZ"),
+                    description = TestAciklamasiText.Text.Trim(),
+                    startDate = Convert.ToDateTime(DersProgramiBaseActivityHelper.SecilenTarih.ToShortDateString() + " " + TestSaatiText.Text.ToString()).ToString("yyyy-MM-dd'T'HH:mm:ssZ"),
                     userId = DataBase.MEMBER_DATA_GETIR()[0].id.ToString(),
                     lessonId = Lesson1[DersSpinner.SelectedItemPosition].id.ToString(),
                     topicId = Topic1[KonuSpinner.SelectedItemPosition].id.ToString(),
@@ -230,7 +233,7 @@ namespace TestBang.Profil.DersProgrami
 
         void CreateCalander(string TestID)
         {
-            DersProgramiBaseActivityHelper.SecilenTarih = DateTime.Now;
+            //DersProgramiBaseActivityHelper.SecilenTarih = DateTime.Now;
             WebService webService = new WebService();
             var saat = TestSaatiText.Text.Split(":");
 
@@ -240,7 +243,7 @@ namespace TestBang.Profil.DersProgrami
                                            Convert.ToInt32(saat[0]),Convert.ToInt32(saat[1]),0);
             DERS_PROGRAMI dERS_PROGRAMI = new DERS_PROGRAMI()
             {
-                date = OlusanTarih,
+                date = OlusanTarih.ToString("yyyy-MM-dd'T'HH:mm:ssZ"),
                 description = TestAciklamasiText.Text.Trim(),
                 testId= TestID,
                 userId = DataBase.MEMBER_DATA_GETIR()[0].id,
@@ -254,6 +257,7 @@ namespace TestBang.Profil.DersProgrami
                 {
                     DataBase.DERS_PROGRAMI_EKLE(Icerik);
                     AlertHelper.AlertGoster("Ders Programı Oluşturuldu", this);
+                    this.Finish();
                     return;
                 }
             }
