@@ -71,6 +71,7 @@
     <Compile Include="DataBasee\DataModel.cs" />
     <Compile Include="Deneme\DenemeBaseFragment.cs" />
     <Compile Include="Deneme\GecmisDenemeSinavi\GecmisDenemeSinaviBaseActivity.cs" />
+    <Compile Include="Deneme\DenemeSayacDialogFragment.cs" />
     <Compile Include="Deneme\TestCozumKonuDetayRecyclerViewAdapter.cs" />
     <Compile Include="GenericClass\AuthenticationState.cs" />
     <Compile Include="GenericClass\BitmapHelpers.cs" />
@@ -166,6 +167,9 @@
     <AndroidResource Include="Resources\mipmap-xhdpi\appintro2.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Com.Airbnb.Android.Lottie">
+      <Version>3.4.2</Version>
+    </PackageReference>
     <PackageReference Include="Microcharts">
       <Version>0.7.1</Version>
     </PackageReference>
@@ -184,6 +188,9 @@
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.1" />
     <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.1" />
     <PackageReference Include="Xamarin.Android.Support.CustomTabs" Version="28.0.0.1" />
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.1.0" />
+    <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.0.0" />
+    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.0.0" />
     <PackageReference Include="Xamarin.Auth">
       <Version>1.7.0</Version>
     </PackageReference>
@@ -1004,6 +1011,15 @@
     <AndroidResource Include="Resources\layout\DenemeSayacDialogFragment.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\kirmizi_badge.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\eye.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\calender_add.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
