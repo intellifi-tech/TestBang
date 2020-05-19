@@ -81,26 +81,28 @@ namespace TestBang.Test
                 {
                     var aa = Donus.ToString();
                     GenelTestSonuclariDTO1 = Newtonsoft.Json.JsonConvert.DeserializeObject<GenelTestSonuclariDTO>(Donus.ToString());
-                    if (GenelTestSonuclariDTO1.sumOfQuestions!=null)
+                    if (GenelTestSonuclariDTO1!=null)
                     {
-                        EnCoklariGetir();
-                        ToplamCozumDetaylariniGetir();
-                        ToplamSureYansit();
-                        FillDataModel();
+                        if (GenelTestSonuclariDTO1.sumOfQuestions != null)
+                        {
+                            EnCoklariGetir();
+                            ToplamCozumDetaylariniGetir();
+                            ToplamSureYansit();
+                            FillDataModel();
+                        }
+                        else
+                        {
+                            EnCokDersText.Text = "";
+                            EnCokDers_Bos.Text = "";
+                            EnCokDers_Dogru.Text = "";
+                            EnCokDers_Yalnis.Text = "";
+                            ToplamSoruSayisi.Text = "";
+                            Toplam_Bos.Text = "";
+                            Toplam_Dogru.Text = "";
+                            Toplam_Yalnis.Text = "";
+                            ToplamSureText.Text = "";
+                        }
                     }
-                    else
-                    {
-                        EnCokDersText.Text = "";
-                        EnCokDers_Bos.Text = "";
-                        EnCokDers_Dogru.Text = "";
-                        EnCokDers_Yalnis.Text = "";
-                        ToplamSoruSayisi.Text = "";
-                        Toplam_Bos.Text = "";
-                        Toplam_Dogru.Text = "";
-                        Toplam_Yalnis.Text = "";
-                        ToplamSureText.Text = "";
-                    }
-                    
                 }
                 //ShowLoading.Hide();
             })).Start();

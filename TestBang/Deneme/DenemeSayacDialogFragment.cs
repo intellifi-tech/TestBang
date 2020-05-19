@@ -22,6 +22,7 @@ using Java.IO;
 using Newtonsoft.Json;
 using Refractored.Controls;
 using TestBang.DataBasee;
+using TestBang.Deneme.DenemeSinavAlani;
 using TestBang.GenericClass;
 using TestBang.GenericUI;
 using TestBang.WebServices;
@@ -83,11 +84,11 @@ namespace TestBang.Deneme
             Timer1.Elapsed += Timer1_Elapsed;
             Timer1.Start();
 
-            if (UzakSunucuTakvimDTO1!=null)
-            {
-                DenemeyeKatilButton.Text = "KATILIMINIZ ONAYLI";
-                DenemeyeKatilButton.Enabled = false;
-            }
+            //if (UzakSunucuTakvimDTO1!=null)
+            //{
+            //    DenemeyeKatilButton.Text = "KATILIMINIZ ONAYLI";
+            //    DenemeyeKatilButton.Enabled = false;
+            //}
 
             return view;
         }
@@ -119,6 +120,12 @@ namespace TestBang.Deneme
                 }
             }
         }
+        void SinavaGir()
+        {
+            DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1 = this.UzakSunucuDenemeDTO1;
+            this.Activity.StartActivity(typeof(DenemeSinavAlaniBaseActivity));
+            this.Dismiss();
+        }
         private void KapatButton_Click(object sender, EventArgs e)
         {
             this.Dismiss();
@@ -126,7 +133,11 @@ namespace TestBang.Deneme
 
         private void DenemeyeKatilButton_Click(object sender, EventArgs e)
         {
+            SinavaGir();
+            return;
             CreateCalander();
+            
+            
         }
         bool Actinmi = false;
         public override void OnStart()

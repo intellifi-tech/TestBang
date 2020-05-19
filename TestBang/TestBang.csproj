@@ -70,6 +70,9 @@
     <Compile Include="DataBasee\DataBase.cs" />
     <Compile Include="DataBasee\DataModel.cs" />
     <Compile Include="Deneme\DenemeBaseFragment.cs" />
+    <Compile Include="Deneme\DenemeSinavAlani\DenemeSinavAlaniBaseActivity.cs" />
+    <Compile Include="Deneme\DenemeSinavAlani\DenemeSinavAlaniParcaFragment.cs" />
+    <Compile Include="Deneme\DenemeTamamlandi\DenemeTamamlandiBaseActivity.cs" />
     <Compile Include="Deneme\GecmisDenemeSinavi\GecmisDenemeSinaviBaseActivity.cs" />
     <Compile Include="Deneme\DenemeSayacDialogFragment.cs" />
     <Compile Include="Deneme\TestCozumKonuDetayRecyclerViewAdapter.cs" />
@@ -1020,6 +1023,26 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\calender_add.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\DenemeSinavAlaniBaseActivity.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\DenemeSinavAlaniParcaFragment.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\DenemeTamamlandiBaseActivity.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\DenemeCozumDersDetayCardView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

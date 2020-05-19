@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.Graphics;
@@ -57,7 +56,7 @@ namespace TestBang.Deneme
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             LayoutInflater inflater = LayoutInflater.From(parent.Context);
-            View v = inflater.Inflate(Resource.Layout.TestCozumKonuDetayCardView, parent, false);
+            View v = inflater.Inflate(Resource.Layout.DenemeCozumDersDetayCardView, parent, false);
           
             return new DenemeBaseFragmentAdapterHolder(v, OnClickk);
         }

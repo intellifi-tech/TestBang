@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#1eb14c"
+    android:background="#11122E"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <RelativeLayout
@@ -15,7 +15,7 @@
         android:layout_marginTop="17.5dp">
         <ImageView
             android:scaleType="centerInside"
-            android:src="@mipmap/testbang_logo_img2"
+            android:src="@mipmap/testbang_logo_img3"
             android:layout_width="163.5dp"
             android:layout_height="wrap_content"
             android:id="@+id/ımageView1"
@@ -57,7 +57,7 @@
                 android:id="@+id/linearLayout14" >
                 <LinearLayout
                 android:layout_marginBottom="15dp"
-                android:background="@drawable/girisbuttonbg"
+                android:background="@drawable/oturumkapatbuttonbg"
                 android:layout_alignParentBottom="true"
                 android:orientation="horizontal"
                 android:minWidth="25px"
@@ -120,7 +120,7 @@
             </LinearLayout>
                 <Button
                     android:background="@drawable/gributtonbg"
-                    android:text="TESTİ DURDUR"
+                    android:text="DENEMEDEN SINAVINDAN ÇIK"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/araverbutton" />
