@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/linearLayout11">
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 app:cardElevation="10dp"
                 app:cardCornerRadius="20dp"
                 android:layout_marginRight="30dp"
@@ -73,7 +73,7 @@
                                     android:textAppearance="?android:attr/textAppearanceSmall"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:id="@+id/textView1" />
+                                    android:id="@id/adsoyadtext" />
                                 <Button
                                     android:textSize="11dp"
                                     android:textColor="#1eb04b"
@@ -81,7 +81,7 @@
                                     android:text="Profili Görüntüle"
                                     android:layout_width="107.0dp"
                                     android:layout_height="30.0dp"
-                                    android:id="@+id/button1" />
+                                    android:id="@+id/profilbutton" />
                                 <LinearLayout
                                     android:layout_marginTop="10dp"
                                     android:weightSum="100"
@@ -105,16 +105,16 @@
                                         android:src="@mipmap/femaleimg1"
                                         android:layout_width="wrap_content"
                                         android:layout_height="35dp"
-                                        android:id="@+id/ımageView1" />
+                                        android:id="@id/cinsiyeticon" />
                                         <TextView
                                             android:textSize="12dp"
                                             android:textColor="#11122e"
                                             android:gravity="center"
-                                            android:text="KADIN"
+                                            android:text=""
                                             android:textAppearance="?android:attr/textAppearanceSmall"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:id="@+id/textView2" />
+                                            android:id="@id/cinsiyettext" />
                                     </LinearLayout>
                                     <LinearLayout
                                         android:orientation="vertical"
@@ -135,11 +135,11 @@
                                             android:textSize="12dp"
                                             android:textColor="#11122e"
                                             android:gravity="center"
-                                            android:text="22"
+                                            android:text=""
                                             android:textAppearance="?android:attr/textAppearanceSmall"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:id="@+id/textView2" />
+                                            android:id="@+id/yastext" />
                                     </LinearLayout>
                                     <LinearLayout
                                         android:orientation="vertical"
@@ -160,11 +160,11 @@
                                             android:textSize="12dp"
                                             android:textColor="#11122e"
                                             android:gravity="center"
-                                            android:text="ORDU"
+                                            android:text=""
                                             android:textAppearance="?android:attr/textAppearanceSmall"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:id="@+id/textView2" />
+                                            android:id="@+id/ilcetxt" />
                                     </LinearLayout>
                                     <LinearLayout
                                         android:orientation="vertical"
@@ -185,11 +185,11 @@
                                             android:textSize="12dp"
                                             android:textColor="#11122e"
                                             android:gravity="center"
-                                            android:text="ORDU KOLEJİ"
+                                            android:text=""
                                             android:textAppearance="?android:attr/textAppearanceSmall"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:id="@+id/textView2" />
+                                            android:id="@+id/okultext" />
                                     </LinearLayout>
                                 </LinearLayout>
                             </LinearLayout>
@@ -206,15 +206,15 @@
                                       android:id="@+id/profile_image"
                                       android:layout_width="match_parent"
                                       android:layout_height="match_parent"
-                                      android:src="@mipmap/ornekfoto"
+                                      android:src="@mipmap/animuserimg"
                                       app:civ_border_width="16dp"
                                       app:civ_border_color="@android:color/transparent"/>
                             </RelativeLayout>
                     </RelativeLayout>
                 </RelativeLayout>
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
                     app:cardElevation="10dp"
                     app:cardCornerRadius="20dp"
                     android:layout_marginRight="30dp"
@@ -263,7 +263,7 @@
                             android:textColor="#F05070"
                             android:gravity="center"
                             android:textStyle="bold"
-                            android:text="263."
+                            android:text="0"
                             android:textAppearance="?android:attr/textAppearanceLarge"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -305,14 +305,14 @@
                             android:textColor="#1EB04B"
                             android:gravity="center"
                             android:textStyle="bold"
-                            android:text="263."
+                            android:text="0"
                             android:textAppearance="?android:attr/textAppearanceLarge"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:id="@+id/textView4" />
                       </LinearLayout>
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
             <LinearLayout
                 android:layout_marginRight="30dp"
                 android:layout_marginLeft="30dp"
@@ -362,7 +362,7 @@
                             android:textSize="10dp"
                             android:gravity="center_horizontal"
                             android:textColor="#1EB04B"
-                            android:text="%39"
+                            android:text="%0"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -384,13 +384,13 @@
 			                    android:background="@drawable/circle_shape"
 			                    style="?android:attr/progressBarStyleHorizontal"
 			                    android:max="100"
-			                    android:progress="50" />
+			                    android:progress="0" />
 		                    <TextView
 			                    android:textStyle="bold"
 			                    android:textSize="10dp"
 			                    android:textColor="#1EB04B"
 			                    android:layout_centerInParent="true"
-			                    android:text="1.249"
+			                    android:text="0"
 			                    android:textAppearance="?android:attr/textAppearanceLarge"
 			                    android:layout_width="wrap_content"
 			                    android:layout_height="wrap_content"
@@ -418,7 +418,7 @@
                             android:textSize="10dp"
                             android:gravity="center_horizontal"
                             android:textColor="#F40621"
-                            android:text="%39"
+                            android:text="%0"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -440,13 +440,13 @@
 			                    android:background="@drawable/circle_shape"
 			                    style="?android:attr/progressBarStyleHorizontal"
 			                    android:max="100"
-			                    android:progress="70" />
+			                    android:progress="0" />
 		                    <TextView
 			                    android:textStyle="bold"
 			                    android:textSize="10dp"
 			                    android:textColor="#F40621"
 			                    android:layout_centerInParent="true"
-			                    android:text="1.249"
+			                    android:text="0"
 			                    android:textAppearance="?android:attr/textAppearanceLarge"
 			                    android:layout_width="wrap_content"
 			                    android:layout_height="wrap_content"
@@ -474,7 +474,7 @@
                             android:textSize="10dp"
                             android:gravity="center_horizontal"
                             android:textColor="#EF506F"
-                            android:text="%39"
+                            android:text="%0"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -496,13 +496,13 @@
 			                    android:background="@drawable/circle_shape"
 			                    style="?android:attr/progressBarStyleHorizontal"
 			                    android:max="100"
-			                    android:progress="30" />
+			                    android:progress="0" />
 		                    <TextView
 			                    android:textStyle="bold"
 			                    android:textSize="10dp"
 			                    android:textColor="#EF506F"
 			                    android:layout_centerInParent="true"
-			                    android:text="1.249"
+			                    android:text="0"
 			                    android:textAppearance="?android:attr/textAppearanceLarge"
 			                    android:layout_width="wrap_content"
 			                    android:layout_height="wrap_content"
@@ -526,10 +526,10 @@
                     android:textSize="10dp"
                     android:textColor="#fff"
                     android:background="@drawable/performansanalizbuttonbg"
-                    android:text="PERFORMANS / ANALİZ"
+                    android:text="TRANSKRİPTLERİM"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:id="@+id/button2" />
+                    android:id="@+id/performansbutton" />
                 <Button
                     android:layout_marginTop="10dp"
                     android:textSize="10dp"
@@ -538,7 +538,7 @@
                     android:text="TEST ÇÖZMEYE BAŞLA"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:id="@+id/button3" />
+                    android:id="@+id/testcozbutton" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

@@ -171,7 +171,7 @@ namespace TestBang.Deneme.DenemeSinavAlani
             if (DenemeSinavAlaniHelperClass.DenemeSorulariDTO1 == null || DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.Count-1 < datavarmi)
             {
                 WebService webService = new WebService();
-                var Donus = webService.OkuGetir("trials/questions/" + DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.id.ToString() + "?page=" + page + "&size=" + size + "",UsePoll:true);
+                var Donus = webService.OkuGetir("trials/questions/" + DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.id.ToString() + "?page=" + page + "&size=" + size + "",UsePoll:true,DontUseSize:true);
                 if (Donus != null)
                 {
                     var Icerik = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DenemeSorulariDTO>>(Donus.ToString());

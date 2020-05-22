@@ -64,12 +64,12 @@ namespace TestBang.GirisKayit
             KayitOlButton.Click += KayitOlButton_Click;
 
 
-            AdText.Text = "Mesut";
-            SoyadText.Text = "Polat";
-            EmailText.Text = "mesut4@intellifi.tech";
-            SifreText.Text = "qwer1234";
-            SifreTekrarText.Text = "qwer1234";
-            DogumText.Text = new DateTime(1994, 12, 12).ToShortDateString();
+            //AdText.Text = "Mesut";
+            //SoyadText.Text = "Polat";
+            //EmailText.Text = "mesut4@intellifi.tech";
+            //SifreText.Text = "qwer1234";
+            //SifreTekrarText.Text = "qwer1234";
+            //DogumText.Text = new DateTime(1994, 12, 12).ToShortDateString();
         }
 
         private void DogumText_Click(object sender, EventArgs e)

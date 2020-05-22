@@ -15,6 +15,7 @@ using TestBang.DataBasee;
 using TestBang.Deneme;
 using TestBang.GenericClass;
 using TestBang.GenericUI;
+using TestBang.Test.TestSinavAlani;
 using TestBang.WebServices;
 
 namespace TestBang.Profil.DersProgrami
@@ -39,6 +40,7 @@ namespace TestBang.Profil.DersProgrami
         List<UzakSunucuTakvimDTO> UzakSunucuTakvimDTO1 = new List<UzakSunucuTakvimDTO>();
         List<UzakSunucuDenemeDTO> UzakSunucuDenemeDTO1 = new List<UzakSunucuDenemeDTO>();
         List<DersProgramiDTO> DersProgramiDTO1 = new List<DersProgramiDTO>();
+        MEMBER_DATA MeUser = DataBase.MEMBER_DATA_GETIR()[0];
         #endregion
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -53,6 +55,7 @@ namespace TestBang.Profil.DersProgrami
             TakvimGeriButton = FindViewById<ImageButton>(Resource.Id.ımageButton2);
             TakvimAyAdiText = FindViewById<TextView>(Resource.Id.takvimayaditext);
             TakvimYilText = FindViewById<TextView>(Resource.Id.takvimyiltext);
+            FindViewById<TextView>(Resource.Id.adsoyadtext).Text=MeUser.firstName.ToUpper() + " "+ MeUser.lastName.ToUpper();
             TakvimGrid.ItemClick += TakvimGrid_ItemClick;
             YeniEkle.Visibility = ViewStates.Gone;
             YeniEkle.Click += YeniEkle_Click;
@@ -252,7 +255,7 @@ namespace TestBang.Profil.DersProgrami
                         DersProgramiDTO1.Add(new DersProgramiDTO()
                         {
                             Tarih = (DateTime)TakvimTarihlerDTO1[i].Tarih,
-                            TestMiDenemeMi = true,
+                            TestMiDenemeMi = false,
                             DenemeID = DenemeVarmi.trialId.ToString()
                         });
                     }
@@ -271,7 +274,7 @@ namespace TestBang.Profil.DersProgrami
                         DersProgramiDTO1.Add(new DersProgramiDTO()
                         {
                             Tarih = (DateTime)TakvimTarihlerDTO1[i].Tarih,
-                            TestMiDenemeMi = true,
+                            TestMiDenemeMi = false,
                             DenemeID = HenuzKatilmadigiVarmi.id
                         });
                     }
@@ -335,7 +338,7 @@ namespace TestBang.Profil.DersProgrami
             public string schoolId { get; set; }
             public DateTime startDate { get; set; }
             public string type { get; set; }
-            public int? questionCount { get; set; } = 5;
+            public int? questionCount { get; set; } = 10;
         }
 
         class TakvimGridAdapter : BaseAdapter<TakvimTarihlerDTO>
@@ -465,7 +468,60 @@ namespace TestBang.Profil.DersProgrami
 
         private void MViewAdapter_ItemClick(object sender, int e)
         {
-            
+            var item = DersProgramiDTO1[e];
+
+            if (item.TestMiDenemeMi)//Test
+            {
+                if (GetTestInfos(item.TestID))
+                {
+                    
+                    this.StartActivity(typeof(TestSinavAlaniBaseActivity));
+                    this.Finish();
+                }
+            }
+            else//Deneme
+            {
+                if (item.Tarih > DateTime.Now)
+                {
+                    DersProgramiBaseActivityHelper.SecilenTarih = item.Tarih;
+                    var HangiDenemeOnuBul = UzakSunucuDenemeDTO1.Find(item2 => item2.id == item.DenemeID);
+                    if (HangiDenemeOnuBul != null)
+                    {
+                        DersProgramiBaseActivityHelper.SecilenDeneme = HangiDenemeOnuBul;
+                        var TakvimeKayitlimi = UzakSunucuTakvimDTO1.Find(item => item.trialId == DersProgramiBaseActivityHelper.SecilenDeneme.id);
+                        var PaylasimSayisiDialogFragment1 = new DenemeSayacDialogFragment(DersProgramiBaseActivityHelper.SecilenDeneme, TakvimeKayitlimi);
+                        PaylasimSayisiDialogFragment1.Show(this.SupportFragmentManager, "PaylasimSayisiDialogFragment1");
+                    }
+                }
+                else
+                {
+                    AlertHelper.AlertGoster("Bu deneme sınavı sonlandı.", this);
+                }
+            }
+        }
+
+        bool GetTestInfos(string testid)
+        {
+            WebService webService = new WebService();
+            var Donus = webService.OkuGetir ("user-tests/"+ testid, UsePoll: true);
+            if (Donus != "Hata")
+            {
+                var aa = Donus.ToString();
+                var LokaldekiKayit = DataBase.OLUSTURULAN_TESTLER_GETIR_TestID(testid);
+                var Icerik2 = Newtonsoft.Json.JsonConvert.DeserializeObject<TestSoruKaydetGuncelle.TestDTO>(Donus.ToString());
+                if (Icerik2.questionCount == null)
+                {
+                    Icerik2.questionCount = LokaldekiKayit[0].questionCount.ToString();
+                    Icerik2.lessonName = LokaldekiKayit[0].lessonName;
+                    Icerik2.topicName = LokaldekiKayit[0].topicName;
+                }
+                Test.TestOlustur.TestOlusturBaseActivity.SecilenTest.OlusanTest = Icerik2;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public class DersProgramiDTO

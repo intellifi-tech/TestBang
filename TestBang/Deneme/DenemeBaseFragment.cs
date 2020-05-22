@@ -16,7 +16,11 @@ using Android.Widget;
 using Microcharts;
 using Microcharts.Droid;
 using SkiaSharp;
+using TestBang.DataBasee;
 using TestBang.GenericClass;
+using TestBang.Profil.DersProgrami;
+using TestBang.Profil.Transkript;
+using TestBang.WebServices;
 
 namespace TestBang.Deneme
 {
@@ -30,6 +34,11 @@ namespace TestBang.Deneme
         LinearLayoutManager mLayoutManager;
         DenemeBaseFragmentRecyclerViewAdapter mViewAdapter;
         public List<DenemeBaseFragmentDTO> DenemeBaseFragmentDTO1 = new List<DenemeBaseFragmentDTO>();
+
+        Button GecmisDenemeSinavlariButton, GelecekDenemeSinavlariButton;
+
+        TextView AdText,IlIlceText;
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -42,16 +51,36 @@ namespace TestBang.Deneme
             viewPager = Vieww.FindViewById<ViewPager>(Resource.Id.viewPager1chart);
             ButtonsHazne = Vieww.FindViewById<LinearLayout>(Resource.Id.buttonsHazne);
             mRecyclerView = Vieww.FindViewById<RecyclerView>(Resource.Id.recyclerView1);
+            GecmisDenemeSinavlariButton = Vieww.FindViewById<Button>(Resource.Id.oncekidenemesinavlaributton);
+            GelecekDenemeSinavlariButton = Vieww.FindViewById<Button>(Resource.Id.gelecekdenemesinavlaributton);
+            AdText = Vieww.FindViewById<TextView>(Resource.Id.adsoyadtext);
+            IlIlceText = Vieww.FindViewById<TextView>(Resource.Id.ililcetext);
+            GecmisDenemeSinavlariButton.Click += GecmisDenemeSinavlariButton_Click;
+            GelecekDenemeSinavlariButton.Click += GelecekDenemeSinavlariButton_Click;
             ButtonsHazne.ClipToOutline = true;
             FnInitTabLayout();
             return Vieww;
         }
+
+        private void GelecekDenemeSinavlariButton_Click(object sender, EventArgs e)
+        {
+            this.Activity.StartActivity(typeof(TranskriptDetayBaseActivity));
+        }
+
+        private void GecmisDenemeSinavlariButton_Click(object sender, EventArgs e)
+        {
+            this.Activity.StartActivity(typeof(DersProgramiBaseActivity));
+        }
+
         public override void OnStart()
         {
             base.OnStart();
             FillDataModel();
-            
+            var MeData = DataBase.MEMBER_DATA_GETIR()[0];
+            AdText.Text = MeData.firstName.ToUpper() + " " + MeData.lastName.ToUpper();
+            SetTownNameByID((int)MeData.townId);
         }
+
         void FillDataModel()
         {
             for (int i = 0; i < 20; i++)
@@ -85,7 +114,6 @@ namespace TestBang.Deneme
             {
                 ss1,
                 ss2,
-
             };
 
             var titles = CharSequence.ArrayFromStringArray(new[] {
@@ -99,7 +127,30 @@ namespace TestBang.Deneme
 
             //((TextView)tabLayout.GetTabAt(0).CustomView).SetTextSize(Android.Util.ComplexUnitType.Dip, 8);
         }
+        void SetTownNameByID(int TownID)
+        {
+            new System.Threading.Thread(new System.Threading.ThreadStart(delegate
+            {
+                WebService webService = new WebService();
+                var Donus = webService.OkuGetir("towns/" + TownID);
+                if (Donus != null)
+                {
+                    var Icerik = Newtonsoft.Json.JsonConvert.DeserializeObject<TownDTO>(Donus.ToString());
+                    this.Activity.RunOnUiThread(delegate () {
+                        IlIlceText.Text = Icerik.name +", " + Icerik.cityName;
+                    });
+                }
+            })).Start();
+        }
 
+        public class TownDTO
+        {
+            public int cityId { get; set; }
+            public string cityName { get; set; }
+            public int id { get; set; }
+            public string name { get; set; }
+            public string token { get; set; }
+        }
 
         public class DenemeBaseFragmentDTO
         {

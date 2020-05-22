@@ -14,8 +14,10 @@ using Newtonsoft.Json;
 using TestBang.DataBasee;
 using TestBang.GenericClass;
 using TestBang.GenericUI;
+using TestBang.Test.TestSinavAlani;
 using TestBang.WebServices;
 using static TestBang.Profil.DersProgrami.DersProgramiBaseActivity;
+using static TestBang.Test.TestOlustur.TestOlusturBaseActivity;
 
 namespace TestBang.Profil.DersProgrami
 {
@@ -94,7 +96,7 @@ namespace TestBang.Profil.DersProgrami
                     name = TestAdiText.Text.Trim(),
                     description = TestAciklamasiText.Text.Trim(),
                     startDate = Convert.ToDateTime(DersProgramiBaseActivityHelper.SecilenTarih.ToShortDateString() + " " + TestSaatiText.Text.ToString()).ToString("yyyy-MM-dd'T'HH:mm:ssZ"),
-                    userId = DataBase.MEMBER_DATA_GETIR()[0].id.ToString(),
+                    userId = DataBase.MEMBER_DATA_GETIR()[0].email.ToString(),
                     lessonId = Lesson1[DersSpinner.SelectedItemPosition].id.ToString(),
                     topicId = Topic1[KonuSpinner.SelectedItemPosition].id.ToString(),
                     time = SureSpinner.SelectedItem.ToString().Replace(" dk.", ""),
@@ -113,6 +115,8 @@ namespace TestBang.Profil.DersProgrami
                     if (Icerik.questionCount == null)
                     {
                         Icerik.questionCount = Convert.ToInt32(SoruSayisiSpinner.SelectedItem.ToString());
+                        Icerik.lessonName = OLUSTURULAN_TESTLER1.lessonName;
+                        Icerik.topicName = OLUSTURULAN_TESTLER1.topicName;
                         Icerik2.questionCount = SoruSayisiSpinner.SelectedItem.ToString();
                     }
 
@@ -122,6 +126,9 @@ namespace TestBang.Profil.DersProgrami
                         Icerik.SorularJsonPath = Yoll[0].ToString();
                         if (DataBase.OLUSTURULAN_TESTLER_EKLE(Icerik))
                         {
+                            //SecilenTest.OlusanTest = Icerik2;
+                            //this.StartActivity(typeof(TestSinavAlaniBaseActivity));
+                            //this.Finish();
                             CreateCalander(Icerik.id);
                         }
                     }

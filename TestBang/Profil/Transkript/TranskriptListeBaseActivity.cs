@@ -65,7 +65,7 @@ namespace TestBang.Profil.Transkript
 
         private void MViewAdapter_ItemClick(object sender, object[] e)
         {
-            
+            this.StartActivity(typeof(TranskriptDetayBaseActivity));
         }
 
         public class TranskriptListDTO

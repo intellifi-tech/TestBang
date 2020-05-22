@@ -71,7 +71,7 @@ namespace TestBang.WebServices
                 return "Hata";
             }
         } 
-        public string OkuGetir(string url,bool DontUseHostURL = false,bool isLogin=false, bool UsePoll = false)
+        public string OkuGetir(string url,bool DontUseHostURL = false,bool isLogin=false, bool UsePoll = false,bool DontUseSize=false)
         {
             if (UsePoll)
             {
@@ -84,7 +84,15 @@ namespace TestBang.WebServices
             }
             else
             {
-                client = new RestSharp.RestClient(kokurl + url + "?size=100000");
+                if (!DontUseSize)
+                {
+                    client = new RestSharp.RestClient(kokurl + url + "?size=100000");
+                }
+                else
+                {
+                    client = new RestSharp.RestClient(kokurl + url);
+                }
+                
             }
              
             client.Timeout = -1;
