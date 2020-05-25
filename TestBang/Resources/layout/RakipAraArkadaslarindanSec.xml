@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.cardview.widget.CardView
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="105dp"
+        android:layout_marginBottom="30dp"
+        app:cardElevation="15dp"
+        app:cardCornerRadius="50dp"
+        app:cardBackgroundColor="#11122E"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/cardView1">
+        <LinearLayout
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/relativeLayout1">
+             <RelativeLayout
+                android:layout_marginTop="80dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/linearLayout1" >
+                <ImageView
+                    android:padding="5dp"
+                    android:src="@mipmap/profile_icon_5"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/ımageView1" />
+                <EditText
+                    android:textColorHint="#eee"
+                    android:textSize="14dp"
+                    android:layout_toRightOf="@+id/ımageView1"
+                    android:layout_toLeftOf="@+id/button1"
+                    android:textColor="#fff"
+                    android:hint="Bir isim yazmayı dene..."
+                    android:inputType="textPersonName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/editText1" />
+                <Button
+                    android:textColor="#fff"
+                    android:layout_alignParentRight="true"
+                    android:text="Ara"
+                    android:background="@drawable/oturumkapatbuttonbg"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/button1" />
+
+            </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/recyclerView1"
+                android:layout_marginTop="7.0dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        app:cardElevation="15dp"
+        app:cardCornerRadius="75dp"
+        app:cardBackgroundColor="#fff"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/cardView2">
+        <LinearLayout
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/linearLayout3">
+            <ImageView
+                android:padding="17dp"
+                android:src="@mipmap/meydanokuimg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/ımageView1" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <ImageButton
+        android:elevation="20dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="90dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/kirmizi_badge"
+        android:src="@drawable/closeicon1"
+        android:tint="#fff"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/ımageButton1" />
+</RelativeLayout>

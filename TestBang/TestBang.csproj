@@ -107,7 +107,10 @@
     <Compile Include="GirisKayit\HosgeldinActivity.cs" />
     <Compile Include="MainPage\MainPageBaseActivity.cs" />
     <Compile Include="Oyun\OyunBaseFragment.cs" />
+    <Compile Include="Oyun\OyunKur\ArkadaslarindanSec\ArkadaslarindanSecDialogFragment.cs" />
+    <Compile Include="Oyun\OyunKur\ArkadaslarindanSec\ArkadasListRecyclerviewAdepter.cs" />
     <Compile Include="Oyun\OyunKur\OyunKurBaseActivity.cs" />
+    <Compile Include="Oyun\OyunKur\RasgeleRakip\RasgeleRakipAraDialogFragment.cs" />
     <Compile Include="Profil\ArkadasiniDavetEt\ArkadasiniDavetEtBaseActivity.cs" />
     <Compile Include="Profil\DersProgrami\DersProgramiBaseActivity.cs" />
     <Compile Include="Profil\DersProgrami\DersProgramiEkleBaseActivity.cs" />
@@ -141,6 +144,8 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\testearaverildi1.json" />
     <AndroidAsset Include="Assets\denemesayac1.json" />
+    <AndroidAsset Include="Assets\rasgelerakip1.json" />
+    <AndroidAsset Include="Assets\rasgelerakip2.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
@@ -1052,6 +1057,27 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\add.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\rasgelerakipbuttonbg.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\RasgeleRakipAraDialogFragment.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xhdpi\oyun3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\RakipAraArkadaslarindanSec.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ArkadasListesiCardView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

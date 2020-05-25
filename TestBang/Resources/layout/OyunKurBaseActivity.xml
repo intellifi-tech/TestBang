@@ -41,7 +41,7 @@
             android:background="@android:color/transparent"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <android.support.v4.widget.NestedScrollView
+        <androidx.core.widget.NestedScrollView
             android:scrollbars="none"
             android:minWidth="25px"
             android:minHeight="25px"
@@ -55,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/linearLayout11">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                             app:cardElevation="10dp"
                             app:cardCornerRadius="20dp"
                             android:layout_marginRight="30dp"
@@ -80,33 +80,9 @@
                                     android:layout_height="match_parent"
                                     android:id="@+id/ımageView1" />
                             </LinearLayout>
-                        </android.support.v7.widget.CardView>
-                    <LinearLayout
+                        </androidx.cardview.widget.CardView>
+                     <LinearLayout
                         android:layout_marginTop="50dp"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="30dp"
-                        android:background="@drawable/hesapolusturinputbg"
-                        android:orientation="horizontal"
-                        android:minWidth="25px"
-                        android:minHeight="25px"
-                        android:layout_width="match_parent"
-                        android:layout_height="50.0dp"
-                        android:id="@+id/linearLayout1">
-                    <ImageView
-                        android:tint="#11122E"
-                        android:padding="8dp"
-                        android:src="@mipmap/rakiparaimg"
-                        android:layout_width="30.5dp"
-                        android:layout_height="match_parent"
-                        android:id="@+id/ımageView2"
-                        android:layout_marginLeft="15.0dp" />
-                        <Spinner
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:id="@+id/spinner1" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_marginTop="10dp"
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="30dp"
                         android:background="@drawable/hesapolusturinputbg"
@@ -129,20 +105,102 @@
                             android:layout_height="match_parent"
                             android:id="@+id/spinner1" />
                     </LinearLayout>
-                    <Button
-                        android:layout_marginRight="30dp"
+                     <LinearLayout
+                        android:layout_marginTop="15dp"
                         android:layout_marginLeft="30dp"
-                         android:layout_marginBottom="15dp"
-                        android:layout_marginTop="50dp"
-                        android:textSize="10dp"
-                        android:textColor="#fff"
-                        android:background="@drawable/girisbuttonbg"
-                        android:text="RAKİP ARA"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/girisbuton"
+                        android:orientation="horizontal"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:id="@+id/button3" />
+                        android:layout_height="50.0dp"
+                        android:id="@+id/linearLayout3">
+                    <ImageView
+                        android:tint="#5011122E"
+                        android:padding="8dp"
+                        android:src="@mipmap/sorusayisisecimg"
+                        android:layout_width="30.5dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/ımageView2"
+                        android:layout_marginLeft="15.0dp" />
+                        <TextView
+                            android:paddingLeft="10dp"
+                            android:textSize="16dp"
+                            android:gravity="center_vertical"
+                            android:textColor="#fff"
+                            android:text="10 Soru"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/spinner3" />
+                    </LinearLayout>
+                     <LinearLayout
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/girisbuton"
+                        android:orientation="horizontal"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="50.0dp"
+                        android:id="@+id/linearLayout4">
+                    <ImageView
+                        android:tint="#5011122E"
+                        android:padding="8dp"
+                        android:src="@mipmap/suresecimg"
+                        android:layout_width="30.5dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/ımageView2"
+                        android:layout_marginLeft="15.0dp" />
+                        <TextView
+                            android:paddingLeft="10dp"
+                            android:textSize="16dp"
+                            android:gravity="center_vertical"
+                            android:textColor="#fff"
+                            android:text="10 Dakika"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/spinner3" />
+                    </LinearLayout>
+                     <LinearLayout
+                 android:paddingBottom="15dp"
+                 android:paddingTop="15dp"
+                 android:layout_marginLeft="30dp"
+                 android:layout_marginRight="30dp"
+                 android:layout_marginBottom="15dp"
+                 android:layout_gravity="center_horizontal"
+                 android:layout_marginTop="15dp"
+                 android:orientation="horizontal"
+                 android:minWidth="25px"
+                 android:minHeight="25px"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:weightSum="100"
+                 android:id="@+id/linearLayout15" >
+                 <Button
+                     android:textSize="10dp"
+                     android:textColor="#fff"
+                     android:background="@drawable/oturumkapatbuttonbg"
+                     android:text="Arkadaşlarından Seç"
+                     android:layout_width="0dp"
+                     android:layout_weight="50"
+                     android:layout_height="50dp"
+                     android:layout_marginRight="5dp"
+                     android:id="@+id/button3" />
+                 <Button
+                     android:layout_marginLeft="5dp"
+                     android:textSize="10dp"
+                     android:textColor="#fff"
+                     android:background="@drawable/rasgelerakipbuttonbg"
+                     android:text="Rasgele Rakip..."
+                     android:layout_width="0dp"
+                     android:layout_weight="50"
+                     android:layout_height="50dp"
+                     android:id="@+id/button2" />
             </LinearLayout>
-        </android.support.v4.widget.NestedScrollView>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
       </LinearLayout>
     </RelativeLayout>
 </LinearLayout>
