@@ -64,12 +64,13 @@ namespace TestBang.Deneme
 
         private void GelecekDenemeSinavlariButton_Click(object sender, EventArgs e)
         {
-            this.Activity.StartActivity(typeof(TranskriptDetayBaseActivity));
+            this.Activity.StartActivity(typeof(DersProgramiBaseActivity));
+            
         }
 
         private void GecmisDenemeSinavlariButton_Click(object sender, EventArgs e)
         {
-            this.Activity.StartActivity(typeof(DersProgramiBaseActivity));
+            this.Activity.StartActivity(typeof(TranskriptListeBaseActivity));
         }
 
         public override void OnStart()
@@ -136,9 +137,12 @@ namespace TestBang.Deneme
                 if (Donus != null)
                 {
                     var Icerik = Newtonsoft.Json.JsonConvert.DeserializeObject<TownDTO>(Donus.ToString());
-                    this.Activity.RunOnUiThread(delegate () {
-                        IlIlceText.Text = Icerik.name +", " + Icerik.cityName;
-                    });
+                    if (Icerik!=null)
+                    {
+                        this.Activity.RunOnUiThread(delegate () {
+                            IlIlceText.Text = Icerik.name + ", " + Icerik.cityName;
+                        });
+                    }
                 }
             })).Start();
         }

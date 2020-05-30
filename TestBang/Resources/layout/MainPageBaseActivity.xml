@@ -21,13 +21,14 @@
             android:id="@+id/ımageView1"
             android:layout_marginLeft="25.0dp" />
         <LinearLayout
+            android:clickable="true"
             android:layout_alignParentRight="true"
             android:orientation="horizontal"
             android:minWidth="25px"
             android:minHeight="25px"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/linearLayout1"
+            android:id="@+id/bildirimhaznebutton"
             android:layout_marginRight="25dp">
             <RelativeLayout
                 android:layout_gravity="center_vertical"
@@ -42,7 +43,7 @@
                     android:src="@mipmap/notification1"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    android:id="@+id/ımageView2" />
+                    android:id="@+id/bildirimbutton" />
                 <TextView
                     android:textSize="13dp"
                     android:layout_marginRight="5dp"
@@ -73,14 +74,14 @@
             android:layout_height="match_parent"
             android:id="@+id/relativeLayout4"
             android:layout_marginTop="60dp" />
-        <android.support.v4.view.ViewPager
+        <androidx.viewpager.widget.ViewPager
             android:minWidth="25px"
             android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/tabLayout"
             android:id="@+id/viewPager1" />
-        <android.support.design.widget.TabLayout
+        <com.google.android.material.tabs.TabLayout
             android:layout_alignParentBottom="true"
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"

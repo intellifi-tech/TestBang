@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="AnaSayfa\AnaSayfaBaseFragment.cs" />
     <Compile Include="AppIntro\AppIntroBaseActivity.cs" />
+    <Compile Include="Bildirim\BildirimlerBaseActivity.cs" />
     <Compile Include="DataBasee\DataBase.cs" />
     <Compile Include="DataBasee\DataModel.cs" />
     <Compile Include="Deneme\DenemeBaseFragment.cs" />
@@ -106,11 +107,14 @@
     <Compile Include="GirisKayit\HesapOlusturActivity.cs" />
     <Compile Include="GirisKayit\HosgeldinActivity.cs" />
     <Compile Include="MainPage\MainPageBaseActivity.cs" />
+    <Compile Include="Oyun\KazandinKaybettin\KazandinKaybettinBaseActivity.cs" />
     <Compile Include="Oyun\OyunBaseFragment.cs" />
     <Compile Include="Oyun\OyunKur\ArkadaslarindanSec\ArkadaslarindanSecDialogFragment.cs" />
     <Compile Include="Oyun\OyunKur\ArkadaslarindanSec\ArkadasListRecyclerviewAdepter.cs" />
     <Compile Include="Oyun\OyunKur\OyunKurBaseActivity.cs" />
     <Compile Include="Oyun\OyunKur\RasgeleRakip\RasgeleRakipAraDialogFragment.cs" />
+    <Compile Include="Oyun\OyunSinavAlani\OyunSinavAlaniBaseActivity.cs" />
+    <Compile Include="Oyun\OyunSinavAlani\OyunSinavAlaniParcaFragment.cs" />
     <Compile Include="Profil\ArkadasiniDavetEt\ArkadasiniDavetEtBaseActivity.cs" />
     <Compile Include="Profil\DersProgrami\DersProgramiBaseActivity.cs" />
     <Compile Include="Profil\DersProgrami\DersProgramiEkleBaseActivity.cs" />
@@ -153,8 +157,6 @@
   <ItemGroup>
     <AndroidResource Include="Resources\values\ic_launcher_background.xml" />
     <AndroidResource Include="Resources\menu\menu_main.xml" />
-    <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml" />
-    <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher_round.xml" />
     <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_round.png" />
@@ -1076,6 +1078,35 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\ArkadasListesiCardView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\OyunSinavAlaniBaseActivity.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\KazandinKaybettinBaseActivty.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\lacivertborder.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\OyunSinavAlaniParcaFragment.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\oyunyesil.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\oyungri.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\BildirimlerBaseActivity.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

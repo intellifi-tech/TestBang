@@ -12,6 +12,7 @@ using Android.Support.V4.View;
 using Android.Views;
 using Android.Widget;
 using TestBang.AnaSayfa;
+using TestBang.Bildirim;
 using TestBang.Deneme;
 using TestBang.GenericClass;
 using TestBang.Oyun;
@@ -27,6 +28,7 @@ namespace TestBang.MainPage
         #region Tanimlamalar
         TabLayout tabLayout;
         ViewPager viewPager;
+        LinearLayout Bildirimhaznebutton;
         #endregion
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -36,8 +38,14 @@ namespace TestBang.MainPage
             dinamikStatusBarColor.Pembe(this);
             tabLayout = FindViewById<TabLayout>(Resource.Id.tabLayout);
             viewPager = FindViewById<ViewPager>(Resource.Id.viewPager1);
+            FindViewById<LinearLayout>(Resource.Id.bildirimhaznebutton).Click += MainPageBaseActivity_Click;
             viewPager.OffscreenPageLimit = 10;
             FnInitTabLayout();
+        }
+
+        private void MainPageBaseActivity_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(BildirimlerBaseActivity));
         }
 
         protected override void OnStart()

@@ -157,6 +157,7 @@ namespace TestBang.GirisKayit
                     if (GetMemberData())
                     {
                         ShowLoading.Hide();
+                        GirisBaseActivityHelper.GirisBaseActivity1.Finish();
                         StartActivity(typeof(HosgeldinActivity));
                         this.Finish();
                     }

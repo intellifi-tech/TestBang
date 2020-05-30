@@ -94,6 +94,7 @@ namespace TestBang.Profil.DersProgrami
                 }
                 else
                 {
+                    AlertHelper.AlertGoster("Bu deneme sınavı sonlandı. Yeni test oluşturabilirsiniz.", this);
                     DersProgramiBaseActivityHelper.SecilenTarih = (DateTime)TakvimTarihlerDTO1[e.Position].Tarih;
                     StartActivity(typeof(DersProgramiEkleBaseActivity));
                 }

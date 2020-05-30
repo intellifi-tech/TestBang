@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+using TestBang.DataBasee;
 using TestBang.GenericClass;
 
 namespace TestBang.Profil.Transkript
@@ -21,6 +22,8 @@ namespace TestBang.Profil.Transkript
         RecyclerView.LayoutManager mLayoutManager;
         TranskriptListRecyclerViewAdapter mViewAdapter;
         List<TranskriptListDTO> favorilerRecyclerViewDataModels = new List<TranskriptListDTO>();
+        MEMBER_DATA MeUser = DataBase.MEMBER_DATA_GETIR()[0];
+        TextView AdSoyadTxt;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -29,7 +32,8 @@ namespace TestBang.Profil.Transkript
             DinamikStatusBarColor dinamikStatusBarColor = new DinamikStatusBarColor();
             dinamikStatusBarColor.Pembe(this);
             mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView1);
-
+            AdSoyadTxt = FindViewById<TextView>(Resource.Id.adsoyadtext);
+            AdSoyadTxt.Text = MeUser.firstName + " " + MeUser.lastName;
         }
 
         protected override void OnStart()

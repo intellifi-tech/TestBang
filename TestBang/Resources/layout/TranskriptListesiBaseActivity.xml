@@ -20,43 +20,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/ımageView1"
             android:layout_marginLeft="25.0dp" />
-        <LinearLayout
-            android:layout_alignParentRight="true"
-            android:orientation="horizontal"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/linearLayout1"
-            android:layout_marginRight="25dp">
-            <RelativeLayout
-                android:layout_gravity="center_vertical"
-                android:minWidth="25px"
-                android:minHeight="25px"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:id="@+id/relativeLayout2">
-                <ImageView
-                    android:layout_marginTop="10dp"
-                    android:scaleType="centerInside"
-                    android:src="@mipmap/notification1"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:id="@+id/ımageView2" />
-                <TextView
-                    android:textSize="13dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_alignParentRight="true"
-                    android:gravity="center"
-                    android:background="@drawable/bildirimIcinBadge"
-                    android:textColor="#F05070"
-                    android:text="3"
-                    android:layout_width="17dp"
-                    android:layout_height="17dp"
-                    android:id="@+id/textView1" />
-            </RelativeLayout>
-        </LinearLayout>
     </RelativeLayout>
     <RelativeLayout
         android:minWidth="25px"
@@ -78,7 +41,7 @@
             android:background="@android:color/transparent"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-             <android.support.v7.widget.CardView
+             <androidx.cardview.widget.CardView
                 android:visibility="visible"
                 app:cardElevation="10dp"
                 app:cardCornerRadius="20dp"
@@ -113,11 +76,11 @@
                         android:layout_marginTop="5dp"
                         android:textColor="#11122E"
                         android:gravity="center_horizontal"
-                        android:text="Merve Tuğral"
+                        android:text=".."
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/textView3" />
+                        android:id="@id/adsoyadtext" />
                      <TextView
                         android:layout_marginRight="20dp"
                         android:layout_marginLeft="20dp"
@@ -132,8 +95,8 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/textView3" />
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
-             <android.support.v7.widget.RecyclerView
+            </androidx.cardview.widget.CardView>
+             <androidx.recyclerview.widget.RecyclerView
                 android:layout_marginTop="15dp"
                 android:minWidth="25px"
                 android:minHeight="25px"

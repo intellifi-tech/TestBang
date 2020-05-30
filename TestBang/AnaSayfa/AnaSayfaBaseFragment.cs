@@ -119,9 +119,12 @@ namespace TestBang.AnaSayfa
                 if (Donus != null)
                 {
                     var Icerik = Newtonsoft.Json.JsonConvert.DeserializeObject<TownDTO>(Donus.ToString());
-                    this.Activity.RunOnUiThread(delegate () {
-                        IlceText.Text = Icerik.name;
-                    });
+                    if (Icerik!=null)
+                    {
+                        this.Activity.RunOnUiThread(delegate () {
+                            IlceText.Text = Icerik.name;
+                        });
+                    }
                 }
             })).Start();
         }

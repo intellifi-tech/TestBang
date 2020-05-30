@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Widget;
 using TestBang.Oyun.ArkadaslarindanSec;
 using TestBang.Oyun.OyunKur;
+using TestBang.Oyun.OyunSinavAlani;
 
 namespace TestBang.Oyun
 {
@@ -40,12 +41,14 @@ namespace TestBang.Oyun
         {
             var RasgeleRakipAraDialogFragment1 = new RasgeleRakipAraDialogFragment();
             RasgeleRakipAraDialogFragment1.Show(this.Activity.SupportFragmentManager, "RasgeleRakipAraDialogFragment1");
+            // this.Activity.StartActivity(typeof(OyunSinavAlaniBaseActivity));
         }
 
         private void ArkadaslarindanSec_Click(object sender, EventArgs e)
         {
             var ArkadaslarindanSecDialogFragment1 = new ArkadaslarindanSecDialogFragment();
             ArkadaslarindanSecDialogFragment1.Show(this.Activity.SupportFragmentManager, "ArkadaslarindanSecDialogFragment1");
+            //this.Activity.StartActivity(typeof(OyunSinavAlaniBaseActivity));
         }
     }
 }

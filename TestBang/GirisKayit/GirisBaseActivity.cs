@@ -45,10 +45,12 @@ namespace TestBang.GirisKayit
             GirisButton.Click += GirisButton_Click;
             SifremiUnuttum.Click += SifremiUnuttum_Click;
             UyeOlText.Click += UyeOlText_Click;
+            
         }
 
         private void UyeOlText_Click(object sender, EventArgs e)
         {
+            GirisBaseActivityHelper.GirisBaseActivity1 = this;
             StartActivity(typeof(HesapOlusturActivity));
         }
 
@@ -183,5 +185,10 @@ namespace TestBang.GirisKayit
         #endregion
 
         #endregion
+
+        public static class GirisBaseActivityHelper
+        {
+            public static GirisBaseActivity GirisBaseActivity1 { get; set; }
+        }
     }
 }
