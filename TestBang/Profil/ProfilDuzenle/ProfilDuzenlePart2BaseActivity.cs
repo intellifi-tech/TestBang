@@ -68,7 +68,7 @@ namespace TestBang.Profil.ProfilDuzenle
                     Icerik.email = EmailText.Text.Trim();
                     Icerik.password = SifreText.Text;
                     Icerik.townId = IlceDTO1[IlceSpin.SelectedItemPosition].id;
-
+                    Icerik.gender = UserInfo.gender;
 
                     string jsonString = JsonConvert.SerializeObject(Icerik);
                     var Donus = webService.ServisIslem("users", jsonString, Method: "PUT");

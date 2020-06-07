@@ -146,7 +146,7 @@ namespace TestBang.Profil.DersProgrami
         void TakvimIcerikleriniCek()
         {
             WebService webService = new WebService();
-            var Donus = webService.OkuGetir("calendars/user/" + UserData.id.ToString());
+            var Donus = webService.OkuGetir("calendars/user");
             if (Donus != null)
             {
                 UzakSunucuTakvimDTO1 = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UzakSunucuTakvimDTO>>(Donus.ToString());
@@ -216,11 +216,13 @@ namespace TestBang.Profil.DersProgrami
             this.RunOnUiThread(() => {
                 TakvimGridAdapter1 = new TakvimGridAdapter(this, Resource.Layout.TakvimCustomGridCell, TakvimTarihlerDTO1);
                 TakvimGrid.Adapter = TakvimGridAdapter1;
+
+                TakvimAyAdiText.Text = GelenAy.ToString("MMMM");
+                TakvimYilText.Text = GelenAy.Year.ToString();
+                SonTakvimTarihi = GelenAy;
             });
 
-            TakvimAyAdiText.Text = GelenAy.ToString("MMMM");
-            TakvimYilText.Text = GelenAy.Year.ToString();
-            SonTakvimTarihi = GelenAy;
+            
         }
 
 

@@ -92,15 +92,18 @@ namespace TestBang.Test
                         }
                         else
                         {
-                            EnCokDersText.Text = "";
-                            EnCokDers_Bos.Text = "";
-                            EnCokDers_Dogru.Text = "";
-                            EnCokDers_Yalnis.Text = "";
-                            ToplamSoruSayisi.Text = "";
-                            Toplam_Bos.Text = "";
-                            Toplam_Dogru.Text = "";
-                            Toplam_Yalnis.Text = "";
-                            ToplamSureText.Text = "";
+                            this.Activity.RunOnUiThread(delegate ()
+                            {
+                                EnCokDersText.Text = "";
+                                EnCokDers_Bos.Text = "";
+                                EnCokDers_Dogru.Text = "";
+                                EnCokDers_Yalnis.Text = "";
+                                ToplamSoruSayisi.Text = "";
+                                Toplam_Bos.Text = "";
+                                Toplam_Dogru.Text = "";
+                                Toplam_Yalnis.Text = "";
+                                ToplamSureText.Text = "";
+                            });
                         }
                     }
                 }

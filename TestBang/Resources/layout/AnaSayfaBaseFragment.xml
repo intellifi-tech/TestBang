@@ -333,7 +333,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/textView5"
                     android:layout_marginBottom="4.0dp" />
-                <LinearLayout
+                 <LinearLayout
                     android:weightSum="99"
                     android:orientation="horizontal"
                     android:minWidth="25px"
@@ -362,11 +362,11 @@
                             android:textSize="10dp"
                             android:gravity="center_horizontal"
                             android:textColor="#1EB04B"
-                            android:text="%0"
+                            android:text="%39"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView7" />
+                            android:id="@+id/dogrucevapyuzde" />
                           <RelativeLayout
 		                    android:layout_marginTop="5dp"
 		                    android:minWidth="25px"
@@ -376,7 +376,7 @@
 		                    android:id="@+id/relativeLayout1">
 		                    <ProgressBar
 			                    android:layout_centerHorizontal="true"
-			                    android:id="@+id/progressBar"
+			                    android:id="@+id/dogruprogress"
 			                    android:layout_width="80dp"
 			                    android:layout_height="80dp"
 			                    android:indeterminate="false"
@@ -384,17 +384,17 @@
 			                    android:background="@drawable/circle_shape"
 			                    style="?android:attr/progressBarStyleHorizontal"
 			                    android:max="100"
-			                    android:progress="0" />
+			                    android:progress="50" />
 		                    <TextView
 			                    android:textStyle="bold"
 			                    android:textSize="10dp"
 			                    android:textColor="#1EB04B"
 			                    android:layout_centerInParent="true"
-			                    android:text="0"
+			                    android:text="1.249"
 			                    android:textAppearance="?android:attr/textAppearanceLarge"
 			                    android:layout_width="wrap_content"
 			                    android:layout_height="wrap_content"
-			                    android:id="@+id/textView2" />
+			                    android:id="@+id/dogrucevapsayi" />
 	                    </RelativeLayout>
                     </LinearLayout>
                     <LinearLayout
@@ -418,11 +418,11 @@
                             android:textSize="10dp"
                             android:gravity="center_horizontal"
                             android:textColor="#F40621"
-                            android:text="%0"
+                            android:text="%39"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView7" />
+                            android:id="@+id/yalniscevapyuzde" />
                           <RelativeLayout
 		                    android:layout_marginTop="5dp"
 		                    android:minWidth="25px"
@@ -432,7 +432,7 @@
 		                    android:id="@+id/relativeLayout1">
 		                    <ProgressBar
 			                    android:layout_centerHorizontal="true"
-			                    android:id="@+id/progressBar"
+			                    android:id="@+id/yanlisprogress"
 			                    android:layout_width="80dp"
 			                    android:layout_height="80dp"
 			                    android:indeterminate="false"
@@ -440,17 +440,17 @@
 			                    android:background="@drawable/circle_shape"
 			                    style="?android:attr/progressBarStyleHorizontal"
 			                    android:max="100"
-			                    android:progress="0" />
+			                    android:progress="70" />
 		                    <TextView
 			                    android:textStyle="bold"
 			                    android:textSize="10dp"
 			                    android:textColor="#F40621"
 			                    android:layout_centerInParent="true"
-			                    android:text="0"
+			                    android:text="1.249"
 			                    android:textAppearance="?android:attr/textAppearanceLarge"
 			                    android:layout_width="wrap_content"
 			                    android:layout_height="wrap_content"
-			                    android:id="@+id/textView2" />
+			                    android:id="@+id/yalniscevapsayi" />
 	                    </RelativeLayout>
                     </LinearLayout>
                     <LinearLayout
@@ -474,11 +474,11 @@
                             android:textSize="10dp"
                             android:gravity="center_horizontal"
                             android:textColor="#EF506F"
-                            android:text="%0"
+                            android:text="%39"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView7" />
+                            android:id="@+id/boscevapyuzde" />
                           <RelativeLayout
 		                    android:layout_marginTop="5dp"
 		                    android:minWidth="25px"
@@ -488,7 +488,7 @@
 		                    android:id="@+id/relativeLayout1">
 		                    <ProgressBar
 			                    android:layout_centerHorizontal="true"
-			                    android:id="@+id/progressBar"
+			                    android:id="@+id/bosprogress"
 			                    android:layout_width="80dp"
 			                    android:layout_height="80dp"
 			                    android:indeterminate="false"
@@ -496,17 +496,17 @@
 			                    android:background="@drawable/circle_shape"
 			                    style="?android:attr/progressBarStyleHorizontal"
 			                    android:max="100"
-			                    android:progress="0" />
+			                    android:progress="30" />
 		                    <TextView
 			                    android:textStyle="bold"
 			                    android:textSize="10dp"
 			                    android:textColor="#EF506F"
 			                    android:layout_centerInParent="true"
-			                    android:text="0"
+			                    android:text="1.249"
 			                    android:textAppearance="?android:attr/textAppearanceLarge"
 			                    android:layout_width="wrap_content"
 			                    android:layout_height="wrap_content"
-			                    android:id="@+id/textView2" />
+			                    android:id="@+id/boscevapsayi" />
 	                    </RelativeLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -529,7 +529,8 @@
                     android:text="TRANSKRİPTLERİM"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:id="@+id/performansbutton" />
+                    android:id="@+id/performansbutton"
+                    android:layout_marginTop="41.5dp" />
                 <Button
                     android:layout_marginTop="10dp"
                     android:textSize="10dp"

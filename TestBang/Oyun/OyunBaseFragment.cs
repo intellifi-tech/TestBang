@@ -19,7 +19,7 @@ namespace TestBang.Oyun
     public class OyunBaseFragment : Android.Support.V4.App.Fragment
     {
         Spinner AlanSpinner;
-        string[] AlanlarDizi = new string[] { "Alan Seç", "TYT", "AYT" };
+        string[] AlanlarDizi = new string[] { "Alan Seç", "SAY", "SÖZ","EA" };
         Button ArkadaslarindanSec, RasgeleAra;
         public override void OnCreate(Bundle savedInstanceState)
         {

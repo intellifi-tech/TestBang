@@ -18,9 +18,11 @@ using Microcharts.Droid;
 using SkiaSharp;
 using TestBang.DataBasee;
 using TestBang.GenericClass;
+using TestBang.GenericUI;
 using TestBang.Profil.DersProgrami;
 using TestBang.Profil.Transkript;
 using TestBang.WebServices;
+using static TestBang.Profil.DersProgrami.DersProgramiBaseActivity;
 
 namespace TestBang.Deneme
 {
@@ -35,10 +37,10 @@ namespace TestBang.Deneme
         DenemeBaseFragmentRecyclerViewAdapter mViewAdapter;
         public List<DenemeBaseFragmentDTO> DenemeBaseFragmentDTO1 = new List<DenemeBaseFragmentDTO>();
 
-        Button GecmisDenemeSinavlariButton, GelecekDenemeSinavlariButton;
+        Button GecmisDenemeSinavlariButton, GelecekDenemeSinavlariButton,DenemeSinavinaKatilButton;
 
         TextView AdText,IlIlceText;
-
+        List<UzakSunucuTakvimDTO> UzakSunucuTakvimDTO1 = new List<UzakSunucuTakvimDTO>();
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -53,13 +55,81 @@ namespace TestBang.Deneme
             mRecyclerView = Vieww.FindViewById<RecyclerView>(Resource.Id.recyclerView1);
             GecmisDenemeSinavlariButton = Vieww.FindViewById<Button>(Resource.Id.oncekidenemesinavlaributton);
             GelecekDenemeSinavlariButton = Vieww.FindViewById<Button>(Resource.Id.gelecekdenemesinavlaributton);
+            DenemeSinavinaKatilButton = Vieww.FindViewById<Button>(Resource.Id.button3);
             AdText = Vieww.FindViewById<TextView>(Resource.Id.adsoyadtext);
             IlIlceText = Vieww.FindViewById<TextView>(Resource.Id.ililcetext);
             GecmisDenemeSinavlariButton.Click += GecmisDenemeSinavlariButton_Click;
             GelecekDenemeSinavlariButton.Click += GelecekDenemeSinavlariButton_Click;
+            DenemeSinavinaKatilButton.Click += DenemeSinavinaKatilButton_Click;
+
             ButtonsHazne.ClipToOutline = true;
             FnInitTabLayout();
             return Vieww;
+        }
+
+        private void DenemeSinavinaKatilButton_Click(object sender, EventArgs e)
+        {
+            var TumDenemeler= UzakSunucuTakvimDTO1.FindAll(item => !string.IsNullOrEmpty(item.trialId));
+            if (TumDenemeler.Count>0)
+            {
+                var GelecekDenemeler = TumDenemeler.FindAll(item => item.date > DateTime.Now);
+                if (GelecekDenemeler.Count>0)
+                {
+                    DersProgramiBaseActivityHelper.SecilenTarih = (DateTime)GelecekDenemeler[0].date;
+                    var EnYakinDeneme = DenemeGetir(GelecekDenemeler[0].trialId);
+                    if (EnYakinDeneme!=null)
+                    {
+                        DersProgramiBaseActivityHelper.SecilenDeneme = EnYakinDeneme;
+                        var TakvimeKayitlimi = UzakSunucuTakvimDTO1.Find(item => item.trialId == DersProgramiBaseActivityHelper.SecilenDeneme.id);
+                        var PaylasimSayisiDialogFragment1 = new DenemeSayacDialogFragment(DersProgramiBaseActivityHelper.SecilenDeneme, TakvimeKayitlimi);
+                        PaylasimSayisiDialogFragment1.Show(this.Activity.SupportFragmentManager, "PaylasimSayisiDialogFragment1");
+                    }
+                    else
+                    {
+                        AlertHelper.AlertGoster("Bir sorun oluştu lütfen tekrar deneyin.", this.Activity);
+                    }
+                }
+                else
+                {
+                    AlertHelper.AlertGoster("Takviminizde ileri tarihli bir deneme bulunmuyor.", this.Activity);
+                }
+            }
+            else
+            {
+                AlertHelper.AlertGoster("Takviminizde ileri tarihli bir deneme bulunmuyor.", this.Activity);
+            }
+        }
+
+        UzakSunucuDenemeDTO DenemeGetir(string trialid)
+        {
+            WebService webService = new WebService();
+            var Donus = webService.OkuGetir("trials/" + trialid, UsePoll: true);
+            if (Donus != null)
+            {
+                var Icerik = Newtonsoft.Json.JsonConvert.DeserializeObject<UzakSunucuDenemeDTO>(Donus.ToString());
+                if (Icerik != null)
+                {
+                    return Icerik;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        void TakvimIcerikleriniCek()
+        {
+            WebService webService = new WebService();
+            var Donus = webService.OkuGetir("calendars/user");
+            if (Donus != null)
+            {
+                UzakSunucuTakvimDTO1 = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UzakSunucuTakvimDTO>>(Donus.ToString());
+            }
         }
 
         private void GelecekDenemeSinavlariButton_Click(object sender, EventArgs e)
@@ -80,6 +150,10 @@ namespace TestBang.Deneme
             var MeData = DataBase.MEMBER_DATA_GETIR()[0];
             AdText.Text = MeData.firstName.ToUpper() + " " + MeData.lastName.ToUpper();
             SetTownNameByID((int)MeData.townId);
+            new System.Threading.Thread(new System.Threading.ThreadStart(delegate
+            {
+                TakvimIcerikleriniCek();
+            })).Start();
         }
 
         void FillDataModel()
@@ -156,11 +230,11 @@ namespace TestBang.Deneme
             public string token { get; set; }
         }
 
+
         public class DenemeBaseFragmentDTO
         {
 
         }
-
 
         public class DenemeChartFragment_TYT : Android.Support.V4.App.Fragment
         {

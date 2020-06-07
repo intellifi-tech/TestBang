@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout6">
+            <TextView
+                android:textColor="#F05070"
+                android:gravity="center_horizontal"
+                android:textSize="25dp"
+                android:text="TYT GENEL PUANI"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3" />
+            <View
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#F05070"
+                android:layout_width="60dp"
+                android:layout_height="1dp"
+                android:id="@+id/view2" />
+            <TextView
+                android:textSize="50dp"
+                android:textColor="#F05070"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="0"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/textView4" />
+        </LinearLayout>
+</LinearLayout>

@@ -84,11 +84,11 @@ namespace TestBang.Deneme
             Timer1.Elapsed += Timer1_Elapsed;
             Timer1.Start();
 
-            //if (UzakSunucuTakvimDTO1 != null)
-            //{
-            //    DenemeyeKatilButton.Text = "KATILIMINIZ ONAYLI";
-            //    DenemeyeKatilButton.Enabled = false;
-            //}
+            if (UzakSunucuTakvimDTO1 != null)
+            {
+                DenemeyeKatilButton.Text = "KATILIMINIZ ONAYLI";
+                DenemeyeKatilButton.Enabled = false;
+            }
 
             return view;
         }
@@ -133,8 +133,8 @@ namespace TestBang.Deneme
 
         private void DenemeyeKatilButton_Click(object sender, EventArgs e)
         {
-            //CreateCalander();
-            SinavaGir();
+            CreateCalander();
+            //SinavaGir();
             return;
         }
         bool Actinmi = false;

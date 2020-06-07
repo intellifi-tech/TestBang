@@ -7,6 +7,7 @@ using Android.App;
 using Android.Content;
 using Android.Graphics;
 using Android.OS;
+using Android.Renderscripts;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
@@ -24,7 +25,7 @@ namespace TestBang.Test.TestOlustur
     {
         Button TesteBasla;
         Spinner DersSpinner, KonuSpinner, SoruSayisiSpinner,SureSpinner;
-        EditText TestAdiText, TestAciklamasiText;
+
         List<Lesson> Lesson1 = new List<Lesson>();
         List<Topic> Topic1 = new List<Topic>();
 
@@ -43,8 +44,7 @@ namespace TestBang.Test.TestOlustur
             SoruSayisiSpinner.OnItemSelectedListener = this;
             SureSpinner.OnItemSelectedListener = this;
             DersSpinner.ItemSelected += DersSpinner_ItemSelected;
-            TestAdiText = FindViewById<EditText>(Resource.Id.testadittext);
-            TestAciklamasiText = FindViewById<EditText>(Resource.Id.testaciklamasitext);
+           
 
             ShowLoading.Show(this, "Lütfen Bekleyin...");
             new System.Threading.Thread(new System.Threading.ThreadStart(delegate
@@ -76,13 +76,13 @@ namespace TestBang.Test.TestOlustur
             {
                 OLUSTURULAN_TESTLER OLUSTURULAN_TESTLER1 = new OLUSTURULAN_TESTLER()
                 {
-                    name = TestAdiText.Text.Trim(),
-                    description = TestAciklamasiText.Text.Trim()+"\n"+ DersSpinner.SelectedItem.ToString() +" / " + KonuSpinner.SelectedItem.ToString() + " - "+SoruSayisiSpinner.SelectedItem.ToString()+" Soru.",
+                    name = "",
+                    description = "",
                     startDate = DateTime.Now.ToString("yyyy-MM-dd'T'HH:mm:ssZ"),
                     userId = DataBase.MEMBER_DATA_GETIR()[0].email.ToString(),
                     lessonId = Lesson1[DersSpinner.SelectedItemPosition].id.ToString(),
                     topicId = Topic1[KonuSpinner.SelectedItemPosition].id.ToString(),
-                    time = SureSpinner.SelectedItem.ToString().Replace(" dk.",""),
+                    time = SureSpinner.SelectedItemPosition>0 ? SureSpinner.SelectedItem.ToString().Replace(" dk.",""):"100000",
                     questionCount = Convert.ToInt32(SoruSayisiSpinner.SelectedItem.ToString()),
                     lessonName= Lesson1[DersSpinner.SelectedItemPosition].name,
                     topicName= Topic1[KonuSpinner.SelectedItemPosition].name
@@ -120,12 +120,7 @@ namespace TestBang.Test.TestOlustur
 
         bool Bosmu()
         {
-            if (string.IsNullOrEmpty(TestAdiText.Text.Trim()))
-            {
-                AlertHelper.AlertGoster("Lütfen Test Adı Belirtin.", this);
-                return false;
-            }
-            else if (DersSpinner.SelectedItemPosition == -1)
+            if (DersSpinner.SelectedItemPosition == -1)
             {
                 AlertHelper.AlertGoster("Lütfen Ders Seç.", this);
                 return false;
@@ -184,27 +179,30 @@ namespace TestBang.Test.TestOlustur
         }
         void SoruSayisiSpinnerOlustur()
         {
-            string[] SoruSayisi = new string[50];
-            for (int i = 0; i < 50; i++)
+            //string[] SoruSayisi = new string[20];
+            List<string> SoruSayisi = new List<string>();
+            for (int i = 5; i < 100; i+=5)
             {
-                SoruSayisi[i] = (i + 1).ToString();
+                SoruSayisi.Add((i).ToString());
             }
             this.RunOnUiThread(delegate ()
             {
-                SoruSayisiSpinner.Adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, SoruSayisi);
-                SoruSayisiSpinner.SetSelection(29);
+                SoruSayisiSpinner.Adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, SoruSayisi.ToArray());
+                SoruSayisiSpinner.SetSelection(6);
             });
         }
         void SureSpinnerDoldur()
         {
-            string[] Dakikalar = new string[100];
-            for (int i = 0; i < Dakikalar.Length; i++)
+            List<string> Dakikalar = new List<string>();
+            for (int i = 0; i < 100; i++)
             {
-                Dakikalar[i] = (i + 1).ToString() + " dk.";
+                Dakikalar.Add((i + 1).ToString() + " dk.");
             }
+
+            Dakikalar.Insert(0, "Süresiz");
             this.RunOnUiThread(delegate ()
             {
-                SureSpinner.Adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, Dakikalar);
+                SureSpinner.Adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, Dakikalar.ToArray());
             });
         }
         public void OnItemSelected(AdapterView parent, View view, int position, long id)

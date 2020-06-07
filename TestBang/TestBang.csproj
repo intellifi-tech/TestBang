@@ -123,6 +123,7 @@
     <Compile Include="Profil\ProfilDuzenle\ProfilDuzenlePart2BaseActivity.cs" />
     <Compile Include="Profil\ProfileBaseFragment.cs" />
     <Compile Include="Profil\TestBangHakkinda\TestBangHakkindaBaseActivity.cs" />
+    <Compile Include="Profil\Transkript\TranskriptDetayRecyclerviewAdepter.cs" />
     <Compile Include="Profil\Transkript\TranskriptDetayBaseActivity.cs" />
     <Compile Include="Profil\Transkript\TranskriptListRecyclerviewAdepter.cs" />
     <Compile Include="Profil\Transkript\TranskriptListeBaseActivity.cs" />
@@ -1107,6 +1108,27 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\BildirimlerBaseActivity.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xhdpi\transkriptsiralamaimg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\transkriptsiramabg.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\AYTPuanTranskriptUI.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\TYTPuanTranskriptUI.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\TranskriptDetayCustomCardView.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

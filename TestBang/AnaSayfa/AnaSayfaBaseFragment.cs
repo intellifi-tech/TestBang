@@ -29,6 +29,12 @@ namespace TestBang.AnaSayfa
         CircleImageView UserImage;
         MEMBER_DATA MeUser = DataBase.MEMBER_DATA_GETIR()[0];
         ImageView Cinsiyeticon;
+
+        TextView DogruYuzde, DogruSayi, YanlisYuzde, YanlisSayi, BosYuzde, BosSayi;
+        ProgressBar DogruProgres, YanlisProgres, BosProgres;
+
+        GenelTestSonuclariDTO GenelTestSonuclariDTO1 = new GenelTestSonuclariDTO();
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -48,11 +54,32 @@ namespace TestBang.AnaSayfa
             TestCozButton = RootView.FindViewById<Button>(Resource.Id.testcozbutton);
             UserImage = RootView.FindViewById<CircleImageView>(Resource.Id.profile_image);
             Cinsiyeticon = RootView.FindViewById<ImageView>(Resource.Id.cinsiyeticon);
+            DogruYuzde = RootView.FindViewById<TextView>(Resource.Id.dogrucevapyuzde);
+            DogruSayi = RootView.FindViewById<TextView>(Resource.Id.dogrucevapsayi);
+            YanlisYuzde = RootView.FindViewById<TextView>(Resource.Id.yalniscevapyuzde);
+            YanlisSayi = RootView.FindViewById<TextView>(Resource.Id.yalniscevapsayi);
+            BosYuzde = RootView.FindViewById<TextView>(Resource.Id.boscevapyuzde);
+            BosSayi = RootView.FindViewById<TextView>(Resource.Id.boscevapsayi);
+            DogruProgres = RootView.FindViewById<ProgressBar>(Resource.Id.dogruprogress);
+            YanlisProgres = RootView.FindViewById<ProgressBar>(Resource.Id.yanlisprogress);
+            BosProgres = RootView.FindViewById<ProgressBar>(Resource.Id.bosprogress);
+
+            DogruYuzde.Text = "%0";
+            YanlisYuzde.Text = "%0";
+            BosYuzde.Text = "%0";
+            DogruSayi.Text = "0";
+            YanlisSayi.Text = "0";
+            BosSayi.Text = "0";
+            DogruProgres.Progress = 0;
+            YanlisProgres.Progress = 0;
+            BosProgres.Progress = 0;
+
 
             ProfilGoruntuleButton.Click += ProfilGoruntuleButton_Click;
             PerformansButton.Click += PerformansButton_Click;
             TestCozButton.Click += TestCozButton_Click;
             ShowUserInfo();
+            GenelTestSonuclariniGetir();
             return RootView;
         }
         DinamikAdresSec DinamikActionSheet1;
@@ -130,6 +157,76 @@ namespace TestBang.AnaSayfa
         }
 
 
+        #region Genel Test Sonuclari
+        void GenelTestSonuclariniGetir()
+        {
+            new System.Threading.Thread(new System.Threading.ThreadStart(delegate
+            {
+                WebService webService = new WebService();
+                var Donus = webService.OkuGetir("user-tests/test-results", UsePoll: true);
+                if (Donus != null)
+                {
+                    var aa = Donus.ToString();
+                    GenelTestSonuclariDTO1 = Newtonsoft.Json.JsonConvert.DeserializeObject<GenelTestSonuclariDTO>(Donus.ToString());
+                    if (GenelTestSonuclariDTO1 != null)
+                    {
+                        if (GenelTestSonuclariDTO1.sumOfQuestions != null)
+                        {
+                            this.Activity.RunOnUiThread(delegate ()
+                            {
+
+                                DogruSayi.Text = GenelTestSonuclariDTO1.sumOfCorrect.ToString();
+                                YanlisSayi.Text = GenelTestSonuclariDTO1.sumOfWrong.ToString();
+                                BosSayi.Text = GenelTestSonuclariDTO1.sumOfEmpty.ToString();
+
+                                DogruYuzde.Text = "%" + Math.Round(Convert.ToDouble(((100 * GenelTestSonuclariDTO1.sumOfCorrect) / GenelTestSonuclariDTO1.sumOfQuestions)), 0);
+                                YanlisYuzde.Text = "%" + Math.Round(Convert.ToDouble(((100 * GenelTestSonuclariDTO1.sumOfWrong) / GenelTestSonuclariDTO1.sumOfQuestions)), 0);
+                                BosYuzde.Text = "%" + Math.Round(Convert.ToDouble(((100 * GenelTestSonuclariDTO1.sumOfEmpty) / GenelTestSonuclariDTO1.sumOfQuestions)), 0);
+
+                                DogruProgres.Progress = Convert.ToInt32(DogruYuzde.Text.Replace("%", ""));
+                                YanlisProgres.Progress = Convert.ToInt32(YanlisYuzde.Text.Replace("%", ""));
+                                BosProgres.Progress = Convert.ToInt32(BosYuzde.Text.Replace("%", ""));
+                            });
+                        }
+                        else
+                        {
+                            this.Activity.RunOnUiThread(delegate ()
+                            {
+                                DogruYuzde.Text = "%0";
+                                YanlisYuzde.Text = "%0";
+                                BosYuzde.Text = "%0";
+                                DogruSayi.Text = "0";
+                                YanlisSayi.Text = "0";
+                                BosSayi.Text = "0";
+                                DogruProgres.Progress = 0;
+                                YanlisProgres.Progress = 0;
+                                BosProgres.Progress = 0;
+                            });
+                        }
+                    }
+                }
+            })).Start();
+        }
+        #endregion
+        public class UserLessonInfoDTO
+        {
+            public int? correctCount { get; set; }
+            public int? emptyCount { get; set; }
+            public string lessonId { get; set; }
+            public string lessonName { get; set; }
+            public int? questionCount { get; set; }
+            public int? wrongCount { get; set; }
+        }
+
+        public class GenelTestSonuclariDTO
+        {
+            public int? sumOfCorrect { get; set; }
+            public int? sumOfEmpty { get; set; }
+            public int? sumOfQuestions { get; set; }
+            public int? sumOfWrong { get; set; }
+            public int? totalTime { get; set; }
+            public List<UserLessonInfoDTO> userLessonInfoDTOS { get; set; }
+        }
 
         public class TownDTO
         {
