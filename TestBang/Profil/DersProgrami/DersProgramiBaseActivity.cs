@@ -61,7 +61,7 @@ namespace TestBang.Profil.DersProgrami
             YeniEkle.Click += YeniEkle_Click;
             TakvimIleriButton.Click += TakvimIleriButton_Click;
             TakvimGeriButton.Click += TakvimGeriButton_Click;
-            
+            DersProgramiBaseActivityHelper.DersProgramiBaseActivity1 = this;
         }
         DinamikAdresSec DinamikActionSheet1;
         List<Buttons_Image_DataModels> Butonlarr = new List<Buttons_Image_DataModels>();
@@ -125,6 +125,10 @@ namespace TestBang.Profil.DersProgrami
         protected override void OnStart()
         {
             base.OnStart();
+            IcerikleriOlustur();
+        }
+        public void IcerikleriOlustur()
+        {
             ShowLoading.Show(this, "Takvim Alınıyor..");
             new System.Threading.Thread(new System.Threading.ThreadStart(delegate
             {
@@ -132,7 +136,6 @@ namespace TestBang.Profil.DersProgrami
                 CreateTakvimDayList(DateTime.Now);
                 ShowLoading.Hide();
             })).Start();
-            
         }
         private void TakvimGeriButton_Click(object sender, EventArgs e)
         {
@@ -341,7 +344,7 @@ namespace TestBang.Profil.DersProgrami
             public string schoolId { get; set; }
             public DateTime startDate { get; set; }
             public string type { get; set; }
-            public int? questionCount { get; set; } = 10;
+            public int? questionCount { get; set; } /*= 10;*/
         }
 
         class TakvimGridAdapter : BaseAdapter<TakvimTarihlerDTO>

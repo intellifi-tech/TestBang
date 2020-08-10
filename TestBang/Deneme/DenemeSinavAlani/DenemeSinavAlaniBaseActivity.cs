@@ -209,8 +209,10 @@ namespace TestBang.Deneme.DenemeSinavAlani
         public bool empty { get; set; }
         public string id { get; set; }
         public string lessonId { get; set; }
+        public string lessonName { get; set; }
         public string questionId { get; set; }
         public string topicId { get; set; }
+        public string topicName { get; set; }
         public string trialId { get; set; }
         public string userAnswer { get; set; }
         public string userId { get; set; }

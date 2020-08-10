@@ -62,7 +62,7 @@
                         android:id="@+id/soruimage" />
                 <TextView
                    android:layout_marginTop="10dp"
-                   android:textSize="14dp"
+                   android:textSize="16dp"
                    android:textStyle="bold"
                    android:gravity="left"
                    android:textColor="#11122E"
@@ -106,7 +106,7 @@
                         android:layout_height="45.0dp"
                         android:id="@+id/button_a" />
                     <TextView
-                        android:textSize="16dp"
+                        android:textSize="14dp"
                         android:textColor="#11122E"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
@@ -154,7 +154,7 @@
                         android:layout_height="45.0dp"
                         android:id="@+id/button_b" />
                     <TextView
-                        android:textSize="16dp"
+                        android:textSize="14dp"
                         android:textColor="#11122E"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
@@ -202,7 +202,7 @@
                         android:layout_height="45.0dp"
                         android:id="@+id/button_c" />
                     <TextView
-                        android:textSize="16dp"
+                        android:textSize="14dp"
                         android:textColor="#11122E"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
@@ -250,7 +250,7 @@
                         android:layout_height="45.0dp"
                         android:id="@+id/button_d" />
                     <TextView
-                        android:textSize="16dp"
+                        android:textSize="14dp"
                         android:textColor="#11122E"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
@@ -298,7 +298,7 @@
                         android:layout_height="45.0dp"
                         android:id="@+id/button_e" />
                     <TextView
-                        android:textSize="16dp"
+                        android:textSize="14dp"
                         android:textColor="#11122E"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"

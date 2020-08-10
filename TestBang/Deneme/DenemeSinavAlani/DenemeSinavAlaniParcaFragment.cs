@@ -13,6 +13,7 @@ using Android.Views;
 using Android.Widget;
 using TestBang.DataBasee;
 using TestBang.GenericClass;
+using TestBang.WebServices;
 using static TestBang.Test.TestOlustur.TestOlusturBaseActivity;
 
 namespace TestBang.Deneme.DenemeSinavAlani
@@ -204,10 +205,23 @@ namespace TestBang.Deneme.DenemeSinavAlani
 
             DenemeSinavAlaniHelperClass.KullaniciCevaplariDTO1[QestionPosition].userAnswer = Cevap;
 
-            DenemeSinavAlaniHelperClass.KullaniciCevaplariDTO1[QestionPosition].userId = MeData.id.ToString();
+            DenemeSinavAlaniHelperClass.KullaniciCevaplariDTO1[QestionPosition].lessonName =
+            DenemeSinavAlaniHelperClass.DenemeSorulariDTO1[QestionPosition].lessonName;
 
+            DenemeSinavAlaniHelperClass.KullaniciCevaplariDTO1[QestionPosition].userId = MeData.email.ToString();
 
         }
+
+
+        //string GetTopicNameByID(string topicid)
+        //{
+        //    WebService webService = new WebService();
+        //    var Donus = webService.OkuGetir("topics/" + topicid);
+        //    if (Donus!=null)
+        //    {
+        //        var Icerik = Newtonsoft.Json.JsonConvert.DeserializeObject<Topic>(Donus.ToString());
+        //    }
+        //}
 
         void SoruCevapImageKontrol()
         {

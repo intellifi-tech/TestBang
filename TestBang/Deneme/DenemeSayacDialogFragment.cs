@@ -84,11 +84,11 @@ namespace TestBang.Deneme
             Timer1.Elapsed += Timer1_Elapsed;
             Timer1.Start();
 
-            if (UzakSunucuTakvimDTO1 != null)
-            {
-                DenemeyeKatilButton.Text = "KATILIMINIZ ONAYLI";
-                DenemeyeKatilButton.Enabled = false;
-            }
+            //if (UzakSunucuTakvimDTO1 != null)
+            //{
+            //    DenemeyeKatilButton.Text = "BAŞVURU ONAYLANDI";
+            //    DenemeyeKatilButton.Enabled = false;
+            //}
 
             return view;
         }
@@ -99,7 +99,7 @@ namespace TestBang.Deneme
 
             DERS_PROGRAMI dERS_PROGRAMI = new DERS_PROGRAMI()
             {
-                date = DateTime.Now.ToString("yyyy-MM-dd'T'HH:mm:ssZ"),
+                date = UzakSunucuDenemeDTO1.startDate.ToString("yyyy-MM-dd'T'HH:mm:ssZ"),
                 description = "",
                 trialId = UzakSunucuDenemeDTO1.id,
                 userId = DataBase.MEMBER_DATA_GETIR()[0].id,
@@ -113,8 +113,9 @@ namespace TestBang.Deneme
                 if (Icerik != null)
                 {
                     DataBase.DERS_PROGRAMI_EKLE(Icerik);
+                    DersProgramiBaseActivityHelper.DersProgramiBaseActivity1.IcerikleriOlustur();
                     AlertHelper.AlertGoster("Ders Programı Oluşturuldu", this.Activity);
-                    DenemeyeKatilButton.Text = "KATILIMINIZ ONAYLI";
+                    DenemeyeKatilButton.Text = "BAŞVURU ONAYLANDI";
                     DenemeyeKatilButton.Enabled = false;
                     return;
                 }
@@ -133,8 +134,8 @@ namespace TestBang.Deneme
 
         private void DenemeyeKatilButton_Click(object sender, EventArgs e)
         {
-            CreateCalander();
-            //SinavaGir();
+            //CreateCalander();
+            SinavaGir();
             return;
         }
         bool Actinmi = false;
@@ -158,7 +159,14 @@ namespace TestBang.Deneme
         private void Timer1_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             var KalanZaman = UzakSunucuDenemeDTO1.startDate - DateTime.Now;
-            KalanSureText.Text = (int)KalanZaman.Days + ":" + (int)KalanZaman.Hours + ":" + (int)KalanZaman.Minutes + ":" + (int)KalanZaman.Seconds;
+            if (KalanZaman.Days == 0 && KalanZaman.Hours == 0 && KalanZaman.Minutes == 0 && KalanZaman.Seconds == 0)
+            {
+                SinavaGir();
+            }
+            else
+            {
+                KalanSureText.Text = (int)KalanZaman.Days + ":" + (int)KalanZaman.Hours + ":" + (int)KalanZaman.Minutes + ":" + (int)KalanZaman.Seconds;
+            }
         }
     }
 }

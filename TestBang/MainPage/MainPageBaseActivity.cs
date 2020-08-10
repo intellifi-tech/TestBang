@@ -55,27 +55,27 @@ namespace TestBang.MainPage
                 case 0:
                     ArkaPlan.SetBackgroundColor(Color.ParseColor("#F05070"));
                     dinamikStatusBarColor.Pembe(this);
-                    //Logoo.SetImageResource(Resource.Mipmap.testbang_logo_img2);
+                    Logoo.SetImageResource(Resource.Mipmap.testbang_logo_img2);
                     break;
                 case 1:
                     ArkaPlan.SetBackgroundColor(Color.ParseColor("#11122E"));
                     dinamikStatusBarColor.Lacivert(this);
-                    //Logoo.SetImageResource(Resource.Mipmap.testbang_logo_img3);
+                    Logoo.SetImageResource(Resource.Mipmap.testbang_logo_img4);
                     break;
                 case 2:
                     ArkaPlan.SetBackgroundColor(Color.ParseColor("#1EB04B"));
                     dinamikStatusBarColor.Yesil(this);
-                    //Logoo.SetImageResource(Resource.Mipmap.testbang_logo_img2);
+                    Logoo.SetImageResource(Resource.Mipmap.testbang_logo_img2);
                     break;
                 case 3:
                     ArkaPlan.SetBackgroundColor(Color.ParseColor("#11122E"));
                     dinamikStatusBarColor.Lacivert(this);
-                   // Logoo.SetImageResource(Resource.Mipmap.testbang_logo_img3);
+                    Logoo.SetImageResource(Resource.Mipmap.testbang_logo_img4);
                     break;
                 case 4:
                     ArkaPlan.SetBackgroundColor(Color.ParseColor("#F05171"));
                     dinamikStatusBarColor.Pembe(this);
-                    //Logoo.SetImageResource(Resource.Mipmap.testbang_logo_img2);
+                    Logoo.SetImageResource(Resource.Mipmap.testbang_logo_img2);
                     break;
                 default:
                     break;

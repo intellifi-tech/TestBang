@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -37,6 +36,7 @@ namespace TestBang.Oyun
             RasgeleAra.Click += RasgeleAra_Click;
             return Vieww;
         }
+        
         private void RasgeleAra_Click(object sender, EventArgs e)
         {
             var RasgeleRakipAraDialogFragment1 = new RasgeleRakipAraDialogFragment();
@@ -50,5 +50,7 @@ namespace TestBang.Oyun
             ArkadaslarindanSecDialogFragment1.Show(this.Activity.SupportFragmentManager, "ArkadaslarindanSecDialogFragment1");
             //this.Activity.StartActivity(typeof(OyunSinavAlaniBaseActivity));
         }
+
+      
     }
 }

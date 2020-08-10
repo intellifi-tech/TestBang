@@ -137,6 +137,10 @@ namespace TestBang.GirisKayit
                 var Icerik = Newtonsoft.Json.JsonConvert.DeserializeObject<MEMBER_DATA>(JSONData.ToString());
                 Icerik.API_TOKEN = APITOKEN.TOKEN;
                 Icerik.password = PassWord;
+                if (Icerik.gender == null)//null false oldugu icin javascripte sorun olmuyor
+                {
+                    Icerik.gender = false;
+                }
                 DataBase.MEMBER_DATA_EKLE(Icerik);
                 return true;
             }

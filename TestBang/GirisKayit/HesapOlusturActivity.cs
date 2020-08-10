@@ -18,7 +18,7 @@ using static TestBang.GirisKayit.GirisBaseActivity;
 
 namespace TestBang.GirisKayit
 {
-    [Activity(Label = "TestBang")]
+    [Activity(Label = "TestBang!")]
     public class HesapOlusturActivity : Android.Support.V7.App.AppCompatActivity
     {
         #region Tanimlamalar

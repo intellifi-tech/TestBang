@@ -131,10 +131,24 @@ namespace TestBang.AnaSayfa
         void ShowUserInfo()
         {
             AdText.Text = MeUser.firstName.ToUpper() + " " + MeUser.lastName.ToUpper();
-            CinsiyetText.Text = (bool)MeUser.gender ? "Erkek" : "Kadın";
-            Cinsiyeticon.SetImageResource((bool)MeUser.gender ? Resource.Mipmap.maleimg1 : Resource.Mipmap.femaleimg1);
+            
             YasText.Text = ((int)(DateTime.Now.Year - Convert.ToDateTime(MeUser.birthday).Year)).ToString();
-            SetTownNameByID((int)MeUser.townId);
+            try
+            {
+                CinsiyetText.Text = (bool)MeUser.gender ? "Erkek" : "Kadın";
+                Cinsiyeticon.SetImageResource((bool)MeUser.gender ? Resource.Mipmap.maleimg1 : Resource.Mipmap.femaleimg1);
+            }
+            catch 
+            {
+            }
+            try
+            {
+                SetTownNameByID((int)MeUser.townId);
+            }
+            catch 
+            {
+            }
+            
         }
 
         void SetTownNameByID(int TownID)

@@ -6331,16 +6331,19 @@ namespace TestBang
 			public const int testbang_logo_img3 = 2131558456;
 			
 			// aapt resource value: 0x7F0D0039
-			public const int testcozheaderimg = 2131558457;
+			public const int testbang_logo_img4 = 2131558457;
 			
 			// aapt resource value: 0x7F0D003A
-			public const int testearaverildiimg = 2131558458;
+			public const int testcozheaderimg = 2131558458;
 			
 			// aapt resource value: 0x7F0D003B
-			public const int transkriptsiralamaimg = 2131558459;
+			public const int testearaverildiimg = 2131558459;
 			
 			// aapt resource value: 0x7F0D003C
-			public const int yasimg1 = 2131558460;
+			public const int transkriptsiralamaimg = 2131558460;
+			
+			// aapt resource value: 0x7F0D003D
+			public const int yasimg1 = 2131558461;
 			
 			static Mipmap()
 			{
