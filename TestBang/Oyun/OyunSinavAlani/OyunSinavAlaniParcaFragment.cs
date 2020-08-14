@@ -10,7 +10,11 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using Newtonsoft.Json;
+using TestBang.DataBasee;
 using TestBang.GenericClass;
+using TestBang.GenericClass.StompHelper;
+using static TestBang.GenericClass.OyunSocketHelper;
 
 namespace TestBang.Oyun.OyunSinavAlani
 {
@@ -21,6 +25,7 @@ namespace TestBang.Oyun.OyunSinavAlani
         Button Answer_A_Button, Answer_B_Button, Answer_C_Button, Answer_D_Button, Answer_E_Button;
         ImageView SoruImage, Answer_A_Image, Answer_B_Image, Answer_C_Image, Answer_D_Image, Answer_E_Image;
         RelativeLayout Relative_A, Relative_B, Relative_C, Relative_D, Relative_E;
+        MEMBER_DATA MeId = DataBase.MEMBER_DATA_GETIR()[0];
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -63,18 +68,16 @@ namespace TestBang.Oyun.OyunSinavAlani
             Relative_D = Vieww.FindViewById<RelativeLayout>(Resource.Id.relative_d);
             Relative_E = Vieww.FindViewById<RelativeLayout>(Resource.Id.relative_e);
 
+         
 
-
-
-
-            //DersAdiText.Text = SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.lessonName;
-            //CurrentSoruNumber.Text = "SORU " + (QestionPosition + 1).ToString() + "/" + SecilenTest.OlusanTest.questionCount.ToString();
-            //SoruText.Text = SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.text;
-            //Answer_A_Text.Text = SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[0].text;
-            //Answer_B_Text.Text = SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[1].text;
-            //Answer_C_Text.Text = SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[2].text;
-            //Answer_D_Text.Text = SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[3].text;
-            //Answer_E_Text.Text = SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[4].text;
+            DersAdiText.Text = OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].lessonName;
+            CurrentSoruNumber.Text = "SORU " + (QestionPosition + 1).ToString() + "/" + OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList.Count.ToString();
+            SoruText.Text = OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].text;
+            Answer_A_Text.Text = OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].answers[0].text;
+            Answer_B_Text.Text = OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].answers[1].text;
+            Answer_C_Text.Text = OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].answers[2].text;
+            Answer_D_Text.Text = OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].answers[3].text;
+            Answer_E_Text.Text = OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].answers[4].text;
 
 
             SoruCevapImageKontrol();
@@ -111,18 +114,21 @@ namespace TestBang.Oyun.OyunSinavAlani
             return Vieww;
         }
 
+
         private void Answer_E_Button_Click(object sender, EventArgs e)
         {
             TumSecimleriTemzile();
             Relative_E.SetBackgroundResource(Resource.Drawable.test_secenek_secim_bg);
-            //SecilenTest.OlusanTest.userTestQuestions[QestionPosition].userAnswer = "E";
+            OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].userAnswer = "E";
+            GuncellemeGonderSoket();
         }
 
         private void Answer_D_Button_Click(object sender, EventArgs e)
         {
             TumSecimleriTemzile();
             Relative_D.SetBackgroundResource(Resource.Drawable.test_secenek_secim_bg);
-           // SecilenTest.OlusanTest.userTestQuestions[QestionPosition].userAnswer = "D";
+            OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].userAnswer = "D";
+            GuncellemeGonderSoket();
         }
 
         private void Answer_C_Button_Click1(object sender, EventArgs e)
@@ -130,21 +136,25 @@ namespace TestBang.Oyun.OyunSinavAlani
             
             TumSecimleriTemzile();
             Relative_C.SetBackgroundResource(Resource.Drawable.test_secenek_secim_bg);
-           // SecilenTest.OlusanTest.userTestQuestions[QestionPosition].userAnswer = "C";
+            OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].userAnswer = "C";
+            GuncellemeGonderSoket();
         }
 
         private void Answer_B_Button_Click(object sender, EventArgs e)
         {
             TumSecimleriTemzile();
             Relative_B.SetBackgroundResource(Resource.Drawable.test_secenek_secim_bg);
-            //SecilenTest.OlusanTest.userTestQuestions[QestionPosition].userAnswer = "B";
+            OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].userAnswer = "B";
+            GuncellemeGonderSoket();
         }
 
         private void Answer_A_Button_Click(object sender, EventArgs e)
         {
             TumSecimleriTemzile();
             Relative_A.SetBackgroundResource(Resource.Drawable.test_secenek_secim_bg);
-            //SecilenTest.OlusanTest.userTestQuestions[QestionPosition].userAnswer = "A";
+            OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].userAnswer = "A";
+            GuncellemeGonderSoket();
+
         }
 
         void TumSecimleriTemzile()
@@ -157,33 +167,60 @@ namespace TestBang.Oyun.OyunSinavAlani
         }
 
 
+        void GuncellemeGonderSoket()
+        {
+            var ToplamCozumSayisi = OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList.FindAll(item => !string.IsNullOrEmpty(item.userAnswer)).Count;
+            if (ToplamCozumSayisi > 0)
+            {
+                TestSinavAlaniHelperClass.OyunSinavAlaniBaseActivity1.BenGuncelle(ToplamCozumSayisi);//Lokal UI güncelle
+
+                var content = new SoketSendRegisterDTO()
+                {
+                    category = "SOZ",
+                    userName = MeId.login,
+                    userQuestionIndex = ToplamCozumSayisi.ToString(),
+                    userToken = MeId.API_TOKEN,
+                    filters = new List<string>()
+                };
+                var broad = new StompMessage(StompFrame.SEND, JsonConvert.SerializeObject(content));
+                broad["content-type"] = "application/json";
+                // broad["username"] = MeId.login;
+                broad["destination"] = "/app/level";
+                var aaa = OyunSocketHelper_Helper.OyunSocketHelper1.serializer.Serialize(broad);
+                if (OyunSocketHelper_Helper.OyunSocketHelper1.ws.IsAlive)
+                {
+                    OyunSocketHelper_Helper.OyunSocketHelper1.ws.Send(aaa);
+                }
+            }
+        }
+
+
         void SoruCevapImageKontrol()
         {
-            /*
-            if (!string.IsNullOrEmpty(SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.imagePath))
+            if (!string.IsNullOrEmpty(OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].imagePath))
             {
-                ImageYansit(SoruImage, SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.imagePath);
+                ImageYansit(SoruImage, OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].imagePath);
             }
-            if (!string.IsNullOrEmpty(SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[0].imagePath))
+            if (!string.IsNullOrEmpty(OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].answers[0].imagePath))
             {
-                ImageYansit(Answer_A_Image, SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[0].imagePath);
+                ImageYansit(Answer_A_Image, OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].answers[0].imagePath);
             }
-            if (!string.IsNullOrEmpty(SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[1].imagePath))
+            if (!string.IsNullOrEmpty(OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].answers[1].imagePath))
             {
-                ImageYansit(Answer_B_Image, SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[1].imagePath);
+                ImageYansit(Answer_B_Image, OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].answers[1].imagePath);
             }
-            if (!string.IsNullOrEmpty(SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[2].imagePath))
+            if (!string.IsNullOrEmpty(OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].answers[2].imagePath))
             {
-                ImageYansit(Answer_C_Image, SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[2].imagePath);
+                ImageYansit(Answer_C_Image, OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].answers[2].imagePath);
             }
-            if (!string.IsNullOrEmpty(SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[3].imagePath))
+            if (!string.IsNullOrEmpty(OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].answers[3].imagePath))
             {
-                ImageYansit(Answer_D_Image, SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[3].imagePath);
+                ImageYansit(Answer_D_Image, OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].answers[3].imagePath);
             }
-            if (!string.IsNullOrEmpty(SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[4].imagePath))
+            if (!string.IsNullOrEmpty(OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].answers[4].imagePath))
             {
-                ImageYansit(Answer_E_Image, SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[4].imagePath);
-            }*/
+                ImageYansit(Answer_E_Image, OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList[QestionPosition].answers[4].imagePath);
+            }
         }
 
         void ImageYansit(ImageView GelenView, string Base64String)

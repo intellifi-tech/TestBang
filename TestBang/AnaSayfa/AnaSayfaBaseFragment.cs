@@ -78,6 +78,11 @@ namespace TestBang.AnaSayfa
             ProfilGoruntuleButton.Click += ProfilGoruntuleButton_Click;
             PerformansButton.Click += PerformansButton_Click;
             TestCozButton.Click += TestCozButton_Click;
+
+
+         
+
+
             ShowUserInfo();
             GenelTestSonuclariniGetir();
             return RootView;

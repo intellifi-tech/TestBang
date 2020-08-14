@@ -56,6 +56,7 @@ namespace TestBang.WebServices
             if (!isLogin)
             {
                 request.AddHeader("Authorization", "Bearer " + GetApiToken());
+               // request.AddParameter("Bearer", DataBase.MEMBER_DATA_GETIR()[0].API_TOKEN, RestSharp.ParameterType.Cookie);
             }
             request.AddParameter(ContentType, istekler, RestSharp.ParameterType.RequestBody);
             RestSharp.IRestResponse response = client.Execute(request);
@@ -105,6 +106,7 @@ namespace TestBang.WebServices
             if (!isLogin)
             {
                 request.AddHeader("Authorization", "Bearer " + GetApiToken());
+               // request.AddParameter("Bearer", DataBase.MEMBER_DATA_GETIR()[0].API_TOKEN,RestSharp.ParameterType.Cookie);
             }
             RestSharp.IRestResponse response = client.Execute(request);
             if (response.StatusCode != HttpStatusCode.Unauthorized &&

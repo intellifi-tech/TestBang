@@ -93,6 +93,7 @@
     <Compile Include="GenericClass\IntroTransformer.cs" />
     <Compile Include="GenericClass\MapUtils.cs" />
     <Compile Include="GenericClass\MultiLineChart.cs" />
+    <Compile Include="GenericClass\OyunSocketHelper.cs" />
     <Compile Include="GenericClass\Saat_Secim.cs" />
     <Compile Include="GenericClass\ScaleImageView.cs" />
     <Compile Include="GenericClass\SosyalLoginHelper.cs" />
@@ -207,6 +208,7 @@
     <PackageReference Include="Xamarin.Android.Support.CustomTabs" Version="28.0.0.1" />
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.1.0" />
     <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.0.0" />
+    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0" />
     <PackageReference Include="Xamarin.Google.Android.Material" Version="1.0.0" />
     <PackageReference Include="Xamarin.Auth">
       <Version>1.7.0</Version>

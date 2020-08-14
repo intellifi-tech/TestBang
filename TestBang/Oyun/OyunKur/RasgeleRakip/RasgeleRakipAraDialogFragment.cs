@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Android;
 using Android.App;
@@ -37,9 +38,10 @@ namespace TestBang.Oyun.OyunKur
         MEMBER_DATA MeId = DataBase.MEMBER_DATA_GETIR()[0];
 
         #region Soket
-        public WebSocket ws = new WebSocket("ws://185.184.210.20:8080/ws");//ws://94.101.87.230:10000/ws
+        public WebSocket ws = new WebSocket("ws://185.184.210.20:8080/ws/websocket");//ws://185.184.210.20:8080/ws/websocket
         //ws://192.168.1.38:8080/ws/app/register
         public StompMessageSerializer serializer = new StompMessageSerializer();
+        OyunSocketHelper OyunSocketHelper1 = new OyunSocketHelper();
         #endregion
 
 
@@ -89,7 +91,10 @@ namespace TestBang.Oyun.OyunKur
         void SoketeGirisYap()
         {
 
-            CreateSocketEvents();
+
+            OyunSocketHelper1.Init("SAY",(Android.Support.V7.App.AppCompatActivity)this.Activity,this);
+
+           // CreateSocketEvents();
 
 
             //SoketJoin SoketJoin1 = new SoketJoin()
@@ -103,7 +108,7 @@ namespace TestBang.Oyun.OyunKur
             //{
             //    var aaa = Donus.ToString();
             //    var SoketJoinResponseDTO1 = JsonConvert.DeserializeObject<SoketJoinResponseDTO>(Donus.ToString());
-                
+
             //}
         }
 
@@ -112,15 +117,15 @@ namespace TestBang.Oyun.OyunKur
         void CreateSocketEvents()
         {
             
-            var cookiee = new WebSocketSharp.Net.Cookie("username", MeId.login); //poiu@poiuy.com qwer1234
-
-
+           // var cookiee = new WebSocketSharp.Net.Cookie("username", MeId.login); //poiu@poiuy.com qwer1234
+            var cookie1 = new WebSocketSharp.Net.Cookie("clientType", "socket"); //poiu@poiuy.com qwer1234
             var cookiee2 = new WebSocketSharp.Net.Cookie("Bearer", MeId.API_TOKEN);
 
             ws.Log.Level = LogLevel.Trace;
             //  ws.SetCredentials("Bearer", "MeId.API_TOKEN", false);
             // ws.SetCookie(cookiee);
             ws.SetCookie(cookiee2);
+            ws.SetCookie(cookie1);
           //  ws.WaitTime = TimeSpan.FromSeconds(5);
             ws.OnMessage -= ws_OnMessage;
             ws.OnClose -= ws_OnClose;
@@ -153,6 +158,7 @@ namespace TestBang.Oyun.OyunKur
             UpdateListBox(" ws_OnOpen says: " + e.ToString());
             System.Console.WriteLine("AÇILDII : " + DateTime.Now.ToString());
             ConnectStomp();
+            TestConnection();
         }
         void ws_OnClose(object sender, CloseEventArgs e)
         {
@@ -169,9 +175,14 @@ namespace TestBang.Oyun.OyunKur
             {
                 UpdateListBox(e.Data);
                 SubscribeStomp();
+                SendRegister();
             }
             else if (msg.Command == StompFrame.MESSAGE)
             {
+                this.Activity.RunOnUiThread(delegate ()
+                {
+                    Toast.MakeText(this.Activity, "Eslesti", ToastLength.Long).Show();
+                });
                 //Content Mesajj = null;
                 //try
                 //{
@@ -182,10 +193,48 @@ namespace TestBang.Oyun.OyunKur
                 //catch
                 //{
                 //}
+
+                //Start => ChatRoom
+                //Level => ChatUser  Send yapılır
+                //Index => ChatUser 
+
             }
         }
-       
-        
+        void TestConnection()
+        {
+            Timer _timerr;
+            Handler h2;
+            h2 = new Handler();
+            new System.Threading.Thread(new System.Threading.ThreadStart(delegate
+            {
+                _timerr = new System.Threading.Timer((o) =>
+                {
+                    if (ws.IsAlive)
+                    {
+                        var alivee = ws.IsAlive;
+                        var pibngg = ws.Ping();
+                        if (!alivee && !pibngg)
+                        {
+                            ws.Connect();
+                        }
+                    }
+                    else
+                    {
+                        try
+                        {
+                            ws.Connect();
+                        }
+                        catch
+                        {
+                            Thread.Sleep(10000);
+                        }
+
+                    }
+                }, null, 0, 5000);
+
+            })).Start();
+        }
+
         private void ConnectStomp()
         {
             var connect = new StompMessage(StompFrame.CONNECT);
@@ -201,30 +250,63 @@ namespace TestBang.Oyun.OyunKur
         private void SubscribeStomp()
         {
             var sub1 = new StompMessage(StompFrame.SUBSCRIBE);
+            sub1["id"] = MeId.login;
             sub1["destination"] = "/user/"+MeId.login+"/start"; //Oyun başlatıyoruz soruları alıyoruz
             ws.Send(serializer.Serialize(sub1));
 
             var sub2 = new StompMessage(StompFrame.SUBSCRIBE);
+            sub2["id"] = MeId.login;
             sub2["destination"] = "/user/" + MeId.login + "/left"; //Bağlantın koptuğu anda buraya istek atıyorsun karşı oyuncuyu bilgilendirmek için
             ws.Send(serializer.Serialize(sub2));
 
             var sub3 = new StompMessage(StompFrame.SUBSCRIBE);
+            sub3["id"] = MeId.login;
             sub3["destination"] = "/user/" + MeId.login + "/index"; //Oyun esnasında rakibin son durumunu alacağız
             ws.Send(serializer.Serialize(sub3));
-
         }
-        #endregion
-        #endregion
+
+        void SendRegister()
+        {
+            var content = new SoketSendRegisterDTO() { 
+                category = "SOZ",
+                userName = MeId.login,
+                userQuestionIndex = "0"
+            };
+            var broad = new StompMessage(StompFrame.SEND, JsonConvert.SerializeObject(content));
+            broad["content-type"] = "application/json";
+           // broad["username"] = MeId.login;
+            broad["destination"] = "/app/register";
+            var aaa = serializer.Serialize(broad);
+            if (ws.IsAlive)
+            {
+                ws.Send(aaa);
+            }
+        }
 
 
+    #endregion
+
+
+
+
+    #endregion
 
 
         #region DTOS
-        public class SoketSendDTO
+         public class SoketSendRegisterDTO //ChatUser
         {
             public string userName;
             public string category;
             public string userQuestionIndex;
+        }
+
+
+        public class Content
+        {
+            public string type { get; set; }
+            public string userName { get; set; }
+            public string toUserName { get; set; }
+            public string message { get; set; }
         }
         #endregion
     }

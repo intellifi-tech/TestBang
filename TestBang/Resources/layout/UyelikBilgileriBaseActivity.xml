@@ -20,43 +20,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/ımageView1"
             android:layout_marginLeft="25.0dp" />
-        <LinearLayout
-            android:layout_alignParentRight="true"
-            android:orientation="horizontal"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/linearLayout1"
-            android:layout_marginRight="25dp">
-            <RelativeLayout
-                android:layout_gravity="center_vertical"
-                android:minWidth="25px"
-                android:minHeight="25px"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:id="@+id/relativeLayout2">
-                <ImageView
-                    android:layout_marginTop="10dp"
-                    android:scaleType="centerInside"
-                    android:src="@mipmap/notification1"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:id="@+id/ımageView2" />
-                <TextView
-                    android:textSize="13dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_alignParentRight="true"
-                    android:gravity="center"
-                    android:background="@drawable/bildirimIcinBadge"
-                    android:textColor="#F05070"
-                    android:text="3"
-                    android:layout_width="17dp"
-                    android:layout_height="17dp"
-                    android:id="@+id/textView1" />
-            </RelativeLayout>
-        </LinearLayout>
     </RelativeLayout>
     <RelativeLayout
         android:background="#fff"
@@ -107,7 +70,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/linearLayout12">
-                    <android.support.v7.widget.CardView
+                    <androidx.cardview.widget.CardView
                         app:cardElevation="8dp"
                         app:cardCornerRadius="15dp"
                         android:layout_margin="10dp"
@@ -155,8 +118,8 @@
                                 android:id="@+id/textView5" />
                             </LinearLayout>
                         </RelativeLayout>
-                    </android.support.v7.widget.CardView>
-                    <android.support.v7.widget.CardView
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
                         app:cardElevation="8dp"
                         app:cardCornerRadius="15dp"
                         android:layout_margin="10dp"
@@ -204,8 +167,8 @@
                                 android:id="@+id/textView5" />
                             </LinearLayout>
                         </RelativeLayout>
-                    </android.support.v7.widget.CardView>
-                    <android.support.v7.widget.CardView
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
                         app:cardElevation="8dp"
                         app:cardCornerRadius="15dp"
                         android:layout_margin="10dp"
@@ -253,94 +216,12 @@
                                 android:id="@+id/textView5" />
                             </LinearLayout>
                         </RelativeLayout>
-                    </android.support.v7.widget.CardView>
+                    </androidx.cardview.widget.CardView>
                  </LinearLayout>
-                <RelativeLayout
-                    android:minWidth="25px"
-                    android:minHeight="25px"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/relativeLayout5" >
-                <LinearLayout
-                    android:layout_centerHorizontal="true"
-                    android:orientation="horizontal"
-                    android:minWidth="25px"
-                    android:minHeight="25px"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/linearLayout13" >
-                    <LinearLayout
-                        android:layout_marginRight="10dp"
-                        android:orientation="vertical"
-                        android:minWidth="25px"
-                        android:minHeight="25px"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:id="@+id/linearLayout14">
-                    <TextView
-                        android:textSize="10dp"
-                        android:layout_marginBottom="3dp"
-                        android:layout_weight="50"
-                        android:textColor="#11122E"
-                        android:gravity="center_horizontal|bottom"
-                        android:text="Sözleşme Bitiş Tarihi"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView4" />
-                        <TextView
-                            android:background="@drawable/sozlesmebitisbg1"
-                            android:padding="8dp"
-                            android:textSize="10dp"
-                            android:layout_marginBottom="3dp"
-                            android:layout_weight="50"
-                            android:textColor="#F05070"
-                            android:gravity="center_horizontal|bottom"
-                            android:text="N/A"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/textView4" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_marginLeft="10dp"
-                        android:orientation="vertical"
-                        android:minWidth="25px"
-                        android:minHeight="25px"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:id="@+id/linearLayout14">
-                    <TextView
-                        android:textSize="10dp"
-                        android:layout_marginBottom="3dp"
-                        android:layout_weight="50"
-                        android:textColor="#11122E"
-                        android:gravity="center_horizontal|bottom"
-                        android:text="Ödeme Geçmişi"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView4" />
-                    <TextView
-                        android:background="@drawable/odemegecmisiincelebg"
-                        android:padding="8dp"
-                        android:textSize="10dp"
-                        android:layout_marginBottom="3dp"
-                        android:layout_weight="50"
-                        android:textColor="#fff"
-                        android:gravity="center_horizontal|bottom"
-                        android:text="İNCELE"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView4" />
-                    </LinearLayout>
-                </LinearLayout>
-                </RelativeLayout>
                 <LinearLayout
                 android:layout_marginBottom="15dp"
                  android:layout_gravity="center_horizontal"
-                 android:layout_marginTop="15dp"
+                 android:layout_marginTop="10dp"
                  android:orientation="horizontal"
                  android:minWidth="25px"
                  android:minHeight="25px"
@@ -351,7 +232,7 @@
                      android:textSize="10dp"
                      android:textColor="#fff"
                      android:background="@drawable/oturumkapatbuttonbg"
-                     android:text="PAKET DEĞİŞTİR"
+                     android:text="Ödeme Geçmişi"
                      android:layout_width="150dp"
                      android:layout_height="45dp"
                      android:layout_marginRight="5dp"
@@ -361,11 +242,47 @@
                      android:textSize="10dp"
                      android:textColor="#fff"
                      android:background="@drawable/ayarlarbuttonbg"
-                     android:text="ÜYELİĞİ DEĞİŞTİR"
+                     android:text="Üyeliği İptal Et"
                      android:layout_width="150dp"
                      android:layout_height="45dp"
                      android:id="@+id/button2" />
             </LinearLayout>
+                <LinearLayout
+                      android:layout_marginLeft="20dp"
+                      android:layout_marginRight="20dp"
+                      android:layout_marginTop="10dp"
+                      android:layout_marginBottom="10dp"
+                      android:background="@drawable/hesapolusturinputbg"
+                      android:orientation="horizontal"
+                      android:minWidth="25px"
+                      android:minHeight="25px"
+                      android:layout_width="match_parent"
+                      android:layout_height="50.0dp"
+                      android:id="@+id/linearLayout2">
+                      <ImageView
+                          android:alpha="0.4"
+                          android:tint="#50ffffff"
+                          android:padding="5dp"
+                          android:src="@mipmap/rakiparaimg"
+                          android:layout_width="30.5dp"
+                          android:layout_height="match_parent"
+                          android:id="@+id/ımageView2"
+                          android:layout_marginLeft="15.0dp" />
+                      <EditText
+                          android:textSize="12dp"
+                          android:paddingLeft="15dp"
+                          android:background="@null"
+                          android:textColor="#11122E"
+                          android:hint="Kupon Kodu"
+                          android:textColorHint="#9011122E"
+                          android:layout_marginLeft="0.0dp"
+                          android:layout_marginRight="0.0dp"
+                          android:inputType="number"
+                          android:maxLength="16"
+                          android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:id="@+id/editText2" />
+                   </LinearLayout>
                 <LinearLayout
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"

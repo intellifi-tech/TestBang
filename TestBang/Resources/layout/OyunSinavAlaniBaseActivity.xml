@@ -73,35 +73,118 @@
                     android:paddingRight="10dp"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
-                    android:id="@+id/textView10" />
+                    android:id="@+id/benIsim" />
                 <LinearLayout
                     android:layout_marginLeft="15dp"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@+id/textView10"
+                    android:layout_toRightOf="@+id/benIsim"
                     android:orientation="horizontal"
                     android:minWidth="25px"
                     android:minHeight="25px"
+                    android:weightSum="100"
                     android:layout_width="match_parent"
                     android:layout_height="10dp"
                     android:id="@+id/progress2" >
-                    <LinearLayout
-                        android:layout_gravity="center_vertical"
-                        android:background="@drawable/oyunyesil"
-                        android:orientation="vertical"
-                        android:minWidth="25px"
-                        android:minHeight="25px"
-                        android:layout_width="35dp"
-                        android:layout_height="6dp"
-                        android:id="@+id/linearLayout17" />
                     <LinearLayout
                         android:layout_gravity="center_vertical"
                         android:background="@drawable/oyungri"
                         android:orientation="vertical"
                         android:minWidth="25px"
                         android:minHeight="25px"
-                        android:layout_width="35dp"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
                         android:layout_height="6dp"
-                        android:id="@+id/linearLayout17" />
+                        android:id="@+id/linearLayoutben1" />
+                     <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/oyungri"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="6dp"
+                        android:id="@+id/linearLayoutben2" />
+                     <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/oyungri"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="6dp"
+                        android:id="@+id/linearLayoutben3" />
+                     <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/oyungri"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="6dp"
+                        android:id="@+id/linearLayoutben4" />
+                     <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/oyungri"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="6dp"
+                        android:id="@+id/linearLayoutben5" />
+                     <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/oyungri"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="6dp"
+                        android:id="@+id/linearLayoutben6" />
+                     <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/oyungri"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="6dp"
+                        android:id="@+id/linearLayoutben7" />
+                     <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/oyungri"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="6dp"
+                        android:id="@+id/linearLayoutben8" />
+                     <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/oyungri"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="6dp"
+                        android:id="@+id/linearLayoutben9" />
+                     <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/oyungri"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="6dp"
+                        android:id="@+id/linearLayoutben10" />
                 </LinearLayout>
             </RelativeLayout>
             <RelativeLayout
@@ -122,17 +205,119 @@
                     android:paddingRight="10dp"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
-                    android:id="@+id/textView10" />
+                    android:id="@+id/oIsim" />
                 <LinearLayout
                     android:layout_marginLeft="15dp"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@+id/textView10"
+                    android:layout_toRightOf="@+id/oIsim"
                     android:orientation="horizontal"
                     android:minWidth="25px"
                     android:minHeight="25px"
+                    android:weightSum="100"
                     android:layout_width="match_parent"
                     android:layout_height="10dp"
-                    android:id="@+id/progress1" />
+                    android:id="@+id/progress1" >
+                    <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/oyungri"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="6dp"
+                        android:id="@+id/linearLayouto1" />
+                     <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/oyungri"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="6dp"
+                        android:id="@+id/linearLayouto2" />
+                     <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/oyungri"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="6dp"
+                        android:id="@+id/linearLayouto3" />
+                     <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/oyungri"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="6dp"
+                        android:id="@+id/linearLayouto4" />
+                     <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/oyungri"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="6dp"
+                        android:id="@+id/linearLayouto5" />
+                     <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/oyungri"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="6dp"
+                        android:id="@+id/linearLayouto6" />
+                     <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/oyungri"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="6dp"
+                        android:id="@+id/linearLayouto7" />
+                     <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/oyungri"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="6dp"
+                        android:id="@+id/linearLayouto8" />
+                     <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/oyungri"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="6dp"
+                        android:id="@+id/linearLayouto9" />
+                     <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/oyungri"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="6dp"
+                        android:id="@+id/linearLayouto10" />
+                </LinearLayout>
             </RelativeLayout>
             <LinearLayout
                 android:background="@drawable/girisbuttonbg"
