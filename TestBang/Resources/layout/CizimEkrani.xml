@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#fff"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="70dp"
+        app:cardElevation="15dp"
+        app:cardCornerRadius="0dp"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/cardView1">
+        <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout4" >
+        <LinearLayout
+            android:background="#eee"
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:weightSum="100"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout2" >
+            <LinearLayout
+            android:weightSum="100"
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_weight="60"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout1" >
+            <ImageButton
+                android:paddingBottom="22dp"
+                android:paddingTop="22dp"
+                android:scaleType="centerInside"
+                android:tint="#000"
+                android:background="@android:color/transparent"
+                android:src="@drawable/dot"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="20"
+                android:id="@+id/ımageButton1" />
+            <ImageButton
+                android:paddingBottom="18dp"
+                android:paddingTop="18dp"
+                android:scaleType="centerInside"
+                android:tint="#000"
+                android:background="@android:color/transparent"
+                android:src="@drawable/dot"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="20"
+                android:id="@+id/ımageButton2" />
+            <ImageButton
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp"
+                android:scaleType="centerInside"
+                android:tint="#000"
+                android:background="@android:color/transparent"
+                android:src="@drawable/dot"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="20"
+                android:id="@+id/ımageButton3" />
+            <ImageButton
+                android:paddingBottom="12dp"
+                android:paddingTop="12dp"
+                android:scaleType="centerInside"
+                android:tint="#000"
+                android:background="@android:color/transparent"
+                android:src="@drawable/dot"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="20"
+                android:id="@+id/ımageButton4" />
+            <ImageButton
+                android:scaleType="centerInside"
+                android:tint="#000"
+                android:background="@android:color/transparent"
+                android:src="@drawable/dot"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="20"
+                android:id="@+id/ımageButton5" />
+        </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_weight="40"
+                android:weightSum="99"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/linearLayout3" >
+               <ImageButton
+                android:background="#F05070"
+                android:layout_width="0dp"
+                android:layout_weight="33"
+                android:layout_height="50dp"
+                android:id="@+id/ımageButton6" />
+                <ImageButton
+                android:background="#1EB04B"
+                android:layout_width="0dp"
+                android:layout_weight="33"
+                android:layout_height="50dp"
+                android:id="@+id/ımageButton7" />
+                <ImageButton
+                android:background="#11122E"
+                android:layout_width="0dp"
+                android:layout_weight="33"
+                android:layout_height="50dp"
+                android:id="@+id/ımageButton8" />
+            </LinearLayout>
+        </LinearLayout>
+        <RelativeLayout
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/relativeLayout1" >
+        <TestBang.FingerPaintCanvasView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fingerPaintCanvasView1" />
+            <ImageButton
+                android:padding="7dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/girisbuton"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/eraser"
+                android:scaleType="centerInside"
+                android:tint="#fff"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/ımageButton9" />
+        </RelativeLayout>
+     </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <ImageButton
+        android:elevation="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/kirmizi_badge"
+        android:src="@drawable/closeicon1"
+        android:tint="#fff"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/ımageButton10" />
+    <TextView
+        android:layout_marginTop="5dp"
+        android:textSize="25dp"
+        android:textColor="#11122E"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:text="TestPad!"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/textView1" />
+
+</RelativeLayout>

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#11122E"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <RelativeLayout
         android:minWidth="25px"
         android:minHeight="25px"
@@ -20,6 +24,26 @@
             android:layout_height="wrap_content"
             android:id="@+id/ımageView1"
             android:layout_marginLeft="25.0dp" />
+        <LinearLayout
+                android:clickable="true"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/bildirimhaznebutton"
+                android:layout_marginRight="25dp">
+                <ImageButton
+                    android:padding="8dp"
+                    android:scaleType="centerInside"
+                    android:tint="#ffffff"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:src="@drawable/pencil"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/ımageButton1" />
+            </LinearLayout>
     </RelativeLayout>
     <RelativeLayout
         android:minWidth="25px"
@@ -383,4 +407,9 @@
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
-</LinearLayout>
+    </LinearLayout>
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/cizimhazne" />
+</RelativeLayout>

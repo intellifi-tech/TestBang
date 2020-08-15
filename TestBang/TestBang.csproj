@@ -106,7 +106,10 @@
     <Compile Include="GenericClass\ViewPagerStoryAnimation.cs" />
     <Compile Include="GenericClass\XamarinRecyclerViewOnScrollListener.cs" />
     <Compile Include="GenericUI\AlertHelper.cs" />
+    <Compile Include="GenericUI\CizimYapDialogFragment.cs" />
     <Compile Include="GenericUI\BilgiGirisiDialogFragment.cs" />
+    <Compile Include="GenericUI\CizimAraci\FingerPaintCanvasView.cs" />
+    <Compile Include="GenericUI\CizimAraci\FingerPaintPolyline.cs" />
     <Compile Include="GenericUI\CustomLoadingScreen.cs" />
     <Compile Include="GenericUI\DinamikActionSheet.cs" />
     <Compile Include="GenericUI\DinamikAdresSec.cs" />
@@ -1142,6 +1145,20 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-xhdpi\testbang_logo_img4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\CizimEkrani.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\pencil.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\dot.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\eraser.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
