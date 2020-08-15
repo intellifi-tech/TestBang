@@ -53,6 +53,7 @@ namespace TestBang.GenericUI
         {
             View view = inflater.Inflate(Resource.Layout.CizimEkrani, container, false);
             fingerPaintCanvasView = view.FindViewById<FingerPaintCanvasView>(Resource.Id.fingerPaintCanvasView1);
+            fingerPaintCanvasView.SetBackgroundColor(Color.Transparent);
             KapatButton = view.FindViewById<ImageButton>(Resource.Id.ımageButton10);
             TemizleButton = view.FindViewById<ImageButton>(Resource.Id.ımageButton9);
             TemizleButton.Click += TemizleButton_Click;
@@ -156,7 +157,8 @@ namespace TestBang.GenericUI
             {
                 //2, 5, 10, 20, 50
                 case 0:
-                    fingerPaintCanvasView.StrokeColor = Color.ParseColor("#F05070");
+                    //fingerPaintCanvasView.StrokeColor = Color.ParseColor("#F05070");
+                    fingerPaintCanvasView.StrokeColor = Color.Transparent;
                     break;
                 case 1:
                     fingerPaintCanvasView.StrokeColor = Color.ParseColor("#1EB04B");

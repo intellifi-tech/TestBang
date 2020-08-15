@@ -2,26 +2,56 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
      xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#fff"
+    android:background="@android:color/transparent"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <androidx.cardview.widget.CardView
-        android:layout_marginTop="70dp"
-        app:cardElevation="15dp"
-        app:cardCornerRadius="0dp"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/cardView1">
-        <LinearLayout
+    <ImageButton
+        android:elevation="20dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/kirmizi_badge"
+        android:src="@drawable/closeicon1"
+        android:tint="#fff"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/ımageButton10" />
+    <LinearLayout
+        android:layout_below="@+id/ımageButton10"
+        android:layout_above="@+id/linearLayout2"
         android:orientation="vertical"
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout4" >
-        <LinearLayout
+        <RelativeLayout
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/relativeLayout1" >
+        <TestBang.FingerPaintCanvasView
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fingerPaintCanvasView1" />
+            <ImageButton
+                android:padding="7dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/girisbuton"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/eraser"
+                android:scaleType="centerInside"
+                android:tint="#fff"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/ımageButton9" />
+        </RelativeLayout>
+     </LinearLayout>
+    <LinearLayout
+        android:layout_alignParentBottom="true"
             android:background="#eee"
             android:orientation="horizontal"
             android:minWidth="25px"
@@ -122,53 +152,4 @@
                 android:id="@+id/ımageButton8" />
             </LinearLayout>
         </LinearLayout>
-        <RelativeLayout
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/relativeLayout1" >
-        <TestBang.FingerPaintCanvasView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/fingerPaintCanvasView1" />
-            <ImageButton
-                android:padding="7dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/girisbuton"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/eraser"
-                android:scaleType="centerInside"
-                android:tint="#fff"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:id="@+id/ımageButton9" />
-        </RelativeLayout>
-     </LinearLayout>
-    </androidx.cardview.widget.CardView>
-    <ImageButton
-        android:elevation="20dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/kirmizi_badge"
-        android:src="@drawable/closeicon1"
-        android:tint="#fff"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/ımageButton10" />
-    <TextView
-        android:layout_marginTop="5dp"
-        android:textSize="25dp"
-        android:textColor="#11122E"
-        android:textStyle="bold"
-        android:layout_marginLeft="10dp"
-        android:gravity="center_vertical"
-        android:text="TestPad!"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:id="@+id/textView1" />
-
 </RelativeLayout>

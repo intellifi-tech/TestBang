@@ -4231,154 +4231,157 @@ namespace TestBang
 			public const int odemegecmisiincelebg = 2131165371;
 			
 			// aapt resource value: 0x7F0700BC
-			public const int oturumkapatbuttonbg = 2131165372;
+			public const int optikcember_noselect = 2131165372;
 			
 			// aapt resource value: 0x7F0700BD
-			public const int oyungri = 2131165373;
+			public const int oturumkapatbuttonbg = 2131165373;
 			
 			// aapt resource value: 0x7F0700BE
-			public const int oyunyesil = 2131165374;
+			public const int oyungri = 2131165374;
 			
 			// aapt resource value: 0x7F0700BF
-			public const int pencil = 2131165375;
+			public const int oyunyesil = 2131165375;
 			
 			// aapt resource value: 0x7F0700C0
-			public const int performansanalizbuttonbg = 2131165376;
+			public const int pencil = 2131165376;
 			
 			// aapt resource value: 0x7F0700C1
-			public const int pindusunuyorbf = 2131165377;
+			public const int performansanalizbuttonbg = 2131165377;
 			
 			// aapt resource value: 0x7F0700C2
-			public const int pinyapbg = 2131165378;
+			public const int pindusunuyorbf = 2131165378;
 			
 			// aapt resource value: 0x7F0700C3
-			public const int pinyapbg2 = 2131165379;
+			public const int pinyapbg = 2131165379;
 			
 			// aapt resource value: 0x7F0700C4
-			public const int position = 2131165380;
+			public const int pinyapbg2 = 2131165380;
 			
 			// aapt resource value: 0x7F0700C5
-			public const int profilegoruntulebuttonbg = 2131165381;
+			public const int position = 2131165381;
 			
 			// aapt resource value: 0x7F0700C6
-			public const int profilemenubg = 2131165382;
+			public const int profilegoruntulebuttonbg = 2131165382;
 			
 			// aapt resource value: 0x7F0700C7
-			public const int profiliguncellebuttonbg = 2131165383;
+			public const int profilemenubg = 2131165383;
 			
 			// aapt resource value: 0x7F0700C8
-			public const int programekleinput = 2131165384;
+			public const int profiliguncellebuttonbg = 2131165384;
 			
 			// aapt resource value: 0x7F0700C9
-			public const int progres_cevapsiz = 2131165385;
+			public const int programekleinput = 2131165385;
 			
 			// aapt resource value: 0x7F0700CA
-			public const int progres_dogru = 2131165386;
+			public const int progres_cevapsiz = 2131165386;
 			
 			// aapt resource value: 0x7F0700CB
-			public const int progres_yanlis = 2131165387;
+			public const int progres_dogru = 2131165387;
 			
 			// aapt resource value: 0x7F0700CC
-			public const int publicprofileheaderbg = 2131165388;
+			public const int progres_yanlis = 2131165388;
 			
 			// aapt resource value: 0x7F0700CD
-			public const int radioselect = 2131165389;
+			public const int publicprofileheaderbg = 2131165389;
 			
 			// aapt resource value: 0x7F0700CE
-			public const int radiounselect = 2131165390;
+			public const int radioselect = 2131165390;
 			
 			// aapt resource value: 0x7F0700CF
-			public const int rasgelerakipbuttonbg = 2131165391;
+			public const int radiounselect = 2131165391;
 			
 			// aapt resource value: 0x7F0700D0
-			public const int selectedradiobutton = 2131165392;
+			public const int rasgelerakipbuttonbg = 2131165392;
 			
 			// aapt resource value: 0x7F0700D1
-			public const int sifreguncelleinputbg = 2131165393;
+			public const int selectedradiobutton = 2131165393;
 			
 			// aapt resource value: 0x7F0700D2
-			public const int sozlesmebitisbg1 = 2131165394;
+			public const int sifreguncelleinputbg = 2131165394;
 			
 			// aapt resource value: 0x7F0700D3
-			public const int storebackground = 2131165395;
+			public const int sozlesmebitisbg1 = 2131165395;
 			
 			// aapt resource value: 0x7F0700D4
-			public const int storebackgroundstroke = 2131165396;
+			public const int storebackground = 2131165396;
 			
 			// aapt resource value: 0x7F0700D5
-			public const int storebackgroundstrokeselected = 2131165397;
+			public const int storebackgroundstroke = 2131165397;
 			
 			// aapt resource value: 0x7F0700D6
-			public const int storebutton = 2131165398;
+			public const int storebackgroundstrokeselected = 2131165398;
 			
 			// aapt resource value: 0x7F0700D7
-			public const int storegoldselected = 2131165399;
+			public const int storebutton = 2131165399;
 			
 			// aapt resource value: 0x7F0700D8
-			public const int storetextview = 2131165400;
+			public const int storegoldselected = 2131165400;
 			
 			// aapt resource value: 0x7F0700D9
-			public const int tabhaznebg = 2131165401;
+			public const int storetextview = 2131165401;
 			
 			// aapt resource value: 0x7F0700DA
-			public const int tablayoutBgSelector = 2131165402;
+			public const int tabhaznebg = 2131165402;
 			
 			// aapt resource value: 0x7F0700DB
-			public const int tabselectedbg = 2131165403;
+			public const int tablayoutBgSelector = 2131165403;
 			
 			// aapt resource value: 0x7F0700DC
-			public const int takvim_deneme_sinavi_gosterge = 2131165404;
+			public const int tabselectedbg = 2131165404;
 			
 			// aapt resource value: 0x7F0700DD
-			public const int takvim_deneme_ve_test_gosterge = 2131165405;
+			public const int takvim_deneme_sinavi_gosterge = 2131165405;
 			
 			// aapt resource value: 0x7F0700DE
-			public const int takvim_gun_gosterge = 2131165406;
+			public const int takvim_deneme_ve_test_gosterge = 2131165406;
 			
 			// aapt resource value: 0x7F0700DF
-			public const int takvim_kisisel_test_gosterge = 2131165407;
+			public const int takvim_gun_gosterge = 2131165407;
 			
 			// aapt resource value: 0x7F0700E0
-			public const int test_secenek_secim_bg = 2131165408;
+			public const int takvim_kisisel_test_gosterge = 2131165408;
 			
 			// aapt resource value: 0x7F0700E1
-			public const int tooltip_frame_dark = 2131165409;
+			public const int test_secenek_secim_bg = 2131165409;
 			
 			// aapt resource value: 0x7F0700E2
-			public const int tooltip_frame_light = 2131165410;
+			public const int tooltip_frame_dark = 2131165410;
 			
 			// aapt resource value: 0x7F0700E3
-			public const int transkriptsiramabg = 2131165411;
+			public const int tooltip_frame_light = 2131165411;
 			
 			// aapt resource value: 0x7F0700E4
-			public const int unselectedradiobutton = 2131165412;
+			public const int transkriptsiramabg = 2131165412;
 			
 			// aapt resource value: 0x7F0700E5
-			public const int unselectedwhiteradio = 2131165413;
+			public const int unselectedradiobutton = 2131165413;
 			
 			// aapt resource value: 0x7F0700E6
-			public const int vpi__tab_indicator = 2131165414;
+			public const int unselectedwhiteradio = 2131165414;
 			
 			// aapt resource value: 0x7F0700E7
-			public const int vpi__tab_selected_focused_holo = 2131165415;
+			public const int vpi__tab_indicator = 2131165415;
 			
 			// aapt resource value: 0x7F0700E8
-			public const int vpi__tab_selected_holo = 2131165416;
+			public const int vpi__tab_selected_focused_holo = 2131165416;
 			
 			// aapt resource value: 0x7F0700E9
-			public const int vpi__tab_selected_pressed_holo = 2131165417;
+			public const int vpi__tab_selected_holo = 2131165417;
 			
 			// aapt resource value: 0x7F0700EA
-			public const int vpi__tab_unselected_focused_holo = 2131165418;
+			public const int vpi__tab_selected_pressed_holo = 2131165418;
 			
 			// aapt resource value: 0x7F0700EB
-			public const int vpi__tab_unselected_holo = 2131165419;
+			public const int vpi__tab_unselected_focused_holo = 2131165419;
 			
 			// aapt resource value: 0x7F0700EC
-			public const int vpi__tab_unselected_pressed_holo = 2131165420;
+			public const int vpi__tab_unselected_holo = 2131165420;
 			
 			// aapt resource value: 0x7F0700ED
-			public const int yuvarlakbeyaz = 2131165421;
+			public const int vpi__tab_unselected_pressed_holo = 2131165421;
+			
+			// aapt resource value: 0x7F0700EE
+			public const int yuvarlakbeyaz = 2131165422;
 			
 			static Drawable()
 			{
@@ -6182,112 +6185,115 @@ namespace TestBang
 			public const int notification_template_part_time = 2131427422;
 			
 			// aapt resource value: 0x7F0B005F
-			public const int OyunBaseFragment = 2131427423;
+			public const int OptikCustomCardView = 2131427423;
 			
 			// aapt resource value: 0x7F0B0060
-			public const int OyunKurBaseActivity = 2131427424;
+			public const int OyunBaseFragment = 2131427424;
 			
 			// aapt resource value: 0x7F0B0061
-			public const int OyunSinavAlaniBaseActivity = 2131427425;
+			public const int OyunKurBaseActivity = 2131427425;
 			
 			// aapt resource value: 0x7F0B0062
-			public const int OyunSinavAlaniParcaFragment = 2131427426;
+			public const int OyunSinavAlaniBaseActivity = 2131427426;
 			
 			// aapt resource value: 0x7F0B0063
-			public const int ProfilDuzenlePart1 = 2131427427;
+			public const int OyunSinavAlaniParcaFragment = 2131427427;
 			
 			// aapt resource value: 0x7F0B0064
-			public const int ProfilDuzenlePart2BaseActivity = 2131427428;
+			public const int ProfilDuzenlePart1 = 2131427428;
 			
 			// aapt resource value: 0x7F0B0065
-			public const int ProfileBaseFragment = 2131427429;
+			public const int ProfilDuzenlePart2BaseActivity = 2131427429;
 			
 			// aapt resource value: 0x7F0B0066
-			public const int RakipAraArkadaslarindanSec = 2131427430;
+			public const int ProfileBaseFragment = 2131427430;
 			
 			// aapt resource value: 0x7F0B0067
-			public const int RasgeleRakipAraDialogFragment = 2131427431;
+			public const int RakipAraArkadaslarindanSec = 2131427431;
 			
 			// aapt resource value: 0x7F0B0068
-			public const int Saat_Secim = 2131427432;
+			public const int RasgeleRakipAraDialogFragment = 2131427432;
 			
 			// aapt resource value: 0x7F0B0069
-			public const int select_dialog_item_material = 2131427433;
+			public const int Saat_Secim = 2131427433;
 			
 			// aapt resource value: 0x7F0B006A
-			public const int select_dialog_multichoice_material = 2131427434;
+			public const int select_dialog_item_material = 2131427434;
 			
 			// aapt resource value: 0x7F0B006B
-			public const int select_dialog_singlechoice_material = 2131427435;
+			public const int select_dialog_multichoice_material = 2131427435;
 			
 			// aapt resource value: 0x7F0B006C
-			public const int SifremiUnuttumMailGonder = 2131427436;
+			public const int select_dialog_singlechoice_material = 2131427436;
 			
 			// aapt resource value: 0x7F0B006D
-			public const int SifrenGuncellendi = 2131427437;
+			public const int SifremiUnuttumMailGonder = 2131427437;
 			
 			// aapt resource value: 0x7F0B006E
-			public const int SifreyiGuncelleActivity = 2131427438;
+			public const int SifrenGuncellendi = 2131427438;
 			
 			// aapt resource value: 0x7F0B006F
-			public const int Splash = 2131427439;
+			public const int SifreyiGuncelleActivity = 2131427439;
 			
 			// aapt resource value: 0x7F0B0070
-			public const int support_simple_spinner_dropdown_item = 2131427440;
+			public const int Splash = 2131427440;
 			
 			// aapt resource value: 0x7F0B0071
-			public const int TakvimCustomGridCell = 2131427441;
+			public const int support_simple_spinner_dropdown_item = 2131427441;
 			
 			// aapt resource value: 0x7F0B0072
-			public const int TestBangHakkindaBaseActivity = 2131427442;
+			public const int TakvimCustomGridCell = 2131427442;
 			
 			// aapt resource value: 0x7F0B0073
-			public const int TestCozBaseFragment = 2131427443;
+			public const int TestBangHakkindaBaseActivity = 2131427443;
 			
 			// aapt resource value: 0x7F0B0074
-			public const int TestCozListCardView = 2131427444;
+			public const int TestCozBaseFragment = 2131427444;
 			
 			// aapt resource value: 0x7F0B0075
-			public const int TestCozumKonuDetayBaseActivity = 2131427445;
+			public const int TestCozListCardView = 2131427445;
 			
 			// aapt resource value: 0x7F0B0076
-			public const int TestCozumKonuDetayCardView = 2131427446;
+			public const int TestCozumKonuDetayBaseActivity = 2131427446;
 			
 			// aapt resource value: 0x7F0B0077
-			public const int TesteAraVerildiBaseActivity = 2131427447;
+			public const int TestCozumKonuDetayCardView = 2131427447;
 			
 			// aapt resource value: 0x7F0B0078
-			public const int TestOlusturBaseActivity = 2131427448;
+			public const int TesteAraVerildiBaseActivity = 2131427448;
 			
 			// aapt resource value: 0x7F0B0079
-			public const int TestSinavAlaniBaseActivity = 2131427449;
+			public const int TestOlusturBaseActivity = 2131427449;
 			
 			// aapt resource value: 0x7F0B007A
-			public const int TestSoruParcaFragment = 2131427450;
+			public const int TestSinavAlaniBaseActivity = 2131427450;
 			
 			// aapt resource value: 0x7F0B007B
-			public const int TestTamamlandiBaseActivity = 2131427451;
+			public const int TestSoruParcaFragment = 2131427451;
 			
 			// aapt resource value: 0x7F0B007C
-			public const int TestTamamlandiCardView = 2131427452;
+			public const int TestTamamlandiBaseActivity = 2131427452;
 			
 			// aapt resource value: 0x7F0B007D
-			public const int TranskriptDetayBaseActivity = 2131427453;
+			public const int TestTamamlandiCardView = 2131427453;
 			
 			// aapt resource value: 0x7F0B007E
-			public const int TranskriptDetayCustomCardView = 2131427454;
+			public const int TranskriptDetayBaseActivity = 2131427454;
 			
 			// aapt resource value: 0x7F0B007F
-			public const int TranskriptListesiBaseActivity = 2131427455;
+			public const int TranskriptDetayCustomCardView = 2131427455;
 			
 			// aapt resource value: 0x7F0B0080
-			public const int TranskriptListesiCustomCardView = 2131427456;
+			public const int TranskriptListesiBaseActivity = 2131427456;
 			
 			// aapt resource value: 0x7F0B0081
-			public const int TYTPuanTranskriptUI = 2131427457;
+			public const int TranskriptListesiCustomCardView = 2131427457;
 			
 			// aapt resource value: 0x7F0B0082
-			public const int UyelikBilgileriBaseActivity = 2131427458;
+			public const int TYTPuanTranskriptUI = 2131427458;
+			
+			// aapt resource value: 0x7F0B0083
+			public const int UyelikBilgileriBaseActivity = 2131427459;
 			
 			static Layout()
 			{

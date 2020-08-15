@@ -111,14 +111,13 @@ namespace TestBang
             // Request continued touch input
             return true;
         }
-
         protected override void OnDraw(Canvas canvas)
         {
             base.OnDraw(canvas);
 
             // Clear canvas to white
             paint.SetStyle(Paint.Style.Fill);
-            paint.Color = Color.White;
+            paint.Color = Color.Transparent;
             canvas.DrawPaint(paint);
 
             // Draw strokes
