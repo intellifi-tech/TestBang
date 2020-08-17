@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@android:color/transparent"
-    android:layout_width="wrap_content"
+    android:layout_width="155.0dp"
     android:layout_height="wrap_content">
     <androidx.cardview.widget.CardView
         app:cardBackgroundColor="#11122E"
         app:cardElevation="0dp"
         android:minWidth="25px"
         android:minHeight="25px"
-        android:layout_width="wrap_content"
+        android:layout_width="155.0dp"
         android:layout_height="wrap_content"
         android:id="@+id/cardView1">
         <LinearLayout
@@ -30,47 +30,52 @@
                 android:paddingRight="5dp"
                 android:layout_width="35dp"
                 android:layout_height="match_parent"
-                android:id="@+id/textView5" />
+                android:id="@+id/textView1" />
             <TextView
+                android:background="@drawable/optikcember_noselect"
                 android:textColor="#fff"
                 android:gravity="center"
                 android:text="A"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_margin="2dp"
-                android:id="@+id/textView1" />
+                android:id="@+id/textView2" />
             <TextView
+                android:background="@drawable/optikcember_noselect"
                 android:textColor="#fff"
                 android:gravity="center"
                 android:text="B"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_margin="2dp"
-                android:id="@+id/textView2" />
+                android:id="@+id/textView3" />
             <TextView
+                android:background="@drawable/optikcember_noselect"
                 android:textColor="#fff"
                 android:gravity="center"
                 android:text="C"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_margin="2dp"
-                android:id="@+id/textView3" />
+                android:id="@+id/textView4" />
             <TextView
+                android:background="@drawable/optikcember_noselect"
                 android:textColor="#fff"
                 android:gravity="center"
                 android:text="D"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_margin="2dp"
-                android:id="@+id/textView4" />
+                android:id="@+id/textView5" />
             <TextView
+                android:background="@drawable/optikcember_noselect"
                 android:textColor="#fff"
                 android:gravity="center"
                 android:text="E"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_margin="2dp"
-                android:id="@+id/textView5" />
+                android:id="@+id/textView6" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

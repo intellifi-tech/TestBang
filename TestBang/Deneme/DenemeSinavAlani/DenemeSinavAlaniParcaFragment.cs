@@ -209,7 +209,7 @@ namespace TestBang.Deneme.DenemeSinavAlani
             DenemeSinavAlaniHelperClass.DenemeSorulariDTO1[QestionPosition].lessonName;
 
             DenemeSinavAlaniHelperClass.KullaniciCevaplariDTO1[QestionPosition].userId = MeData.email.ToString();
-
+            DenemeSinavAlaniHelperClass.OptikParcaFragment1.UpdateOptik(QestionPosition, Cevap);
         }
 
 

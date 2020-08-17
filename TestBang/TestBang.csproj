@@ -76,6 +76,8 @@
     <Compile Include="Deneme\DenemeBaseFragment.cs" />
     <Compile Include="Deneme\DenemeSinavAlani\DenemeSinavAlaniBaseActivity.cs" />
     <Compile Include="Deneme\DenemeSinavAlani\DenemeSinavAlaniParcaFragment.cs" />
+    <Compile Include="Deneme\DenemeSinavAlani\OptikListRecyclerviewAdepter.cs" />
+    <Compile Include="Deneme\DenemeSinavAlani\OptikParcaFragment.cs" />
     <Compile Include="Deneme\DenemeTamamlandi\DenemeTamamlandiBaseActivity.cs" />
     <Compile Include="Deneme\GecmisDenemeSinavi\GecmisDenemeSinaviBaseActivity.cs" />
     <Compile Include="Deneme\DenemeSayacDialogFragment.cs" />
@@ -1167,6 +1169,23 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\optikcember_noselect.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\OptikParcaFragment.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\optikcember_select.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\maviYarimOvalBg.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\left_arrow.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\right_arrow.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

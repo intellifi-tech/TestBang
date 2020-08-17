@@ -21,7 +21,7 @@ using static TestBang.Profil.DersProgrami.DersProgramiBaseActivity;
 namespace TestBang.Deneme.DenemeSinavAlani
 {
     [Activity(Label = "TestBang")]
-    public class DenemeSinavAlaniBaseActivity : Android.Support.V7.App.AppCompatActivity
+    public class DenemeSinavAlaniBaseActivity : Android.Support.V7.App.AppCompatActivity, ValueAnimator.IAnimatorUpdateListener
     {
         ViewPager viewPager;
         Button SonrakiSoru, OncekiSoruButton, AraVerButton;
@@ -36,8 +36,13 @@ namespace TestBang.Deneme.DenemeSinavAlani
 
 
         Android.Support.V4.App.FragmentTransaction ft;
+        Android.Support.V4.App.FragmentTransaction ft2;
         ImageButton CizimYapButton;
         FrameLayout CizimHaznesi;
+
+
+        FrameLayout LeftViewHaznee;
+        ImageButton LeftViewArrowButton;
         #endregion
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -45,7 +50,7 @@ namespace TestBang.Deneme.DenemeSinavAlani
             SetContentView(Resource.Layout.DenemeSinavAlaniBaseActivity);
             DinamikStatusBarColor dinamikStatusBarColor = new DinamikStatusBarColor();
             dinamikStatusBarColor.Yesil(this);
-            SetContentView(Resource.Layout.TestSinavAlaniBaseActivity);
+      
             viewPager = FindViewById<ViewPager>(Resource.Id.viewPager1);
             viewPager.PageSelected += ViewPager_PageSelected;
             SonrakiSoru = FindViewById<Button>(Resource.Id.sonrakisorubutton);
@@ -54,6 +59,11 @@ namespace TestBang.Deneme.DenemeSinavAlani
             SureText = FindViewById<TextView>(Resource.Id.suretext);
             CizimYapButton = FindViewById<ImageButton>(Resource.Id.ımageButton1);
             CizimHaznesi = FindViewById<FrameLayout>(Resource.Id.cizimhazne);
+            LeftViewHaznee = FindViewById<FrameLayout>(Resource.Id.leftviewhazne);
+            LeftViewArrowButton = FindViewById<ImageButton>(Resource.Id.leftviewbutton);
+            LeftViewArrowButton.Click += LeftViewArrowButton_Click;
+
+
             CizimYapButton.Click += CizimYapButton_Click;
             AcKapat();
             AraVerButton.Click += AraVerButton_Click;
@@ -75,7 +85,29 @@ namespace TestBang.Deneme.DenemeSinavAlani
             Timer1.Start();
         }
 
+        private void LeftViewArrowButton_Click(object sender, EventArgs e)
+        {
+            int END_WIDTH = 0;
+            if (!LeftViewSonDurum)
+            {
+                END_WIDTH = DPX.dpToPx(this, 155);
+                LeftViewSonDurum = true;
+                LeftViewArrowButton.SetImageResource(Resource.Drawable.right_arrow);
+            }
+            else
+            {
+                END_WIDTH = DPX.dpToPx(this, 0);
+                LeftViewSonDurum = false;
+                LeftViewArrowButton.SetImageResource(Resource.Drawable.left_arrow);
+            }
+            ValueAnimator anim = ValueAnimator.OfInt(((View)LeftViewHaznee).MeasuredWidth, END_WIDTH);
+            anim.AddUpdateListener(this);
+            anim.SetDuration(300);
+            anim.Start();
+        }
+
         bool Actinmi = false;
+        bool LeftViewSonDurum;
         protected override void OnStart()
         {
             base.OnStart();
@@ -86,9 +118,26 @@ namespace TestBang.Deneme.DenemeSinavAlani
                 ft.AddToBackStack(null);
                 ft.Replace(Resource.Id.cizimhazne, CizimYapDialogFragment1);//
                 ft.Commit();
+                
+                ViewGroup.LayoutParams layoutParams = LeftViewHaznee.LayoutParameters;
+                layoutParams.Width = 0;
+                LeftViewHaznee.LayoutParameters = layoutParams;
+                LeftViewSonDurum = false;
+                LeftViewArrowButton.SetImageResource(Resource.Drawable.left_arrow);
+
                 Actinmi = true;
             }
         }
+
+        public void OnAnimationUpdate(ValueAnimator animation)
+        {
+            int val = (int)animation.AnimatedValue;
+            ViewGroup.LayoutParams layoutParams = LeftViewHaznee.LayoutParameters;
+            layoutParams.Width = val;
+            LeftViewHaznee.LayoutParameters = layoutParams;
+        }
+
+
         public void CizimYapButton_Click(object sender, EventArgs e)
         {
             AcKapat();
@@ -200,14 +249,14 @@ namespace TestBang.Deneme.DenemeSinavAlani
             }
             else
             {
-                if (viewPager.CurrentItem % 5 == 0)
-                {
-                    DenemeSorulariniGetir((Convert.ToInt32(viewPager.CurrentItem / 5) + 1).ToString().ToString(), "5");
-                    for (int i = 0; i < 4; i++)
-                    {
-                        ((DenemeSinavAlaniParcaFragment)fragments[viewPager.CurrentItem + i]).UIGuncelle();
-                    }
-                }
+                //if (viewPager.CurrentItem % 5 == 0)
+                //{
+                //    DenemeSorulariniGetir((Convert.ToInt32(viewPager.CurrentItem / 5) + 1).ToString().ToString(), "5");
+                //    for (int i = 0; i < 4; i++)
+                //    {
+                //        ((DenemeSinavAlaniParcaFragment)fragments[viewPager.CurrentItem + i]).UIGuncelle();
+                //    }
+                //}
                 SonrakiSoru.Text = "SONRAKİ SORU";
             }
         }
@@ -222,14 +271,14 @@ namespace TestBang.Deneme.DenemeSinavAlani
             }
             else
             {
-                if (viewPager.CurrentItem%5==0)
-                {
-                    DenemeSorulariniGetir((Convert.ToInt32(viewPager.CurrentItem / 5)+1).ToString(), "5");
-                    for (int i = 0; i < 4; i++)
-                    {
-                        ((DenemeSinavAlaniParcaFragment)fragments[viewPager.CurrentItem + i]).UIGuncelle();
-                    }
-                }
+                //if (viewPager.CurrentItem%5==0)
+                //{
+                //    DenemeSorulariniGetir((Convert.ToInt32(viewPager.CurrentItem / 5)+1).ToString(), "5");
+                //    for (int i = 0; i < 4; i++)
+                //    {
+                //        ((DenemeSinavAlaniParcaFragment)fragments[viewPager.CurrentItem + i]).UIGuncelle();
+                //    }
+                //}
                 viewPager.CurrentItem = viewPager.CurrentItem + 1;
             }
         }
@@ -238,7 +287,9 @@ namespace TestBang.Deneme.DenemeSinavAlani
         Java.Lang.ICharSequence[] titles;
         void FnInitTabLayout()
         {
-            DenemeSorulariniGetir("1", "5");
+            DenemeSinavAlaniHelperClass.DenemeSorulariDTO1 = new List<DenemeSorulariDTO>();
+            DenemeSorulariniGetir();
+
             fragments = new Android.Support.V4.App.Fragment[Convert.ToInt32(DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.questionCount)];
             titles = new Java.Lang.ICharSequence[Convert.ToInt32(DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.questionCount)];
             for (int i = 0; i < fragments.Length; i++)
@@ -247,20 +298,25 @@ namespace TestBang.Deneme.DenemeSinavAlani
             }
             viewPager.Adapter = new TabPagerAdaptor(this.SupportFragmentManager, fragments, titles, true);
 
-            ((DenemeSinavAlaniParcaFragment)fragments[0]).UIGuncelle();
-            ((DenemeSinavAlaniParcaFragment)fragments[1]).UIGuncelle();
-            ((DenemeSinavAlaniParcaFragment)fragments[2]).UIGuncelle();
-            ((DenemeSinavAlaniParcaFragment)fragments[3]).UIGuncelle();
-            ((DenemeSinavAlaniParcaFragment)fragments[4]).UIGuncelle();
+            //((DenemeSinavAlaniParcaFragment)fragments[0]).UIGuncelle();
+            //((DenemeSinavAlaniParcaFragment)fragments[1]).UIGuncelle();
+            //((DenemeSinavAlaniParcaFragment)fragments[2]).UIGuncelle();
+            //((DenemeSinavAlaniParcaFragment)fragments[3]).UIGuncelle();
+            //((DenemeSinavAlaniParcaFragment)fragments[4]).UIGuncelle();
+
+            ft = this.SupportFragmentManager.BeginTransaction();
+            ft.AddToBackStack(null);
+            ft.Replace(Resource.Id.leftviewhazne, new OptikParcaFragment(this));//
+            ft.Commit();
         }
 
-        void DenemeSorulariniGetir(string page,string size)
+        void DenemeSorulariniGetir()
         {
-            var datavarmi = Convert.ToInt32(page) * 5;
-            if (DenemeSinavAlaniHelperClass.DenemeSorulariDTO1 == null || DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.Count-1 < datavarmi)
+            var ToplamSayfa = Convert.ToInt32(DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.questionCount / 5);
+            WebService webService = new WebService();
+            for (int i = 0; i < ToplamSayfa; i++)
             {
-                WebService webService = new WebService();
-                var Donus = webService.OkuGetir("trials/questions/" + DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.id.ToString() + "?page=" + page + "&size=" + size + "",UsePoll:true,DontUseSize:true);
+                var Donus = webService.OkuGetir("trials/questions/" + DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.id.ToString() + "?page=" + (i + 1).ToString() + "&size=5", UsePoll: true, DontUseSize: true);
                 if (Donus != null)
                 {
                     var Icerik = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DenemeSorulariDTO>>(Donus.ToString());
@@ -268,6 +324,20 @@ namespace TestBang.Deneme.DenemeSinavAlani
                 }
             }
         }
+
+        public void SoruyaGit(int soruindex)
+        {
+            try
+            {
+                viewPager.SetCurrentItem(soruindex, true);
+            }
+            catch 
+            {
+            }
+            
+        }
+
+
     }
 
     public class Answer
@@ -315,5 +385,8 @@ namespace TestBang.Deneme.DenemeSinavAlani
         public static UzakSunucuDenemeDTO UzakSunucuDenemeDTO1 { get; set; }
         public static List<DenemeSorulariDTO> DenemeSorulariDTO1 { get; set; }
         public static List<KullaniciCevaplariDTO> KullaniciCevaplariDTO1 { get; set; }
+
+        public static OptikParcaFragment OptikParcaFragment1 { get; set; }
+
     }
 }

@@ -43,6 +43,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/ımageButton1" />
+
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
@@ -149,9 +150,37 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/araverbutton" />
              </LinearLayout>
+            <LinearLayout
+			android:layout_marginBottom="20dp"
+			android:layout_alignParentRight="true"
+			android:orientation="horizontal"
+			android:minWidth="25px"
+			android:minHeight="25px"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:id="@+id/linearLayout1" >
+			<ImageButton
+				android:padding="7dp"
+				android:tint="#fff"
+				android:layout_gravity="top"
+				android:background="@drawable/maviyarimovalbg"
+				android:scaleType="centerInside"
+				android:src="@drawable/left_arrow"
+				android:layout_width="36.0dp"
+				android:layout_height="46.0dp"
+				android:id="@+id/leftviewbutton" />
+			<FrameLayout
+				android:background="@null"
+				android:minWidth="25px"
+				android:minHeight="25px"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:id="@+id/leftviewhazne" />
+		</LinearLayout>
         </RelativeLayout>
     </LinearLayout>
     <FrameLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/cizimhazne" />
