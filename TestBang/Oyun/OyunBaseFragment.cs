@@ -9,6 +9,8 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using TestBang.GenericClass;
+using TestBang.GenericUI;
 using TestBang.Oyun.ArkadaslarindanSec;
 using TestBang.Oyun.OyunKur;
 using TestBang.Oyun.OyunSinavAlani;
@@ -39,18 +41,41 @@ namespace TestBang.Oyun
         
         private void RasgeleAra_Click(object sender, EventArgs e)
         {
-            var RasgeleRakipAraDialogFragment1 = new RasgeleRakipAraDialogFragment();
-            RasgeleRakipAraDialogFragment1.Show(this.Activity.SupportFragmentManager, "RasgeleRakipAraDialogFragment1");
+            if (AlanSpinner.SelectedItemPosition!=0)
+            {
+                OyunSocketHelper_Helper.SecilenAlan = AlanlarDizi[AlanSpinner.SelectedItemPosition].ToString();
+                var RasgeleRakipAraDialogFragment1 = new RasgeleRakipAraDialogFragment();
+                RasgeleRakipAraDialogFragment1.Show(this.Activity.SupportFragmentManager, "RasgeleRakipAraDialogFragment1");
+            }
+            else
+            {
+                AlertHelper.AlertGoster("Lütfen bir oyun alanı seç", this.Activity);
+                return;
+            }
+
             // this.Activity.StartActivity(typeof(OyunSinavAlaniBaseActivity));
         }
 
         private void ArkadaslarindanSec_Click(object sender, EventArgs e)
         {
-            var ArkadaslarindanSecDialogFragment1 = new ArkadaslarindanSecDialogFragment();
-            ArkadaslarindanSecDialogFragment1.Show(this.Activity.SupportFragmentManager, "ArkadaslarindanSecDialogFragment1");
-            //this.Activity.StartActivity(typeof(OyunSinavAlaniBaseActivity));
+            if (AlanSpinner.SelectedItemPosition != 0)
+            {
+                OyunSocketHelper_Helper.SecilenAlan = AlanlarDizi[AlanSpinner.SelectedItemPosition].ToString();
+                var ArkadaslarindanSecDialogFragment1 = new ArkadaslarindanSecDialogFragment();
+                ArkadaslarindanSecDialogFragment1.Show(this.Activity.SupportFragmentManager, "ArkadaslarindanSecDialogFragment1");
+                //this.Activity.StartActivity(typeof(OyunSinavAlaniBaseActivity));
+            }
+            else
+            {
+                AlertHelper.AlertGoster("Lütfen bir oyun alanı seç", this.Activity);
+                return;
+            }
+            
         }
 
-      
+
+        
+
+
     }
 }

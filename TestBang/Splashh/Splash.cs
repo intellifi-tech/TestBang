@@ -16,7 +16,7 @@ using TestBang.MainPage;
 
 namespace TestBang.Splashh
 {
-    [Activity(Label = "TestBang",MainLauncher =true)]
+    [Activity(Label = "Test Bang!",MainLauncher =true)]
     public class Splash : Android.Support.V7.App.AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)

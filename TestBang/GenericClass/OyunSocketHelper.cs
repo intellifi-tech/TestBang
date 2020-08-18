@@ -27,15 +27,14 @@ namespace TestBang.GenericClass
         public StompMessageSerializer serializer = new StompMessageSerializer();
 
         MEMBER_DATA MeId;
-        string Alan;
+
         Android.Support.V7.App.AppCompatActivity GelenBase;
         Android.Support.V7.App.AppCompatDialogFragment GelenDialog;
         #endregion
 
-        public void Init(string Alan2, Android.Support.V7.App.AppCompatActivity GelenBase2, Android.Support.V7.App.AppCompatDialogFragment GelenDialog2)
+        public void Init(Android.Support.V7.App.AppCompatActivity GelenBase2, Android.Support.V7.App.AppCompatDialogFragment GelenDialog2)
         {
             MeId = DataBase.MEMBER_DATA_GETIR()[0];
-            Alan = Alan2;
             GelenBase = GelenBase2;
             GelenDialog = GelenDialog2;
             CreateSocketEvents();
@@ -222,7 +221,7 @@ namespace TestBang.GenericClass
         {
             var content = new SoketSendRegisterDTO()
             {
-                category = "SOZ",
+                category = OyunSocketHelper_Helper.SecilenAlan,//SAY SOZ EA
                 userName = MeId.login,
                 userQuestionIndex = "0",
                 userToken = MeId.API_TOKEN,
@@ -248,7 +247,7 @@ namespace TestBang.GenericClass
                 var Lessons = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Lessonss>>(jSONstring.ToString());
                 if (Lessons.Count>0)
                 {
-                    switch (Alan)
+                    switch (OyunSocketHelper_Helper.SecilenAlan)
                     {
                         case "SAY":
                             return Lessons.FindAll(item => item.say == true).Select(item2 => item2.id).ToList();
@@ -368,5 +367,6 @@ namespace TestBang.GenericClass
         public static WebSocket WebSocket1 { get; set; }
         public static OyunSocketHelper OyunSocketHelper1 { get; set; }
         public static RoomQuestionsDTO RoomQuestionsDTO1 { get; set; }
+        public static string SecilenAlan { get; set; }
     }
 }

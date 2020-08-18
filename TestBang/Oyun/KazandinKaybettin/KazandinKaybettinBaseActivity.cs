@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using TestBang.GenericClass;
+using TestBang.Oyun.OyunSinavAlani;
 
 namespace TestBang.Oyun.KazandinKaybettin
 {
@@ -43,8 +44,38 @@ namespace TestBang.Oyun.KazandinKaybettin
 
         private void YeniOyun_Click(object sender, EventArgs e)
         {
-            OyunSocketHelper_Helper.WebSocket1.Close();
+            TestSinavAlaniHelperClass.OyunSinavAlaniBaseActivity1.OyundanCikisiIlet();
+            try
+            {
+                OyunSocketHelper_Helper.WebSocket1.Close();
+            }
+            catch 
+            {
+            }
+            
             this.Finish();
+        }
+
+        public override void Finish()
+        {
+            TestSinavAlaniHelperClass.OyunSinavAlaniBaseActivity1.OyundanCikisiIlet();
+            base.Finish();
+        }
+        protected override void OnDestroy()
+        {
+            TestSinavAlaniHelperClass.OyunSinavAlaniBaseActivity1.OyundanCikisiIlet();
+            base.OnDestroy();
+        }
+        protected override void OnStop()
+        {
+            TestSinavAlaniHelperClass.OyunSinavAlaniBaseActivity1.OyundanCikisiIlet();
+            base.OnStop();
+
+        }
+        public override void OnBackPressed()
+        {
+            TestSinavAlaniHelperClass.OyunSinavAlaniBaseActivity1.OyundanCikisiIlet();
+            base.OnBackPressed();
         }
     }
 

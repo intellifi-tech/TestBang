@@ -176,7 +176,7 @@ namespace TestBang.Oyun.OyunSinavAlani
 
                 var content = new SoketSendRegisterDTO()
                 {
-                    category = "SOZ",
+                    category = OyunSocketHelper_Helper.SecilenAlan,
                     userName = MeId.login,
                     userQuestionIndex = ToplamCozumSayisi.ToString(),
                     userToken = MeId.API_TOKEN,

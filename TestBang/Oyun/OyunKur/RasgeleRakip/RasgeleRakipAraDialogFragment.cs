@@ -92,7 +92,7 @@ namespace TestBang.Oyun.OyunKur
         {
 
 
-            OyunSocketHelper1.Init("SAY",(Android.Support.V7.App.AppCompatActivity)this.Activity,this);
+            OyunSocketHelper1.Init((Android.Support.V7.App.AppCompatActivity)this.Activity,this);
 
            // CreateSocketEvents();
 

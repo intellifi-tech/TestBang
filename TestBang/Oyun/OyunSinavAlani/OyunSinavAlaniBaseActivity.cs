@@ -455,7 +455,7 @@ namespace TestBang.Oyun.OyunSinavAlani
             base.OnBackPressed();
         }
 
-        void OyundanCikisiIlet()
+        public void OyundanCikisiIlet()
         {
             var content = new SoketSendRegisterDTO()
             {

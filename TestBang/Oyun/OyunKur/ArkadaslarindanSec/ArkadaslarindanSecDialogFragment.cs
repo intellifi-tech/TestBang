@@ -77,7 +77,7 @@ namespace TestBang.Oyun.ArkadaslarindanSec
                 Dialog.Window.SetLayout(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
                 Dialog.Window.SetGravity(GravityFlags.FillHorizontal | GravityFlags.CenterHorizontal | GravityFlags.CenterVertical);
                 Actinmi = true;
-                GetUsers();
+                //GetUsers();
             }
         }
         void GetUsers()
