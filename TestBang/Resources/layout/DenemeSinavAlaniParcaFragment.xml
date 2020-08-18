@@ -39,6 +39,7 @@
                    android:layout_height="match_parent"
                    android:id="@+id/linearLayout1">
                <TextView
+                    android:fontFamily="@font/monserratfont"
                    android:gravity="center"
                    android:textColor="#11122E"
                    android:text="COĞRAFYA"
@@ -46,6 +47,7 @@
                    android:layout_height="wrap_content"
                    android:id="@+id/derstext" />
                <TextView
+                    android:fontFamily="@font/monserratfontbold"
                    android:layout_marginTop="5dp"
                    android:textSize="20dp"
                    android:textStyle="bold"
@@ -61,6 +63,7 @@
                         android:maxHeight="250dp"
                         android:id="@+id/soruimage" />
                 <TextView
+                    android:fontFamily="@font/monserratfontbold"
                    android:layout_marginTop="10dp"
                    android:textSize="16dp"
                    android:textStyle="bold"
@@ -97,6 +100,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/linearLayout13" >
                     <Button
+                    android:fontFamily="@font/monserratfontbold"
                         android:textColor="#11122E"
                         android:textSize="20dp"
                         android:background="@android:color/transparent"
@@ -106,6 +110,7 @@
                         android:layout_height="45.0dp"
                         android:id="@+id/button_a" />
                     <TextView
+                    android:fontFamily="@font/monserratfont"
                         android:textSize="14dp"
                         android:textColor="#11122E"
                         android:layout_gravity="center_vertical"
@@ -145,6 +150,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/linearLayout13" >
                     <Button
+                    android:fontFamily="@font/monserratfontbold"
                         android:textColor="#11122E"
                         android:textSize="20dp"
                         android:background="@android:color/transparent"
@@ -154,6 +160,7 @@
                         android:layout_height="45.0dp"
                         android:id="@+id/button_b" />
                     <TextView
+                    android:fontFamily="@font/monserratfont"
                         android:textSize="14dp"
                         android:textColor="#11122E"
                         android:layout_gravity="center_vertical"
@@ -193,6 +200,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/linearLayout13" >
                     <Button
+                    android:fontFamily="@font/monserratfontbold"
                         android:textColor="#11122E"
                         android:textSize="20dp"
                         android:background="@android:color/transparent"
@@ -202,6 +210,7 @@
                         android:layout_height="45.0dp"
                         android:id="@+id/button_c" />
                     <TextView
+                    android:fontFamily="@font/monserratfont"
                         android:textSize="14dp"
                         android:textColor="#11122E"
                         android:layout_gravity="center_vertical"
@@ -241,6 +250,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/linearLayout13" >
                     <Button
+                    android:fontFamily="@font/monserratfontbold"
                         android:textColor="#11122E"
                         android:textSize="20dp"
                         android:background="@android:color/transparent"
@@ -250,6 +260,7 @@
                         android:layout_height="45.0dp"
                         android:id="@+id/button_d" />
                     <TextView
+                    android:fontFamily="@font/monserratfont"
                         android:textSize="14dp"
                         android:textColor="#11122E"
                         android:layout_gravity="center_vertical"
@@ -289,6 +300,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/linearLayout13" >
                     <Button
+                    android:fontFamily="@font/monserratfontbold"
                         android:textColor="#11122E"
                         android:textSize="20dp"
                         android:background="@android:color/transparent"
@@ -298,6 +310,7 @@
                         android:layout_height="45.0dp"
                         android:id="@+id/button_e" />
                     <TextView
+                    android:fontFamily="@font/monserratfont"
                         android:textSize="14dp"
                         android:textColor="#11122E"
                         android:layout_gravity="center_vertical"

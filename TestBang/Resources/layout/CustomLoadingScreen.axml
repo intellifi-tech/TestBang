@@ -24,6 +24,7 @@
 			android:layout_centerVertical="true"
 			android:layout_centerHorizontal="true" />
 		<TextView
+            android:fontFamily="@font/monserratfont"
 			android:textColor="#000"
 			android:gravity="center"
 			android:text="Lütfen Bekleyin..."

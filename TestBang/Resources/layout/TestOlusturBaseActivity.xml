@@ -20,44 +20,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/ımageView1"
             android:layout_marginLeft="25.0dp" />
-        <LinearLayout
-            android:visibility="gone"
-            android:layout_alignParentRight="true"
-            android:orientation="horizontal"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/linearLayout1"
-            android:layout_marginRight="25dp">
-            <RelativeLayout
-                android:layout_gravity="center_vertical"
-                android:minWidth="25px"
-                android:minHeight="25px"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:id="@+id/relativeLayout2">
-                <ImageView
-                    android:layout_marginTop="10dp"
-                    android:scaleType="centerInside"
-                    android:src="@mipmap/notification1"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:id="@+id/ımageView2" />
-                <TextView
-                    android:textSize="13dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_alignParentRight="true"
-                    android:gravity="center"
-                    android:background="@drawable/bildirimIcinBadge"
-                    android:textColor="#F05070"
-                    android:text="3"
-                    android:layout_width="17dp"
-                    android:layout_height="17dp"
-                    android:id="@+id/textView1" />
-            </RelativeLayout>
-        </LinearLayout>
     </RelativeLayout>
     <RelativeLayout
         android:minWidth="25px"
@@ -74,62 +36,63 @@
             android:layout_height="match_parent"
             android:id="@+id/relativeLayout4"
             android:layout_marginTop="60dp" />
-        <LinearLayout 
+        <LinearLayout
             android:orientation="vertical"
             android:background="@android:color/transparent"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <androidx.core.widget.NestedScrollView
-            android:scrollbars="none"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/scrollView1">
-            <LinearLayout
-                android:orientation="vertical"
+            <androidx.core.widget.NestedScrollView
+                android:scrollbars="none"
                 android:minWidth="25px"
                 android:minHeight="25px"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/linearLayout11">
-                <androidx.cardview.widget.CardView
-                            app:cardElevation="10dp"
-                            app:cardCornerRadius="20dp"
-                            android:layout_marginRight="30dp"
-                            android:layout_marginLeft="30dp"
-                            android:layout_marginTop="10dp"
+                android:id="@+id/scrollView1">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/linearLayout11">
+                    <androidx.cardview.widget.CardView
+                        app:cardElevation="10dp"
+                        app:cardCornerRadius="20dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="10dp"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="143.0dp"
+                        android:id="@+id/cardView1">
+                        <LinearLayout
+                            android:layout_margin="10dp"
+                            android:orientation="vertical"
                             android:minWidth="25px"
                             android:minHeight="25px"
                             android:layout_width="match_parent"
-                            android:layout_height="143.0dp"
-                            android:id="@+id/cardView1">
-                            <LinearLayout
-                                android:layout_margin="10dp"
-                                android:orientation="vertical"
-                                android:minWidth="25px"
-                                android:minHeight="25px"
+                            android:layout_height="match_parent"
+                            android:id="@+id/linearLayout1">
+                            <ImageView
+                                android:src="@mipmap/testcozheaderimg"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:id="@+id/linearLayout1">
-                                <ImageView
-                                    android:src="@mipmap/testcozheaderimg"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:id="@+id/ımageView1" />
-                            </LinearLayout>
-                        </androidx.cardview.widget.CardView>
-                <TextView
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:textColor="#11122E"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:text="Kendi Testini Hazırla"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView1" />
+                                android:id="@+id/ımageView1" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:fontFamily="@font/monserratfont"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:textColor="#11122E"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:text="Kendi Testini Hazırla"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView1" />
                     <LinearLayout
                         android:layout_marginTop="15dp"
                         android:layout_marginLeft="30dp"
@@ -141,14 +104,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="50.0dp"
                         android:id="@+id/linearLayout1">
-                    <ImageView
-                        android:tint="#5011122E"
-                        android:padding="8dp"
-                        android:src="@mipmap/derssecimg1"
-                        android:layout_width="30.5dp"
-                        android:layout_height="match_parent"
-                        android:id="@+id/ımageView2"
-                        android:layout_marginLeft="15.0dp" />
+                        <ImageView
+                            android:tint="#5011122E"
+                            android:padding="8dp"
+                            android:src="@mipmap/derssecimg1"
+                            android:layout_width="30.5dp"
+                            android:layout_height="match_parent"
+                            android:id="@+id/ımageView2"
+                            android:layout_marginLeft="15.0dp" />
                         <Spinner
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -165,14 +128,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="50.0dp"
                         android:id="@+id/linearLayout2">
-                    <ImageView
-                        android:tint="#5011122E"
-                        android:padding="8dp"
-                        android:src="@mipmap/konusecimg"
-                        android:layout_width="30.5dp"
-                        android:layout_height="match_parent"
-                        android:id="@+id/ımageView2"
-                        android:layout_marginLeft="15.0dp" />
+                        <ImageView
+                            android:tint="#5011122E"
+                            android:padding="8dp"
+                            android:src="@mipmap/konusecimg"
+                            android:layout_width="30.5dp"
+                            android:layout_height="match_parent"
+                            android:id="@+id/ımageView2"
+                            android:layout_marginLeft="15.0dp" />
                         <Spinner
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -189,14 +152,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="50.0dp"
                         android:id="@+id/linearLayout3">
-                    <ImageView
-                        android:tint="#5011122E"
-                        android:padding="8dp"
-                        android:src="@mipmap/sorusayisisecimg"
-                        android:layout_width="30.5dp"
-                        android:layout_height="match_parent"
-                        android:id="@+id/ımageView2"
-                        android:layout_marginLeft="15.0dp" />
+                        <ImageView
+                            android:tint="#5011122E"
+                            android:padding="8dp"
+                            android:src="@mipmap/sorusayisisecimg"
+                            android:layout_width="30.5dp"
+                            android:layout_height="match_parent"
+                            android:id="@+id/ımageView2"
+                            android:layout_marginLeft="15.0dp" />
                         <Spinner
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -213,23 +176,24 @@
                         android:layout_width="match_parent"
                         android:layout_height="50.0dp"
                         android:id="@+id/linearLayout4">
-                    <ImageView
-                        android:tint="#5011122E"
-                        android:padding="8dp"
-                        android:src="@mipmap/suresecimg"
-                        android:layout_width="30.5dp"
-                        android:layout_height="match_parent"
-                        android:id="@+id/ımageView2"
-                        android:layout_marginLeft="15.0dp" />
+                        <ImageView
+                            android:tint="#5011122E"
+                            android:padding="8dp"
+                            android:src="@mipmap/suresecimg"
+                            android:layout_width="30.5dp"
+                            android:layout_height="match_parent"
+                            android:id="@+id/ımageView2"
+                            android:layout_marginLeft="15.0dp" />
                         <Spinner
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:id="@+id/spinner4" />
                     </LinearLayout>
-                <Button
+                    <Button
+                        android:fontFamily="@font/monserratfontbold"
                         android:layout_marginRight="30dp"
                         android:layout_marginLeft="30dp"
-                         android:layout_marginBottom="15dp"
+                        android:layout_marginBottom="15dp"
                         android:layout_marginTop="15dp"
                         android:textSize="10dp"
                         android:textColor="#fff"
@@ -238,8 +202,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:id="@+id/button3" />
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
-      </LinearLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

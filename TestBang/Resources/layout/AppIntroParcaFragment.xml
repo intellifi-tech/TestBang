@@ -22,6 +22,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/linearLayout2" >
             <TextView
+                android:fontFamily="@font/monserratfont"
+				android:textStyle="normal"
                 android:textColor="#fff"
                 android:gravity="center"
                 android:text="Artık Testleri Tam Kalbinden"
@@ -30,8 +32,10 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/textView1" />
             <TextView
+                android:fontFamily="@font/monserratfontbold"
+				android:textStyle="bold"
+                android:textFontWeight="900"
                 android:textColor="#fff"
-                android:textStyle="bold"
                 android:gravity="center"
                 android:text="VURMA ZAMANI"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -49,6 +53,8 @@
         android:layout_weight="60"
         android:id="@+id/ımageView1" />
     <TextView
+        android:fontFamily="@font/monserratfont"
+		android:textStyle="normal"
         android:textColor="#1E203E"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
@@ -59,6 +65,9 @@
         android:layout_weight="20"
         android:id="@+id/textView3" />
     <Button
+        android:fontFamily="@font/monserratfontbold"
+		android:textStyle="bold"
+        android:textSize="10dp"
         android:textColor="#fff"
         android:background="@drawable/girisbuton"
         android:layout_marginLeft="40dp"

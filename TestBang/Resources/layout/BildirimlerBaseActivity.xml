@@ -62,6 +62,7 @@
                     android:layout_height="match_parent"
                     android:id="@+id/linearLayout1">
                     <TextView
+                        android:fontFamily="@font/monserratfontbold"
                         android:layout_marginTop="15dp"
                         android:layout_marginBottom="15dp"
                         android:textColor="#11122E"
@@ -92,6 +93,7 @@
                                 android:layout_height="150dp"
                                 android:id="@+id/ımageView2" />
                              <TextView
+                                android:fontFamily="@font/monserratfont"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginBottom="15dp"
                                 android:textColor="#11122E"

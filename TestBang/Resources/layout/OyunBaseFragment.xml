@@ -47,6 +47,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <TextView
+                android:fontFamily="@font/monserratfontbold"
                 android:layout_marginTop="25dp"
                 android:textStyle="bold"
                 android:gravity="center"
@@ -57,6 +58,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/textView1" />
             <TextView
+                android:fontFamily="@font/monserratfont"
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
@@ -112,6 +114,7 @@
                         android:id="@+id/ımageView2"
                         android:layout_marginLeft="15.0dp" />
                         <TextView
+                            android:fontFamily="@font/monserratfontbold"
                             android:paddingLeft="10dp"
                             android:textSize="16dp"
                             android:gravity="center_vertical"
@@ -141,6 +144,7 @@
                         android:id="@+id/ımageView2"
                         android:layout_marginLeft="15.0dp" />
                         <TextView
+                            android:fontFamily="@font/monserratfontbold"
                             android:paddingLeft="10dp"
                             android:textSize="16dp"
                             android:gravity="center_vertical"
@@ -166,6 +170,7 @@
                  android:weightSum="100"
                  android:id="@+id/linearLayout15" >
                  <Button
+                    android:fontFamily="@font/monserratfontbold"
                      android:textSize="10dp"
                      android:textColor="#fff"
                      android:background="@drawable/oturumkapatbuttonbg"
@@ -176,6 +181,7 @@
                      android:layout_marginRight="5dp"
                      android:id="@+id/button3" />
                  <Button
+                    android:fontFamily="@font/monserratfontbold"
                      android:layout_marginLeft="5dp"
                      android:textSize="10dp"
                      android:textColor="#fff"

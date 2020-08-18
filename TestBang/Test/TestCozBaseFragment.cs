@@ -15,6 +15,7 @@ using TestBang.GenericUI;
 using TestBang.Test.TestKonuCozumDetay;
 using TestBang.Test.TestOlustur;
 using TestBang.WebServices;
+using static TestBang.Test.TestKonuCozumDetay.TestCozumKonuDetayBaseActivity;
 
 namespace TestBang.Test
 {
@@ -163,6 +164,7 @@ namespace TestBang.Test
 
         private void MViewAdapter_ItemClick(object sender, int e)
         {
+            TestCozumKonuDetayBaseActivity_Helper.SecilenDersID = GenelTestSonuclariDTO1.userLessonInfoDTOS[e].lessonId;
             this.Activity.StartActivity(typeof(TestCozumKonuDetayBaseActivity));
         }
 

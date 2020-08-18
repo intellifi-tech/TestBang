@@ -12,7 +12,7 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayout16" >
+        android:id="@+id/linearLayout16">
         <RelativeLayout
             android:minWidth="25px"
             android:minHeight="25px"
@@ -70,19 +70,19 @@
                 android:layout_height="match_parent"
                 android:layout_above="@+id/linearLayout14"
                 android:id="@+id/viewPager1" />
-             <LinearLayout
-                    android:layout_marginRight="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_alignParentBottom="true"
-                    android:orientation="vertical"
-                    android:minWidth="25px"
-                    android:minHeight="25px"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/linearLayout14" >
-                    <LinearLayout
+            <LinearLayout
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout14">
+                <LinearLayout
                     android:layout_marginBottom="15dp"
                     android:background="@drawable/girisbuttonbg"
                     android:layout_alignParentBottom="true"
@@ -92,16 +92,17 @@
                     android:weightSum="99"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/linearLayout14" >
-                <Button
-                    android:textSize="10dp"
-                    android:textColor="#fff"
-                    android:background="@android:color/transparent"
-                    android:text="ÖNCEKİ SORU"
-                    android:layout_width="0dp"
-                    android:layout_weight="33"
-                    android:layout_height="match_parent"
-                    android:id="@+id/oncekisorubutton" />
+                    android:id="@+id/linearLayout14">
+                    <Button
+                        android:fontFamily="@font/monserratfontbold"
+                        android:textSize="10dp"
+                        android:textColor="#fff"
+                        android:background="@android:color/transparent"
+                        android:text="ÖNCEKİ SORU"
+                        android:layout_width="0dp"
+                        android:layout_weight="33"
+                        android:layout_height="match_parent"
+                        android:id="@+id/oncekisorubutton" />
                     <LinearLayout
                         android:background="#11122E"
                         android:orientation="vertical"
@@ -113,6 +114,7 @@
                         android:layout_height="match_parent"
                         android:id="@+id/linearLayout15">
                         <TextView
+                            android:fontFamily="@font/monserratfontbold"
                             android:paddingBottom="3dp"
                             android:gravity="center_horizontal|bottom"
                             android:textColor="#fff"
@@ -124,6 +126,7 @@
                             android:layout_weight="50"
                             android:id="@+id/textView9" />
                         <TextView
+                            
                             android:textSize="15dp"
                             android:gravity="center_horizontal|top"
                             android:textColor="#fff"
@@ -135,27 +138,29 @@
                             android:layout_weight="50"
                             android:id="@+id/suretext" />
                     </LinearLayout>
-                <Button
-                    android:textSize="10dp"
-                    android:textColor="#fff"
-                    android:background="@android:color/transparent"
-                    android:text="SONRAKİ SORU"
-                    android:layout_width="0dp"
-                    android:layout_weight="33"
-                    android:layout_height="match_parent"
-                    android:id="@+id/sonrakisorubutton" />
-                </LinearLayout>
                     <Button
-                        android:background="@drawable/gributtonbg"
-                        android:text="TESTİ DURDUR"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/araverbutton" />
-             </LinearLayout>
+                        android:fontFamily="@font/monserratfontbold"
+                        android:textSize="10dp"
+                        android:textColor="#fff"
+                        android:background="@android:color/transparent"
+                        android:text="SONRAKİ SORU"
+                        android:layout_width="0dp"
+                        android:layout_weight="33"
+                        android:layout_height="match_parent"
+                        android:id="@+id/sonrakisorubutton" />
+                </LinearLayout>
+                <Button
+                    android:fontFamily="@font/monserratfontbold"
+                    android:background="@drawable/gributtonbg"
+                    android:text="TESTİ DURDUR"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/araverbutton" />
+            </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
-     <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/cizimhazne" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/cizimhazne" />
 </RelativeLayout>

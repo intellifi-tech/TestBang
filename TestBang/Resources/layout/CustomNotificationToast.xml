@@ -37,6 +37,7 @@
 				android:background="@color/material_grey_600"
 				android:layout_marginLeft="5dp" />
 			<TextView
+				android:fontFamily="@font/monserratfont"
 				android:text="İçerik"
 				android:textAppearance="?android:attr/textAppearanceMedium"
 				android:layout_width="match_parent"

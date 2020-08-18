@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
+        android:fontFamily="@font/monserratfont"
         android:clickable="false"
         android:padding="7dp"
         android:gravity="center"

@@ -27,6 +27,7 @@
                 android:id="@+id/ımageView1"
                 android:layout_marginTop="37.0dp" />
             <TextView
+                android:fontFamily="@font/monserratfont"
                 android:textSize="18dp"
                 android:textStyle="bold"
                 android:textColor="#fff"
@@ -38,6 +39,7 @@
                 android:id="@+id/textView1"
                 android:layout_marginTop="38.5dp" />
             <TextView
+                android:fontFamily="@font/monserratfontbold"
                 android:textSize="24dp"
                 android:textStyle="bold"
                 android:textColor="#F05070"
@@ -48,6 +50,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/textView2" />
             <TextView
+                android:fontFamily="@font/monserratfont"
                 android:textSize="12dp"
                 android:textColor="#fff"
                 android:gravity="center_horizontal"
@@ -58,6 +61,7 @@
                 android:id="@+id/textView3"
                 android:layout_marginTop="8.5dp" />
             <TextView
+                android:fontFamily="@font/monserratfont"
                 android:textSize="12dp"
                 android:textColor="#fff"
                 android:gravity="center_horizontal"
@@ -86,6 +90,7 @@
                     android:id="@+id/ımageView2"
                     android:layout_marginLeft="15.0dp" />
                 <EditText
+                    android:fontFamily="@font/monserratfont"
                     android:textSize="12dp"
                     android:paddingLeft="15dp"
                     android:background="@null"
@@ -119,6 +124,7 @@
                     android:id="@+id/ımageView2"
                     android:layout_marginLeft="15.0dp" />
                 <EditText
+                    android:fontFamily="@font/monserratfont"
                     android:textSize="12dp"
                     android:paddingLeft="15dp"
                     android:background="@null"
@@ -133,6 +139,7 @@
                     android:id="@+id/editText2" />
             </LinearLayout>
             <Button
+                android:fontFamily="@font/monserratfontbold"
                 android:layout_marginTop="10dp"
                 android:textColor="#fff"
                 android:background="@drawable/girisbuttonbg"
@@ -155,6 +162,7 @@
                 android:id="@+id/linearLayout3"
                 android:layout_marginBottom="12dp">
                 <TextView
+                    android:fontFamily="@font/monserratfont"
                     android:gravity="center_vertical"
                     android:textColor="#F05070"
                     android:textSize="16dp"
@@ -165,6 +173,7 @@
                     android:layout_height="match_parent"
                     android:id="@+id/textView5" />
                 <TextView
+                    android:fontFamily="@font/monserratfont"
                     android:textColor="#fff"
                     android:textSize="16dp"
                     android:gravity="right|center_vertical"
@@ -176,6 +185,7 @@
                     android:id="@+id/textView6" />
             </LinearLayout>
             <Button
+                android:fontFamily="@font/monserratfontbold"
                 android:textAllCaps="false"
                 android:layout_marginTop="10dp"
                 android:textColor="#00AEEF"

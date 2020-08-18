@@ -75,6 +75,7 @@
                             android:layout_height="match_parent"
                             android:id="@+id/linearLayout1">
                             <TextView
+                                android:fontFamily="@font/monserratfontbold"
                                 android:layout_marginTop="15dp"
                                 android:textColor="#1EB14C"
                                 android:gravity="center_horizontal"
@@ -85,6 +86,7 @@
                                 android:layout_height="wrap_content"
                                 android:id="@+id/textView2" />
                             <TextView
+                                android:fontFamily="@font/monserratfont"
                                 android:layout_marginTop="5dp"
                                 android:textColor="#11122E"
                                 android:gravity="center_horizontal"
@@ -94,6 +96,7 @@
                                 android:layout_height="wrap_content"
                                 android:id="@id/adsoyadtext" />
                             <TextView
+                                android:fontFamily="@font/monserratfont"
                                 android:layout_marginRight="20dp"
                                 android:layout_marginLeft="20dp"
                                 android:textSize="12dp"
@@ -135,6 +138,7 @@
                                         android:layout_toLeftOf="@+id/ımageButton2"
                                         android:id="@+id/linearLayout13" >
                                         <TextView
+                                            android:fontFamily="@font/monserratfontbold"
                                             android:textStyle="bold"
                                             android:textSize="15dp"
                                             android:gravity="center"
@@ -145,6 +149,7 @@
                                             android:layout_height="wrap_content"
                                             android:id="@+id/takvimayaditext" />
                                         <TextView
+                                            android:fontFamily="@font/monserratfont"
                                             android:textSize="15dp"
                                             android:gravity="center"
                                             android:textColor="#000"
@@ -171,6 +176,7 @@
                                     android:layout_height="40dp"
                                     android:id="@+id/linearLayout14" >
                                     <TextView
+                                        android:fontFamily="@font/monserratfontbold"
                                         android:gravity="center"
                                         android:textSize="10dp"
                                         android:textStyle="bold"
@@ -182,6 +188,7 @@
                                         android:layout_height="match_parent"
                                         android:id="@+id/textView6" />
                                     <TextView
+                                        android:fontFamily="@font/monserratfontbold"
                                         android:gravity="center"
                                         android:textSize="10dp"
                                         android:textStyle="bold"
@@ -193,6 +200,7 @@
                                         android:layout_height="match_parent"
                                         android:id="@+id/textView6" />
                                     <TextView
+                                        android:fontFamily="@font/monserratfontbold"
                                         android:gravity="center"
                                         android:textSize="10dp"
                                         android:textStyle="bold"
@@ -204,6 +212,7 @@
                                         android:layout_height="match_parent"
                                         android:id="@+id/textView6" />
                                     <TextView
+                                        android:fontFamily="@font/monserratfontbold"
                                         android:gravity="center"
                                         android:textSize="10dp"
                                         android:textStyle="bold"
@@ -215,6 +224,7 @@
                                         android:layout_height="match_parent"
                                         android:id="@+id/textView6" />
                                     <TextView
+                                        android:fontFamily="@font/monserratfontbold"
                                         android:gravity="center"
                                         android:textSize="10dp"
                                         android:textStyle="bold"
@@ -226,6 +236,7 @@
                                         android:layout_height="match_parent"
                                         android:id="@+id/textView6" />
                                     <TextView
+                                        android:fontFamily="@font/monserratfontbold"
                                         android:gravity="center"
                                         android:textSize="10dp"
                                         android:textStyle="bold"
@@ -237,6 +248,7 @@
                                         android:layout_height="match_parent"
                                         android:id="@+id/textView6" />
                                     <TextView
+                                        android:fontFamily="@font/monserratfontbold"
                                         android:gravity="center"
                                         android:textSize="10dp"
                                         android:textStyle="bold"
@@ -266,6 +278,7 @@
                  android:layout_height="wrap_content"
                  android:id="@+id/recyclerView1" />
             <Button
+                     android:fontFamily="@font/monserratfontbold"
                      android:layout_marginTop="15dp"
                      android:layout_marginBottom="15dp"
                      android:layout_marginRight="30dp"

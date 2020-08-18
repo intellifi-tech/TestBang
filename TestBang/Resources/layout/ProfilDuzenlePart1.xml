@@ -36,226 +36,232 @@
             android:layout_height="match_parent"
             android:id="@+id/relativeLayout4"
             android:layout_marginTop="60dp" />
-        <LinearLayout 
+        <LinearLayout
             android:background="@android:color/transparent"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <ScrollView
-        android:scrollbars="none"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/scrollView1">
-        <LinearLayout
-            android:orientation="vertical"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/linearLayout11">
-            <androidx.cardview.widget.CardView
-                app:cardElevation="10dp"
-                app:cardCornerRadius="20dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
+                android:scrollbars="none"
                 android:minWidth="25px"
                 android:minHeight="25px"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/cardView1" >
+                android:layout_height="match_parent"
+                android:id="@+id/scrollView1">
                 <LinearLayout
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
                     android:orientation="vertical"
                     android:minWidth="25px"
                     android:minHeight="25px"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/linearLayout1" >
-                    <RelativeLayout
-                        android:paddingTop="10dp"
-                        android:paddingLeft="10dp"
+                    android:id="@+id/linearLayout11">
+                    <androidx.cardview.widget.CardView
+                        app:cardElevation="10dp"
+                        app:cardCornerRadius="20dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="10dp"
                         android:minWidth="25px"
                         android:minHeight="25px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/relativeLayout1">
-                        <RelativeLayout
-                            android:minWidth="25px"
-                            android:minHeight="25px"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/relativeLayout2">
-                            <LinearLayout
-                                android:layout_toLeftOf="@+id/relativeLayout3"
-                                android:orientation="vertical"
-                                android:minWidth="25px"
-                                android:minHeight="25px"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:id="@+id/linearLayout2">
-                                <TextView
-                                    android:layout_marginTop="20dp"
-                                    android:textSize="20dp"
-                                    android:textStyle="bold"
-                                    android:textColor="#F05070"
-                                    android:text="MERVE TUĞAL"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/adsoyadtext" />
-                            </LinearLayout>
-                            <RelativeLayout
-                                android:layout_alignParentRight="true"
-                                android:minWidth="25px"
-                                android:minHeight="25px"
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:id="@+id/relativeLayout3" >
-                                <refractored.controls.CircleImageView
-                                    android:background="@mipmap/profilebgimg1"
-                                      android:layout_centerInParent="true"
-                                      android:id="@+id/profile_image"
-                                      android:layout_width="match_parent"
-                                      android:layout_height="match_parent"
-                                      android:src="@mipmap/animuserimg"
-                                      app:civ_border_width="16dp"
-                                      app:civ_border_color="@android:color/transparent"/>
-                            </RelativeLayout>
-                        </RelativeLayout>
-                    </RelativeLayout>
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:minWidth="25px"
-                        android:minHeight="25px"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/linearLayout12" >
+                        android:id="@+id/cardView1">
                         <LinearLayout
-                            android:background="@drawable/profilemenubg"
-                            android:orientation="vertical"
-                            android:minWidth="25px"
-                            android:minHeight="25px"
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/linearLayout13">
-                            <ImageView
-                                android:padding="10dp"
-                                android:src="@mipmap/femaleimg1"
-                                android:layout_width="60dp"
-                                android:layout_height="50dp"
-                                android:id="@+id/cinsiyeticon" />
-                            <ImageView
-                                android:padding="13dp"
-                                android:src="@mipmap/yasimg1"
-                                android:layout_width="60dp"
-                                android:layout_height="50dp"
-                                android:id="@+id/ımageView1" />
-                            <ImageView
-                                android:padding="11dp"
-                                android:src="@mipmap/konumimg1"
-                                android:layout_width="60dp"
-                                android:layout_height="50dp"
-                                android:id="@+id/ımageView1" />
-                            <ImageView
-                                android:padding="10dp"
-                                android:src="@mipmap/okulimg1"
-                                android:layout_width="60dp"
-                                android:layout_height="50dp"
-                                android:id="@+id/ımageView1" />
-                            <ImageView
-                                android:padding="10dp"
-                                android:src="@mipmap/profile_icon_9"
-                                android:layout_width="60dp"
-                                android:layout_height="50dp"
-                                android:id="@+id/ımageView1" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
                             android:orientation="vertical"
                             android:minWidth="25px"
                             android:minHeight="25px"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:id="@+id/linearLayout14" >
-                            <TextView
-                                android:textSize="17dp"
-                                android:textColor="#201632"
-                                android:gravity="center_vertical"
-                                android:text="Kadın"
-                                android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:id="@+id/linearLayout1">
+                            <RelativeLayout
+                                android:paddingTop="10dp"
+                                android:paddingLeft="10dp"
+                                android:minWidth="25px"
+                                android:minHeight="25px"
                                 android:layout_width="match_parent"
-                                android:layout_height="50dp"
-                                android:id="@+id/cinsiyettext" />
-                            <TextView
-                                android:textSize="17dp"
-                                android:textColor="#201632"
-                                android:gravity="center_vertical"
-                                android:text="22 | 05/05/1997"
-                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/relativeLayout1">
+                                <RelativeLayout
+                                    android:minWidth="25px"
+                                    android:minHeight="25px"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/relativeLayout2">
+                                    <LinearLayout
+                                        android:layout_toLeftOf="@+id/relativeLayout3"
+                                        android:orientation="vertical"
+                                        android:minWidth="25px"
+                                        android:minHeight="25px"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/linearLayout2">
+                                        <TextView
+                                            android:fontFamily="@font/monserratfontbold"
+                                            android:layout_marginTop="20dp"
+                                            android:textSize="20dp"
+                                            android:textStyle="bold"
+                                            android:textColor="#F05070"
+                                            android:text="MERVE TUĞAL"
+                                            android:textAppearance="?android:attr/textAppearanceSmall"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:id="@+id/adsoyadtext" />
+                                    </LinearLayout>
+                                    <RelativeLayout
+                                        android:layout_alignParentRight="true"
+                                        android:minWidth="25px"
+                                        android:minHeight="25px"
+                                        android:layout_width="100dp"
+                                        android:layout_height="100dp"
+                                        android:id="@+id/relativeLayout3">
+                                        <refractored.controls.CircleImageView
+                                            android:background="@mipmap/profilebgimg1"
+                                            android:layout_centerInParent="true"
+                                            android:id="@+id/profile_image"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:src="@mipmap/animuserimg"
+                                            app:civ_border_width="16dp"
+                                            app:civ_border_color="@android:color/transparent"/>
+                                    </RelativeLayout>
+                                </RelativeLayout>
+                            </RelativeLayout>
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:minWidth="25px"
+                                android:minHeight="25px"
                                 android:layout_width="match_parent"
-                                android:layout_height="50dp"
-                                android:id="@+id/dogumtarihitext" />
-                            <TextView
-                                android:textSize="17dp"
-                                android:textColorHint="#201632"
-                                android:gravity="center_vertical"
-                                android:hint="Turnasuyu / Ordu"
-                                android:textAppearance="?android:attr/textAppearanceLarge"
-                                android:layout_width="match_parent"
-                                android:layout_height="50dp"
-                                android:id="@+id/ililcetext" />
-                            <TextView
-                                android:ellipsize="marquee"
-                                android:maxLines="1"
-                                android:textSize="17dp"
-                                android:textColor="#201632"
-                                android:gravity="center_vertical"
-                                android:text="ORDU KOLEJİ"
-                                android:textAppearance="?android:attr/textAppearanceLarge"
-                                android:layout_width="match_parent"
-                                android:layout_height="50dp"
-                                android:id="@+id/okultext" />
-                            <TextView
-                                android:ellipsize="marquee"
-                                android:maxLines="1"
-                                android:textSize="17dp"
-                                android:textColor="#201632"
-                                android:gravity="center_vertical"
-                                android:text="merve.bacinogli@dmmistanbul.com"
-                                android:textAppearance="?android:attr/textAppearanceLarge"
-                                android:layout_width="match_parent"
-                                android:layout_height="50dp"
-                                android:id="@+id/mailtext" />
+                                android:layout_height="wrap_content"
+                                android:id="@+id/linearLayout12">
+                                <LinearLayout
+                                    android:background="@drawable/profilemenubg"
+                                    android:orientation="vertical"
+                                    android:minWidth="25px"
+                                    android:minHeight="25px"
+                                    android:layout_width="60dp"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/linearLayout13">
+                                    <ImageView
+                                        android:padding="10dp"
+                                        android:src="@mipmap/femaleimg1"
+                                        android:layout_width="60dp"
+                                        android:layout_height="50dp"
+                                        android:id="@+id/cinsiyeticon" />
+                                    <ImageView
+                                        android:padding="13dp"
+                                        android:src="@mipmap/yasimg1"
+                                        android:layout_width="60dp"
+                                        android:layout_height="50dp"
+                                        android:id="@+id/ımageView1" />
+                                    <ImageView
+                                        android:padding="11dp"
+                                        android:src="@mipmap/konumimg1"
+                                        android:layout_width="60dp"
+                                        android:layout_height="50dp"
+                                        android:id="@+id/ımageView1" />
+                                    <ImageView
+                                        android:padding="10dp"
+                                        android:src="@mipmap/okulimg1"
+                                        android:layout_width="60dp"
+                                        android:layout_height="50dp"
+                                        android:id="@+id/ımageView1" />
+                                    <ImageView
+                                        android:padding="10dp"
+                                        android:src="@mipmap/profile_icon_9"
+                                        android:layout_width="60dp"
+                                        android:layout_height="50dp"
+                                        android:id="@+id/ımageView1" />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_marginLeft="10dp"
+                                    android:orientation="vertical"
+                                    android:minWidth="25px"
+                                    android:minHeight="25px"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:id="@+id/linearLayout14">
+                                    <TextView
+                                        android:fontFamily="@font/monserratfont"
+                                        android:textSize="17dp"
+                                        android:textColor="#201632"
+                                        android:gravity="center_vertical"
+                                        android:text="Kadın"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:id="@+id/cinsiyettext" />
+                                    <TextView
+                                        android:fontFamily="@font/monserratfont"
+                                        android:textSize="17dp"
+                                        android:textColor="#201632"
+                                        android:gravity="center_vertical"
+                                        android:text="22 | 05/05/1997"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:id="@+id/dogumtarihitext" />
+                                    <TextView
+                                        android:fontFamily="@font/monserratfont"
+                                        android:textSize="17dp"
+                                        android:textColorHint="#201632"
+                                        android:gravity="center_vertical"
+                                        android:hint="Turnasuyu / Ordu"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:id="@+id/ililcetext" />
+                                    <TextView
+                                        android:fontFamily="@font/monserratfont"
+                                        android:ellipsize="marquee"
+                                        android:maxLines="1"
+                                        android:textSize="17dp"
+                                        android:textColor="#201632"
+                                        android:gravity="center_vertical"
+                                        android:text="ORDU KOLEJİ"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:id="@+id/okultext" />
+                                    <TextView
+                                        android:fontFamily="@font/monserratfont"
+                                        android:ellipsize="marquee"
+                                        android:maxLines="1"
+                                        android:textSize="17dp"
+                                        android:textColor="#201632"
+                                        android:gravity="center_vertical"
+                                        android:text="merve.bacinogli@dmmistanbul.com"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:id="@+id/mailtext" />
+                                </LinearLayout>
+                            </LinearLayout>
                         </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <LinearLayout
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="50dp"
+                        android:orientation="horizontal"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/linearLayout15">
+                        <Button
+                            android:textSize="10dp"
+                            android:textColor="#fff"
+                            android:background="@drawable/profiliguncellebuttonbg"
+                            android:text="PROFİLİNİ GÜNCELLE"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:id="@+id/button2" />
                     </LinearLayout>
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <LinearLayout
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="15dp"
-                 android:layout_gravity="center_horizontal"
-                 android:layout_marginTop="50dp"
-                 android:orientation="horizontal"
-                 android:minWidth="25px"
-                 android:minHeight="25px"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:id="@+id/linearLayout15" >
-                 <Button
-                     android:textSize="10dp"
-                     android:textColor="#fff"
-                     android:background="@drawable/profiliguncellebuttonbg"
-                     android:text="PROFİLİNİ GÜNCELLE"
-                     android:layout_width="match_parent"
-                     android:layout_height="45dp"
-                     android:id="@+id/button2" />
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+            </ScrollView>
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

@@ -30,7 +30,9 @@
 			android:layout_height="match_parent"
 			android:id="@+id/ımageView1" />
 		<Button
-			android:textAllCaps="false"
+			android:fontFamily="@font/monserratfont"
+				android:textStyle="normal"
+				android:textAllCaps="false"
 			  android:text="Button1"
 			  android:layout_width="fill_parent"
 			  android:layout_height="match_parent"

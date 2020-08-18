@@ -29,6 +29,7 @@
             android:layout_height="17dp"
             android:id="@+id/linearLayout2" />
         <TextView
+            android:fontFamily="@font/monserratfont"
             android:textStyle="bold"
             android:layout_marginLeft="5dp"
             android:textColor="#000"
@@ -49,6 +50,7 @@
             android:layout_height="17dp"
             android:id="@+id/linearLayout2" />
         <TextView
+            android:fontFamily="@font/monserratfont"
             android:textStyle="bold"
             android:layout_marginLeft="5dp"
             android:textColor="#000"
@@ -69,6 +71,7 @@
             android:layout_height="17dp"
             android:id="@+id/linearLayout2" />
         <TextView
+            android:fontFamily="@font/monserratfont"
             android:textStyle="bold"
             android:layout_marginLeft="5dp"
             android:textColor="#000"

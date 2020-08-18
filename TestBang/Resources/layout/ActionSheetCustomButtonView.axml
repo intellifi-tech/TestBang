@@ -16,6 +16,8 @@
 			android:background="@color/softGreyColor"
 			android:layout_height="0.5dp"/>
 		<Button
+				android:fontFamily="@font/monserratfontbold"
+				android:textStyle="normal"
 				android:text="Button1"
 				android:layout_width="fill_parent"
 				android:layout_height="match_parent"

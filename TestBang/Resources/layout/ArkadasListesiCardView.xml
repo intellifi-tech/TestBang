@@ -54,6 +54,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/linearLayout2" >
                 <TextView
+                    android:fontFamily="@font/monserratfontbold"
                     android:textSize="16dp"
                     android:textStyle="bold"
                     android:text="Mesut Polat"
@@ -62,6 +63,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/textView1" />
                 <TextView
+                    android:fontFamily="@font/monserratfont"
                     android:textSize="13dp"
                     android:layout_marginTop="5dp"
                     android:text="İSTANBUL, KAĞITHANE"

@@ -36,12 +36,12 @@
             android:layout_height="match_parent"
             android:id="@+id/relativeLayout4"
             android:layout_marginTop="60dp" />
-        <LinearLayout 
+        <LinearLayout
             android:orientation="vertical"
             android:background="@android:color/transparent"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-             <androidx.cardview.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:visibility="visible"
                 app:cardElevation="10dp"
                 app:cardCornerRadius="20dp"
@@ -52,7 +52,7 @@
                 android:minHeight="25px"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/cardView1" >
+                android:id="@+id/cardView1">
                 <LinearLayout
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
@@ -61,8 +61,9 @@
                     android:minHeight="25px"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/linearLayout1" >
-                     <TextView
+                    android:id="@+id/linearLayout1">
+                    <TextView
+                        android:fontFamily="@font/monserratfontbold"
                         android:layout_marginTop="15dp"
                         android:textColor="#1EB14C"
                         android:gravity="center_horizontal"
@@ -72,7 +73,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/textView2" />
-                     <TextView
+                    <TextView
+                        android:fontFamily="@font/monserratfontbold"
                         android:layout_marginTop="5dp"
                         android:textColor="#11122E"
                         android:gravity="center_horizontal"
@@ -81,7 +83,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@id/adsoyadtext" />
-                     <TextView
+                    <TextView
+                        android:fontFamily="@font/monserratfont"
                         android:layout_marginRight="20dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginBottom="20dp"
@@ -96,13 +99,13 @@
                         android:id="@+id/textView3" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-             <androidx.recyclerview.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:layout_marginTop="15dp"
                 android:minWidth="25px"
                 android:minHeight="25px"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/recyclerView1" />
-      </LinearLayout>
+        </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

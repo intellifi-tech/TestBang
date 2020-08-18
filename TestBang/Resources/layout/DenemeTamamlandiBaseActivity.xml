@@ -82,6 +82,7 @@
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
                     <TextView
+                    android:fontFamily="@font/monserratfontbold"
                         android:layout_marginTop="46.0dp"
                         android:layout_marginBottom="110.0dp"
                         android:textColor="#10102A"
@@ -96,6 +97,7 @@
                         android:layout_marginLeft="50dp"
                         android:layout_marginRight="50.5dp" />
                 <Button
+                    android:fontFamily="@font/monserratfontbold"
                         android:layout_marginRight="30dp"
                         android:layout_marginLeft="30dp"
                          android:layout_marginBottom="15dp"

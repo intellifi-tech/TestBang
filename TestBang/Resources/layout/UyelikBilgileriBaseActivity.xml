@@ -37,13 +37,14 @@
             android:layout_height="match_parent"
             android:id="@+id/scrollView1">
             <LinearLayout
-            android:orientation="vertical"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/linearLayout11">
+                android:orientation="vertical"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/linearLayout11">
                 <TextView
+                    android:fontFamily="@font/monserratfontbold"
                     android:layout_marginTop="15dp"
                     android:textColor="#1EB14C"
                     android:gravity="center_horizontal"
@@ -54,6 +55,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/textView2" />
                 <TextView
+                    android:fontFamily="@font/monserratfontbold"
                     android:layout_marginTop="5dp"
                     android:textColor="#11122E"
                     android:gravity="center_horizontal"
@@ -79,43 +81,45 @@
                         android:layout_weight="33"
                         android:layout_width="0dp"
                         android:layout_height="80dp"
-                        android:id="@+id/cardView1" >
+                        android:id="@+id/cardView1">
                         <RelativeLayout
                             android:minWidth="25px"
                             android:minHeight="25px"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:id="@+id/relativeLayout4" >
-                        <LinearLayout
-                            android:layout_centerInParent="true"
-                            android:orientation="vertical"
-                            android:minWidth="25px"
-                            android:minHeight="25px"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/linearLayout1" >
-                            <TextView
-                                android:textSize="10dp"
-                                android:layout_marginBottom="3dp"
-                                android:layout_weight="50"
-                                android:textColor="#11122E"
-                                android:gravity="center_horizontal|bottom"
-                                android:text="Paket Adı"
-                                android:textAppearance="?android:attr/textAppearanceSmall"
-                                android:layout_width="match_parent"
+                            android:id="@+id/relativeLayout4">
+                            <LinearLayout
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical"
+                                android:minWidth="25px"
+                                android:minHeight="25px"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/textView4" />
-                            <TextView
-                                android:layout_marginTop="3dp"
-                                android:layout_weight="50"
-                                android:textColor="#11122E"
-                                android:gravity="center_horizontal|top"
-                                android:textStyle="bold"
-                                android:text="AYLIK ENSEK"
-                                android:textAppearance="?android:attr/textAppearanceSmall"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:id="@+id/textView5" />
+                                android:id="@+id/linearLayout1">
+                                <TextView
+                                    android:fontFamily="@font/monserratfont"
+                                    android:textSize="10dp"
+                                    android:layout_marginBottom="3dp"
+                                    android:layout_weight="50"
+                                    android:textColor="#11122E"
+                                    android:gravity="center_horizontal|bottom"
+                                    android:text="Paket Adı"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/textView4" />
+                                <TextView
+                                    android:fontFamily="@font/monserratfontbold"
+                                    android:layout_marginTop="3dp"
+                                    android:layout_weight="50"
+                                    android:textColor="#11122E"
+                                    android:gravity="center_horizontal|top"
+                                    android:textStyle="bold"
+                                    android:text="AYLIK ENSEK"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/textView5" />
                             </LinearLayout>
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
@@ -128,43 +132,45 @@
                         android:layout_weight="33"
                         android:layout_width="0dp"
                         android:layout_height="80dp"
-                        android:id="@+id/cardView1" >
+                        android:id="@+id/cardView1">
                         <RelativeLayout
                             android:minWidth="25px"
                             android:minHeight="25px"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:id="@+id/relativeLayout4" >
-                        <LinearLayout
-                            android:layout_centerInParent="true"
-                            android:orientation="vertical"
-                            android:minWidth="25px"
-                            android:minHeight="25px"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/linearLayout1" >
-                            <TextView
-                                android:textSize="10dp"
-                                android:layout_marginBottom="3dp"
-                                android:layout_weight="50"
-                                android:textColor="#11122E"
-                                android:gravity="center_horizontal|bottom"
-                                android:text="Aylık Fatura Bedeli"
-                                android:textAppearance="?android:attr/textAppearanceSmall"
-                                android:layout_width="match_parent"
+                            android:id="@+id/relativeLayout4">
+                            <LinearLayout
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical"
+                                android:minWidth="25px"
+                                android:minHeight="25px"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/textView4" />
-                            <TextView
-                                android:layout_marginTop="3dp"
-                                android:layout_weight="50"
-                                android:textColor="#F05070"
-                                android:gravity="center_horizontal|top"
-                                android:textStyle="bold"
-                                android:text="₺9.90"
-                                android:textAppearance="?android:attr/textAppearanceSmall"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:id="@+id/textView5" />
+                                android:id="@+id/linearLayout1">
+                                <TextView
+                                    android:fontFamily="@font/monserratfont"
+                                    android:textSize="10dp"
+                                    android:layout_marginBottom="3dp"
+                                    android:layout_weight="50"
+                                    android:textColor="#11122E"
+                                    android:gravity="center_horizontal|bottom"
+                                    android:text="Aylık Fatura Bedeli"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/textView4" />
+                                <TextView
+                                    android:fontFamily="@font/monserratfontbold"
+                                    android:layout_marginTop="3dp"
+                                    android:layout_weight="50"
+                                    android:textColor="#F05070"
+                                    android:gravity="center_horizontal|top"
+                                    android:textStyle="bold"
+                                    android:text="₺9.90"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/textView5" />
                             </LinearLayout>
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
@@ -177,112 +183,117 @@
                         android:layout_weight="33"
                         android:layout_width="0dp"
                         android:layout_height="80dp"
-                        android:id="@+id/cardView1" >
+                        android:id="@+id/cardView1">
                         <RelativeLayout
                             android:minWidth="25px"
                             android:minHeight="25px"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:id="@+id/relativeLayout4" >
-                        <LinearLayout
-                            android:layout_centerInParent="true"
-                            android:orientation="vertical"
-                            android:minWidth="25px"
-                            android:minHeight="25px"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/linearLayout1" >
-                            <TextView
-                                android:textSize="10dp"
-                                android:layout_marginBottom="3dp"
-                                android:layout_weight="50"
-                                android:textColor="#11122E"
-                                android:gravity="center_horizontal|bottom"
-                                android:text="Ödeme Metodu"
-                                android:textAppearance="?android:attr/textAppearanceSmall"
-                                android:layout_width="match_parent"
+                            android:id="@+id/relativeLayout4">
+                            <LinearLayout
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical"
+                                android:minWidth="25px"
+                                android:minHeight="25px"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/textView4" />
-                            <TextView
-                                android:layout_marginTop="3dp"
-                                android:layout_weight="50"
-                                android:textColor="#1EB04B"
-                                android:gravity="center_horizontal|top"
-                                android:textStyle="bold"
-                                android:text="VISA****2356"
-                                android:textAppearance="?android:attr/textAppearanceSmall"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:id="@+id/textView5" />
+                                android:id="@+id/linearLayout1">
+                                <TextView
+                                    android:fontFamily="@font/monserratfont"
+                                    android:textSize="10dp"
+                                    android:layout_marginBottom="3dp"
+                                    android:layout_weight="50"
+                                    android:textColor="#11122E"
+                                    android:gravity="center_horizontal|bottom"
+                                    android:text="Ödeme Metodu"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/textView4" />
+                                <TextView
+                                    android:fontFamily="@font/monserratfontbold"
+                                    android:layout_marginTop="3dp"
+                                    android:layout_weight="50"
+                                    android:textColor="#1EB04B"
+                                    android:gravity="center_horizontal|top"
+                                    android:textStyle="bold"
+                                    android:text="VISA****2356"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/textView5" />
                             </LinearLayout>
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
-                 </LinearLayout>
+                </LinearLayout>
                 <LinearLayout
-                android:layout_marginBottom="15dp"
-                 android:layout_gravity="center_horizontal"
-                 android:layout_marginTop="10dp"
-                 android:orientation="horizontal"
-                 android:minWidth="25px"
-                 android:minHeight="25px"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:id="@+id/linearLayout15" >
-                 <Button
-                     android:textSize="10dp"
-                     android:textColor="#fff"
-                     android:background="@drawable/oturumkapatbuttonbg"
-                     android:text="Ödeme Geçmişi"
-                     android:layout_width="150dp"
-                     android:layout_height="45dp"
-                     android:layout_marginRight="5dp"
-                     android:id="@+id/button3" />
-                 <Button
-                     android:layout_marginLeft="5dp"
-                     android:textSize="10dp"
-                     android:textColor="#fff"
-                     android:background="@drawable/ayarlarbuttonbg"
-                     android:text="Üyeliği İptal Et"
-                     android:layout_width="150dp"
-                     android:layout_height="45dp"
-                     android:id="@+id/button2" />
-            </LinearLayout>
+                    android:layout_marginBottom="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linearLayout15">
+                    <Button
+                        android:fontFamily="@font/monserratfontbold"
+                        android:textSize="10dp"
+                        android:textColor="#fff"
+                        android:background="@drawable/oturumkapatbuttonbg"
+                        android:text="Ödeme Geçmişi"
+                        android:layout_width="150dp"
+                        android:layout_height="45dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/button3" />
+                    <Button
+                        android:fontFamily="@font/monserratfontbold"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="10dp"
+                        android:textColor="#fff"
+                        android:background="@drawable/ayarlarbuttonbg"
+                        android:text="Üyeliği İptal Et"
+                        android:layout_width="150dp"
+                        android:layout_height="45dp"
+                        android:id="@+id/button2" />
+                </LinearLayout>
                 <LinearLayout
-                      android:layout_marginLeft="20dp"
-                      android:layout_marginRight="20dp"
-                      android:layout_marginTop="10dp"
-                      android:layout_marginBottom="10dp"
-                      android:background="@drawable/hesapolusturinputbg"
-                      android:orientation="horizontal"
-                      android:minWidth="25px"
-                      android:minHeight="25px"
-                      android:layout_width="match_parent"
-                      android:layout_height="50.0dp"
-                      android:id="@+id/linearLayout2">
-                      <ImageView
-                          android:alpha="0.4"
-                          android:tint="#50ffffff"
-                          android:padding="5dp"
-                          android:src="@mipmap/rakiparaimg"
-                          android:layout_width="30.5dp"
-                          android:layout_height="match_parent"
-                          android:id="@+id/ımageView2"
-                          android:layout_marginLeft="15.0dp" />
-                      <EditText
-                          android:textSize="12dp"
-                          android:paddingLeft="15dp"
-                          android:background="@null"
-                          android:textColor="#11122E"
-                          android:hint="Kupon Kodu"
-                          android:textColorHint="#9011122E"
-                          android:layout_marginLeft="0.0dp"
-                          android:layout_marginRight="0.0dp"
-                          android:inputType="number"
-                          android:maxLength="16"
-                          android:layout_width="match_parent"
-                          android:layout_height="match_parent"
-                          android:id="@+id/editText2" />
-                   </LinearLayout>
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/hesapolusturinputbg"
+                    android:orientation="horizontal"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="50.0dp"
+                    android:id="@+id/linearLayout2">
+                    <ImageView
+                        android:alpha="0.4"
+                        android:tint="#50ffffff"
+                        android:padding="5dp"
+                        android:src="@mipmap/rakiparaimg"
+                        android:layout_width="30.5dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/ımageView2"
+                        android:layout_marginLeft="15.0dp" />
+                    <EditText
+                        android:fontFamily="@font/monserratfont"
+                        android:textSize="12dp"
+                        android:paddingLeft="15dp"
+                        android:background="@null"
+                        android:textColor="#11122E"
+                        android:hint="Kupon Kodu"
+                        android:textColorHint="#9011122E"
+                        android:layout_marginLeft="0.0dp"
+                        android:layout_marginRight="0.0dp"
+                        android:inputType="number"
+                        android:maxLength="16"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/editText2" />
+                </LinearLayout>
                 <LinearLayout
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
@@ -291,79 +302,82 @@
                     android:minHeight="25px"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/linearLayout16" >
-                <TextView
-                    android:textColor="#F05070"
-                    android:textSize="10dp"
-                    android:textStyle="bold"
-                    android:text="Ödeme Bilgileri"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView6" />
+                    android:id="@+id/linearLayout16">
+                    <TextView
+                        android:fontFamily="@font/monserratfont"
+                        android:textColor="#F05070"
+                        android:textSize="10dp"
+                        android:textStyle="bold"
+                        android:text="Ödeme Bilgileri"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView6" />
                     <LinearLayout
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/hesapolusturinputbg"
-                            android:orientation="horizontal"
-                            android:minWidth="25px"
-                            android:minHeight="25px"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/hesapolusturinputbg"
+                        android:orientation="horizontal"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="50.0dp"
+                        android:id="@+id/linearLayout2">
+                        <ImageView
+                            android:tint="#50ffffff"
+                            android:padding="5dp"
+                            android:src="@mipmap/login_email_icon"
+                            android:layout_width="30.5dp"
+                            android:layout_height="match_parent"
+                            android:id="@+id/ımageView2"
+                            android:layout_marginLeft="15.0dp" />
+                        <EditText
+                            android:fontFamily="@font/monserratfont"
+                            android:textSize="12dp"
+                            android:paddingLeft="15dp"
+                            android:background="@null"
+                            android:textColor="#11122E"
+                            android:hint="Ad Soyad"
+                            android:textColorHint="#9011122E"
+                            android:layout_marginLeft="0.0dp"
+                            android:layout_marginRight="0.0dp"
+                            android:inputType="textPersonName"
                             android:layout_width="match_parent"
-                            android:layout_height="50.0dp"
-                            android:id="@+id/linearLayout2">
-                            <ImageView
-                                android:tint="#50ffffff"
-                                android:padding="5dp"
-                                android:src="@mipmap/login_email_icon"
-                                android:layout_width="30.5dp"
-                                android:layout_height="match_parent"
-                                android:id="@+id/ımageView2"
-                                android:layout_marginLeft="15.0dp" />
-                            <EditText
-                                android:textSize="12dp"
-                                android:paddingLeft="15dp"
-                                android:background="@null"
-                                android:textColor="#11122E"
-                                android:hint="Ad Soyad"
-                                android:textColorHint="#9011122E"
-                                android:layout_marginLeft="0.0dp"
-                                android:layout_marginRight="0.0dp"
-                                android:inputType="textPersonName"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:id="@+id/editText2" />
-                        </LinearLayout>
+                            android:layout_height="match_parent"
+                            android:id="@+id/editText2" />
+                    </LinearLayout>
                     <LinearLayout
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/hesapolusturinputbg"
-                            android:orientation="horizontal"
-                            android:minWidth="25px"
-                            android:minHeight="25px"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/hesapolusturinputbg"
+                        android:orientation="horizontal"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="50.0dp"
+                        android:id="@+id/linearLayout2">
+                        <ImageView
+                            android:tint="#50ffffff"
+                            android:padding="5dp"
+                            android:src="@mipmap/cardnumbericon1"
+                            android:layout_width="30.5dp"
+                            android:layout_height="match_parent"
+                            android:id="@+id/ımageView2"
+                            android:layout_marginLeft="15.0dp" />
+                        <EditText
+                            android:fontFamily="@font/monserratfont"
+                            android:textSize="12dp"
+                            android:paddingLeft="15dp"
+                            android:background="@null"
+                            android:textColor="#11122E"
+                            android:hint="Kart Numarası"
+                            android:textColorHint="#9011122E"
+                            android:layout_marginLeft="0.0dp"
+                            android:layout_marginRight="0.0dp"
+                            android:inputType="number"
+                            android:maxLength="16"
                             android:layout_width="match_parent"
-                            android:layout_height="50.0dp"
-                            android:id="@+id/linearLayout2">
-                            <ImageView
-                                android:tint="#50ffffff"
-                                android:padding="5dp"
-                                android:src="@mipmap/cardnumbericon1"
-                                android:layout_width="30.5dp"
-                                android:layout_height="match_parent"
-                                android:id="@+id/ımageView2"
-                                android:layout_marginLeft="15.0dp" />
-                            <EditText
-                                android:textSize="12dp"
-                                android:paddingLeft="15dp"
-                                android:background="@null"
-                                android:textColor="#11122E"
-                                android:hint="Kart Numarası"
-                                android:textColorHint="#9011122E"
-                                android:layout_marginLeft="0.0dp"
-                                android:layout_marginRight="0.0dp"
-                                android:inputType="number"
-                                android:maxLength="16"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:id="@+id/editText2" />
-                        </LinearLayout>
+                            android:layout_height="match_parent"
+                            android:id="@+id/editText2" />
+                    </LinearLayout>
                     <LinearLayout
                         android:weightSum="100"
                         android:orientation="horizontal"
@@ -392,6 +406,7 @@
                                 android:id="@+id/ımageView2"
                                 android:layout_marginLeft="15.0dp" />
                             <EditText
+                                android:fontFamily="@font/monserratfont"
                                 android:textSize="12dp"
                                 android:paddingLeft="15dp"
                                 android:background="@null"
@@ -424,6 +439,7 @@
                                 android:id="@+id/ımageView2"
                                 android:layout_marginLeft="15.0dp" />
                             <EditText
+                                android:fontFamily="@font/monserratfont"
                                 android:maxLength="3"
                                 android:textSize="12dp"
                                 android:paddingLeft="15dp"
@@ -440,17 +456,18 @@
                         </LinearLayout>
                     </LinearLayout>
                     <Button
-                     android:textSize="10dp"
-                     android:textColor="#fff"
-                     android:background="@drawable/ayarlarbuttonbg"
-                     android:text="ÖDEME BİLGİLERİNİ GÜNCELLE"
-                     android:layout_marginTop="15dp"
-                     android:layout_marginBottom="15dp"
-                     android:layout_width="match_parent"
-                     android:layout_height="45dp"
-                     android:id="@+id/button2" />
+                        android:fontFamily="@font/monserratfontbold"
+                        android:textSize="10dp"
+                        android:textColor="#fff"
+                        android:background="@drawable/ayarlarbuttonbg"
+                        android:text="ÖDEME BİLGİLERİNİ GÜNCELLE"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:id="@+id/button2" />
                 </LinearLayout>
             </LinearLayout>
-          </ScrollView>
+        </ScrollView>
     </RelativeLayout>
 </LinearLayout>

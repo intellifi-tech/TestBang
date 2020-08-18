@@ -166,6 +166,24 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
+    <AndroidResource Include="Resources\font\bontserrat_black.ttf" />
+    <AndroidResource Include="Resources\font\montserrat_blackItalic.ttf" />
+    <AndroidResource Include="Resources\font\montserrat_bold.ttf" />
+    <AndroidResource Include="Resources\font\montserrat_boldItalic.ttf" />
+    <AndroidResource Include="Resources\font\montserrat_extraBold.ttf" />
+    <AndroidResource Include="Resources\font\montserrat_extraBoldItalic.ttf" />
+    <AndroidResource Include="Resources\font\montserrat_extraLight.ttf" />
+    <AndroidResource Include="Resources\font\montserrat_extraLightItalic.ttf" />
+    <AndroidResource Include="Resources\font\montserrat_italic.ttf" />
+    <AndroidResource Include="Resources\font\montserrat_light.ttf" />
+    <AndroidResource Include="Resources\font\montserrat_lightItalic.ttf" />
+    <AndroidResource Include="Resources\font\montserrat_medium.ttf" />
+    <AndroidResource Include="Resources\font\montserrat_mediumItalic.ttf" />
+    <AndroidResource Include="Resources\font\montserrat_regular.ttf" />
+    <AndroidResource Include="Resources\font\montserrat_semiBold.ttf" />
+    <AndroidResource Include="Resources\font\montserrat_semiBoldItalic.ttf" />
+    <AndroidResource Include="Resources\font\montserrat_thin.ttf" />
+    <AndroidResource Include="Resources\font\montserrat_thinItalic.ttf" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\ic_launcher_background.xml" />
@@ -1186,6 +1204,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\right_arrow.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\font\monserratfont.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\font\monserratfontbold.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

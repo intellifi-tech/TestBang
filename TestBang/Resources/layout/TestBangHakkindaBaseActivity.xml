@@ -20,43 +20,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/ımageView1"
             android:layout_marginLeft="25.0dp" />
-        <LinearLayout
-            android:layout_alignParentRight="true"
-            android:orientation="horizontal"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/linearLayout1"
-            android:layout_marginRight="25dp">
-            <RelativeLayout
-                android:layout_gravity="center_vertical"
-                android:minWidth="25px"
-                android:minHeight="25px"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:id="@+id/relativeLayout2">
-                <ImageView
-                    android:layout_marginTop="10dp"
-                    android:scaleType="centerInside"
-                    android:src="@mipmap/notification1"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:id="@+id/ımageView2" />
-                <TextView
-                    android:textSize="13dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_alignParentRight="true"
-                    android:gravity="center"
-                    android:background="@drawable/bildirimIcinBadge"
-                    android:textColor="#F05070"
-                    android:text="3"
-                    android:layout_width="17dp"
-                    android:layout_height="17dp"
-                    android:id="@+id/textView1" />
-            </RelativeLayout>
-        </LinearLayout>
     </RelativeLayout>
     <RelativeLayout
         android:background="#131435"
@@ -67,57 +30,60 @@
         android:id="@+id/relativeLayout3"
         android:layout_marginTop="0.0dp">
         <LinearLayout
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:orientation="vertical"
-                    android:minWidth="25px"
-                    android:minHeight="25px"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/yazihazne" >
-                     <TextView
-                        android:layout_marginTop="15dp"
-                        android:textColor="#1EB14C"
-                        android:gravity="center_horizontal"
-                        android:textStyle="bold"
-                        android:text="TESTBANG HAKKINDA"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView2" />
-                     <TextView
-                        android:layout_marginRight="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:textSize="12dp"
-                        android:layout_marginTop="5dp"
-                        android:textColor="#fff"
-                        android:gravity="center_horizontal"
-                        android:text="Karşınızda yeni nesil eğitim platformu."
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView3" />
-                    <TextView
-                        android:layout_marginRight="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:textSize="12dp"
-                        android:layout_marginTop="5dp"
-                        android:textColor="#fff"
-                        android:gravity="center_horizontal"
-                        android:text="Sınavlara hazırlık artık sizin peşinizden koşacak!"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView3" />
-                </LinearLayout>
-                <ImageView
-                    android:layout_below="@+id/yazihazne"
-                    android:scaleType="centerInside"
-                    android:src="@mipmap/hakkindaimg1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/ımageView3" />
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/yazihazne">
+            <TextView
+                android:fontFamily="@font/monserratfontbold"
+                android:layout_marginTop="15dp"
+                android:textColor="#1EB14C"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:text="TESTBANG HAKKINDA"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2" />
+            <TextView
+                android:fontFamily="@font/monserratfont"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="12dp"
+                android:layout_marginTop="5dp"
+                android:textColor="#fff"
+                android:gravity="center_horizontal"
+                android:text="Karşınızda yeni nesil eğitim platformu."
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3" />
+            <TextView
+                android:fontFamily="@font/monserratfont"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="20dp"
+                android:textSize="12dp"
+                android:layout_marginTop="5dp"
+                android:textColor="#fff"
+                android:gravity="center_horizontal"
+                android:text="Sınavlara hazırlık artık sizin peşinizden koşacak!"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3" />
+        </LinearLayout>
+        <ImageView
+            android:layout_below="@+id/yazihazne"
+            android:scaleType="centerInside"
+            android:src="@mipmap/hakkindaimg1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/ımageView3" />
     </RelativeLayout>
 </LinearLayout>

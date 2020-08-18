@@ -99,6 +99,7 @@
                                         android:layout_height="wrap_content"
                                         android:id="@+id/linearLayout2">
                                         <TextView
+                                            android:fontFamily="@font/monserratfont"
                                             android:textColor="#11122e"
                                             android:text="Selam,"
                                             android:textAppearance="?android:attr/textAppearanceSmall"
@@ -106,6 +107,7 @@
                                             android:layout_height="wrap_content"
                                             android:id="@+id/textView1" />
                                         <TextView
+                                            android:fontFamily="@font/monserratfontbold"
                                             android:textSize="20dp"
                                             android:textStyle="bold"
                                             android:textColor="#F05070"
@@ -173,6 +175,7 @@
                                     android:id="@+id/ımageView2"
                                     android:layout_marginLeft="15.0dp" />
                                 <EditText
+                                    android:fontFamily="@font/monserratfont"
                                     android:textCursorDrawable="@null"
                                     android:textSize="16dp"
                                     android:paddingLeft="15dp"
@@ -206,6 +209,7 @@
                                     android:id="@+id/ımageView2"
                                     android:layout_marginLeft="15.0dp" />
                                 <EditText
+                                    android:fontFamily="@font/monserratfont"
                                     android:textCursorDrawable="@null"
                                     android:textSize="16dp"
                                     android:paddingLeft="15dp"
@@ -241,6 +245,7 @@
                                 android:id="@+id/ımageView2"
                                 android:layout_marginLeft="15.0dp" />
                             <EditText
+                                android:fontFamily="@font/monserratfont"
                                 android:textCursorDrawable="@null"
                                 android:textSize="16dp"
                                 android:paddingLeft="15dp"
@@ -275,6 +280,7 @@
                                 android:id="@+id/ımageView2"
                                 android:layout_marginLeft="15.0dp" />
                             <EditText
+                                android:fontFamily="@font/monserratfont"
                                 android:textCursorDrawable="@null"
                                 android:textSize="16dp"
                                 android:paddingLeft="15dp"
@@ -309,6 +315,7 @@
                                 android:id="@+id/ımageView2"
                                 android:layout_marginLeft="15.0dp" />
                             <EditText
+                                android:fontFamily="@font/monserratfont"
                                 android:textCursorDrawable="@null"
                                 android:textSize="16dp"
                                 android:paddingLeft="15dp"
@@ -385,6 +392,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/linearLayout15">
                         <Button
+                            android:fontFamily="@font/monserratfontbold"
                             android:textSize="10dp"
                             android:textColor="#fff"
                             android:background="@drawable/profiliguncellebuttonbg"

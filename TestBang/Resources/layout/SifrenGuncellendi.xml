@@ -5,63 +5,68 @@
     android:background="#1EB14C"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-  <LinearLayout
-      android:layout_centerInParent="true"
-      android:orientation="vertical"
-      android:minWidth="25px"
-      android:minHeight="25px"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/linearLayout2">
-    <ImageView
-        android:scaleType="centerInside"
-        android:src="@mipmap/sifremiunuttum_img2"
-        android:layout_width="match_parent"
-        android:layout_height="193.0dp"
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
         android:minWidth="25px"
         android:minHeight="25px"
-        android:id="@+id/ımageView1"
-        android:layout_marginTop="0.0dp" />
-    <TextView
-        android:textSize="18dp"
-        android:textStyle="bold"
-        android:textColor="#fff"
-        android:gravity="center_horizontal"
-        android:text="Şifren"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:layout_marginTop="38.5dp" />
-    <TextView
-        android:textSize="24dp"
-        android:textStyle="bold"
-        android:textColor="#11122e"
-        android:gravity="center_horizontal"
-        android:text="GÜNCELLENDİ"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView2" />
-    <TextView
-        android:textSize="12dp"
-        android:textColor="#fff"
-        android:gravity="center_horizontal"
-        android:text="Artık Testbang’e giriş yapıp testlere ulaşabilirsin."
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView3"
-        android:layout_marginTop="8.5dp" />
-    <Button
-        android:layout_marginTop="50dp"
-        android:textColor="#fff"
-        android:background="@drawable/girisbuton"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:text="TEST ÇÖZMEYE BAŞLA"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button1" />
-  </LinearLayout>
+        android:id="@+id/linearLayout2">
+        <ImageView
+            android:scaleType="centerInside"
+            android:src="@mipmap/sifremiunuttum_img2"
+            android:layout_width="match_parent"
+            android:layout_height="193.0dp"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:id="@+id/ımageView1"
+            android:layout_marginTop="0.0dp" />
+        <TextView
+            android:fontFamily="@font/monserratfontbold"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:gravity="center_horizontal"
+            android:text="Şifren"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1"
+            android:layout_marginTop="38.5dp" />
+        <TextView
+            android:fontFamily="@font/monserratfontbold"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:textColor="#11122e"
+            android:gravity="center_horizontal"
+            android:text="GÜNCELLENDİ"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2" />
+        <TextView
+            android:fontFamily="@font/monserratfont"
+            android:textSize="12dp"
+            android:textColor="#fff"
+            android:gravity="center_horizontal"
+            android:text="Artık Testbang’e giriş yapıp testlere ulaşabilirsin."
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:layout_marginTop="8.5dp" />
+        <Button
+            android:textSize="10dp"
+            android:fontFamily="@font/monserratfontbold"
+            android:layout_marginTop="50dp"
+            android:textColor="#fff"
+            android:background="@drawable/girisbuton"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:text="TEST ÇÖZMEYE BAŞLA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button1" />
+    </LinearLayout>
 </RelativeLayout>

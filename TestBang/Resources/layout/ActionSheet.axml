@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
 	android:background="@null"
     android:layout_width="fill_parent"
@@ -23,6 +24,9 @@
 			android:layout_above="@+id/linearLayout1"
 			android:id="@+id/buttonhaznesilin">
 			<TextView
+				android:fontFamily="@font/monserratfontbold"
+				app:fontFamily="@font/monserratfontbold"
+				android:textStyle="bold"
 				android:textColor="#000"
 				android:text="Title"
 				android:textAppearance="?android:attr/textAppearanceMedium"
@@ -33,6 +37,9 @@
 				android:layout_marginBottom="8.0dp"
 				android:layout_marginTop="8.0dp" />
 			<TextView
+				android:fontFamily="@font/monserratfont"
+				app:fontFamily="@font/monserratfont"
+				android:textStyle="normal"
 				android:textColor="#000"
 				android:textSize="12sp"
 				android:text="description description"
@@ -56,6 +63,9 @@
 			android:paddingRight="30dp"
 			android:id="@+id/linearLayout1">
 			<Button
+				android:fontFamily="@font/monserratfontbold"
+				app:fontFamily="@font/monserratfontbold"
+				android:textStyle="bold"
 				android:text="Kapat"
 				android:layout_width="fill_parent"
 				android:layout_height="match_parent"

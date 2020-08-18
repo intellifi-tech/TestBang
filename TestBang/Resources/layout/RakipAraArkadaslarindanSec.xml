@@ -43,6 +43,7 @@
                     android:layout_height="50dp"
                     android:id="@+id/ımageView1" />
                 <EditText
+                    android:fontFamily="@font/monserratfont"
                     android:textColorHint="#eee"
                     android:textSize="14dp"
                     android:layout_toRightOf="@+id/ımageView1"
@@ -54,6 +55,7 @@
                     android:layout_height="match_parent"
                     android:id="@+id/editText1" />
                 <Button
+                    android:fontFamily="@font/monserratfontbold"
                     android:textColor="#fff"
                     android:layout_alignParentRight="true"
                     android:text="Ara"

@@ -28,12 +28,13 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/relativeLayout1" >
             <TextView
+                 android:fontFamily="@font/monserratfont"
                  android:paddingLeft="10dp"
                  android:paddingRight="5dp"
                  android:textColor="#11122E"
                  android:gravity="left"
                  android:textSize="18dp"
-                 android:text="Matematik"
+                 android:text="Türkçe"
                  android:textAppearance="?android:attr/textAppearanceSmall"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
@@ -51,6 +52,7 @@
                      android:layout_height="wrap_content"
                      android:id="@+id/linearLayout15" >
                  <TextView
+                    android:fontFamily="@font/monserratfont"
                     android:layout_marginRight="20dp"
                      android:gravity="right"
 			         android:textSize="18dp"
@@ -61,6 +63,7 @@
 			         android:layout_height="wrap_content"
 			         android:id="@+id/textView3" />
                  <TextView
+                    android:fontFamily="@font/monserratfont"
                     android:layout_marginRight="20dp"
                      android:gravity="right"
 			         android:textSize="18dp"
@@ -71,6 +74,7 @@
 			         android:layout_height="wrap_content"
 			         android:id="@+id/textView4" />
                  <TextView
+                    android:fontFamily="@font/monserratfont"
                      android:gravity="right"
 			         android:textSize="18dp"
 			         android:textColor="#EF506F"

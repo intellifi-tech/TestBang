@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/timePicker1" />
 	<Button
+		android:fontFamily="@font/monserratfontbold"
 		android:layout_gravity="right"
 		android:text="TAMAM"
 		android:layout_width="wrap_content"

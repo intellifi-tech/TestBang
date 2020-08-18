@@ -5,96 +5,102 @@
     android:background="#1EB14C"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-  <LinearLayout
-      android:layout_centerInParent="true"
-      android:orientation="vertical"
-      android:minWidth="25px"
-      android:minHeight="25px"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/linearLayout2">
-    <ImageView
-        android:scaleType="centerInside"
-        android:src="@mipmap/sifremiunuttum_img1"
-        android:layout_width="match_parent"
-        android:layout_height="139.0dp"
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
         android:minWidth="25px"
         android:minHeight="25px"
-        android:id="@+id/ımageView1"
-        android:layout_marginTop="0.0dp" />
-    <TextView
-        android:textSize="18dp"
-        android:textStyle="bold"
-        android:textColor="#fff"
-        android:gravity="center_horizontal"
-        android:text="Şifremi"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:layout_marginTop="38.5dp" />
-    <TextView
-      android:textSize="24dp"
-      android:textStyle="bold"
-      android:textColor="#11122e"
-      android:gravity="center_horizontal"
-      android:text="UNUTTUM"
-      android:textAppearance="?android:attr/textAppearanceMedium"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/textView2" />
-    <TextView
-        android:textSize="12dp"
-        android:textColor="#fff"
-        android:gravity="center_horizontal"
-        android:text="Emailine gönderilecek kodu girerek hesap bilgilerinizi güncelleyebilirsin."
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView3"
-        android:layout_marginTop="8.5dp" />
-    <LinearLayout
-      android:layout_marginTop="10dp"
-      android:layout_marginLeft="25dp"
-      android:layout_marginRight="25dp"
-      android:background="@drawable/sifreguncelleinputbg"
-      android:orientation="horizontal"
-      android:minWidth="25px"
-      android:minHeight="25px"
-      android:layout_width="match_parent"
-      android:layout_height="50.0dp"
-      android:id="@+id/linearLayout1">
-      <ImageView
-          android:tint="#5000"
-          android:padding="5dp"
-          android:src="@mipmap/login_email_icon"
-          android:layout_width="30.5dp"
-          android:layout_height="match_parent"
-          android:id="@+id/ımageView2"
-          android:layout_marginLeft="15.0dp" />
-      <EditText
-          android:textSize="12dp"
-          android:paddingLeft="15dp"
-          android:background="@null"
-          android:textColor="#fff"
-          android:hint="Email Adresiniz"
-          android:textColorHint="#CCffffff"
-          android:layout_marginLeft="0.0dp"
-          android:layout_marginRight="0.0dp"
-          android:inputType="textEmailAddress"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:id="@+id/editText1" />
+        android:id="@+id/linearLayout2">
+        <ImageView
+            android:scaleType="centerInside"
+            android:src="@mipmap/sifremiunuttum_img1"
+            android:layout_width="match_parent"
+            android:layout_height="139.0dp"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:id="@+id/ımageView1"
+            android:layout_marginTop="0.0dp" />
+        <TextView
+            android:fontFamily="@font/monserratfontbold"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:gravity="center_horizontal"
+            android:text="Şifremi"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1"
+            android:layout_marginTop="38.5dp" />
+        <TextView
+            android:fontFamily="@font/monserratfontbold"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:textColor="#11122e"
+            android:gravity="center_horizontal"
+            android:text="UNUTTUM"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2" />
+        <TextView
+            android:fontFamily="@font/monserratfont"
+            android:textSize="12dp"
+            android:textColor="#fff"
+            android:gravity="center_horizontal"
+            android:text="Emailine gönderilecek kodu girerek hesap bilgilerinizi güncelleyebilirsin."
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:layout_marginTop="8.5dp" />
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/sifreguncelleinputbg"
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="50.0dp"
+            android:id="@+id/linearLayout1">
+            <ImageView
+                android:tint="#5000"
+                android:padding="5dp"
+                android:src="@mipmap/login_email_icon"
+                android:layout_width="30.5dp"
+                android:layout_height="match_parent"
+                android:id="@+id/ımageView2"
+                android:layout_marginLeft="15.0dp" />
+            <EditText
+                android:fontFamily="@font/monserratfont"
+                android:textSize="12dp"
+                android:paddingLeft="15dp"
+                android:background="@null"
+                android:textColor="#fff"
+                android:hint="Email Adresiniz"
+                android:textColorHint="#CCffffff"
+                android:layout_marginLeft="0.0dp"
+                android:layout_marginRight="0.0dp"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/editText1" />
+        </LinearLayout>
+        <Button
+            android:textSize="10dp"
+            android:fontFamily="@font/monserratfontbold"
+            android:layout_marginTop="10dp"
+            android:textColor="#fff"
+            android:background="@drawable/girisbuton"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:text="ŞİFRENİ GÜNCELLE"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/button1" />
     </LinearLayout>
-    <Button
-        android:layout_marginTop="10dp"
-        android:textColor="#fff"
-        android:background="@drawable/girisbuton"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:text="ŞİFRENİ GÜNCELLE"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/button1" />
-  </LinearLayout>
 </RelativeLayout>

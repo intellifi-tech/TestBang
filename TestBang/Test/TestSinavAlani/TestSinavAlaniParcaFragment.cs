@@ -12,6 +12,7 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 using TestBang.GenericClass;
+using TestBang.GenericUI;
 using static TestBang.Test.TestOlustur.TestOlusturBaseActivity;
 
 namespace TestBang.Test.TestSinavAlani
@@ -67,48 +68,56 @@ namespace TestBang.Test.TestSinavAlani
 
 
 
+            if (SecilenTest.OlusanTest.userTestQuestions.Count<= 0)
+            {
+                AlertHelper.AlertGoster("Bu konuda soru bulunamadı!", this.Activity);
+                this.Activity.Finish();
+            }
+            else
+            {
+                DersAdiText.Text = SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.lessonName;
+                CurrentSoruNumber.Text = "SORU " + (QestionPosition + 1).ToString() + "/" + SecilenTest.OlusanTest.questionCount.ToString();
+                SoruText.Text = SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.text;
+                Answer_A_Text.Text = SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[0].text;
+                Answer_B_Text.Text = SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[1].text;
+                Answer_C_Text.Text = SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[2].text;
+                Answer_D_Text.Text = SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[3].text;
+                Answer_E_Text.Text = SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[4].text;
 
 
-            DersAdiText.Text = SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.lessonName;
-            CurrentSoruNumber.Text = "SORU " + (QestionPosition + 1).ToString() + "/" + SecilenTest.OlusanTest.questionCount.ToString();
-            SoruText.Text = SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.text;
-            Answer_A_Text.Text = SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[0].text;
-            Answer_B_Text.Text = SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[1].text;
-            Answer_C_Text.Text = SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[2].text;
-            Answer_D_Text.Text = SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[3].text;
-            Answer_E_Text.Text = SecilenTest.OlusanTest.userTestQuestions[QestionPosition].question.answers[4].text;
+                SoruCevapImageKontrol();
+
+                Answer_A_Button.Click += Answer_A_Button_Click;
+                Answer_A_Text.Click += Answer_A_Button_Click;
+                Answer_A_Image.Click += Answer_A_Button_Click;
+                Relative_A.Click += Answer_A_Button_Click;
 
 
-            SoruCevapImageKontrol();
-
-            Answer_A_Button.Click += Answer_A_Button_Click;
-            Answer_A_Text.Click += Answer_A_Button_Click;
-            Answer_A_Image.Click += Answer_A_Button_Click;
-            Relative_A.Click += Answer_A_Button_Click;
-
-
-            Answer_B_Button.Click += Answer_B_Button_Click;
-            Answer_B_Text.Click += Answer_B_Button_Click;
-            Answer_B_Image.Click += Answer_B_Button_Click;
-            Relative_B.Click += Answer_B_Button_Click;
+                Answer_B_Button.Click += Answer_B_Button_Click;
+                Answer_B_Text.Click += Answer_B_Button_Click;
+                Answer_B_Image.Click += Answer_B_Button_Click;
+                Relative_B.Click += Answer_B_Button_Click;
 
 
 
-            Answer_C_Button.Click += Answer_C_Button_Click1; 
-            Answer_C_Text.Click += Answer_C_Button_Click1;
-            Answer_C_Image.Click += Answer_C_Button_Click1;
-            Relative_C.Click += Answer_C_Button_Click1;
+                Answer_C_Button.Click += Answer_C_Button_Click1;
+                Answer_C_Text.Click += Answer_C_Button_Click1;
+                Answer_C_Image.Click += Answer_C_Button_Click1;
+                Relative_C.Click += Answer_C_Button_Click1;
 
 
-            Answer_D_Button.Click += Answer_D_Button_Click;
-            Answer_D_Text.Click += Answer_D_Button_Click;
-            Answer_D_Image.Click += Answer_D_Button_Click;
-            Relative_D.Click += Answer_D_Button_Click;
+                Answer_D_Button.Click += Answer_D_Button_Click;
+                Answer_D_Text.Click += Answer_D_Button_Click;
+                Answer_D_Image.Click += Answer_D_Button_Click;
+                Relative_D.Click += Answer_D_Button_Click;
 
-            Answer_E_Button.Click += Answer_E_Button_Click;
-            Answer_E_Text.Click += Answer_E_Button_Click;
-            Answer_E_Image.Click += Answer_E_Button_Click;
-            Relative_E.Click += Answer_E_Button_Click;
+                Answer_E_Button.Click += Answer_E_Button_Click;
+                Answer_E_Text.Click += Answer_E_Button_Click;
+                Answer_E_Image.Click += Answer_E_Button_Click;
+                Relative_E.Click += Answer_E_Button_Click;
+            }
+
+           
 
             return Vieww;
         }

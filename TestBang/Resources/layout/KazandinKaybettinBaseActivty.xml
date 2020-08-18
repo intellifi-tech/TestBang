@@ -63,6 +63,7 @@
                     android:layout_height="match_parent"
                     android:id="@+id/linearLayout1">
                     <TextView
+                        android:fontFamily="@font/monserratfont"
                         android:layout_marginTop="15dp"
                         android:layout_marginBottom="15dp"
                         android:textColor="#11122E"
@@ -95,6 +96,7 @@
                                 android:layout_height="150dp"
                                 android:id="@+id/ımageView2" />
                              <TextView
+                                android:fontFamily="@font/monserratfontbold"
                                 android:layout_marginTop="15dp"
                                 android:textColor="#fff"
                                 android:gravity="center"
@@ -105,6 +107,7 @@
                                 android:layout_height="wrap_content"
                                 android:id="@+id/textView2" />
                               <TextView
+                                android:fontFamily="@font/monserratfontbold"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginBottom="15dp"
                                 android:textColor="#11122E"
@@ -118,7 +121,8 @@
                                 android:id="@+id/textView3" />
                         </LinearLayout>
                         <Button
-                            android:layout_alignParentBottom="true"
+                             android:fontFamily="@font/monserratfontbold"
+                             android:layout_alignParentBottom="true"
                              android:layout_marginTop="10dp"
                              android:textSize="10dp"
                              android:textColor="#fff"

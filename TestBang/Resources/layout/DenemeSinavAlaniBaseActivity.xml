@@ -92,6 +92,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/linearLayout14" >
                 <Button
+                    android:fontFamily="@font/monserratfontbold"
                     android:textSize="10dp"
                     android:textColor="#fff"
                     android:background="@android:color/transparent"
@@ -111,6 +112,7 @@
                         android:layout_height="match_parent"
                         android:id="@+id/linearLayout15">
                         <TextView
+                            android:fontFamily="@font/monserratfontbold"
                             android:paddingBottom="3dp"
                             android:gravity="center_horizontal|bottom"
                             android:textColor="#fff"
@@ -122,6 +124,7 @@
                             android:layout_weight="50"
                             android:id="@+id/textView9" />
                         <TextView
+                            android:fontFamily="@font/monserratfont"
                             android:textSize="15dp"
                             android:gravity="center_horizontal|top"
                             android:textColor="#fff"
@@ -134,6 +137,7 @@
                             android:id="@+id/suretext" />
                     </LinearLayout>
                 <Button
+                    android:fontFamily="@font/monserratfontbold"
                     android:textSize="10dp"
                     android:textColor="#fff"
                     android:background="@android:color/transparent"
@@ -144,6 +148,7 @@
                     android:id="@+id/sonrakisorubutton" />
                 </LinearLayout>
                     <Button
+                        android:fontFamily="@font/monserratfontbold"
                         android:background="@drawable/gributtonbg"
                         android:text="DENEMEDEN SINAVINDAN ÇIK"
                         android:layout_width="match_parent"

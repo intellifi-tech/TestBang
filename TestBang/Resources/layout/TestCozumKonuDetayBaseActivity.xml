@@ -36,95 +36,98 @@
             android:layout_height="match_parent"
             android:id="@+id/relativeLayout4"
             android:layout_marginTop="60dp" />
-        <LinearLayout 
+        <LinearLayout
             android:orientation="vertical"
             android:background="@android:color/transparent"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <androidx.core.widget.NestedScrollView
-            android:scrollbars="none"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/scrollView1">
-            <LinearLayout
-                android:orientation="vertical"
+            <androidx.core.widget.NestedScrollView
+                android:scrollbars="none"
                 android:minWidth="25px"
                 android:minHeight="25px"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/linearLayout11">
-                <androidx.cardview.widget.CardView
-                            app:cardElevation="10dp"
-                            app:cardCornerRadius="20dp"
-                            android:layout_marginRight="30dp"
-                            android:layout_marginLeft="30dp"
-                            android:layout_marginTop="10dp"
+                android:id="@+id/scrollView1">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/linearLayout11">
+                    <androidx.cardview.widget.CardView
+                        app:cardElevation="10dp"
+                        app:cardCornerRadius="20dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="10dp"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="143.0dp"
+                        android:id="@+id/cardView1">
+                        <LinearLayout
+                            android:layout_margin="10dp"
+                            android:orientation="vertical"
                             android:minWidth="25px"
                             android:minHeight="25px"
                             android:layout_width="match_parent"
-                            android:layout_height="143.0dp"
-                            android:id="@+id/cardView1">
-                            <LinearLayout
-                                android:layout_margin="10dp"
-                                android:orientation="vertical"
-                                android:minWidth="25px"
-                                android:minHeight="25px"
+                            android:layout_height="match_parent"
+                            android:id="@+id/linearLayout1">
+                            <ImageView
+                                android:src="@mipmap/testcozheaderimg"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:id="@+id/linearLayout1">
-                                <ImageView
-                                    android:src="@mipmap/testcozheaderimg"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:id="@+id/ımageView1" />
-                            </LinearLayout>
-                        </androidx.cardview.widget.CardView>
-                <TextView
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:textColor="#1EB14C"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:text="Türkçe Soru Dağılımı"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView1" />
-                <LinearLayout
-                         android:layout_gravity="right"
-                         android:paddingLeft="10dp"
-                         android:paddingRight="42dp"
-                         android:layout_marginBottom="5dp"
-                         android:orientation="horizontal"
-                         android:minWidth="25px"
-                         android:minHeight="25px"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:id="@+id/linearLayout15" >
-                     <TextView
-                        android:layout_marginRight="20dp"
-                         android:gravity="right"
-			             android:textSize="15dp"
-			             android:textColor="#1EB04B"
-			             android:text="Doğru"
-			             android:textAppearance="?android:attr/textAppearanceLarge"
-			             android:layout_width="wrap_content"
-			             android:layout_height="wrap_content"
-			             android:id="@+id/textView4" />
-                     <TextView
-                         android:gravity="right"
-			             android:textSize="15dp"
-			             android:textColor="#EF506F"
-			             android:text="Yalnış"
-			             android:textAppearance="?android:attr/textAppearanceLarge"
-			             android:layout_width="wrap_content"
-			             android:layout_height="wrap_content"
-			             android:id="@+id/textView4" />
-                     </LinearLayout>
+                                android:id="@+id/ımageView1" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:fontFamily="@font/monserratfontbold"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:textColor="#1EB14C"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:text="Türkçe Soru Dağılımı"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView1" />
+                    <LinearLayout
+                        android:layout_gravity="right"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="42dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/linearLayout15">
+                        <TextView
+                            android:fontFamily="@font/monserratfont"
+                            android:layout_marginRight="20dp"
+                            android:gravity="right"
+                            android:textSize="15dp"
+                            android:textColor="#1EB04B"
+                            android:text="Doğru"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView2" />
+                        <TextView
+                            android:fontFamily="@font/monserratfont"
+                            android:gravity="right"
+                            android:textSize="15dp"
+                            android:textColor="#EF506F"
+                            android:text="Yalnış"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView3" />
+                    </LinearLayout>
 
-                <androidx.recyclerview.widget.RecyclerView
+                    <androidx.recyclerview.widget.RecyclerView
                         android:layout_marginRight="30dp"
                         android:layout_marginLeft="30dp"
                         android:nestedScrollingEnabled="true"
@@ -134,93 +137,99 @@
                         android:layout_width="match_parent"
                         android:layout_height="233.0dp"
                         android:id="@+id/recyclerView1" />
-                <LinearLayout
-                    android:layout_marginRight="30dp"
-                    android:layout_marginLeft="30dp"
-                    android:orientation="vertical"
-                    android:minWidth="25px"
-                    android:minHeight="25px"
-                    android:background="#11122E"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:id="@+id/linearLayout16" />
-                <LinearLayout
-                        android:layout_marginTop="10dp"
-                         android:layout_gravity="right"
-                         android:paddingLeft="10dp"
-                         android:paddingRight="42dp"
-                         android:layout_marginBottom="5dp"
-                         android:orientation="horizontal"
-                         android:minWidth="25px"
-                         android:minHeight="25px"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:id="@+id/linearLayout15" >
-                    <TextView
-                        android:layout_marginRight="20dp"
-                         android:gravity="right"
-			             android:textSize="18dp"
-			             android:textColor="#11122E"
-			             android:text="120"
-			             android:textAppearance="?android:attr/textAppearanceLarge"
-			             android:layout_width="wrap_content"
-			             android:layout_height="wrap_content"
-			             android:id="@+id/textView3" />
-                     <TextView
-                        android:layout_marginRight="20dp"
-                         android:gravity="right"
-			             android:textSize="18dp"
-			             android:textColor="#1EB04B"
-			             android:text="56"
-			             android:textAppearance="?android:attr/textAppearanceLarge"
-			             android:layout_width="wrap_content"
-			             android:layout_height="wrap_content"
-			             android:id="@+id/textView4" />
-                     <TextView
-                         android:gravity="right"
-			             android:textSize="18dp"
-			             android:textColor="#EF506F"
-			             android:text="98"
-			             android:textAppearance="?android:attr/textAppearanceLarge"
-			             android:layout_width="wrap_content"
-			             android:layout_height="wrap_content"
-			             android:id="@+id/textView4" />
-                     </LinearLayout>
-                <LinearLayout
-                         android:layout_gravity="right"
-                         android:paddingLeft="10dp"
-                         android:paddingRight="30dp"
-                         android:layout_marginBottom="5dp"
-                         android:orientation="horizontal"
-                         android:minWidth="25px"
-                         android:minHeight="25px"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:id="@+id/linearLayout15" >
-                     <TextView
-                        android:layout_marginRight="5dp"
-                         android:gravity="right"
-			             android:textSize="15dp"
-			             android:textColor="#1EB04B"
-			             android:text="(58%)"
-			             android:textAppearance="?android:attr/textAppearanceLarge"
-			             android:layout_width="wrap_content"
-			             android:layout_height="wrap_content"
-			             android:id="@+id/textView4" />
-                     <TextView
-                         android:gravity="right"
-			             android:textSize="15dp"
-			             android:textColor="#EF506F"
-			             android:text="(88%)"
-			             android:textAppearance="?android:attr/textAppearanceLarge"
-			             android:layout_width="wrap_content"
-			             android:layout_height="wrap_content"
-			             android:id="@+id/textView4" />
-                     </LinearLayout>
-                <Button
+                    <LinearLayout
                         android:layout_marginRight="30dp"
                         android:layout_marginLeft="30dp"
-                         android:layout_marginBottom="15dp"
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:background="#11122E"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:id="@+id/linearLayout16" />
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="right"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="42dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/linearLayout15">
+                        <TextView
+                            android:fontFamily="@font/monserratfont"
+                            android:layout_marginRight="20dp"
+                            android:gravity="right"
+                            android:textSize="18dp"
+                            android:textColor="#11122E"
+                            android:text="120"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView4" />
+                        <TextView
+                            android:fontFamily="@font/monserratfont"
+                            android:layout_marginRight="20dp"
+                            android:gravity="right"
+                            android:textSize="18dp"
+                            android:textColor="#1EB04B"
+                            android:text="56"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView5" />
+                        <TextView
+                            android:fontFamily="@font/monserratfont"
+                            android:gravity="right"
+                            android:textSize="18dp"
+                            android:textColor="#EF506F"
+                            android:text="98"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView6" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_gravity="right"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="30dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/linearLayout15">
+                        <TextView
+                            android:fontFamily="@font/monserratfont"
+                            android:layout_marginRight="5dp"
+                            android:gravity="right"
+                            android:textSize="15dp"
+                            android:textColor="#1EB04B"
+                            android:text="(58%)"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView7" />
+                        <TextView
+                            android:fontFamily="@font/monserratfont"
+                            android:gravity="right"
+                            android:textSize="15dp"
+                            android:textColor="#EF506F"
+                            android:text="(88%)"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView8" />
+                    </LinearLayout>
+                    <Button
+                        android:fontFamily="@font/monserratfontbold"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginBottom="15dp"
                         android:layout_marginTop="15dp"
                         android:textSize="10dp"
                         android:textColor="#fff"
@@ -229,8 +238,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:id="@+id/button3" />
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
-      </LinearLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
     </RelativeLayout>
 </LinearLayout>
