@@ -39,8 +39,13 @@ namespace TestBang.DataBasee
         public string lastModifiedDate { get; set; }
         public string lastName { get; set; }
         public string login { get; set; }
-
         public int? townId { get; set; }
+        public string webFirebaseToken { get; set; }
+        public string mobileFirebaseToken { get; set; }
+        public bool? userPaymentStatus { get; set; }
+        public string payRefCode { get; set; }
+        public string alan { get; set; }
+
         //------------------------------------
         public string API_TOKEN { get; set; }
         public string password { get; set; }
@@ -82,5 +87,13 @@ namespace TestBang.DataBasee
         public string testId { get; set; }
         public string trialId { get; set; }
         public int userId { get; set; }
+    }
+
+    public class ODEME_GECMISI
+    {
+        [PrimaryKey, AutoIncrement]
+        public int localid { get; set; }
+        public string iyzicoReferanceCode { get; set; }
+        public string UzakDB_ID { get; set; }
     }
 }

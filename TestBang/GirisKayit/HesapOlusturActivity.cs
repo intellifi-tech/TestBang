@@ -8,6 +8,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Java.Nio.Channels;
 using Newtonsoft.Json;
 using Org.Json;
 using TestBang.DataBasee;
@@ -25,10 +26,11 @@ namespace TestBang.GirisKayit
         Button KayitOlButton;
         EditText AdText, SoyadText, EmailText, SifreText, SifreTekrarText;
         TextView DogumText;
-        Spinner SehirSpin, IlceSpin,CinsiyetSpin;
+        Spinner SehirSpin, IlceSpin,CinsiyetSpin, OkulSpin,AlanSpin;
 
         List<SehirDTO> SehirDTO1 = new List<SehirDTO>();
         List<IlceDTO> IlceDTO1 = new List<IlceDTO>();
+        List<SchoolDTO> SchoolDTO1 = new List<SchoolDTO>();
         #endregion
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -47,14 +49,16 @@ namespace TestBang.GirisKayit
             SehirSpin = FindViewById<Spinner>(Resource.Id.sehirspin);
             IlceSpin = FindViewById<Spinner>(Resource.Id.ilcespin);
             CinsiyetSpin = FindViewById<Spinner>(Resource.Id.cinsiyetspin);
+            OkulSpin = FindViewById<Spinner>(Resource.Id.okulspin);
+            AlanSpin = FindViewById<Spinner>(Resource.Id.alanspin);
             CinsiyetSpin.Adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, new string[] { "Cinsiyet", "Kadın", "Erkek" });
             // OkulSpin = FindViewById<Spinner>(Resource.Id.okulspin);
 
-
+            AlanGetir();
             new System.Threading.Thread(new System.Threading.ThreadStart(delegate
             { 
                 SehirleriGetir();
-
+                OkullariGetir();
             })).Start();
 
 
@@ -96,6 +100,11 @@ namespace TestBang.GirisKayit
             if (BosVarmi())
             {
                 ShowLoading.Show(this,"Lütfen Bekleyin...");
+                var OpsiyonelOkulSecimi = "";
+                if (AlanSpin.SelectedItemPosition > 0)//Alan
+                {
+                    OpsiyonelOkulSecimi = (string)OkulSpin.GetItemAtPosition(OkulSpin.SelectedItemPosition);
+                }
                 new System.Threading.Thread(new System.Threading.ThreadStart(delegate
                 {
                     WebService webService = new WebService();
@@ -108,7 +117,8 @@ namespace TestBang.GirisKayit
                         email = EmailText.Text,
                         gender = CinsiyetSpin.SelectedItemPosition == 1 ? false:true,
                         birthday = Convert.ToDateTime(DogumText.Text).ToString("yyyy-MM-dd'T'HH:mm:ssZ"),
-                        townId = IlceDTO1[IlceSpin.SelectedItemPosition].id
+                        townId = IlceDTO1[IlceSpin.SelectedItemPosition].id,
+                        alan = (string)AlanSpin.GetItemAtPosition(AlanSpin.SelectedItemPosition)
                     };
                     string jsonString = JsonConvert.SerializeObject(kayitIcinRoot);
                     var Responsee = webService.ServisIslem("register", jsonString, true);
@@ -233,6 +243,11 @@ namespace TestBang.GirisKayit
             {
                 AlertHelper.AlertGoster("Lütfen cinsiyetinizi belirtin.", this);
                 return false;
+            } 
+            else if (AlanSpin.SelectedItemPosition == 0)
+            {
+                AlertHelper.AlertGoster("Lütfen Alanınızı belirtin.", this);
+                return false;
             }
             else
             {
@@ -273,6 +288,34 @@ namespace TestBang.GirisKayit
                     });
                 }
             }
+        }
+
+        void OkullariGetir()
+        {
+            ///api/
+            WebService webService = new WebService();
+            var Donus = webService.OkuGetir("schools", isLogin: true);
+            if (Donus != null)
+            {
+                SchoolDTO1 = Newtonsoft.Json.JsonConvert.DeserializeObject<List<SchoolDTO>>(Donus.ToString());
+                if (SchoolDTO1.Count > 0)
+                {
+                    this.RunOnUiThread(delegate ()
+                    {
+                        SchoolDTO1.Insert(0, new SchoolDTO()
+                        {
+                            name = "Okul"
+                        });
+                        OkulSpin.Adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, SchoolDTO1.Select(item => item.name).ToArray());
+                    });
+                }
+            }
+        }
+
+        void AlanGetir()
+        {
+            string[] Alanlar = new string[] {"Alan","SAY","SÖZ","EA" };
+            AlanSpin.Adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, Alanlar);
         }
 
 
@@ -337,6 +380,7 @@ namespace TestBang.GirisKayit
             public string password { get; set; }
             public bool gender { get; set; }
             public string birthday { get; set; }
+            public string alan { get; set; }
             public int townId { get; set; }
         }
     }

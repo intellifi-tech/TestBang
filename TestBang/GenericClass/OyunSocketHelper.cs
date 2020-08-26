@@ -65,7 +65,6 @@ namespace TestBang.GenericClass
         }
 
 
-
         #region SocketEvents
         void UpdateListBox(string data)
         {
@@ -217,7 +216,7 @@ namespace TestBang.GenericClass
             // /app/level -> chatuser question index dolu
         }
 
-        void SendRegister()
+        public void SendRegister()
         {
             var content = new SoketSendRegisterDTO()
             {

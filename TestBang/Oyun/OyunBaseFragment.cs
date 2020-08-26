@@ -45,6 +45,7 @@ namespace TestBang.Oyun
             {
                 OyunSocketHelper_Helper.SecilenAlan = AlanlarDizi[AlanSpinner.SelectedItemPosition].ToString();
                 var RasgeleRakipAraDialogFragment1 = new RasgeleRakipAraDialogFragment();
+                RasgeleRakipAraDialogFragment1.Cancelable = false;
                 RasgeleRakipAraDialogFragment1.Show(this.Activity.SupportFragmentManager, "RasgeleRakipAraDialogFragment1");
             }
             else

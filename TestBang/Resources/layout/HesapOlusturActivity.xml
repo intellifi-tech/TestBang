@@ -351,6 +351,54 @@
                     android:layout_height="match_parent"
                     android:id="@+id/ilcespin" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="15.5dp"
+                android:background="@drawable/hesapolusturinputbg"
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="50.0dp"
+                android:id="@+id/linearLayout1">
+                <ImageView
+                    android:tint="#5011122E"
+                    android:padding="8dp"
+                    android:src="@mipmap/konuiconimg1"
+                    android:layout_width="30.5dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/ımageView2"
+                    android:layout_marginLeft="15.0dp" />
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/alanspin" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="15.5dp"
+                android:background="@drawable/hesapolusturinputbg"
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="50.0dp"
+                android:id="@+id/linearLayout1">
+                <ImageView
+                    android:tint="#5011122E"
+                    android:padding="8dp"
+                    android:src="@mipmap/okul_img1"
+                    android:layout_width="30.5dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/ımageView2"
+                    android:layout_marginLeft="15.0dp" />
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/okulspin" />
+            </LinearLayout>
             <Button
                 android:fontFamily="@font/monserratfontbold"
                 android:layout_marginTop="10dp"

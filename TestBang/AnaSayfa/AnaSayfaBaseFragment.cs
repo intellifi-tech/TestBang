@@ -84,7 +84,7 @@ namespace TestBang.AnaSayfa
 
 
             ShowUserInfo();
-            GenelTestSonuclariniGetir();
+
             return RootView;
         }
         DinamikAdresSec DinamikActionSheet1;
@@ -106,7 +106,16 @@ namespace TestBang.AnaSayfa
             DinamikActionSheet1 = new DinamikAdresSec(Butonlarr, "İşlemle Seç", "Yeni bir test oluşturabilir veya ders programındaki testleri çözebilirsin.", Buton_Click);
             DinamikActionSheet1.Show(this.Activity.SupportFragmentManager, "DinamikActionSheet1");
         }
-
+        public override void OnStart()
+        {
+            base.OnStart();
+            GenelTestSonuclariniGetir();
+        }
+        public override void OnResume()
+        {
+            base.OnResume();
+            var aaaa = "";
+        }
         private void Buton_Click(object sender, EventArgs e)
         {
             var Index = (int)((Button)sender).Tag;

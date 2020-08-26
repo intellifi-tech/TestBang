@@ -63,7 +63,7 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView3" />
+                    android:id="@id/adsoyadtext" />
                 <LinearLayout
                     android:weightSum="99"
                     android:orientation="horizontal"
@@ -119,7 +119,7 @@
                                     android:textAppearance="?android:attr/textAppearanceSmall"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:id="@+id/textView5" />
+                                    android:id="@+id/paketaditxt" />
                             </LinearLayout>
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
@@ -166,11 +166,11 @@
                                     android:textColor="#F05070"
                                     android:gravity="center_horizontal|top"
                                     android:textStyle="bold"
-                                    android:text="₺9.90"
+                                    android:text="₺16"
                                     android:textAppearance="?android:attr/textAppearanceSmall"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:id="@+id/textView5" />
+                                    android:id="@+id/paketfiyattxt" />
                             </LinearLayout>
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
@@ -217,11 +217,11 @@
                                     android:textColor="#1EB04B"
                                     android:gravity="center_horizontal|top"
                                     android:textStyle="bold"
-                                    android:text="VISA****2356"
+                                    android:text="-"
                                     android:textAppearance="?android:attr/textAppearanceSmall"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:id="@+id/textView5" />
+                                    android:id="@+id/odemeyontemitxt" />
                             </LinearLayout>
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
@@ -255,7 +255,7 @@
                         android:text="Üyeliği İptal Et"
                         android:layout_width="150dp"
                         android:layout_height="45dp"
-                        android:id="@+id/button2" />
+                        android:id="@+id/iptaletbutton" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_marginLeft="20dp"
@@ -288,11 +288,11 @@
                         android:textColorHint="#9011122E"
                         android:layout_marginLeft="0.0dp"
                         android:layout_marginRight="0.0dp"
-                        android:inputType="number"
+                        android:inputType="textEmailSubject"
                         android:maxLength="16"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/editText2" />
+                        android:id="@+id/kuponedit" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_marginLeft="20dp"
@@ -343,7 +343,7 @@
                             android:inputType="textPersonName"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:id="@+id/editText2" />
+                            android:id="@+id/adsoyadedit" />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_marginTop="10dp"
@@ -376,7 +376,7 @@
                             android:maxLength="16"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:id="@+id/editText2" />
+                            android:id="@+id/kartnumarasiedit" />
                     </LinearLayout>
                     <LinearLayout
                         android:weightSum="100"
@@ -418,7 +418,7 @@
                                 android:inputType="textPersonName"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:id="@+id/editText1" />
+                                android:id="@+id/sktedit" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_marginLeft="10dp"
@@ -452,7 +452,7 @@
                                 android:inputType="textPassword"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:id="@+id/editText1" />
+                                android:id="@+id/cvcedit" />
                         </LinearLayout>
                     </LinearLayout>
                     <Button
@@ -465,7 +465,7 @@
                         android:layout_marginBottom="15dp"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
-                        android:id="@+id/button2" />
+                        android:id="@+id/satinalbutton" />
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

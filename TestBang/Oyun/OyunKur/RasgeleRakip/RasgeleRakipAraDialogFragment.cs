@@ -28,6 +28,7 @@ using TestBang.GenericClass.StompHelper;
 using TestBang.GenericUI;
 using TestBang.WebServices;
 using WebSocketSharp;
+using static TestBang.GenericClass.OyunSocketHelper;
 
 namespace TestBang.Oyun.OyunKur
 {
@@ -36,12 +37,14 @@ namespace TestBang.Oyun.OyunKur
         #region Tanimlamlar
         ImageButton KapatButton;
         MEMBER_DATA MeId = DataBase.MEMBER_DATA_GETIR()[0];
-
         #region Soket
+
+
         public WebSocket ws = new WebSocket("ws://185.184.210.20:8080/ws/websocket");//ws://185.184.210.20:8080/ws/websocket
         //ws://192.168.1.38:8080/ws/app/register
         public StompMessageSerializer serializer = new StompMessageSerializer();
         OyunSocketHelper OyunSocketHelper1 = new OyunSocketHelper();
+        MEMBER_DATA Me = DataBase.MEMBER_DATA_GETIR()[0];
         #endregion
 
 
@@ -72,6 +75,7 @@ namespace TestBang.Oyun.OyunKur
         }
         private void KapatButton_Click(object sender, EventArgs e)
         {
+            OyundanCikisiIlet();
             this.Dismiss();
         }
         
@@ -90,43 +94,36 @@ namespace TestBang.Oyun.OyunKur
 
         void SoketeGirisYap()
         {
-
-
-            OyunSocketHelper1.Init((Android.Support.V7.App.AppCompatActivity)this.Activity,this);
-
-           // CreateSocketEvents();
-
-
-            //SoketJoin SoketJoin1 = new SoketJoin()
-            //{
-            //    userName = DataBase.MEMBER_DATA_GETIR()[0].email
-            //};
-            //WebService webService = new WebService();
-            //var jsonstring = JsonConvert.SerializeObject(SoketJoin1);
-            //var Donus = webService.ServisIslem("join", jsonstring, localip:true);
-            //if (Donus != "Hata")
-            //{
-            //    var aaa = Donus.ToString();
-            //    var SoketJoinResponseDTO1 = JsonConvert.DeserializeObject<SoketJoinResponseDTO>(Donus.ToString());
-
-            //}
+            if (OyunSocketHelper_Helper.WebSocket1 == null || !OyunSocketHelper_Helper.WebSocket1.IsAlive || !OyunSocketHelper_Helper.WebSocket1.Ping())
+            {
+                OyunSocketHelper1.Init((Android.Support.V7.App.AppCompatActivity)this.Activity, this);
+            }
+            else
+            {
+                OyunSocketHelper_Helper.OyunSocketHelper1.SendRegister();
+            }
         }
-        #region DTOS
-         public class SoketSendRegisterDTO //ChatUser
+
+        public void OyundanCikisiIlet()
         {
-            public string userName;
-            public string category;
-            public string userQuestionIndex;
+            var content = new SoketSendRegisterDTO()
+            {
+                category = "",
+                userName = Me.login,
+                userQuestionIndex = "0",
+                userToken = Me.API_TOKEN,
+                filters = new List<string>()
+            };
+            var broad = new StompMessage(StompFrame.SEND, JsonConvert.SerializeObject(content));
+            broad["content-type"] = "application/json";
+            // broad["username"] = MeId.login;
+            broad["destination"] = "/app/leave";
+            var aaa = OyunSocketHelper_Helper.OyunSocketHelper1.serializer.Serialize(broad);
+            if (OyunSocketHelper_Helper.OyunSocketHelper1.ws.IsAlive)
+            {
+                OyunSocketHelper_Helper.OyunSocketHelper1.ws.Send(aaa);
+            }
         }
 
-
-        public class Content
-        {
-            public string type { get; set; }
-            public string userName { get; set; }
-            public string toUserName { get; set; }
-            public string message { get; set; }
-        }
-        #endregion
     }
 }

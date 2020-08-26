@@ -45,14 +45,6 @@ namespace TestBang.Oyun.KazandinKaybettin
         private void YeniOyun_Click(object sender, EventArgs e)
         {
             TestSinavAlaniHelperClass.OyunSinavAlaniBaseActivity1.OyundanCikisiIlet();
-            try
-            {
-                OyunSocketHelper_Helper.WebSocket1.Close();
-            }
-            catch 
-            {
-            }
-            
             this.Finish();
         }
 
