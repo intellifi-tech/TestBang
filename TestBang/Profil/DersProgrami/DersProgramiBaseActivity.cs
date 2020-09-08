@@ -160,7 +160,7 @@ namespace TestBang.Profil.DersProgrami
         void DenemeleriCek()
         {
             WebService webService = new WebService();
-            var Donus = webService.OkuGetir("trials",UsePoll:true);
+            var Donus = webService.OkuGetir("http://185.184.210.20:8082/api/trials", DontUseHostURL:true);
             if (Donus != null)
             {
                 UzakSunucuDenemeDTO1 = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UzakSunucuDenemeDTO>>(Donus.ToString());
@@ -494,7 +494,7 @@ namespace TestBang.Profil.DersProgrami
                     if (HangiDenemeOnuBul != null)
                     {
                         DersProgramiBaseActivityHelper.SecilenDeneme = HangiDenemeOnuBul;
-                        var TakvimeKayitlimi = UzakSunucuTakvimDTO1.Find(item => item.trialId == DersProgramiBaseActivityHelper.SecilenDeneme.id);
+                        var TakvimeKayitlimi = UzakSunucuTakvimDTO1.Find(itemm => itemm.trialId == DersProgramiBaseActivityHelper.SecilenDeneme.id);
                         var PaylasimSayisiDialogFragment1 = new DenemeSayacDialogFragment(DersProgramiBaseActivityHelper.SecilenDeneme, TakvimeKayitlimi);
                         PaylasimSayisiDialogFragment1.Show(this.SupportFragmentManager, "PaylasimSayisiDialogFragment1");
                     }

@@ -22,7 +22,7 @@ namespace TestBang.Deneme.DenemeSinavAlani
     {
         int QestionPosition;
         TextView DersAdiText, CurrentSoruNumber, SoruText, Answer_A_Text, Answer_B_Text, Answer_C_Text, Answer_D_Text, Answer_E_Text;
-        Button Answer_A_Button, Answer_B_Button, Answer_C_Button, Answer_D_Button, Answer_E_Button;
+        public Button Answer_A_Button, Answer_B_Button, Answer_C_Button, Answer_D_Button, Answer_E_Button;
         ImageView SoruImage, Answer_A_Image, Answer_B_Image, Answer_C_Image, Answer_D_Image, Answer_E_Image;
         RelativeLayout Relative_A, Relative_B, Relative_C, Relative_D, Relative_E;
         MEMBER_DATA MeData = DataBase.MEMBER_DATA_GETIR()[0];
@@ -117,8 +117,45 @@ namespace TestBang.Deneme.DenemeSinavAlani
             Answer_E_Image.Click += Answer_E_Button_Click;
             Relative_E.Click += Answer_E_Button_Click;
 
+
+            //Otomatik Seçim
+            switch (GetRandomCurrectAnswer())
+            {
+                case "A":
+                    Answer_A_Button.PerformClick();
+                    break;
+                case "B":
+                    Answer_B_Button.PerformClick();
+                    break;
+                case "C":
+                    Answer_C_Button.PerformClick();
+                    break;
+                case "D":
+                    Answer_D_Button.PerformClick();
+                    break;
+                case "E":
+                    Answer_E_Button.PerformClick();
+                    break;
+                default:
+                    break;
+            }
+
+
             return Vieww;
         }
+
+
+        string GetRandomCurrectAnswer()
+        {
+            Random random = new Random();
+            const string chars = "ABCDE";
+            return new string(Enumerable.Repeat(chars, 1)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+
+
+
         public void UIGuncelle()
         {
             try
@@ -138,7 +175,7 @@ namespace TestBang.Deneme.DenemeSinavAlani
 
             }
         }
-        private void Answer_E_Button_Click(object sender, EventArgs e)
+        public void Answer_E_Button_Click(object sender, EventArgs e)
         {
             TumSecimleriTemzile();
             Relative_E.SetBackgroundResource(Resource.Drawable.test_secenek_secim_bg);
@@ -147,7 +184,7 @@ namespace TestBang.Deneme.DenemeSinavAlani
             //new TestSoruKaydetGuncelle().KaydetGuncelle(SecilenTest.OlusanTest);
         }
 
-        private void Answer_D_Button_Click(object sender, EventArgs e)
+        public void Answer_D_Button_Click(object sender, EventArgs e)
         {
             TumSecimleriTemzile();
             Relative_D.SetBackgroundResource(Resource.Drawable.test_secenek_secim_bg);
@@ -155,7 +192,7 @@ namespace TestBang.Deneme.DenemeSinavAlani
             //SecilenTest.OlusanTest.userTestQuestions[QestionPosition].userAnswer = "D";
         }
 
-        private void Answer_C_Button_Click1(object sender, EventArgs e)
+        public void Answer_C_Button_Click1(object sender, EventArgs e)
         {
             
             TumSecimleriTemzile();
@@ -164,7 +201,7 @@ namespace TestBang.Deneme.DenemeSinavAlani
             //SecilenTest.OlusanTest.userTestQuestions[QestionPosition].userAnswer = "C";
         }
 
-        private void Answer_B_Button_Click(object sender, EventArgs e)
+        public void Answer_B_Button_Click(object sender, EventArgs e)
         {
             TumSecimleriTemzile();
             Relative_B.SetBackgroundResource(Resource.Drawable.test_secenek_secim_bg);
@@ -172,7 +209,7 @@ namespace TestBang.Deneme.DenemeSinavAlani
             //SecilenTest.OlusanTest.userTestQuestions[QestionPosition].userAnswer = "B";
         }
 
-        private void Answer_A_Button_Click(object sender, EventArgs e)
+        public void Answer_A_Button_Click(object sender, EventArgs e)
         {
             TumSecimleriTemzile();
             Relative_A.SetBackgroundResource(Resource.Drawable.test_secenek_secim_bg);

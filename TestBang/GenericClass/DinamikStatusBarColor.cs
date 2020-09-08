@@ -53,7 +53,7 @@ namespace TestBang.GenericClass
         }
         public void ShowCase(Activity Act)
         {
-            if (Build.VERSION.SdkInt >= Build.VERSION_CODES.Lollipop)
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
             {
                 Window window = Act.Window;
                 window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);

@@ -11,6 +11,7 @@ using Android.Support.V4.View;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using TestBang.DataBasee;
 using TestBang.Deneme.DenemeTamamlandi;
 using TestBang.GenericClass;
 using TestBang.GenericUI;
@@ -25,7 +26,7 @@ namespace TestBang.Deneme.DenemeSinavAlani
     {
         ViewPager viewPager;
         Button SonrakiSoru, OncekiSoruButton, AraVerButton;
-
+        
         #region Sure Ile Ilgili Tanimlamalar
         TextView SureText;
         System.Timers.Timer Timer1 = new System.Timers.Timer();
@@ -243,6 +244,7 @@ namespace TestBang.Deneme.DenemeSinavAlani
 
         private void ViewPager_PageSelected(object sender, ViewPager.PageSelectedEventArgs e)
         {
+            
             if (viewPager.CurrentItem + 1 == Convert.ToInt32(DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.questionCount))
             {
                 SonrakiSoru.Text = "SINAVI BİTİR";
@@ -263,6 +265,8 @@ namespace TestBang.Deneme.DenemeSinavAlani
 
         private void SonrakiSoru_Click(object sender, EventArgs e)
         {
+            
+
             if (viewPager.CurrentItem + 1 == Convert.ToInt32(DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.questionCount))
             {
 
@@ -308,23 +312,75 @@ namespace TestBang.Deneme.DenemeSinavAlani
             ft.AddToBackStack(null);
             ft.Replace(Resource.Id.leftviewhazne, new OptikParcaFragment(this));//
             ft.Commit();
+
+
+            viewPager.CurrentItem = 188;
         }
 
         void DenemeSorulariniGetir()
         {
             var ToplamSayfa = Convert.ToInt32(DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.questionCount / 5);
             WebService webService = new WebService();
-            for (int i = 0; i < ToplamSayfa; i++)
+
+            var Donus = webService.OkuGetir("trials/questions/" + DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.id.ToString(), UsePoll: true);
+            if (Donus != null)
             {
-                var Donus = webService.OkuGetir("trials/questions/" + DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.id.ToString() + "?page=" + (i + 1).ToString() + "&size=5", UsePoll: true, DontUseSize: true);
-                if (Donus != null)
+                var Icerik = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DenemeSorulariDTO>>(Donus.ToString());
+                if (Icerik.Count>0)
                 {
-                    var Icerik = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DenemeSorulariDTO>>(Donus.ToString());
                     DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.AddRange(Icerik);
+                    SorulariGrupla(DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.type);
+                }
+                else
+                {
+                    this.Finish();
                 }
             }
         }
 
+        void SorulariGrupla(string isTYT)
+        {
+            List<DenemeSorulariDTO> newGrupList = new List<DenemeSorulariDTO>();
+            if (isTYT == "TYT")
+            {
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Türkçe"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Coğrafya"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Din Kültürü"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Din Kültürü ve Ahlak Bilgisi"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Felsefe"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Tarih"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Matematik"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Geometri"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Biyoloji"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Fizik"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Kimya"));
+                DenemeSinavAlaniHelperClass.DenemeSorulariDTO1 = newGrupList;
+            }
+            else
+            {
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Edebiyat"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Türk Dili ve Edebiyatı"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Tarih"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Tarih-1"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Coğrafya-1"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Matematik"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Geometri"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Tarih-2"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Coğrafya-2"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Felsefe"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Din Kültürü"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Din Kültürü ve Ahlak Bilgisi"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Fizik"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Kimya"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Biyoloji"));
+                newGrupList.AddRange(DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.FindAll(item => item.lessonName == "Biyoloj"));
+
+                var aaa = DenemeSinavAlaniHelperClass.DenemeSorulariDTO1.Except(newGrupList).ToList();
+
+                DenemeSinavAlaniHelperClass.DenemeSorulariDTO1 = newGrupList;
+            }
+        }
+        
         public void SoruyaGit(int soruindex)
         {
             try
@@ -360,6 +416,9 @@ namespace TestBang.Deneme.DenemeSinavAlani
         public string description { get; set; }
         public List<Answer> answers { get; set; }
         public string trialId { get; set; }
+        public string userAlan { get; set; } 
+        public string topicName { get; set; } 
+        public string generalLessonId { get; set; } = "00";
     }
 
     public class KullaniciCevaplariDTO
@@ -371,11 +430,13 @@ namespace TestBang.Deneme.DenemeSinavAlani
         public string lessonName { get; set; }
         public string questionId { get; set; }
         public string topicId { get; set; }
-        public string topicName { get; set; }
         public string trialId { get; set; }
         public string userAnswer { get; set; }
         public string userId { get; set; }
         public bool wrong { get; set; }
+        public string userAlan { get; set; } 
+        public string topicName { get; set; } 
+        public string generalLessonId { get; set; } = "00";
     }
 
     public static class DenemeSinavAlaniHelperClass

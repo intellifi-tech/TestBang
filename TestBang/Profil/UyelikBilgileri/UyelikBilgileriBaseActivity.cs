@@ -33,6 +33,7 @@ namespace TestBang.Profil.UyelikBilgileri
         string AlinacakPaketKodu = IyzicoHelperCla.TestbangStandartPaket;
         ResponseData<SubscriptionCreatedResource> response;
         List<ODEME_GECMISI> SonAbonelik = DataBase.ODEME_GECMISI_GETIR();
+        MEMBER_DATA MeData = DataBase.MEMBER_DATA_GETIR()[0];
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -43,7 +44,7 @@ namespace TestBang.Profil.UyelikBilgileri
             PaketAdiText = FindViewById<TextView>(Resource.Id.paketaditxt);
             FaturaBedeliText = FindViewById<TextView>(Resource.Id.paketfiyattxt);
             OdemeMetoduText = FindViewById<TextView>(Resource.Id.odemeyontemitxt);
-
+            AdSoyadText.Text = MeData.firstName + " " + MeData.lastName;
             KuponEdittext = FindViewById<EditText>(Resource.Id.kuponedit);
             KartAdSoyad = FindViewById<EditText>(Resource.Id.adsoyadedit);
             KarNumara = FindViewById<EditText>(Resource.Id.kartnumarasiedit);

@@ -23,7 +23,8 @@ namespace TestBang.WebServices
     class WebService
     {
         string kokurl = "http://185.184.210.20:8080/api/";//main
-        public string ServisIslem(string url, string istekler,bool isLogin=false, string Method = "POST", string ContentType = "application/json",bool UsePoll = false,bool localip=false)
+
+        public string ServisIslem(string url, string istekler,bool isLogin=false, string Method = "POST", string ContentType = "application/json",bool UsePoll = false,bool localip=false, bool DontUseHostURL = false)
         {
             RestSharp.Method GelenMethod = RestSharp.Method.POST;
             if (UsePoll)
@@ -34,6 +35,7 @@ namespace TestBang.WebServices
             {
                 kokurl = "http://192.168.1.38:8080/api/";//Lokal İP
             }
+          
             switch (Method)
             {
                 case "POST":
@@ -49,7 +51,15 @@ namespace TestBang.WebServices
                     break;
             }
 
-            var client = new RestSharp.RestClient(kokurl + url);
+            RestSharp.RestClient client;
+
+            client  = new RestSharp.RestClient(kokurl + url);
+
+            if (DontUseHostURL)
+            {
+                client = new RestSharp.RestClient(url);
+            }
+
             client.Timeout = -1;
             var request = new RestSharp.RestRequest(GelenMethod);
             request.AddHeader("Content-Type", ContentType);

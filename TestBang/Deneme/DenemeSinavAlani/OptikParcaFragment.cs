@@ -79,6 +79,7 @@ namespace TestBang.Deneme.DenemeSinavAlani
 
         public void UpdateOptik(int pos, string Cevap)
         {
+            return;
             mViewAdapter.mData[pos].Cevap = Cevap;
             favorilerRecyclerViewDataModels = mViewAdapter.mData;
 

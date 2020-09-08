@@ -193,6 +193,7 @@ namespace TestBang.GirisKayit
                 Icerik.password = SifreText.Text;
                 Icerik.townId = IlceDTO1[IlceSpin.SelectedItemPosition].id;
                 Icerik.gender = CinsiyetSpin.SelectedItemPosition == 1 ? false : true;
+                Icerik.alan = (string)AlanSpin.GetItemAtPosition(AlanSpin.SelectedItemPosition);
                 DataBase.MEMBER_DATA_EKLE(Icerik);
                 return true;
             }

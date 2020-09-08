@@ -134,7 +134,7 @@ namespace TestBang.Deneme
 
         private void DenemeyeKatilButton_Click(object sender, EventArgs e)
         {
-            //CreateCalander();
+            CreateCalander();
             SinavaGir();
             return;
         }

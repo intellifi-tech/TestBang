@@ -18,10 +18,15 @@ using static TestBang.Deneme.DenemeBaseFragment;
 
 namespace TestBang.Deneme
 {
-    class DenemeBaseFragmentAdapterHolder : RecyclerView.ViewHolder
+   public class DenemeBaseFragmentAdapterHolder : RecyclerView.ViewHolder
     {
+        public TextView DersAdi, DogruTxt, YalnisTxt, BosTxt;
         public DenemeBaseFragmentAdapterHolder(View itemView, Action<int> listener) : base(itemView)
         {
+            DersAdi = itemView.FindViewById<TextView>(Resource.Id.textView2);
+            DogruTxt = itemView.FindViewById<TextView>(Resource.Id.textView4);
+            YalnisTxt = itemView.FindViewById<TextView>(Resource.Id.textView5);
+            BosTxt = itemView.FindViewById<TextView>(Resource.Id.textView3);
             itemView.Click += (sender, e) => listener(base.Position);
         }
     }
@@ -29,8 +34,8 @@ namespace TestBang.Deneme
     {
         AppCompatActivity BaseActivity;
         public event EventHandler<int> ItemClick;
-        List<DenemeBaseFragmentDTO> mData;
-        public DenemeBaseFragmentRecyclerViewAdapter(List<DenemeBaseFragmentDTO> mData2, AppCompatActivity GelenContex)
+        List<DenemeDersAnalizDTO> mData;
+        public DenemeBaseFragmentRecyclerViewAdapter(List<DenemeDersAnalizDTO> mData2, AppCompatActivity GelenContex)
         {
             mData = mData2;
             BaseActivity = GelenContex;
@@ -50,7 +55,19 @@ namespace TestBang.Deneme
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             DenemeBaseFragmentAdapterHolder viewholder = holder as DenemeBaseFragmentAdapterHolder;
-           
+            var item = mData[position];
+            if (!string.IsNullOrEmpty(item.trialType))
+            {
+                viewholder.DersAdi.Text = "(" + item.trialType + ")" + item.lessonName;
+            }
+            else
+            {
+                viewholder.DersAdi.Text = item.lessonName;
+            }
+            
+            viewholder.DogruTxt.Text = item.correctCount.ToString();
+            viewholder.YalnisTxt.Text = item.wrongCount.ToString();
+            viewholder.BosTxt.Text = item.emptyCount.ToString();
         }
        
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)

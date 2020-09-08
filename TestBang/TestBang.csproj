@@ -77,6 +77,8 @@
     <Compile Include="DataBasee\DataBase.cs" />
     <Compile Include="DataBasee\DataModel.cs" />
     <Compile Include="Deneme\DenemeBaseFragment.cs" />
+    <Compile Include="Deneme\DenemeCozumKonuDetay\DenemeCozumKonuDetayBaseActivity.cs" />
+    <Compile Include="Deneme\DenemeCozumKonuDetay\DenemeCozumKonuDetayRecyclerViewAdapter.cs" />
     <Compile Include="Deneme\DenemeSinavAlani\DenemeSinavAlaniBaseActivity.cs" />
     <Compile Include="Deneme\DenemeSinavAlani\DenemeSinavAlaniParcaFragment.cs" />
     <Compile Include="Deneme\DenemeSinavAlani\OptikListRecyclerviewAdepter.cs" />
@@ -1214,6 +1216,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\font\monserratfontbold.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\DenemeCozumKonuDetayBaseActivity.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
