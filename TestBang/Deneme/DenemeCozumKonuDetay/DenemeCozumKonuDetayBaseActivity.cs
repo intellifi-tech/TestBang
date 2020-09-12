@@ -36,13 +36,13 @@ namespace TestBang.Deneme.DenemeCozumKonuDetay
             dinamikStatusBarColor.Yesil(this);
             SetContentView(Resource.Layout.DenemeCozumKonuDetayBaseActivity);
             mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView1);
-            DersAdiTxt = FindViewById<TextView>(Resource.Id.textView4);
+            DersAdiTxt = FindViewById<TextView>(Resource.Id.textView1);
             ToplamBosTxt = FindViewById<TextView>(Resource.Id.textView4);
             ToplamDogruTxt = FindViewById<TextView>(Resource.Id.textView5);
             ToplamYalnisTxt = FindViewById<TextView>(Resource.Id.textView6);
             DogruOranTxt = FindViewById<TextView>(Resource.Id.textView7);
             YanlisOranTxt = FindViewById<TextView>(Resource.Id.textView8);
-            DersAdiTxt.Text = DenemeCozumKonuDetayBaseActivity_Helper.SecilenDersAdi +" Soru Dağılımı";
+            DersAdiTxt.Text = DenemeCozumKonuDetayBaseActivity_Helper.SecilenDersAdi + " Soru Dağılımı";
         }
         protected override void OnStart()
         {
@@ -60,17 +60,17 @@ namespace TestBang.Deneme.DenemeCozumKonuDetay
         void Duzenle()
         {
             WebService webService = new WebService();
-            for (int i = 0; i < DenemeCozumKonuDetayBaseActivity_Helper.TakvimdekiDenemelerList.Count; i++)
+            for (int i = 0; i < DenemeCozumKonuDetayBaseActivity_Helper.KullanicininGirdigiDenemelerDTO1.Count; i++)
             {
-                var Donus2 = webService.OkuGetir("trial-informations/user/topic/" + DenemeCozumKonuDetayBaseActivity_Helper.TakvimdekiDenemelerList[i].trialId, UsePoll: true);
+                var Donus2 = webService.OkuGetir("trial-informations/user/topic/" + DenemeCozumKonuDetayBaseActivity_Helper.KullanicininGirdigiDenemelerDTO1[i].id, UsePoll: true);
                 if (Donus2 != null)
                 {
                     var Icerikk = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DenemeCozumKonuDetayDTO>>(Donus2.ToString());
                     if (Icerikk.Count > 0)
                     {
-                        Icerikk.ForEach(item => {
-                            item.topicId = item.lessonId;
-                        });
+                        //Icerikk.ForEach(item => {
+                        //    item.topicId = item.lessonId;
+                        //});
                         List<DenemeCozumKonuDetayDTO> bosList = new List<DenemeCozumKonuDetayDTO>();
                         for (int i2 = 0; i2 < TopicDTO1.Count; i2++)
                         {
@@ -102,7 +102,7 @@ namespace TestBang.Deneme.DenemeCozumKonuDetay
             {
                 for (int i2 = 0; i2 < DenemeCozumKonuDetayDTO_Gruplar[i].Count; i2++)
                 {
-                    var SearchIndex = DenemeCozumKonuDetayDTO1.FindIndex(item => item.lessonId == DenemeCozumKonuDetayDTO_Gruplar[i][i2].lessonId);
+                    var SearchIndex = DenemeCozumKonuDetayDTO1.FindIndex(item => item.topicId == DenemeCozumKonuDetayDTO_Gruplar[i][i2].topicId);
                     if (SearchIndex == -1)//Henüz bu ders listeye eklenmemis
                     {
                         DenemeCozumKonuDetayDTO1.Add(DenemeCozumKonuDetayDTO_Gruplar[i][i2]);
@@ -238,7 +238,7 @@ namespace TestBang.Deneme.DenemeCozumKonuDetay
         {
             public static string SecilenDersID { get; set; }
             public static string SecilenDersAdi { get; set; }
-            public static List<UzakSunucuTakvimDTO> TakvimdekiDenemelerList { get; set; }
+            public static List<KullanicininGirdigiDenemelerDTO> KullanicininGirdigiDenemelerDTO1 { get; set; }
 
 
         }

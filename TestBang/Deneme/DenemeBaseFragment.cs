@@ -45,6 +45,7 @@ namespace TestBang.Deneme
 
         TextView AdText,IlIlceText;
         List<UzakSunucuTakvimDTO> UzakSunucuTakvimDTO1 = new List<UzakSunucuTakvimDTO>();
+        List<KullanicininGirdigiDenemelerDTO> KullanicininGirdigiDenemelerDTO1 = new List<KullanicininGirdigiDenemelerDTO>();
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -67,7 +68,7 @@ namespace TestBang.Deneme
             DenemeSinavinaKatilButton.Click += DenemeSinavinaKatilButton_Click;
 
             ButtonsHazne.ClipToOutline = true;
-            FnInitTabLayout();
+            
             return Vieww;
         }
 
@@ -126,8 +127,6 @@ namespace TestBang.Deneme
             }
         }
 
-
-
         private void GelecekDenemeSinavlariButton_Click(object sender, EventArgs e)
         {
             this.Activity.StartActivity(typeof(DersProgramiBaseActivity));
@@ -152,38 +151,44 @@ namespace TestBang.Deneme
                 
             })).Start();
         }
+
+
         void KullanicininDenemeleriniGetir()
         {
             DenemeDersAnalizDTO1_Gruplar = new List<List<DenemeDersAnalizDTO>>();
             WebService webService = new WebService();
-            var Donus = webService.OkuGetir("calendars/user");
+            var Donus = webService.OkuGetir("trials/user",UsePoll:true);
+
             if (Donus != null)
             {
-                UzakSunucuTakvimDTO1 = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UzakSunucuTakvimDTO>>(Donus.ToString());
-                var SadeceDenemeleriGetir = UzakSunucuTakvimDTO1.FindAll(item => !string.IsNullOrEmpty(item.trialId));
-                if (SadeceDenemeleriGetir.Count > 0)
+                KullanicininGirdigiDenemelerDTO1 = Newtonsoft.Json.JsonConvert.DeserializeObject<List<KullanicininGirdigiDenemelerDTO>>(Donus.ToString());
+                if (KullanicininGirdigiDenemelerDTO1!=null)
                 {
-                    SadeceDenemeleriGetir.Reverse();
-                    
-                    for (int i = 0; i < SadeceDenemeleriGetir.Count; i++)
+                    if (KullanicininGirdigiDenemelerDTO1.Count > 0)
                     {
-                        var Donus2 = webService.OkuGetir("trial-informations/user/lesson/"+ SadeceDenemeleriGetir[i].trialId,UsePoll:true);
-                        if (Donus2!=null)
+                        KullanicininGirdigiDenemelerDTO1.Reverse();
+
+                        for (int i = 0; i < KullanicininGirdigiDenemelerDTO1.Count; i++)
                         {
-                           var Icerikk = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DenemeDersAnalizDTO>>(Donus2.ToString());
-                            if (Icerikk.Count>0)
+                            var Donus2 = webService.OkuGetir("trial-informations/user/lesson/" + KullanicininGirdigiDenemelerDTO1[i].id, UsePoll: true);
+                            if (Donus2 != null)
                             {
-                                DenemeDersAnalizDTO1_Gruplar.Add(Icerikk);
-                                
+                                var Icerikk = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DenemeDersAnalizDTO>>(Donus2.ToString());
+                                if (Icerikk.Count > 0)
+                                {
+                                    DenemeDersAnalizDTO1_Gruplar.Add(Icerikk);
+
+                                }
                             }
                         }
-                    }
-                    if (DenemeDersAnalizDTO1_Gruplar.Count > 0)
-                    {
-                        ListeyiToparlaBirlestir();
-                        if (DenemeDersAnalizDTO1.Count>0)
+                        if (DenemeDersAnalizDTO1_Gruplar.Count > 0)
                         {
-                            FillDataModel();
+                            ListeyiToparlaBirlestir();
+                            if (DenemeDersAnalizDTO1.Count > 0)
+                            {
+                                FillDataModel();
+                                FnInitTabLayout();
+                            }
                         }
                     }
                 }
@@ -231,16 +236,16 @@ namespace TestBang.Deneme
         private void MViewAdapter_ItemClick(object sender, int e)
         {
             DenemeCozumKonuDetay.DenemeCozumKonuDetayBaseActivity.DenemeCozumKonuDetayBaseActivity_Helper.SecilenDersID = DenemeDersAnalizDTO1[e].lessonId;
-            DenemeCozumKonuDetay.DenemeCozumKonuDetayBaseActivity.DenemeCozumKonuDetayBaseActivity_Helper.TakvimdekiDenemelerList = UzakSunucuTakvimDTO1.FindAll(item => !string.IsNullOrEmpty(item.trialId));
+            DenemeCozumKonuDetay.DenemeCozumKonuDetayBaseActivity.DenemeCozumKonuDetayBaseActivity_Helper.KullanicininGirdigiDenemelerDTO1 = KullanicininGirdigiDenemelerDTO1;
             DenemeCozumKonuDetay.DenemeCozumKonuDetayBaseActivity.DenemeCozumKonuDetayBaseActivity_Helper.SecilenDersAdi = DenemeDersAnalizDTO1[e].lessonName;
             this.Activity.StartActivity(typeof(DenemeCozumKonuDetayBaseActivity));
         }
         void FnInitTabLayout()
         {
-            tabLayout.SetTabTextColors(Android.Graphics.Color.ParseColor("#000000"), Android.Graphics.Color.ParseColor("#000000"));
-            Android.Support.V4.App.Fragment ss1, ss2, ss3, ss4, ss5;
 
-            ss1 = new DenemeChartFragment_TYT();
+            Android.Support.V4.App.Fragment ss1, ss2;
+
+            ss1 = new DenemeChartFragment_TYT(KullanicininGirdigiDenemelerDTO1.FindAll(item => item.type == "TYT"));
             ss2 = new DenemeChartFragment_AYT();
 
             //Fragment array
@@ -255,9 +260,13 @@ namespace TestBang.Deneme
                "AYT",
             });
 
-            viewPager.Adapter = new TabPagerAdaptor(this.Activity.SupportFragmentManager, fragments, titles, true);
+            this.Activity.RunOnUiThread(delegate ()
+            {
+                tabLayout.SetTabTextColors(Android.Graphics.Color.ParseColor("#000000"), Android.Graphics.Color.ParseColor("#000000"));
+                viewPager.Adapter = new TabPagerAdaptor(this.Activity.SupportFragmentManager, fragments, titles, true);
 
-            tabLayout.SetupWithViewPager(viewPager);
+                tabLayout.SetupWithViewPager(viewPager);
+            });
 
             //((TextView)tabLayout.GetTabAt(0).CustomView).SetTextSize(Android.Util.ComplexUnitType.Dip, 8);
         }
@@ -279,6 +288,23 @@ namespace TestBang.Deneme
                 }
             })).Start();
         }
+
+
+        public class KullanicininGirdigiDenemelerDTO
+        {
+            public string id { get; set; }
+            public string name { get; set; }
+            public string schoolId { get; set; }
+            public DateTime? startDate { get; set; }
+            public bool? resultExplained { get; set; }
+            public bool? finish { get; set; }
+            public DateTime? finishDate { get; set; }
+            public string description { get; set; }
+            public int? questionCount { get; set; }
+            public string type { get; set; }
+            public string userAlan { get; set; }
+        }
+
 
         public class TownDTO
         {
@@ -313,6 +339,14 @@ namespace TestBang.Deneme
         public class DenemeChartFragment_TYT : Android.Support.V4.App.Fragment
         {
             ChartView ChartView1;
+            List<DenemeSonuclariDTO> DenemeSonuclariDTO1 = new List<DenemeSonuclariDTO>();
+            List<KullanicininGirdigiDenemelerDTO> KullanicininGirdigiDenemelerDTO1;
+            public DenemeChartFragment_TYT(List<KullanicininGirdigiDenemelerDTO> KullanicininGirdigiDenemelerDTO2)
+            {
+                KullanicininGirdigiDenemelerDTO1 = KullanicininGirdigiDenemelerDTO2;
+            }
+
+
             public override void OnCreate(Bundle savedInstanceState)
             {
                 base.OnCreate(savedInstanceState);
@@ -328,51 +362,76 @@ namespace TestBang.Deneme
             public override void OnStart()
             {
                 base.OnStart();
+                GetUserTrialResult();
                 CreateChart();
+            }
+            void GetUserTrialResult()
+            {
+                WebService webService = new WebService();
+                var Donus = webService.OkuGetir("user-trial-results/user",UsePoll:true);
+                if (Donus!=null)
+                {
+                    DenemeSonuclariDTO1 = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DenemeSonuclariDTO>>(Donus.ToString());
+                    if (DenemeSonuclariDTO1.Count>0)
+                    {
+                        DenemeSonuclariDTO1 = DenemeSonuclariDTO1.TakeLast(10).ToList();
+                        CreateChart();
+                    }
+                } 
             }
             void CreateChart()
             {
-                var entries = new[]
+                List<Entry> entries = new List<Entry>();
+                for (int i = 0; i < DenemeSonuclariDTO1.Count; i++)
                 {
-                        new Entry(100)
-                        {
-                            Label = "Deneme 1",
-                            ValueLabel = "100",
-                            Color = SKColor.Parse("#1EB04B"),
-                        },
-                        new Entry(200)
-                        {
-                            Label = "Deneme 2",
-                            ValueLabel = "200",
-                            Color = SKColor.Parse("#F05070"),
-                        },
-                        new Entry(150)
-                        {
-                            Label = "Deneme 3",
-                            ValueLabel = "150",
-                            Color = SKColor.Parse("#8F5CE8"),
-                        },
-                        new Entry(300)
-                        {
-                            Label = "Deneme 4",
-                            ValueLabel = "300",
-                            Color = SKColor.Parse("#1EB04B"),
-                        },
-                        new Entry(200)
-                        {
-                            Label = "Deneme 5",
-                            ValueLabel = "200",
-                            Color = SKColor.Parse("#F05070"),
-                        },
-                    };
+                    var DenemeDtosu = KullanicininGirdigiDenemelerDTO1.Find(item => item.id == DenemeSonuclariDTO1[i].trialId);
+                    string DenemeAdi = "";
+                    if (DenemeDtosu!=null)
+                    {
+                        DenemeAdi = DenemeDtosu.name;
+                    }
+                    entries.Add(new Entry(Convert.ToSingle(DenemeSonuclariDTO1[i].trialPoint)) {
 
-                var lineChart = new LineChart() { Entries = entries };
+                        Label = DenemeAdi,
+                        ValueLabel = DenemeSonuclariDTO1[i].trialPoint,
+                        Color = SKColor.Parse(getRandomColor()),
+
+                    });
+                }
+              
+                var lineChart = new LineChart() { Entries = entries.ToArray() };
                 lineChart.Margin = 15f;
                 //chart.PointAreaAlpha = 0;
                 lineChart.LineAreaAlpha = 0;
                 lineChart.LineSize = 3f;
 
                 ChartView1.Chart = lineChart;
+            }
+
+            string getRandomColor()
+            {
+                string[] colors = new string[] { "#1EB04B", "#F05070", "#8F5CE8", "#1EB04B" };
+                Random _random = new Random();
+                return colors[_random.Next(0, 4)].ToString();
+            }
+
+
+
+            public class DenemeSonuclariDTO
+            {
+                public int? correctCount { get; set; }
+                public int? emptyCount { get; set; }
+                public string id { get; set; }
+                public string lessonId { get; set; }
+                public int? net { get; set; }
+                public int? point { get; set; }
+                public string topicId { get; set; }
+                public DateTime? trialDate { get; set; }
+                public string trialId { get; set; }
+                public string trialPoint { get; set; }
+                public string trialType { get; set; }
+                public string userId { get; set; }
+                public int? wrongCount { get; set; }
             }
         }
 

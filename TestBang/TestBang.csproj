@@ -56,6 +56,9 @@
     <Reference Include="DK.Ostebaronen.Droid.ViewPagerIndicator">
       <HintPath>..\..\..\..\DLL\Android\DK.Ostebaronen.Droid.ViewPagerIndicator.dll</HintPath>
     </Reference>
+    <Reference Include="iTextSharpLGPL-MonoForAndroid">
+      <HintPath>..\..\..\..\DLL\Android\iTextSharpLGPL-MonoForAndroid.dll</HintPath>
+    </Reference>
     <Reference Include="Iyzipay">
       <HintPath>..\..\..\..\DLL\Android\Iyzipay.dll</HintPath>
     </Reference>
@@ -68,6 +71,9 @@
     <Reference Include="System.Numerics.Vectors" />
     <Reference Include="websocket-sharp">
       <HintPath>..\..\..\..\DLL\Android\websocket-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="XamiTextSharpLGPL.Droid">
+      <HintPath>..\..\..\..\DLL\Android\XamiTextSharpLGPL.Droid.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -1221,6 +1227,12 @@
     <AndroidResource Include="Resources\layout\DenemeCozumKonuDetayBaseActivity.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xhdpi\storelink1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xhdpi\storelink2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

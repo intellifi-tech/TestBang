@@ -322,7 +322,8 @@ namespace TestBang.Deneme.DenemeSinavAlani
             var ToplamSayfa = Convert.ToInt32(DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.questionCount / 5);
             WebService webService = new WebService();
 
-            var Donus = webService.OkuGetir("trials/questions/" + DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.id.ToString(), UsePoll: true);
+            //var Donus = webService.OkuGetir("trials/questions/" + DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.id.ToString(), UsePoll: true); 
+            var Donus = webService.OkuGetir("http://185.184.210.20:8082/api/trials/questions/" + DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.id.ToString(), DontUseHostURL: true, UsePoll: true);
             if (Donus != null)
             {
                 var Icerik = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DenemeSorulariDTO>>(Donus.ToString());

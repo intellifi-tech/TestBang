@@ -130,6 +130,7 @@
                              android:id="@+id/textView5" />
                     </LinearLayout>
                      <ImageButton
+                        android:visibility="invisible"
                         android:tint="#D1C5C5"
                         android:padding="10dp"
                         android:scaleType="centerInside"

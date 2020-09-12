@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@android:color/transparent"
+    android:background="#fff"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <androidx.cardview.widget.CardView
@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@+id/linearLayout15"
-                android:id="@+id/textView2" />
+                android:id="@+id/textView1" />
             <LinearLayout
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
@@ -59,7 +59,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView3" />
+                    android:id="@+id/textView2" />
                 <TextView
                     android:fontFamily="@font/monserratfontbold"
                     android:textStyle="bold"
@@ -83,7 +83,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView4" />
+                    android:id="@+id/textView3" />
                 <TextView
                     android:fontFamily="@font/monserratfontbold"
                     android:textStyle="bold"

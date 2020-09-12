@@ -12,6 +12,8 @@ using Android.Views;
 using Android.Widget;
 using TestBang.DataBasee;
 using TestBang.GenericClass;
+using TestBang.WebServices;
+using static TestBang.Profil.Transkript.TranskriptDetayBaseActivity;
 
 namespace TestBang.Profil.Transkript
 {
@@ -21,7 +23,7 @@ namespace TestBang.Profil.Transkript
         RecyclerView mRecyclerView;
         RecyclerView.LayoutManager mLayoutManager;
         TranskriptListRecyclerViewAdapter mViewAdapter;
-        List<TranskriptListDTO> favorilerRecyclerViewDataModels = new List<TranskriptListDTO>();
+        List<TranskriptListDTO> TranskriptListDTO1 = new List<TranskriptListDTO>();
         MEMBER_DATA MeUser = DataBase.MEMBER_DATA_GETIR()[0];
         TextView AdSoyadTxt;
 
@@ -43,38 +45,57 @@ namespace TestBang.Profil.Transkript
             {
                 await Task.Run(async delegate {
                     await Task.Delay(100);
-                    GetTranskript();
-
+                    KullaniciDenemeleriniGetir();
                 });
             })).Start();
         }
-
-        void GetTranskript()
+        void KullaniciDenemeleriniGetir()
         {
-            for (int i = 0; i < 50; i++)
+            WebService webService = new WebService();
+            var Donus = webService.OkuGetir("trials/user", UsePoll: true);
+            if (Donus != null)
             {
-                favorilerRecyclerViewDataModels.Add(new TranskriptListDTO());
+                TranskriptListDTO1 = Newtonsoft.Json.JsonConvert.DeserializeObject<List<TranskriptListDTO>>(Donus.ToString());
+                if (TranskriptListDTO1.Count > 0)
+                {
+                    for (int i = 0; i < TranskriptListDTO1.Count; i++)
+                    {
+                        TranskriptListDTO1[i].TanskriptNo = i + 1;
+                    }
+                    TranskriptListDTO1.Reverse();
+                    this.RunOnUiThread(delegate
+                    {
+                        mViewAdapter = new TranskriptListRecyclerViewAdapter(TranskriptListDTO1, this);
+                        mRecyclerView.HasFixedSize = true;
+                        mLayoutManager = new LinearLayoutManager(this);
+                        mRecyclerView.SetLayoutManager(mLayoutManager);
+                        mRecyclerView.SetAdapter(mViewAdapter);
+                        mViewAdapter.ItemClick += MViewAdapter_ItemClick;
+                    });
+                }
             }
-            this.RunOnUiThread(delegate
-            {
-                mViewAdapter = new TranskriptListRecyclerViewAdapter(favorilerRecyclerViewDataModels, (Android.Support.V7.App.AppCompatActivity)this);
-                mRecyclerView.HasFixedSize = true;
-                mLayoutManager = new LinearLayoutManager(this);
-                mRecyclerView.SetLayoutManager(mLayoutManager);
-                mRecyclerView.SetAdapter(mViewAdapter);
-                mViewAdapter.ItemClick += MViewAdapter_ItemClick;
-                
-            });
         }
+
 
         private void MViewAdapter_ItemClick(object sender, object[] e)
         {
+            TranskriptDetayBaseActivity_Helper.SecilenDeneme = TranskriptListDTO1[(int)e[0]];
             this.StartActivity(typeof(TranskriptDetayBaseActivity));
         }
 
         public class TranskriptListDTO
         {
-            
+            public string id { get; set; }
+            public string name { get; set; }
+            public string schoolId { get; set; }
+            public DateTime? startDate { get; set; }
+            public DateTime? finishDate { get; set; }
+            public string description { get; set; }
+            public int questionCount { get; set; }
+            public string type { get; set; }
+            public string userAlan { get; set; }
+            //
+            public int TanskriptNo { get; set; }
         }
     }
 }

@@ -37,6 +37,7 @@ namespace TestBang.Oyun.ArkadaslarindanSec
         RecyclerView.LayoutManager mLayoutManager;
         ArkadasListRecyclerViewAdapter mViewAdapter;
         List<MEMBER_DATA> favorilerRecyclerViewDataModels = new List<MEMBER_DATA>();
+        EditText RakipAraEdittext;
         #endregion
         public override void OnActivityCreated(Bundle savedInstanceState)
         {
@@ -60,9 +61,32 @@ namespace TestBang.Oyun.ArkadaslarindanSec
 
             KapatButton = view.FindViewById<ImageButton>(Resource.Id.ımageButton1);
             KapatButton.Click += KapatButton_Click;
+            RakipAraEdittext = view.FindViewById<EditText>(Resource.Id.editText1);
+            RakipAraEdittext.TextChanged += RakipAraEdittext_TextChanged;
+
+
 
             return view;
         }
+
+        private void RakipAraEdittext_TextChanged(object sender, Android.Text.TextChangedEventArgs e)
+        {
+            List<MEMBER_DATA> searchedFriends = (from friend in favorilerRecyclerViewDataModels
+                                             where friend.firstName.Contains(RakipAraEdittext.Text, StringComparison.OrdinalIgnoreCase) || friend.lastName.Contains(RakipAraEdittext.Text, StringComparison.OrdinalIgnoreCase)
+                                             select friend).ToList<MEMBER_DATA>();
+
+            this.Activity.RunOnUiThread(delegate
+            {
+                mViewAdapter = new ArkadasListRecyclerViewAdapter(searchedFriends, (Android.Support.V7.App.AppCompatActivity)this.Activity);
+                mRecyclerView.HasFixedSize = true;
+                mLayoutManager = new LinearLayoutManager(this.Activity);
+                mRecyclerView.SetLayoutManager(mLayoutManager);
+                mRecyclerView.SetAdapter(mViewAdapter);
+                mViewAdapter.ItemClick -= MViewAdapter_ItemClick;
+                mViewAdapter.ItemClick += MViewAdapter_ItemClick;
+            });
+        }
+
         private void KapatButton_Click(object sender, EventArgs e)
         {
             this.Dismiss();
@@ -77,31 +101,36 @@ namespace TestBang.Oyun.ArkadaslarindanSec
                 Dialog.Window.SetLayout(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
                 Dialog.Window.SetGravity(GravityFlags.FillHorizontal | GravityFlags.CenterHorizontal | GravityFlags.CenterVertical);
                 Actinmi = true;
-                //GetUsers();
+                GetUsers();
             }
         }
         void GetUsers()
         {
-            for (int i = 0; i < 50; i++)
+            WebService webService = new WebService();
+            var Donus = webService.OkuGetir("users");
+            if (Donus!=null)
             {
-                favorilerRecyclerViewDataModels.Add(new MEMBER_DATA());
+                favorilerRecyclerViewDataModels = Newtonsoft.Json.JsonConvert.DeserializeObject<List<MEMBER_DATA>>(Donus.ToString());
+                if (favorilerRecyclerViewDataModels.Count>0)
+                {
+                    favorilerRecyclerViewDataModels.Reverse();
+                    this.Activity.RunOnUiThread(delegate
+                    {
+                        mViewAdapter = new ArkadasListRecyclerViewAdapter(favorilerRecyclerViewDataModels, (Android.Support.V7.App.AppCompatActivity)this.Activity);
+                        mRecyclerView.HasFixedSize = true;
+                        mLayoutManager = new LinearLayoutManager(this.Activity);
+                        mRecyclerView.SetLayoutManager(mLayoutManager);
+                        mRecyclerView.SetAdapter(mViewAdapter);
+                        mViewAdapter.ItemClick -= MViewAdapter_ItemClick;
+                        mViewAdapter.ItemClick += MViewAdapter_ItemClick;
+                    });
+                }
             }
-            this.Activity.RunOnUiThread(delegate
-            {
-                mViewAdapter = new ArkadasListRecyclerViewAdapter(favorilerRecyclerViewDataModels, (Android.Support.V7.App.AppCompatActivity)this.Activity);
-                mRecyclerView.HasFixedSize = true;
-                mLayoutManager = new LinearLayoutManager(this.Activity);
-                mRecyclerView.SetLayoutManager(mLayoutManager);
-                mRecyclerView.SetAdapter(mViewAdapter);
-                mViewAdapter.ItemClick -= MViewAdapter_ItemClick;
-                mViewAdapter.ItemClick += MViewAdapter_ItemClick;
-
-            });
         }
 
         private void MViewAdapter_ItemClick(object sender, object[] e)
         {
-            
+            var item = mViewAdapter.mData[(int)e[0]];
         }
     }
 }

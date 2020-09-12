@@ -19,21 +19,24 @@ namespace TestBang.Profil.Transkript
 {
     class TranskriptDetayRecyclerViewHolder : RecyclerView.ViewHolder
     {
+        public TextView KonuAdiTxt, BosTxt, DogruTxt, YanlisTxt;
         public TranskriptDetayRecyclerViewHolder(View itemView, Action<object[]> listener) : base(itemView)
         {
-
-
+            KonuAdiTxt = itemView.FindViewById<TextView>(Resource.Id.textView1);
+            BosTxt = itemView.FindViewById<TextView>(Resource.Id.textView2);
+            DogruTxt = itemView.FindViewById<TextView>(Resource.Id.textView3);
+            YanlisTxt = itemView.FindViewById<TextView>(Resource.Id.textView4);
             itemView.Click += (sender, e) => listener(new object[] { base.Position,itemView });
         }
     }
     class TranskriptDetayRecyclerViewAdapter : RecyclerView.Adapter/*, ValueAnimator.IAnimatorUpdateListener*/
     {
-        private List<TranskriptDetayDTO> mData = new List<TranskriptDetayDTO>();
+        private List<DenemeCozumKonuDetayDTO> mData = new List<DenemeCozumKonuDetayDTO>();
         AppCompatActivity BaseActivity;
         public event EventHandler<object[]> ItemClick;
         int Genislikk;
 
-        public TranskriptDetayRecyclerViewAdapter(List<TranskriptDetayDTO> GelenData, AppCompatActivity GelenContex,int GelenGenislik)
+        public TranskriptDetayRecyclerViewAdapter(List<DenemeCozumKonuDetayDTO> GelenData, AppCompatActivity GelenContex,int GelenGenislik)
         {
             mData = GelenData;
             BaseActivity = GelenContex;
@@ -56,9 +59,11 @@ namespace TestBang.Profil.Transkript
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             TranskriptDetayRecyclerViewHolder viewholder = holder as TranskriptDetayRecyclerViewHolder;
-            HolderForAnimation = holder as TranskriptDetayRecyclerViewHolder;
             var item = mData[position];
-     
+            viewholder.KonuAdiTxt.Text = item.topicName;
+            viewholder.BosTxt.Text = item.emptyCount.ToString();
+            viewholder.DogruTxt.Text = item.correctCount.ToString();
+            viewholder.YanlisTxt.Text = item.wrongCount.ToString();
         }
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {

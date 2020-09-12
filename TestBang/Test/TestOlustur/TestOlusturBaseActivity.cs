@@ -214,13 +214,19 @@ namespace TestBang.Test.TestOlustur
         }
         public class Lesson
         {
-            public bool ea { get; set; }
-            public string icon { get; set; }
             public int id { get; set; }
             public string name { get; set; }
-            public bool say { get; set; }
-            public bool soz { get; set; }
             public string token { get; set; }
+            public string icon { get; set; }
+            public bool? say { get; set; }
+            public bool? soz { get; set; }
+            public bool? ea { get; set; }
+            public double? sayKat { get; set; }
+            public double? sozKat { get; set; }
+            public double? eaKat { get; set; }
+            public double? yerKat { get; set; }
+            public double? tytKat { get; set; }
+            public string type { get; set; }
         }
         public class Topic
         {

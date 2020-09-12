@@ -21,9 +21,16 @@ namespace TestBang.Profil.Transkript
     class TranskriptListRecyclerViewHolder : RecyclerView.ViewHolder
     {
         public TextView TranskriptNo1;
+        public TextView Nametxt, Desctxt, Siratxt, Tarihtxt, Turtxt;
         public TranskriptListRecyclerViewHolder(View itemView, Action<object[]> listener) : base(itemView)
         {
             TranskriptNo1 = itemView.FindViewById<TextView>(Resource.Id.transkriptno1);
+            Nametxt = itemView.FindViewById<TextView>(Resource.Id.basliktext);
+            Desctxt = itemView.FindViewById<TextView>(Resource.Id.aciklamatext);
+            Siratxt = itemView.FindViewById<TextView>(Resource.Id.konutext);
+            Tarihtxt = itemView.FindViewById<TextView>(Resource.Id.tarihtext);
+            Turtxt = itemView.FindViewById<TextView>(Resource.Id.textView5);
+        
             itemView.Click += (sender, e) => listener(new object[] { base.Position,itemView });
         }
     }
@@ -52,10 +59,25 @@ namespace TestBang.Profil.Transkript
         TranskriptListRecyclerViewHolder HolderForAnimation;
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
-            TranskriptListRecyclerViewHolder viewholder = holder as TranskriptListRecyclerViewHolder;
+            //           public TextView TranskriptNo1;
+                      // public TextView Nametxt, Desctxt, Siratxt, Tarihtxt, Turtxt;
+        TranskriptListRecyclerViewHolder viewholder = holder as TranskriptListRecyclerViewHolder;
             HolderForAnimation = holder as TranskriptListRecyclerViewHolder;
             var item = mData[position];
             viewholder.TranskriptNo1.SetTextColor(Color.White);
+            viewholder.TranskriptNo1.Text = item.TanskriptNo.ToString();
+            viewholder.Nametxt.Text = item.name;
+            if (!string.IsNullOrEmpty(item.description))
+            {
+                viewholder.Desctxt.Text = item.description;
+            }
+            else
+            {
+                viewholder.Desctxt.Text = "Açıklama Yok.";//
+            }
+            viewholder.Siratxt.Text = "1.453";
+            viewholder.Tarihtxt.Text = ((DateTime)item.startDate).ToShortDateString();
+            viewholder.Turtxt.Text = item.type;
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)

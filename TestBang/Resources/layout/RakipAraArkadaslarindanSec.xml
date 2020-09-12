@@ -55,6 +55,7 @@
                     android:layout_height="match_parent"
                     android:id="@+id/editText1" />
                 <Button
+                    android:visibility="gone"
                     android:fontFamily="@font/monserratfontbold"
                     android:textColor="#fff"
                     android:layout_alignParentRight="true"
