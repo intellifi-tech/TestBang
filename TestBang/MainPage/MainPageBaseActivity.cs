@@ -14,11 +14,13 @@ using Android.Views;
 using Android.Widget;
 using TestBang.AnaSayfa;
 using TestBang.Bildirim;
+using TestBang.DataBasee;
 using TestBang.Deneme;
 using TestBang.GenericClass;
 using TestBang.Oyun;
 using TestBang.Profil;
 using TestBang.Test;
+using TestBang.WebServices;
 using static TestBang.Deneme.DenemeBaseFragment;
 
 namespace TestBang.MainPage
@@ -32,6 +34,7 @@ namespace TestBang.MainPage
         LinearLayout Bildirimhaznebutton,ArkaPlan;
         DinamikStatusBarColor dinamikStatusBarColor = new DinamikStatusBarColor();
         ImageView Logoo;
+        MEMBER_DATA Me = DataBase.MEMBER_DATA_GETIR()[0];
         #endregion
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -46,6 +49,7 @@ namespace TestBang.MainPage
             ArkaPlan = FindViewById<LinearLayout>(Resource.Id.rootview);
             Logoo = FindViewById<ImageView>(Resource.Id.logoo);
             FnInitTabLayout();
+            BildirimleriKontrolEt();
         }
 
         private void ViewPager_PageSelected(object sender, ViewPager.PageSelectedEventArgs e)
@@ -145,5 +149,67 @@ namespace TestBang.MainPage
                 }
             }
         }
+
+        #region BildirimKontrol
+        void BildirimleriKontrolEt()
+        {
+            new System.Threading.Thread(new System.Threading.ThreadStart(delegate
+            {
+                WebService webService = new WebService();
+                var Donus = webService.OkuGetir("notifications");
+                if (Donus != null)
+                {
+                    var notificationDTOS = Newtonsoft.Json.JsonConvert.DeserializeObject<List<NotificationDTOS>>(Donus.ToString());
+                    List<NotificationDTOS> BenimIcinFiltrelenmis = new List<NotificationDTOS>();
+                    if (notificationDTOS.Count > 0)
+                    {
+                        var LocalBildirimler = DataBase.BILDIRIMLER_GETIR();
+                        HashSet<int> sentIDs = new HashSet<int>(LocalBildirimler.Select(s => s.id));
+                        var YeniBildirimler = (notificationDTOS.Where(m => !sentIDs.Contains(m.id))).ToList();
+
+                        if (YeniBildirimler.Count > 0)
+                        {
+                            for (int i = 0; i < YeniBildirimler.Count; i++)
+                            {
+                                DataBase.BILDIRIMLER_EKLE(new BILDIRIMLER()
+                                {
+                                    id = YeniBildirimler[i].id,
+                                    date = YeniBildirimler[i].date,
+                                    Okundu = false,
+                                    text = YeniBildirimler[i].text
+                                });
+                            }
+                        }
+                    }
+                }
+            })).Start();
+        }
+        #endregion
+
+
+
+        #region DTOS
+        // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
+        public class School
+        {
+            public string corpColor { get; set; }
+            public int id { get; set; }
+            public string logoPath { get; set; }
+            public string name { get; set; }
+            public string token { get; set; }
+            public int? townId { get; set; }
+            public List<MEMBER_DATA> users { get; set; }
+        }
+
+        public class NotificationDTOS
+        {
+            public DateTime? date { get; set; }
+            public int id { get; set; }
+            public List<School> schools { get; set; }
+            public string text { get; set; }
+        }
+
+
+        #endregion
     }
 }

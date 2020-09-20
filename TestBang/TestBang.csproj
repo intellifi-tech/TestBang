@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="AnaSayfa\AnaSayfaBaseFragment.cs" />
     <Compile Include="AppIntro\AppIntroBaseActivity.cs" />
+    <Compile Include="Bildirim\BildirimlerRecyclerviewAdepter.cs" />
     <Compile Include="Bildirim\BildirimlerBaseActivity.cs" />
     <Compile Include="DataBasee\DataBase.cs" />
     <Compile Include="DataBasee\DataModel.cs" />
@@ -1233,6 +1234,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-xhdpi\storelink2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\BildirimCustomCardView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

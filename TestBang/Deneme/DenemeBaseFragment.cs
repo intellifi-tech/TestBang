@@ -244,9 +244,21 @@ namespace TestBang.Deneme
         {
 
             Android.Support.V4.App.Fragment ss1, ss2;
+            List<DenemeSonuclariPaunDTO> IcerikTYT, IcerikAYT;
+            IcerikTYT = new List<DenemeSonuclariPaunDTO>();
+            IcerikAYT = new List<DenemeSonuclariPaunDTO>();
+            WebService webService = new WebService();
+            var Donus = webService.OkuGetir("user-trial-results/user", UsePoll: true);
+            if (Donus != null)
+            {
+                var Icerik = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DenemeSonuclariPaunDTO>>(Donus.ToString());
+                IcerikTYT = Icerik.FindAll(item => item.trialType == "TYT");
+                IcerikAYT = Icerik.FindAll(item => item.trialType == "AYT");
+            }
 
-            ss1 = new DenemeChartFragment_TYT(KullanicininGirdigiDenemelerDTO1.FindAll(item => item.type == "TYT"));
-            ss2 = new DenemeChartFragment_AYT();
+
+            ss1 = new DenemeChartFragment_TYT(KullanicininGirdigiDenemelerDTO1.FindAll(item => item.type == "TYT"), IcerikTYT);
+            ss2 = new DenemeChartFragment_AYT(KullanicininGirdigiDenemelerDTO1.FindAll(item => item.type == "AYT"), IcerikAYT);
 
             //Fragment array
             var fragments = new Android.Support.V4.App.Fragment[]
@@ -288,8 +300,6 @@ namespace TestBang.Deneme
                 }
             })).Start();
         }
-
-
         public class KullanicininGirdigiDenemelerDTO
         {
             public string id { get; set; }
@@ -305,7 +315,6 @@ namespace TestBang.Deneme
             public string userAlan { get; set; }
         }
 
-
         public class TownDTO
         {
             public int cityId { get; set; }
@@ -314,7 +323,6 @@ namespace TestBang.Deneme
             public string name { get; set; }
             public string token { get; set; }
         }
-
 
         public class DenemeDersAnalizDTO
         {
@@ -334,18 +342,53 @@ namespace TestBang.Deneme
             public string trialPoint { get; set; }
         }
 
-      
+
+        public class DenemeSonuclariPaunDTO
+        {
+            public string id { get; set; }
+            public string userId { get; set; }
+            public string trialType { get; set; }
+            public string trialId { get; set; }
+            public int? correctCount { get; set; }
+            public int? wrongCount { get; set; }
+            public int? emptyCount { get; set; }
+            public double? net { get; set; }
+            public double? point { get; set; }
+            public double? sayPoint { get; set; }
+            public double? sozPoint { get; set; }
+            public double? eaPoint { get; set; }
+            public string lessonId { get; set; }
+            public string lessonName { get; set; }
+            public string topicId { get; set; }
+            public string topicName { get; set; }
+            public string trialPoint { get; set; }
+            public DateTime? trialDate { get; set; }
+            public List<LessonResult> lessonResults { get; set; }
+            public string order { get; set; }
+        }
+
+        public class LessonResult
+        {
+            public string lessonId { get; set; }
+            public string lesonName { get; set; }
+            public int? correctCount { get; set; }
+            public int? wrongCount { get; set; }
+            public int? emptyCount { get; set; }
+            public double? net { get; set; }
+        }
+
+
 
         public class DenemeChartFragment_TYT : Android.Support.V4.App.Fragment
         {
             ChartView ChartView1;
-            List<DenemeSonuclariDTO> DenemeSonuclariDTO1 = new List<DenemeSonuclariDTO>();
+            List<DenemeSonuclariPaunDTO> DenemeSonuclariDTO1;
             List<KullanicininGirdigiDenemelerDTO> KullanicininGirdigiDenemelerDTO1;
-            public DenemeChartFragment_TYT(List<KullanicininGirdigiDenemelerDTO> KullanicininGirdigiDenemelerDTO2)
+            public DenemeChartFragment_TYT(List<KullanicininGirdigiDenemelerDTO> KullanicininGirdigiDenemelerDTO2,List<DenemeSonuclariPaunDTO> DenemeSonuclariDTO2)
             {
                 KullanicininGirdigiDenemelerDTO1 = KullanicininGirdigiDenemelerDTO2;
+                DenemeSonuclariDTO1 = DenemeSonuclariDTO2;
             }
-
 
             public override void OnCreate(Bundle savedInstanceState)
             {
@@ -367,17 +410,12 @@ namespace TestBang.Deneme
             }
             void GetUserTrialResult()
             {
-                WebService webService = new WebService();
-                var Donus = webService.OkuGetir("user-trial-results/user",UsePoll:true);
-                if (Donus!=null)
+                if (DenemeSonuclariDTO1.Count > 0)
                 {
-                    DenemeSonuclariDTO1 = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DenemeSonuclariDTO>>(Donus.ToString());
-                    if (DenemeSonuclariDTO1.Count>0)
-                    {
-                        DenemeSonuclariDTO1 = DenemeSonuclariDTO1.TakeLast(10).ToList();
-                        CreateChart();
-                    }
-                } 
+                    DenemeSonuclariDTO1 = DenemeSonuclariDTO1.TakeLast(10).ToList();
+                    CreateChart();
+                }
+                
             }
             void CreateChart()
             {
@@ -390,10 +428,10 @@ namespace TestBang.Deneme
                     {
                         DenemeAdi = DenemeDtosu.name;
                     }
-                    entries.Add(new Entry(Convert.ToSingle(DenemeSonuclariDTO1[i].trialPoint)) {
+                    entries.Add(new Entry(Convert.ToSingle(Math.Round((double)DenemeSonuclariDTO1[i].point,5))) {
 
                         Label = DenemeAdi,
-                        ValueLabel = DenemeSonuclariDTO1[i].trialPoint,
+                        ValueLabel = DenemeSonuclariDTO1[i].point.ToString(),
                         Color = SKColor.Parse(getRandomColor()),
 
                     });
@@ -416,29 +454,21 @@ namespace TestBang.Deneme
             }
 
 
-
-            public class DenemeSonuclariDTO
-            {
-                public int? correctCount { get; set; }
-                public int? emptyCount { get; set; }
-                public string id { get; set; }
-                public string lessonId { get; set; }
-                public int? net { get; set; }
-                public int? point { get; set; }
-                public string topicId { get; set; }
-                public DateTime? trialDate { get; set; }
-                public string trialId { get; set; }
-                public string trialPoint { get; set; }
-                public string trialType { get; set; }
-                public string userId { get; set; }
-                public int? wrongCount { get; set; }
-            }
         }
-
 
         public class DenemeChartFragment_AYT : Android.Support.V4.App.Fragment
         {
             ChartView ChartView1;
+            List<DenemeSonuclariPaunDTO> DenemeSonuclariDTO1;
+            List<KullanicininGirdigiDenemelerDTO> KullanicininGirdigiDenemelerDTO1;
+
+            public DenemeChartFragment_AYT(List<KullanicininGirdigiDenemelerDTO> KullanicininGirdigiDenemelerDTO2, List<DenemeSonuclariPaunDTO> DenemeSonuclariDTO2)
+            {
+                KullanicininGirdigiDenemelerDTO1 = KullanicininGirdigiDenemelerDTO2;
+                DenemeSonuclariDTO1 = DenemeSonuclariDTO2;
+            }
+
+
             public override void OnCreate(Bundle savedInstanceState)
             {
                 base.OnCreate(savedInstanceState);
@@ -454,14 +484,25 @@ namespace TestBang.Deneme
             public override void OnStart()
             {
                 base.OnStart();
+                GetUserTrialResult();
                 CreateChart();
             }
+
+            void GetUserTrialResult()
+            {
+                if (DenemeSonuclariDTO1.Count > 0)
+                {
+                    DenemeSonuclariDTO1 = DenemeSonuclariDTO1.TakeLast(10).ToList();
+                    CreateChart();
+                }
+
+            }
+
             void CreateChart()
             {
-
-                var SAY = GetChartEntries("#F05070", "Deneme");
-                var SOZ = GetChartEntries("#1EB04B", "Deneme");
-                var EA = GetChartEntries("#8F5CE8", "Deneme");
+                var SAY = GetChartEntries("#F05070", 0);
+                var SOZ = GetChartEntries("#1EB04B", 1);
+                var EA = GetChartEntries("#8F5CE8", 2);
 
                 var chart = new MultiLineChart() { multiline_entries = new List<List<Entry>> { SAY, SOZ, EA } };
                 chart.Margin = 15f;
@@ -472,15 +513,36 @@ namespace TestBang.Deneme
                 ChartView1.Chart = chart;
             }
 
-            List<Entry> GetChartEntries(string Colorr, string labell)
+            List<Entry> GetChartEntries(string Colorr, int index)
             {
                 List<Entry> entries = new List<Entry>();
-                for (int i = 0; i < 6; i++)
+                for (int i = 0; i < DenemeSonuclariDTO1.Count; i++)
                 {
-                    entries.Add(
-                    new Entry(new Random().Next(20, 100))
+                    float Puann = 0;
+                    switch (index)
                     {
-                        Label = labell + " " + i.ToString(),
+                        case 0:
+                            Puann =  Convert.ToSingle(Math.Round((double)DenemeSonuclariDTO1[i].sayPoint, 5));
+                            break;
+                        case 1:
+                            Puann = Convert.ToSingle(Math.Round((double)DenemeSonuclariDTO1[i].sozPoint, 5));
+                            break;
+                        case 2:
+                            Puann = Convert.ToSingle(Math.Round((double)DenemeSonuclariDTO1[i].eaPoint, 5));
+                            break;
+                        default:
+                            break;
+                    }
+                    var DenemeDtosu = KullanicininGirdigiDenemelerDTO1.Find(item => item.id == DenemeSonuclariDTO1[i].trialId);
+                    string DenemeAdi = "";
+                    if (DenemeDtosu != null)
+                    {
+                        DenemeAdi = DenemeDtosu.name;
+                    }
+                    entries.Add(
+                    new Entry(Puann)
+                    {
+                        Label = DenemeAdi,
                         ValueLabel = "",
                         Color = SKColor.Parse(Colorr)
                     });

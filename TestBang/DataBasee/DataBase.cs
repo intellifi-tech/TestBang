@@ -33,6 +33,7 @@ namespace TestBang.DataBasee
             conn.CreateTable<OLUSTURULAN_TESTLER>();
             conn.CreateTable<DERS_PROGRAMI>();
             conn.CreateTable<ODEME_GECMISI>();
+            conn.CreateTable<BILDIRIMLER>();
             conn.Close();
         }
 
@@ -404,5 +405,75 @@ namespace TestBang.DataBasee
 
         }
         #endregion
+
+        #region BILDIRIMLER
+        public static bool BILDIRIMLER_EKLE(BILDIRIMLER GelenDoluTablo)
+        {
+            try
+            {
+                var conn = new SQLiteConnection(System.IO.Path.Combine(documentsFolder(), "TestBang.db"), false);
+                conn.Insert(GelenDoluTablo);
+                conn.Close();
+                return true;
+            }
+            catch (Exception Ex)
+            {
+                var aa = Ex.Message;
+                return false;
+            }
+        }
+        public static List<BILDIRIMLER> BILDIRIMLER_GETIR()
+        {
+            Atla:
+            try
+            {
+                var conn = new SQLiteConnection(System.IO.Path.Combine(documentsFolder(), "TestBang.db"), false);
+                var gelenler = conn.Query<BILDIRIMLER>("Select * From BILDIRIMLER");
+                conn.Close();
+                return gelenler;
+            }
+            catch (Exception Ex)
+            {
+                goto Atla;
+                var aa = Ex.Message;
+                return null;
+            }
+        }
+
+       
+        public static bool BILDIRIMLER_TEMIZLE()
+        {
+            try
+            {
+                var conn = new SQLiteConnection(System.IO.Path.Combine(documentsFolder(), "TestBang.db"), false);
+                conn.Query<ODEME_GECMISI>("Delete From BILDIRIMLER");
+                conn.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                string ee = e.ToString();
+                return false;
+            }
+
+        }
+        public static bool BILDIRIMLER_Guncelle(BILDIRIMLER Tablo)
+        {
+            try
+            {
+                var conn = new SQLiteConnection(System.IO.Path.Combine(documentsFolder(), "TestBang.db"), false);
+                conn.Update(Tablo);
+                conn.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                string ee = e.ToString();
+                return false;
+            }
+
+        }
+        #endregion
+
     }
 }

@@ -96,4 +96,15 @@ namespace TestBang.DataBasee
         public string iyzicoReferanceCode { get; set; }
         public string UzakDB_ID { get; set; }
     }
+
+    public class BILDIRIMLER
+    {
+        [PrimaryKey, AutoIncrement]
+        public int localid { get; set; }
+        public DateTime? date { get; set; }
+        public int id { get; set; }
+        public string text { get; set; }
+        //
+        public bool Okundu { get; set;_ }
+    }
 }
