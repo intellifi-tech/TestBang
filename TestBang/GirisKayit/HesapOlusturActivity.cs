@@ -194,6 +194,10 @@ namespace TestBang.GirisKayit
                 Icerik.townId = IlceDTO1[IlceSpin.SelectedItemPosition].id;
                 Icerik.gender = CinsiyetSpin.SelectedItemPosition == 1 ? false : true;
                 Icerik.alan = (string)AlanSpin.GetItemAtPosition(AlanSpin.SelectedItemPosition);
+                if (OkulSpin.SelectedItemPosition>0)
+                {
+                    Icerik.schollId = SchoolDTO1[OkulSpin.SelectedItemPosition].id.ToString();
+                }
                 DataBase.MEMBER_DATA_EKLE(Icerik);
                 return true;
             }

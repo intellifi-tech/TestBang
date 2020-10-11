@@ -41,7 +41,7 @@
                 android:id="@+id/view2" />
             <TextView
                 android:fontFamily="@font/monserratfontbold"
-                android:textSize="50dp"
+                android:textSize="30dp"
                 android:textColor="#F05070"
                 android:gravity="center"
                 android:textStyle="bold"
@@ -49,7 +49,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/textView4" />
+                android:id="@+id/saypuan" />
         </LinearLayout>
         <View
             android:layout_marginTop="15dp"
@@ -86,7 +86,7 @@
                 android:id="@+id/view2" />
             <TextView
                 android:fontFamily="@font/monserratfontbold"
-                android:textSize="50dp"
+                android:textSize="30dp"
                 android:textColor="#1EB04B"
                 android:gravity="center"
                 android:textStyle="bold"
@@ -94,7 +94,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/textView4" />
+                android:id="@+id/sozpuan" />
         </LinearLayout>
         <View
             android:layout_marginTop="15dp"
@@ -131,7 +131,7 @@
                 android:id="@+id/view2" />
             <TextView
                 android:fontFamily="@font/monserratfontbold"
-                android:textSize="50dp"
+                android:textSize="30dp"
                 android:textColor="#11122E"
                 android:gravity="center"
                 android:textStyle="bold"
@@ -139,7 +139,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/textView4" />
+                android:id="@+id/eapuan" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -9,14 +9,17 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Firebase;
+using Firebase.Iid;
 using TestBang.AppIntro;
 using TestBang.DataBasee;
 using TestBang.GenericClass;
 using TestBang.MainPage;
+using TestBang.Oyun.OyunKur.ArkadaslarindanSec;
 
 namespace TestBang.Splashh
 {
-    [Activity(Label = "Test Bang!",MainLauncher =true)]
+    [Activity(Label = "TestBang",MainLauncher =true)]
     public class Splash : Android.Support.V7.App.AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -26,6 +29,7 @@ namespace TestBang.Splashh
             dinamikStatusBarColor.SetFullScreen(this);
             SetContentView(Resource.Layout.Splash);
             new DataBase();
+            FirebaseApp.InitializeApp(this);
         }
         protected override void OnResume()
         {

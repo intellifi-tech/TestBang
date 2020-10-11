@@ -47,17 +47,17 @@
                     android:id="@+id/bildirimbutton" />
                 <TextView
                     android:fontFamily="@font/monserratfontbold"
-                    android:textSize="13dp"
+                    android:textSize="11dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_alignParentRight="true"
                     android:gravity="center"
                     android:background="@drawable/bildirimIcinBadge"
                     android:textColor="#F05070"
-                    android:text="3"
+                    android:text="0"
                     android:layout_width="17dp"
                     android:layout_height="17dp"
-                    android:id="@+id/textView1" />
+                    android:id="@+id/bildirimcount" />
             </RelativeLayout>
         </LinearLayout>
     </RelativeLayout>

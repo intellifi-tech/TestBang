@@ -344,6 +344,7 @@ namespace TestBang.Profil.DersProgrami
             public string schoolId { get; set; }
             public DateTime startDate { get; set; }
             public string type { get; set; }
+            public bool? finish { get; set; }
             public int? questionCount { get; set; } /*= 10;*/
         }
 

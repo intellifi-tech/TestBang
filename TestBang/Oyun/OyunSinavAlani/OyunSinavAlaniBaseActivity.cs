@@ -23,6 +23,7 @@ using TestBang.Oyun.ArkadaslarindanSec;
 using TestBang.Oyun.KazandinKaybettin;
 using TestBang.WebServices;
 using static TestBang.GenericClass.OyunSocketHelper;
+using static TestBang.Oyun.OyunKur.ArkadaslarindanSec.ArkadasOyunSec_Gelen;
 
 namespace TestBang.Oyun.OyunSinavAlani
 {
@@ -262,7 +263,9 @@ namespace TestBang.Oyun.OyunSinavAlani
                 else
                 {
                     this.RunOnUiThread(delegate () {
-                        SureText.Text = SifirBaslangic.ToLongTimeString();
+                        var nt = BitisZamani.AddHours(-1 * SifirBaslangic.Hour).AddMinutes(-1 * SifirBaslangic.Minute).AddSeconds(-1 * SifirBaslangic.Second);
+                        SureText.Text = nt.ToLongTimeString();
+                        //SureText.Text = SifirBaslangic.ToLongTimeString();
                     });
                 }
             }
@@ -357,6 +360,7 @@ namespace TestBang.Oyun.OyunSinavAlani
                 correctCount = ToplamDogruSayisiDon(),
                 questionCount = OyunSocketHelper_Helper.RoomQuestionsDTO1.questionList.Count
             };
+
             var broad = new StompMessage(StompFrame.SEND, JsonConvert.SerializeObject(content));
             broad["content-type"] = "application/json";
             // broad["username"] = MeId.login;

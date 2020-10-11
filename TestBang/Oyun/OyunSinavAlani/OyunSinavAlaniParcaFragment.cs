@@ -15,6 +15,7 @@ using TestBang.DataBasee;
 using TestBang.GenericClass;
 using TestBang.GenericClass.StompHelper;
 using static TestBang.GenericClass.OyunSocketHelper;
+using static TestBang.Oyun.OyunKur.ArkadaslarindanSec.ArkadasOyunSec_Gelen;
 
 namespace TestBang.Oyun.OyunSinavAlani
 {
@@ -180,8 +181,10 @@ namespace TestBang.Oyun.OyunSinavAlani
                     userName = MeId.login,
                     userQuestionIndex = ToplamCozumSayisi.ToString(),
                     userToken = MeId.API_TOKEN,
-                    filters = new List<string>()
+                    filters = new List<string>(),
+                    
                 };
+             
                 var broad = new StompMessage(StompFrame.SEND, JsonConvert.SerializeObject(content));
                 broad["content-type"] = "application/json";
                 // broad["username"] = MeId.login;

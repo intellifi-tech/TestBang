@@ -134,9 +134,24 @@ namespace TestBang.Deneme
 
         private void DenemeyeKatilButton_Click(object sender, EventArgs e)
         {
-            CreateCalander();
-            SinavaGir();
-            return;
+            if (UzakSunucuDenemeDTO1.finish != null)
+            {
+                if (UzakSunucuDenemeDTO1.finish==false)
+                {
+                    CreateCalander();
+                    SinavaGir();
+                }
+                else
+                {
+                    AlertHelper.AlertGoster("Bu deneme sınavı tamamlandı!", this.Activity);
+                    return;
+                }
+            }
+            else
+            {
+                CreateCalander();
+                SinavaGir();
+            }
         }
         bool Actinmi = false;
         public override void OnStart()
@@ -144,14 +159,8 @@ namespace TestBang.Deneme
             base.OnStart();
             if (!Actinmi)
             {
-                
-                
                 Dialog.Window.SetLayout(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
                 Dialog.Window.SetGravity(GravityFlags.FillHorizontal | GravityFlags.CenterHorizontal | GravityFlags.CenterVertical);
-                
-                
-
-
                 Actinmi = true;
             }
         }

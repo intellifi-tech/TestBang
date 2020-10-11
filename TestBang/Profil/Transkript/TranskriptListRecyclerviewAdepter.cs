@@ -61,7 +61,7 @@ namespace TestBang.Profil.Transkript
         {
             //           public TextView TranskriptNo1;
                       // public TextView Nametxt, Desctxt, Siratxt, Tarihtxt, Turtxt;
-        TranskriptListRecyclerViewHolder viewholder = holder as TranskriptListRecyclerViewHolder;
+            TranskriptListRecyclerViewHolder viewholder = holder as TranskriptListRecyclerViewHolder;
             HolderForAnimation = holder as TranskriptListRecyclerViewHolder;
             var item = mData[position];
             viewholder.TranskriptNo1.SetTextColor(Color.White);

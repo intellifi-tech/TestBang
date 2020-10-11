@@ -27,6 +27,7 @@ namespace TestBang.Profil.ProfilDuzenle
         Spinner SehirSpin, IlceSpin, CinsiyetSpin, OkulSpin, AlanSpin;
         List<SehirDTO> SehirDTO1 = new List<SehirDTO>();
         List<IlceDTO> IlceDTO1 = new List<IlceDTO>();
+        List<SchoolDTO> SchoolDTO1 = new List<SchoolDTO>();
         MEMBER_DATA UserInfo = DataBase.MEMBER_DATA_GETIR()[0];
         Button GuncelleButton;
         TextView DogumText;
@@ -61,6 +62,7 @@ namespace TestBang.Profil.ProfilDuzenle
             {
                 SehirleriGetir();
                 UserinkiniSectir();
+                OkullariGetir();
             })).Start();
 
             //
@@ -99,44 +101,50 @@ namespace TestBang.Profil.ProfilDuzenle
             }
         }
 
-        string OnceLogoyuYule(byte[] mediabyte)
+        void OnceLogoyuYule(byte[] mediabyte)
         {
-            var MeID = DataBase.MEMBER_DATA_GETIR()[0];
-            var client = new RestSharp.RestClient("http://185.184.210.20:8080/api/users/profile-photos");
-            client.Timeout = -1;
-            var request = new RestSharp.RestRequest(RestSharp.Method.POST);
-            request.AddHeader("Content-Type", "multipart/form-data");
-            request.AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36");
-            request.AddHeader("Accept", "*/*");
-            request.AddHeader("Content-Type", "multipart/form-data");
-            request.AddHeader("Authorization", "Bearer " + MeID.API_TOKEN);
-            request.AddFile("photo", mediabyte, "testbang_user_img.jpg");
-            RestSharp.IRestResponse response = client.Execute(request);
-            if (response.StatusCode != HttpStatusCode.Unauthorized &&
-                response.StatusCode != HttpStatusCode.InternalServerError &&
-                response.StatusCode != HttpStatusCode.BadRequest &&
-                response.StatusCode != HttpStatusCode.Forbidden &&
-                response.StatusCode != HttpStatusCode.MethodNotAllowed &&
-                response.StatusCode != HttpStatusCode.NotAcceptable &&
-                response.StatusCode != HttpStatusCode.RequestTimeout &&
-                response.StatusCode != HttpStatusCode.NotFound)
+            ShowLoading.Show(this, "Lütfen Bekleyin...");
+            new System.Threading.Thread(new System.Threading.ThreadStart(delegate
             {
-                var jsonobj = response.Content;
-                if (!string.IsNullOrEmpty(jsonobj))
+                var MeID = DataBase.MEMBER_DATA_GETIR()[0];
+                var client = new RestSharp.RestClient("http://185.184.210.20:8080/api/users/profile-photos");
+                client.Timeout = -1;
+                var request = new RestSharp.RestRequest(RestSharp.Method.POST);
+                request.AddHeader("Content-Type", "multipart/form-data");
+                request.AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36");
+                request.AddHeader("Accept", "*/*");
+                request.AddHeader("Content-Type", "multipart/form-data");
+                request.AddHeader("Authorization", "Bearer " + MeID.API_TOKEN);
+                request.AddFile("photo", mediabyte, "testbang_user_img.jpg");
+                RestSharp.IRestResponse response = client.Execute(request);
+                if (response.StatusCode != HttpStatusCode.Unauthorized &&
+                    response.StatusCode != HttpStatusCode.InternalServerError &&
+                    response.StatusCode != HttpStatusCode.BadRequest &&
+                    response.StatusCode != HttpStatusCode.Forbidden &&
+                    response.StatusCode != HttpStatusCode.MethodNotAllowed &&
+                    response.StatusCode != HttpStatusCode.NotAcceptable &&
+                    response.StatusCode != HttpStatusCode.RequestTimeout &&
+                    response.StatusCode != HttpStatusCode.NotFound)
                 {
-                    MeID.imageUrl = jsonobj;
-                    DataBase.MEMBER_DATA_Guncelle(MeID);
-                    return "";
+                    var jsonobj = response.Content;
+                    if (!string.IsNullOrEmpty(jsonobj))
+                    {
+                        MeID.imageUrl = jsonobj;
+                        DataBase.MEMBER_DATA_Guncelle(MeID);
+                        AlertHelper.AlertGoster("Profil fotoğrafı güncellendi", this);
+                        
+                    }
+                    else
+                    {
+                        AlertHelper.AlertGoster("Bir sorun oluştu.", this);
+                    }
                 }
                 else
                 {
-                    return "";
+                    AlertHelper.AlertGoster("Bir sorun oluştu.", this);
                 }
-            }
-            else
-            {
-                return "";
-            }
+                ShowLoading.Hide();
+            })).Start();
         }
         private void DogumText_Click(object sender, EventArgs e)
         {
@@ -161,6 +169,11 @@ namespace TestBang.Profil.ProfilDuzenle
                     Icerik.password = SifreText.Text;
                     Icerik.townId = IlceDTO1[IlceSpin.SelectedItemPosition].id;
                     Icerik.gender = UserInfo.gender;
+                    Icerik.alan = (string)AlanSpin.GetItemAtPosition(AlanSpin.SelectedItemPosition);
+                    if (OkulSpin.SelectedItemPosition > 0)
+                    {
+                        Icerik.schollId = SchoolDTO1[OkulSpin.SelectedItemPosition].id.ToString();
+                    }
 
                     string jsonString = JsonConvert.SerializeObject(Icerik);
                     var Donus = webService.ServisIslem("users", jsonString, Method: "PUT");
@@ -347,6 +360,40 @@ namespace TestBang.Profil.ProfilDuzenle
             })).Start();
         }
 
+        void OkullariGetir()
+        {
+            new System.Threading.Thread(new System.Threading.ThreadStart(delegate
+            {
+                WebService webService = new WebService();
+                var Donus = webService.OkuGetir("schools", isLogin: true);
+                if (Donus != null)
+                {
+                    SchoolDTO1 = Newtonsoft.Json.JsonConvert.DeserializeObject<List<SchoolDTO>>(Donus.ToString());
+                    if (SchoolDTO1.Count > 0)
+                    {
+                        this.RunOnUiThread(delegate ()
+                        {
+                            SchoolDTO1.Insert(0, new SchoolDTO()
+                            {
+                                name = "Okul"
+                            });
+                            OkulSpin.Adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, SchoolDTO1.Select(item => item.name).ToArray());
+                            if (!string.IsNullOrEmpty(UserInfo.schollId))
+                            {
+                                var Inn = SchoolDTO1.FindIndex(item => item.id.ToString() == UserInfo.schollId);
+                                if (Inn != -1)
+                                {
+                                    OkulSpin.SetSelection(Inn);
+                                }
+                            }
+
+                        });
+                    }
+                }
+            })).Start();
+           
+        }
+
         public class SehirDTO
         {
             public int id { get; set; }
@@ -361,6 +408,14 @@ namespace TestBang.Profil.ProfilDuzenle
             public string name { get; set; }
             public string token { get; set; }
         }
-
+        public class SchoolDTO
+        {
+            public string corpColor { get; set; }
+            public int id { get; set; }
+            public string logoPath { get; set; }
+            public string name { get; set; }
+            public string token { get; set; }
+            public int townId { get; set; }
+        }
     }
 }

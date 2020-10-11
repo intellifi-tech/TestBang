@@ -39,6 +39,13 @@ namespace TestBang.Oyun.KazandinKaybettin
                 OyunText.SetTextColor(Android.Graphics.Color.ParseColor("#11122E"));
                 KazanmaDurumIMG.SetImageResource(Resource.Mipmap.oyunukaybettinimg);
                 KazanmaDurum.Text = "KAYBETTİNİZ";
+                DinamikStatusBarColor dinamikStatusBarColor = new DinamikStatusBarColor();
+                dinamikStatusBarColor.Lacivert(this);
+            }
+            else
+            {
+                DinamikStatusBarColor dinamikStatusBarColor = new DinamikStatusBarColor();
+                dinamikStatusBarColor.Yesil(this);
             }
         }
 

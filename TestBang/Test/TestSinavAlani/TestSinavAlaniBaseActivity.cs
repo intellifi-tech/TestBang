@@ -157,7 +157,9 @@ namespace TestBang.Test.TestSinavAlani
                     this.RunOnUiThread(delegate () {
                         if (SecilenTest.OlusanTest.time!= "100000")
                         {
-                            SureText.Text = SifirBaslangic.ToLongTimeString();
+                            var nt = BitisZamani.AddHours(-1 * SifirBaslangic.Hour).AddMinutes(-1 * SifirBaslangic.Minute).AddSeconds(-1 * SifirBaslangic.Second);
+                            SureText.Text = nt.ToLongTimeString();
+                            //SureText.Text = SifirBaslangic.ToLongTimeString();
                         }
                         else
                         {

@@ -8,13 +8,13 @@
     android:layout_height="wrap_content">
     <androidx.cardview.widget.CardView
         android:layout_marginTop="10dp"
-        app:cardElevation="10dp"
+        android:layout_marginBottom="10dp"
+        app:cardElevation="5dp"
         app:cardCornerRadius="20dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:minWidth="25px"
         android:minHeight="25px"
-        
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cardView1">

@@ -40,9 +40,9 @@ namespace TestBang.Oyun.OyunKur
         #region Soket
 
 
-        public WebSocket ws = new WebSocket("ws://185.184.210.20:8080/ws/websocket");//ws://185.184.210.20:8080/ws/websocket
+        //public WebSocket ws = new WebSocket("ws://185.184.210.20:8080/ws/websocket");//ws://185.184.210.20:8080/ws/websocket
         //ws://192.168.1.38:8080/ws/app/register
-        public StompMessageSerializer serializer = new StompMessageSerializer();
+       // public StompMessageSerializer serializer = new StompMessageSerializer();
         OyunSocketHelper OyunSocketHelper1 = new OyunSocketHelper();
         MEMBER_DATA Me = DataBase.MEMBER_DATA_GETIR()[0];
         #endregion

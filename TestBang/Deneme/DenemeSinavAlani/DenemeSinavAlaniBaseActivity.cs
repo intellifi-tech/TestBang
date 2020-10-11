@@ -50,7 +50,7 @@ namespace TestBang.Deneme.DenemeSinavAlani
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.DenemeSinavAlaniBaseActivity);
             DinamikStatusBarColor dinamikStatusBarColor = new DinamikStatusBarColor();
-            dinamikStatusBarColor.Yesil(this);
+            dinamikStatusBarColor.Lacivert(this);
       
             viewPager = FindViewById<ViewPager>(Resource.Id.viewPager1);
             viewPager.PageSelected += ViewPager_PageSelected;
@@ -214,7 +214,9 @@ namespace TestBang.Deneme.DenemeSinavAlani
                 else
                 {
                     this.RunOnUiThread(delegate () {
-                        SureText.Text = SifirBaslangic.ToLongTimeString();
+                        var nt = BitisZamani.AddHours(-1 * SifirBaslangic.Hour).AddMinutes(-1 * SifirBaslangic.Minute).AddSeconds(-1 * SifirBaslangic.Second);
+                        SureText.Text = nt.ToLongTimeString();
+                        //SureText.Text = SifirBaslangic.ToLongTimeString();
                     });
                 }
             }
@@ -322,7 +324,7 @@ namespace TestBang.Deneme.DenemeSinavAlani
             var ToplamSayfa = Convert.ToInt32(DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.questionCount / 5);
             WebService webService = new WebService();
 
-            //var Donus = webService.OkuGetir("trials/questions/" + DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.id.ToString(), UsePoll: true); 
+                        //var Donus = webService.OkuGetir("trials/questions/" + DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.id.ToString(), UsePoll: true); 
             var Donus = webService.OkuGetir("http://185.184.210.20:8082/api/trials/questions/" + DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.id.ToString(), DontUseHostURL: true, UsePoll: true);
             if (Donus != null)
             {
@@ -438,6 +440,12 @@ namespace TestBang.Deneme.DenemeSinavAlani
         public string userAlan { get; set; } 
         public string topicName { get; set; } 
         public string generalLessonId { get; set; } = "00";
+
+        public string cityId { get; set; }
+        public string schoolId { get; set; }
+        public string trialType { get; set; }
+
+
     }
 
     public static class DenemeSinavAlaniHelperClass

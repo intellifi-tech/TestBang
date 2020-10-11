@@ -140,13 +140,13 @@
                                 android:id="@+id/ımageView1" />
                             <ImageView
                                 android:padding="11dp"
-                                android:src="@mipmap/profile_icon_2"
+                                android:src="@mipmap/profile_icon_3"
                                 android:layout_width="60dp"
                                 android:layout_height="50dp"
                                 android:id="@+id/ımageView1" />
                             <ImageView
                                 android:padding="10dp"
-                                android:src="@mipmap/profile_icon_3"
+                                android:src="@mipmap/profile_icon_2"
                                 android:layout_width="60dp"
                                 android:layout_height="50dp"
                                 android:id="@+id/ımageView1" />

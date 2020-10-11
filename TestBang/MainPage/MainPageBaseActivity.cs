@@ -12,6 +12,8 @@ using Android.Support.Design.Widget;
 using Android.Support.V4.View;
 using Android.Views;
 using Android.Widget;
+using Firebase.Iid;
+using Newtonsoft.Json;
 using TestBang.AnaSayfa;
 using TestBang.Bildirim;
 using TestBang.DataBasee;
@@ -35,6 +37,7 @@ namespace TestBang.MainPage
         DinamikStatusBarColor dinamikStatusBarColor = new DinamikStatusBarColor();
         ImageView Logoo;
         MEMBER_DATA Me = DataBase.MEMBER_DATA_GETIR()[0];
+        TextView Bildirimcount;
         #endregion
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -48,6 +51,8 @@ namespace TestBang.MainPage
             viewPager.PageSelected += ViewPager_PageSelected;
             ArkaPlan = FindViewById<LinearLayout>(Resource.Id.rootview);
             Logoo = FindViewById<ImageView>(Resource.Id.logoo);
+            Bildirimcount = FindViewById<TextView>(Resource.Id.bildirimcount);
+            Bildirimcount.Text = "0";
             FnInitTabLayout();
             BildirimleriKontrolEt();
         }
@@ -94,6 +99,11 @@ namespace TestBang.MainPage
         protected override void OnStart()
         {
             base.OnStart();
+            new System.Threading.Thread(new System.Threading.ThreadStart(delegate
+            {
+                UpdateFireBaseToken();
+                //  new ContentoNotificationInit_Helper(this).Init();
+            })).Start();
         }
         void FnInitTabLayout()
         {
@@ -182,10 +192,70 @@ namespace TestBang.MainPage
                         }
                     }
                 }
+
+                var LocalBildirimler2 = DataBase.BILDIRIMLER_GETIR();
+                var Countt = LocalBildirimler2.FindAll(item => item.Okundu == false);
+                if (Countt.Count > 0)
+                {
+                    this.RunOnUiThread(delegate () {
+                        if (Countt.Count >= 10)
+                        {
+                            Bildirimcount.Text = "9+";
+                        }
+                        else
+                        {
+                            Bildirimcount.Text = Countt.Count.ToString();
+                        }
+
+                        Bildirimcount.Visibility = ViewStates.Visible;
+                    });
+                }
+                else
+                {
+                    this.RunOnUiThread(delegate () {
+                        Bildirimcount.Text = "0";
+                        Bildirimcount.Visibility = ViewStates.Invisible;
+                    });
+                }
             })).Start();
         }
         #endregion
 
+        void UpdateFireBaseToken()
+        {
+            var MyToken = FirebaseInstanceId.Instance.Token;
+            if (!string.IsNullOrEmpty(MyToken))
+            {
+                UpdateUserFireBaseToken(MyToken);
+            }
+        }
+        void UpdateUserFireBaseToken(string tokenn)
+        {
+            new System.Threading.Thread(new System.Threading.ThreadStart(delegate
+            {
+                var MeData = DataBase.MEMBER_DATA_GETIR()[0];
+                WebService webService = new WebService();
+                var JSONData = webService.OkuGetir("account");
+                if (JSONData != null)
+                {
+                    var Icerik = Newtonsoft.Json.JsonConvert.DeserializeObject<UserDTOForUpdate>(JSONData.ToString());
+                    Icerik.mobileFirebaseToken = tokenn;
+                    string jsonString = JsonConvert.SerializeObject(Icerik);
+                    var Donus4 = webService.ServisIslem("users", jsonString, Method: "PUT");
+                    if (Donus4 != null)
+                    {
+                        MeData.mobileFirebaseToken = tokenn;
+                        DataBase.MEMBER_DATA_Guncelle(MeData);
+                    }
+                }
+            })).Start();
+        }
+
+        public override void OnBackPressed()
+        {
+            viewPager.CurrentItem = 0;
+
+        }
 
 
         #region DTOS
@@ -208,6 +278,37 @@ namespace TestBang.MainPage
             public List<School> schools { get; set; }
             public string text { get; set; }
         }
+
+
+        // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
+        public class UserDTOForUpdate
+        {
+            public int id { get; set; }
+            public string login { get; set; }
+            public string firstName { get; set; }
+            public string lastName { get; set; }
+            public string email { get; set; }
+            public string imageUrl { get; set; }
+            public int? gender { get; set; }
+            public bool activated { get; set; }
+            public string langKey { get; set; }
+            public string createdBy { get; set; }
+            public DateTime? createdDate { get; set; }
+            public string lastModifiedBy { get; set; }
+            public DateTime? lastModifiedDate { get; set; }
+            public List<string> authorities { get; set; }
+            public DateTime? birthday { get; set; }
+            public int townId { get; set; }
+            public string webFirebaseToken { get; set; }
+            public string mobileFirebaseToken { get; set; }
+            public bool? userPaymentStatus { get; set; }
+            public int? age { get; set; }
+            public string townName { get; set; }
+            public string cityName { get; set; }
+            public string payRefCode { get; set; }
+            public string alan { get; set; }
+        }
+
 
 
         #endregion

@@ -366,7 +366,7 @@
                             android:fontFamily="@font/monserratfont"
                             android:textSize="30dp"
                             android:gravity="bottom|center_horizontal"
-                            android:text="17."
+                            android:text="0."
                             android:textStyle="bold"
                             android:textColor="#fff"
                             android:textAppearance="?android:attr/textAppearanceLarge"

@@ -158,6 +158,10 @@ namespace TestBang.AnaSayfa
             try
             {
                 SetTownNameByID((int)MeUser.townId);
+                if (!string.IsNullOrEmpty(MeUser.schollId))
+                {
+                    GetOkulInfo(MeUser.schollId);
+                }
             }
             catch 
             {
@@ -178,12 +182,29 @@ namespace TestBang.AnaSayfa
                     {
                         this.Activity.RunOnUiThread(delegate () {
                             IlceText.Text = Icerik.name;
+                            IlceText.Selected = true;
                         });
                     }
                 }
             })).Start();
         }
 
+        void GetOkulInfo(string OkulId)
+        {
+            WebService webService = new WebService();
+            var Donus = webService.OkuGetir("schools/" + OkulId);
+            if (Donus != null)
+            {
+                var Icerik = Newtonsoft.Json.JsonConvert.DeserializeObject<SchoolDTO>(Donus.ToString());
+                if (Icerik != null)
+                {
+                    this.Activity.RunOnUiThread(delegate () {
+                        OkulText.Text = Icerik.name;
+                        OkulText.Selected = true;
+                    });
+                }
+            }
+        }
 
         #region Genel Test Sonuclari
         void GenelTestSonuclariniGetir()
@@ -263,6 +284,16 @@ namespace TestBang.AnaSayfa
             public int id { get; set; }
             public string name { get; set; }
             public string token { get; set; }
+        }
+
+        public class SchoolDTO
+        {
+            public string corpColor { get; set; }
+            public int id { get; set; }
+            public string logoPath { get; set; }
+            public string name { get; set; }
+            public string token { get; set; }
+            public int townId { get; set; }
         }
     }
 }

@@ -49,6 +49,28 @@ namespace TestBang.Profil.ProfilDuzenle
             OkulText.Text = "-";
             MailAdresiText.Text = UserInfo.email;
             CinsiyetIcon.SetImageResource((bool)UserInfo.gender ? Resource.Mipmap.maleimg1 : Resource.Mipmap.femaleimg1);
+
+            if (!string.IsNullOrEmpty(UserInfo.schollId))
+            {
+                GetOkulInfo(UserInfo.schollId);
+            }
+
+        }
+        void GetOkulInfo(string OkulId)
+        {
+            WebService webService = new WebService();
+            var Donus = webService.OkuGetir("schools/" + OkulId);
+            if (Donus != null)
+            {
+                var Icerik = Newtonsoft.Json.JsonConvert.DeserializeObject<SchoolDTO>(Donus.ToString());
+                if (Icerik != null)
+                {
+                    this.RunOnUiThread(delegate () {
+                        OkulText.Text = Icerik.name;
+                        OkulText.Selected = true;
+                    });
+                }
+            }
         }
         private void ProfilDuzenleButton_Click(object sender, EventArgs e)
         {
@@ -82,6 +104,16 @@ namespace TestBang.Profil.ProfilDuzenle
             public int id { get; set; }
             public string name { get; set; }
             public string token { get; set; }
+        }
+
+        public class SchoolDTO
+        {
+            public string corpColor { get; set; }
+            public int id { get; set; }
+            public string logoPath { get; set; }
+            public string name { get; set; }
+            public string token { get; set; }
+            public int townId { get; set; }
         }
     }
 }

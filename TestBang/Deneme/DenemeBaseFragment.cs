@@ -141,7 +141,6 @@ namespace TestBang.Deneme
         public override void OnStart()
         {
             base.OnStart();
-            
             var MeData = DataBase.MEMBER_DATA_GETIR()[0];
             AdText.Text = MeData.firstName.ToUpper() + " " + MeData.lastName.ToUpper();
             SetTownNameByID((int)MeData.townId);
@@ -428,10 +427,10 @@ namespace TestBang.Deneme
                     {
                         DenemeAdi = DenemeDtosu.name;
                     }
-                    entries.Add(new Entry(Convert.ToSingle(Math.Round((double)DenemeSonuclariDTO1[i].point,5))) {
+                    entries.Add(new Entry(Convert.ToSingle(Math.Round((double)DenemeSonuclariDTO1[i].point,5)+100)) {
 
                         Label = DenemeAdi,
-                        ValueLabel = DenemeSonuclariDTO1[i].point.ToString(),
+                        ValueLabel = (DenemeSonuclariDTO1[i].point + 100).ToString(),
                         Color = SKColor.Parse(getRandomColor()),
 
                     });
@@ -539,6 +538,7 @@ namespace TestBang.Deneme
                     {
                         DenemeAdi = DenemeDtosu.name;
                     }
+                    Puann = Puann + 100;
                     entries.Add(
                     new Entry(Puann)
                     {

@@ -24,7 +24,9 @@ using Refractored.Controls;
 using TestBang.DataBasee;
 using TestBang.GenericClass;
 using TestBang.GenericUI;
+using TestBang.Oyun.OyunKur.ArkadaslarindanSec;
 using TestBang.WebServices;
+using static TestBang.Oyun.OyunKur.ArkadaslarindanSec.ArkadasOyunSec_Gonderen;
 
 namespace TestBang.Oyun.ArkadaslarindanSec
 {
@@ -131,6 +133,10 @@ namespace TestBang.Oyun.ArkadaslarindanSec
         private void MViewAdapter_ItemClick(object sender, object[] e)
         {
             var item = mViewAdapter.mData[(int)e[0]];
+            ArkadasOyunSec_Gonderen_Helper.SecilenKisi = item;
+            this.Activity.StartActivity(typeof(ArkadasOyunSec_Gonderen));
+            this.Dismiss();
+
         }
     }
 }

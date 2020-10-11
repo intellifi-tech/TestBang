@@ -106,7 +106,7 @@ namespace TestBang.Profil.Transkript
             }
             else
             {
-                RequestPermissions(new String[] { Android.Manifest.Permission.ReadExternalStorage, Android.Manifest.Permission.WriteExternalStorage, Android.Manifest.Permission.Camera }, 111);
+                RequestPermissions(new String[] { Android.Manifest.Permission.ReadExternalStorage, Android.Manifest.Permission.WriteExternalStorage}, 111);
             }
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
@@ -124,7 +124,7 @@ namespace TestBang.Profil.Transkript
             }
             else
             {
-                RequestPermissions(new String[] { Android.Manifest.Permission.ReadExternalStorage, Android.Manifest.Permission.WriteExternalStorage, Android.Manifest.Permission.Camera }, 111);
+                RequestPermissions(new String[] { Android.Manifest.Permission.ReadExternalStorage, Android.Manifest.Permission.WriteExternalStorage }, 111);
             }
         }
 
@@ -254,7 +254,7 @@ namespace TestBang.Profil.Transkript
             }
 
 
-            var documents = Android.OS.Environment.ExternalStorageDirectory;
+            var documents = Android.OS.Environment.ExternalStorageDirectory.Path;
             string fileLocation = documents + "/" + GetFileName() + ".pdf";
             Java.IO.File file = new Java.IO.File(fileLocation);
             if (File.Exists(fileLocation))
@@ -509,18 +509,39 @@ namespace TestBang.Profil.Transkript
         View PuanView;
         void PuanLayoutYerlestir()
         {
-            if (TranskriptDetayBaseActivity_Helper.SecilenDeneme.type == "TYT")
+            ShowLoading.Show(this, "Lütfen Bekleyin");
+            new System.Threading.Thread(new System.Threading.ThreadStart(delegate
             {
-                LayoutInflater inflater = LayoutInflater.From(this);
-                PuanView = inflater.Inflate(Resource.Layout.TYTPuanTranskriptUI, PuanHazne, false);
-                PuanHazne.AddView(PuanView);
-            }
-            else
-            {
-                LayoutInflater inflater = LayoutInflater.From(this);
-                PuanView = inflater.Inflate(Resource.Layout.AYTPuanTranskriptUI, PuanHazne, false);
-                PuanHazne.AddView(PuanView);
-            }
+                WebService webService = new WebService();
+                var Jsonn = webService.OkuGetir("user-trial-results/user/" + TranskriptDetayBaseActivity_Helper.SecilenDeneme.id.ToString(), UsePoll: true);
+                if (Jsonn != null)
+                {
+                    var Icerik = Newtonsoft.Json.JsonConvert.DeserializeObject<DenemeSonuclariPaunDTO>(Jsonn.ToString());
+                    if (Icerik != null)
+                    {
+                        this.RunOnUiThread(delegate ()
+                        {
+                            if (TranskriptDetayBaseActivity_Helper.SecilenDeneme.type == "TYT")
+                            {
+                                LayoutInflater inflater = LayoutInflater.From(this);
+                                PuanView = inflater.Inflate(Resource.Layout.TYTPuanTranskriptUI, PuanHazne, false);
+                                PuanView.FindViewById<TextView>(Resource.Id.textView4).Text = Math.Round((double)Icerik.point + 100, 5).ToString();
+                                PuanHazne.AddView(PuanView);
+                            }
+                            else
+                            {
+                                LayoutInflater inflater = LayoutInflater.From(this);
+                                PuanView = inflater.Inflate(Resource.Layout.AYTPuanTranskriptUI, PuanHazne, false);
+                                PuanView.FindViewById<TextView>(Resource.Id.saypuan).Text = Math.Round((double)Icerik.sayPoint + 100, 5).ToString();
+                                PuanView.FindViewById<TextView>(Resource.Id.sozpuan).Text = Math.Round((double)Icerik.sozPoint + 100, 5).ToString();
+                                PuanView.FindViewById<TextView>(Resource.Id.eapuan).Text = Math.Round((double)Icerik.eaPoint + 100, 5).ToString();
+                                PuanHazne.AddView(PuanView);
+                            }
+                        });
+                    }
+                }
+                ShowLoading.Hide();
+            })).Start();
         }
 
         protected override void OnStart()
@@ -638,6 +659,40 @@ namespace TestBang.Profil.Transkript
             public string topicId { get; set; }
             public string topicName { get; set; }
             public string trialPoint { get; set; }
+        }
+
+        public class DenemeSonuclariPaunDTO
+        {
+            public string id { get; set; }
+            public string userId { get; set; }
+            public string trialType { get; set; }
+            public string trialId { get; set; }
+            public int? correctCount { get; set; }
+            public int? wrongCount { get; set; }
+            public int? emptyCount { get; set; }
+            public double? net { get; set; }
+            public double? point { get; set; }
+            public double? sayPoint { get; set; }
+            public double? sozPoint { get; set; }
+            public double? eaPoint { get; set; }
+            public string lessonId { get; set; }
+            public string lessonName { get; set; }
+            public string topicId { get; set; }
+            public string topicName { get; set; }
+            public string trialPoint { get; set; }
+            public DateTime? trialDate { get; set; }
+            public List<LessonResult> lessonResults { get; set; }
+            public string order { get; set; }
+        }
+
+        public class LessonResult
+        {
+            public string lessonId { get; set; }
+            public string lesonName { get; set; }
+            public int? correctCount { get; set; }
+            public int? wrongCount { get; set; }
+            public int? emptyCount { get; set; }
+            public double? net { get; set; }
         }
 
 

@@ -67,7 +67,12 @@ namespace TestBang.Deneme.DenemeTamamlandi
         }
         void KonuveAlanEkle()
         {
-            DenemeSinavAlaniHelperClass.KullaniciCevaplariDTO1 = DenemeSinavAlaniHelperClass.KullaniciCevaplariDTO1.Select(c => { c.userAlan = Me.alan; return c; }).ToList();
+            var MyCity = GetCity((int)Me.townId);
+            DenemeSinavAlaniHelperClass.KullaniciCevaplariDTO1 =
+                DenemeSinavAlaniHelperClass.KullaniciCevaplariDTO1.Select(c => { c.userAlan = Me.alan; 
+                                                                                 c.trialType = DenemeSinavAlaniHelperClass.UzakSunucuDenemeDTO1.type;
+                                                                                 c.cityId = MyCity;
+                                                                                 return c; }).ToList();
             WebService webService = new WebService();
             var Donus = webService.OkuGetir("topics");
             if (Donus != null)
@@ -86,7 +91,21 @@ namespace TestBang.Deneme.DenemeTamamlandi
             }
         }
 
-
+        string GetCity(int TownID)
+        {
+            WebService webService = new WebService();
+            var Donus = webService.OkuGetir("towns/" + TownID);
+            if (Donus != null)
+            {
+                var Icerik = Newtonsoft.Json.JsonConvert.DeserializeObject<TownDTO>(Donus.ToString());
+                return Icerik.cityId.ToString();
+            }
+            else
+            {
+                return "";
+            }
+            
+        }
 
         public class Topics
         {
@@ -94,6 +113,16 @@ namespace TestBang.Deneme.DenemeTamamlandi
             public string icon { get; set; }
             public string id { get; set; }
             public int lessonId { get; set; }
+            public string name { get; set; }
+            public string token { get; set; }
+        }
+
+
+        public class TownDTO
+        {
+            public int cityId { get; set; }
+            public string cityName { get; set; }
+            public int id { get; set; }
             public string name { get; set; }
             public string token { get; set; }
         }

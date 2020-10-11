@@ -119,26 +119,26 @@ namespace TestBang.Deneme.DenemeSinavAlani
 
 
             //Otomatik Seçim
-            switch (GetRandomCurrectAnswer())
-            {
-                case "A":
-                    Answer_A_Button.PerformClick();
-                    break;
-                case "B":
-                    Answer_B_Button.PerformClick();
-                    break;
-                case "C":
-                    Answer_C_Button.PerformClick();
-                    break;
-                case "D":
-                    Answer_D_Button.PerformClick();
-                    break;
-                case "E":
-                    Answer_E_Button.PerformClick();
-                    break;
-                default:
-                    break;
-            }
+            //switch (GetRandomCurrectAnswer())
+            //{
+            //    case "A":
+            //        Answer_A_Button.PerformClick();
+            //        break;
+            //    case "B":
+            //        Answer_B_Button.PerformClick();
+            //        break;
+            //    case "C":
+            //        Answer_C_Button.PerformClick();
+            //        break;
+            //    case "D":
+            //        Answer_D_Button.PerformClick();
+            //        break;
+            //    case "E":
+            //        Answer_E_Button.PerformClick();
+            //        break;
+            //    default:
+            //        break;
+            //}
 
 
             return Vieww;

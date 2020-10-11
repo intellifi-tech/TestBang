@@ -22,12 +22,15 @@ namespace TestBang.Bildirim
         RecyclerView.LayoutManager mLayoutManager;
         BildirimlerRecyclerViewAdapter mViewAdapter = null;
         List<BILDIRIMLER> BildirimListesi = DataBase.BILDIRIMLER_GETIR();
+        LinearLayout relativeLayout;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             DinamikStatusBarColor dinamikStatusBarColor = new DinamikStatusBarColor();
             dinamikStatusBarColor.Yesil(this);
             SetContentView(Resource.Layout.BildirimlerBaseActivity);
+            mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView1);
+            relativeLayout = FindViewById<LinearLayout>(Resource.Id.linearLayout2);
         }
 
         protected override void OnStart()
@@ -50,8 +53,24 @@ namespace TestBang.Bildirim
                     mRecyclerView.SetAdapter(mViewAdapter);
                     mViewAdapter.ItemClick -= MViewAdapter_ItemClick;
                     mViewAdapter.ItemClick += MViewAdapter_ItemClick;
+                    relativeLayout.Visibility = ViewStates.Gone;
                 }
+
             }
+            else
+            {
+                relativeLayout.Visibility = ViewStates.Visible;
+            }
+            new System.Threading.Thread(new System.Threading.ThreadStart(delegate
+            {
+                var BildirimListesi2 = BildirimListesi.FindAll(item => item.Okundu == false);
+                for (int i = 0; i < BildirimListesi2.Count; i++)
+                {
+                    BildirimListesi2[i].Okundu = true;
+                    DataBase.BILDIRIMLER_Guncelle(BildirimListesi2[i]);
+                }
+            })).Start();
+            
         }
 
         private void MViewAdapter_ItemClick(object sender, object[] e)

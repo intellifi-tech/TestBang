@@ -168,9 +168,10 @@
                                             android:layout_height="35dp"
                                             android:id="@+id/ımageView1" />
                                         <TextView
+                                            android:maxLines="1"
                                             android:fontFamily="@font/monserratfont"
 				                            android:textStyle="normal"
-                                            android:ellipsize="end"
+                                            android:ellipsize="marquee"
                                             android:textSize="12dp"
                                             android:textColor="#11122e"
                                             android:gravity="center"

@@ -12,10 +12,13 @@ using Android.Widget;
 using Newtonsoft.Json;
 using TestBang.DataBasee;
 using TestBang.GenericClass.StompHelper;
+using TestBang.GenericUI;
+using TestBang.Oyun.OyunKur.ArkadaslarindanSec;
 using TestBang.Oyun.OyunSinavAlani;
 using TestBang.WebServices;
 using WebSocketSharp;
 using static TestBang.GenericClass.OyunSocketHelper;
+using static TestBang.Oyun.OyunKur.ArkadaslarindanSec.ArkadasOyunSec_Gonderen;
 
 namespace TestBang.GenericClass
 {
@@ -30,13 +33,17 @@ namespace TestBang.GenericClass
 
         Android.Support.V7.App.AppCompatActivity GelenBase;
         Android.Support.V7.App.AppCompatDialogFragment GelenDialog;
+
+        bool RegisterFriend1;
         #endregion
 
-        public void Init(Android.Support.V7.App.AppCompatActivity GelenBase2, Android.Support.V7.App.AppCompatDialogFragment GelenDialog2)
+        public void Init(Android.Support.V7.App.AppCompatActivity GelenBase2, Android.Support.V7.App.AppCompatDialogFragment GelenDialog2,bool RegisterFriend=false)
         {
             MeId = DataBase.MEMBER_DATA_GETIR()[0];
             GelenBase = GelenBase2;
             GelenDialog = GelenDialog2;
+            OyunSocketHelper_Helper.OyunSocketHelper1 = this;
+            RegisterFriend1 = RegisterFriend;
             CreateSocketEvents();
         }
         void CreateSocketEvents()
@@ -99,7 +106,17 @@ namespace TestBang.GenericClass
                 OyunSocketHelper_Helper.WebSocket1 = ws;
                 OyunSocketHelper_Helper.OyunSocketHelper1 = this;
                 SubscribeStomp();
-                SendRegister();
+                if (GelenDialog!=null)
+                {
+                    SendRegister();
+                }
+                else
+                {
+                    if (!RegisterFriend1)
+                    {
+                        SendRegisterWithFriend();
+                    }
+                }
             }
             else if (msg.Command == StompFrame.MESSAGE)
             {
@@ -112,7 +129,24 @@ namespace TestBang.GenericClass
                     {
                         //Oyunu Aç
                         GelenBase.StartActivity(typeof(OyunSinavAlaniBaseActivity));
-                        GelenDialog.Dismiss();
+                        //Rasgele Oyunu İse
+                        if (GelenDialog!=null)
+                        {
+                            GelenDialog.Dismiss();
+                        }
+                        //Arkadaş Oyunu İse
+                        if (GelenBase is ArkadasOyunSec_Gonderen || GelenBase is ArkadasOyunSec_Gelen)
+                        {
+                            try
+                            {
+                                ShowLoading.Hide();
+                            }
+                            catch 
+                            {
+                            }
+                            
+                            GelenBase.Finish();
+                        }
                     }
                 }
                 else if (MesajKanali == "/user/" + MeId.login + "/index")//Kullanıcı çözülen soru son durum
@@ -135,7 +169,14 @@ namespace TestBang.GenericClass
 
                         }
                     }
-                    
+                }
+                else if(MesajKanali == "/user/" + MeId.login + "/denieded") // Arkadaş oyununda karı taraf isteği reddettiyse
+                {
+                    if (GelenBase is ArkadasOyunSec_Gonderen || GelenBase is ArkadasOyunSec_Gelen)
+                    {
+                        AlertHelper.AlertGoster("Meydan Okuma Reddedildi!", GelenBase);
+                        GelenBase.Finish();
+                    }
                 }
 
                 //Start => ChatRoom
@@ -213,9 +254,18 @@ namespace TestBang.GenericClass
             sub4["destination"] = "/user/" + MeId.login + "/ended"; //Oyun bittiyse buradan düşer
             ws.Send(serializer.Serialize(sub4));
 
+            if (GelenBase is ArkadasOyunSec_Gonderen || GelenBase is ArkadasOyunSec_Gelen)
+            {
+                var sub5 = new StompMessage(StompFrame.SUBSCRIBE);
+                sub5["id"] = MeId.login;
+                sub5["destination"] = "/user/" + MeId.login + "/denieded"; //Arkadaş oyununda istek red edilme durumunu dinle
+                ws.Send(serializer.Serialize(sub5));
+            }
+
             // /app/level -> chatuser question index dolu
         }
 
+        //Rasgele
         public void SendRegister()
         {
             var content = new SoketSendRegisterDTO()
@@ -224,7 +274,8 @@ namespace TestBang.GenericClass
                 userName = MeId.login,
                 userQuestionIndex = "0",
                 userToken = MeId.API_TOKEN,
-                filters = GetLessonsForAlan()
+                filters = GetLessonsForAlan(),
+                isFriend = false
             };
             var broad = new StompMessage(StompFrame.SEND, JsonConvert.SerializeObject(content));
             broad["content-type"] = "application/json";
@@ -237,7 +288,34 @@ namespace TestBang.GenericClass
             }
         }
 
-        List<string> GetLessonsForAlan()
+        //Arkadaşla Oynamak İçin
+        public void SendRegisterWithFriend()
+        {
+            var content = new SoketSendRegisterDTO()
+            {
+                category = OyunSocketHelper_Helper.SecilenAlan,//SAY SOZ EA
+                userName = MeId.login,
+                userQuestionIndex = "0",
+                userToken = MeId.API_TOKEN,
+                filters = GetLessonsForAlan(),
+                friendsUser = ArkadasOyunSec_Gonderen_Helper.SecilenKisi.login,
+                isFriend = true,
+                startTime = DateTime.Now.ToString()
+                
+            };
+            var broad = new StompMessage(StompFrame.SEND, JsonConvert.SerializeObject(content));
+            broad["content-type"] = "application/json";
+            // broad["username"] = MeId.login;
+            broad["destination"] = "/app/requestFriend";
+            var aaa = serializer.Serialize(broad);
+            if (ws.IsAlive)
+            {
+                ws.Send(aaa);
+            }
+        }
+
+
+        public List<string> GetLessonsForAlan()
         {
             WebService webService = new WebService();
             var jSONstring = webService.OkuGetir("lessons");
@@ -268,9 +346,20 @@ namespace TestBang.GenericClass
                 return null;
             }
         }
-        
+
         #endregion
 
+        /*
+            private String userName;
+            private String friendsUser;
+            private String userToken;
+            private String category;
+            private String userQuestionIndex;
+            private List<String> filters;
+            private int  questionCount;
+            private int  correctCount;
+         
+         */
 
         public class SoketSendRegisterDTO //ChatUserDTO
         {
@@ -281,6 +370,10 @@ namespace TestBang.GenericClass
             public List<string> filters;
             public int questionCount;
             public int correctCount;
+            //ForFriendGame
+            public string friendsUser;//Frined Mail Adress
+            public bool isFriend { get; set; }
+            public string startTime;
         }
 
 
@@ -348,6 +441,7 @@ namespace TestBang.GenericClass
             public string correctAnswer { get; set; }
             public string description { get; set; }
             public List<Answer> answers { get; set; }
+            
             //----
             public string userAnswer { get; set; }
         

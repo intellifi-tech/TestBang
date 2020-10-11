@@ -96,6 +96,10 @@ namespace TestBang.Profil.Transkript
             public string userAlan { get; set; }
             //
             public int TanskriptNo { get; set; }
+            public double? point { get; set; }
+            public double? sayPoint { get; set; }
+            public double? sozPoint { get; set; }
+            public double? eaPoint { get; set; }
         }
     }
 }

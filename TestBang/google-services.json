@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "638923214768",
+    "firebase_url": "https://testbang-e4e3a.firebaseio.com",
+    "project_id": "testbang-e4e3a",
+    "storage_bucket": "testbang-e4e3a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638923214768:android:4390e39ae98a95ac7c5075",
+        "android_client_info": {
+          "package_name": "com.testbang.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "638923214768-pjff5tu8pa9p0itfkeamgsn73e1hjnbp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJkgPY0QHXoQ84mTcXqZL5i8o0av-L1CI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "638923214768-pjff5tu8pa9p0itfkeamgsn73e1hjnbp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
