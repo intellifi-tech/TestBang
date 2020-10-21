@@ -158,9 +158,9 @@ namespace TestBang.AnaSayfa
             try
             {
                 SetTownNameByID((int)MeUser.townId);
-                if (!string.IsNullOrEmpty(MeUser.schollId))
+                if (MeUser.schollId!=null)
                 {
-                    GetOkulInfo(MeUser.schollId);
+                    GetOkulInfo(MeUser.schollId.ToString());
                 }
             }
             catch 

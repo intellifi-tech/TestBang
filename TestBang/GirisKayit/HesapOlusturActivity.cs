@@ -100,11 +100,6 @@ namespace TestBang.GirisKayit
             if (BosVarmi())
             {
                 ShowLoading.Show(this,"Lütfen Bekleyin...");
-                var OpsiyonelOkulSecimi = "";
-                if (AlanSpin.SelectedItemPosition > 0)//Alan
-                {
-                    OpsiyonelOkulSecimi = (string)OkulSpin.GetItemAtPosition(OkulSpin.SelectedItemPosition);
-                }
                 new System.Threading.Thread(new System.Threading.ThreadStart(delegate
                 {
                     WebService webService = new WebService();
@@ -118,8 +113,15 @@ namespace TestBang.GirisKayit
                         gender = CinsiyetSpin.SelectedItemPosition == 1 ? false:true,
                         birthday = Convert.ToDateTime(DogumText.Text).ToString("yyyy-MM-dd'T'HH:mm:ssZ"),
                         townId = IlceDTO1[IlceSpin.SelectedItemPosition].id,
-                        alan = (string)AlanSpin.GetItemAtPosition(AlanSpin.SelectedItemPosition)
                     };
+                    if (AlanSpin.SelectedItemPosition > 0)//Alan
+                    {
+                        kayitIcinRoot.alan = (string)AlanSpin.GetItemAtPosition(AlanSpin.SelectedItemPosition);
+                    }
+                    if (OkulSpin.SelectedItemPosition > 0)//Okul
+                    {
+                        kayitIcinRoot.schoolId = SchoolDTO1[OkulSpin.SelectedItemPosition].id;
+                    }
                     string jsonString = JsonConvert.SerializeObject(kayitIcinRoot);
                     var Responsee = webService.ServisIslem("register", jsonString, true);
                     if (Responsee != "Hata")
@@ -196,7 +198,7 @@ namespace TestBang.GirisKayit
                 Icerik.alan = (string)AlanSpin.GetItemAtPosition(AlanSpin.SelectedItemPosition);
                 if (OkulSpin.SelectedItemPosition>0)
                 {
-                    Icerik.schollId = SchoolDTO1[OkulSpin.SelectedItemPosition].id.ToString();
+                    Icerik.schollId = SchoolDTO1[OkulSpin.SelectedItemPosition].id;
                 }
                 DataBase.MEMBER_DATA_EKLE(Icerik);
                 return true;
@@ -387,6 +389,7 @@ namespace TestBang.GirisKayit
             public string birthday { get; set; }
             public string alan { get; set; }
             public int townId { get; set; }
+            public int schoolId { get; set; }
         }
     }
 }

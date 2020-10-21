@@ -49,7 +49,7 @@ namespace TestBang.DataBasee
         //------------------------------------
         public string API_TOKEN { get; set; }
         public string password { get; set; }
-        public string schollId { get; set; }
+        public int? schollId { get; set; }
     }
 
     public class OLUSTURULAN_TESTLER
@@ -115,5 +115,12 @@ namespace TestBang.DataBasee
         [PrimaryKey, AutoIncrement]
         public int localid { get; set; }
         public string Icerik { get; set; }
+    }
+
+    public class AYARLAR
+    {
+        [PrimaryKey, AutoIncrement]
+        public int localid { get; set; }
+        public bool Notification { get; set; }
     }
 }

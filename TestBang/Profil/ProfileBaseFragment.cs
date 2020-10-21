@@ -13,6 +13,7 @@ using Android.Views;
 using Android.Widget;
 using TestBang.DataBasee;
 using TestBang.Profil.ArkadasiniDavetEt;
+using TestBang.Profil.Ayarlar;
 using TestBang.Profil.DersProgrami;
 using TestBang.Profil.ProfilDuzenle;
 using TestBang.Profil.TestBangHakkinda;
@@ -24,8 +25,9 @@ namespace TestBang.Profil
 {
     public class ProfileBaseFragment : Android.Support.V4.App.Fragment
     {
-        TextView ProfilDuzenleButton, UyelikBilgileriButton, DersProgramiButton,TranskriptButton,ArkadasiniDavetEtButton,TestBangHakkindaButton;
+        TextView ProfilDuzenleButton, UyelikBilgileriButton, DersProgramiButton,TranskriptButton,ArkadasiniDavetEtButton,TestBangHakkindaButton,Iletisimm;
         TextView AdSoyadText, IlIlceText;
+        Button Ayarlarbutton;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -43,9 +45,11 @@ namespace TestBang.Profil
             TranskriptButton = Viewww.FindViewById<TextView>(Resource.Id.transkriptt);
             ArkadasiniDavetEtButton = Viewww.FindViewById<TextView>(Resource.Id.arkadasinidavetet);
             TestBangHakkindaButton = Viewww.FindViewById<TextView>(Resource.Id.testbanghakkinda);
+            Iletisimm = Viewww.FindViewById<TextView>(Resource.Id.iletisimbutton);
             AdSoyadText = Viewww.FindViewById<TextView>(Resource.Id.adsoyadtext);
             IlIlceText = Viewww.FindViewById<TextView>(Resource.Id.ililcetext);
-
+            Ayarlarbutton = Viewww.FindViewById<Button>(Resource.Id.ayarlarbutton);
+            Ayarlarbutton.Click += Ayarlarbutton_Click;
 
 
             TestBangHakkindaButton.Click += TestBangHakkindaButton_Click;
@@ -54,9 +58,28 @@ namespace TestBang.Profil
             UyelikBilgileriButton.Click += UyelikBilgileri_Click;
             ProfilDuzenleButton.Click += ProfilDuzenle_Click;
             DersProgramiButton.Click += DersProgramiButton_Click;
-          
+            Iletisimm.Click += Iletisimm_Click;
             return Viewww;
         }
+
+        private void Ayarlarbutton_Click(object sender, EventArgs e)
+        {
+            this.Activity.StartActivity(typeof(AyarlarBaseActivity));
+        }
+
+        private void Iletisimm_Click(object sender, EventArgs e)
+        {
+            Intent email = new Intent(Intent.ActionSend);
+            email.PutExtra(Intent.ExtraEmail, new String[] { "android@test-bang.com"});
+            email.PutExtra(Intent.ExtraSubject, "Bilgi Almak İstiyorum.");
+            email.PutExtra(Intent.ExtraText, "Merhaba,\n Aşağıdaki konu hakkında bilgi almak istiyorum.\n\n");
+
+            //need this to prompts email client only  
+            email.SetType("message/rfc822");
+
+            this.StartActivity(Intent.CreateChooser(email, "Şununla Devam Et: "));
+        }
+
         public override void OnStart()
         {
             base.OnStart();

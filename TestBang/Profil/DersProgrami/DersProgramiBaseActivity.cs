@@ -91,20 +91,35 @@ namespace TestBang.Profil.DersProgrami
                         DinamikActionSheet1 = new DinamikAdresSec(Butonlarr, "İşlemle Seç", "Deneme sınavı detaylarını görebilir veya bu güne özel bir test ekleyebilirsiniz.", Buton_Click);
                         DinamikActionSheet1.Show(this.SupportFragmentManager, "DinamikActionSheet1");
                     }
+                    else
+                    {
+                        AlertHelper.AlertGoster("Bu deneme sınavı sonlandı. Yeni test oluşturabilirsiniz.", this);
+                        DersProgramiBaseActivityHelper.SecilenTarih = (DateTime)TakvimTarihlerDTO1[e.Position].Tarih;
+                        StartActivity(typeof(DersProgramiEkleBaseActivity));
+                    }
                 }
                 else
                 {
-                    AlertHelper.AlertGoster("Bu deneme sınavı sonlandı. Yeni test oluşturabilirsiniz.", this);
-                    DersProgramiBaseActivityHelper.SecilenTarih = (DateTime)TakvimTarihlerDTO1[e.Position].Tarih;
-                    StartActivity(typeof(DersProgramiEkleBaseActivity));
+                    AlertHelper.AlertGoster("Geçmiş tarihe program oluşturamazsınız.", this);
                 }
             }
             else
             {
-                DersProgramiBaseActivityHelper.SecilenTarih = (DateTime)TakvimTarihlerDTO1[e.Position].Tarih;
-                StartActivity(typeof(DersProgramiEkleBaseActivity));
+                if (TakvimTarihlerDTO1[e.Position].Tarih > DateTime.Now)
+                {
+                    DersProgramiBaseActivityHelper.SecilenTarih = (DateTime)TakvimTarihlerDTO1[e.Position].Tarih;
+                    StartActivity(typeof(DersProgramiEkleBaseActivity));
+                }
+                else if(((DateTime)TakvimTarihlerDTO1[e.Position].Tarih).ToShortDateString() == DateTime.Now.ToShortDateString())
+                {
+                    DersProgramiBaseActivityHelper.SecilenTarih = (DateTime)TakvimTarihlerDTO1[e.Position].Tarih;
+                    StartActivity(typeof(DersProgramiEkleBaseActivity));
+                }
+                else
+                {
+                    AlertHelper.AlertGoster("Geçmiş tarihe program oluşturamazsınız.", this);
+                }
             }
-            
         }
         private void Buton_Click(object sender, EventArgs e)
         {
@@ -454,6 +469,7 @@ namespace TestBang.Profil.DersProgrami
         {
             this.RunOnUiThread(delegate ()
             {
+                
                 mRecyclerView.HasFixedSize = true;
                 mLayoutManager = new LinearLayoutManager(this);
                 mRecyclerView.SetLayoutManager(mLayoutManager);
@@ -470,9 +486,33 @@ namespace TestBang.Profil.DersProgrami
                 catch
                 {
                 }
+
+                var scrollpos = EnyYakinTarihGetir();
+                if (scrollpos != -1)
+                {
+                    mLayoutManager.ScrollToPosition(scrollpos);
+                }
             });
         }
+        int EnyYakinTarihGetir()
+        {
+            try
+            {
+                var item = DersProgramiDTO1
+                        .Where(i => i.Tarih >= DateTime.Now)
+                        .OrderBy(i => i.Tarih)
+                        .First();
 
+                return DersProgramiDTO1.FindIndex(item2 => item2.Tarih == item.Tarih);
+            }
+            catch(System.Exception exx)
+            {
+                var aaa = exx.Message;
+                return -1;
+            }
+            
+
+        }
         private void MViewAdapter_ItemClick(object sender, int e)
         {
             var item = DersProgramiDTO1[e];

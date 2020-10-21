@@ -33,7 +33,7 @@ namespace TestBang.MainPage
         #region Tanimlamalar
         TabLayout tabLayout;
         ViewPager viewPager;
-        LinearLayout Bildirimhaznebutton,ArkaPlan;
+        LinearLayout Bildirimhaznebutton, ArkaPlan;
         DinamikStatusBarColor dinamikStatusBarColor = new DinamikStatusBarColor();
         ImageView Logoo;
         MEMBER_DATA Me = DataBase.MEMBER_DATA_GETIR()[0];
@@ -55,6 +55,8 @@ namespace TestBang.MainPage
             Bildirimcount.Text = "0";
             FnInitTabLayout();
             BildirimleriKontrolEt();
+            MainPageBaseActivity_Helperr.MainPageBaseActivity1 = this;
+            DefaultAyarlariYukle();
         }
 
         private void ViewPager_PageSelected(object sender, ViewPager.PageSelectedEventArgs e)
@@ -257,6 +259,16 @@ namespace TestBang.MainPage
 
         }
 
+        void DefaultAyarlariYukle()
+        {
+            var Ayarlarr = DataBase.AYARLAR_GETIR();
+            if (Ayarlarr.Count <= 0)
+            {
+                DataBase.AYARLAR_EKLE(new AYARLAR() { 
+                    Notification = true
+                });
+            }
+        }
 
         #region DTOS
         // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
@@ -310,7 +322,9 @@ namespace TestBang.MainPage
         }
 
 
-
+        public static class MainPageBaseActivity_Helperr{
+            public static MainPageBaseActivity MainPageBaseActivity1 { get; set; }
+        }
         #endregion
     }
 }

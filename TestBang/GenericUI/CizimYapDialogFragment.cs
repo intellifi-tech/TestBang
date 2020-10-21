@@ -124,6 +124,10 @@ namespace TestBang.GenericUI
             return ssBuilder;
         }
 
+        public void SormadanTemizle()
+        {
+            fingerPaintCanvasView.ClearAll();
+        }
         private void KalinlikButton_Click(object sender, EventArgs e)
         {
             KalinlikButtonList.ForEach(item => { item.SetBackgroundColor(Color.Transparent); });
@@ -158,7 +162,7 @@ namespace TestBang.GenericUI
                 //2, 5, 10, 20, 50
                 case 0:
                     //fingerPaintCanvasView.StrokeColor = Color.ParseColor("#F05070");
-                    fingerPaintCanvasView.StrokeColor = Color.Transparent;
+                    fingerPaintCanvasView.StrokeColor = Color.ParseColor("#F05070");
                     break;
                 case 1:
                     fingerPaintCanvasView.StrokeColor = Color.ParseColor("#1EB04B");

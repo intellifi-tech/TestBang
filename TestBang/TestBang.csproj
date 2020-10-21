@@ -145,6 +145,7 @@
     <Compile Include="Oyun\OyunSinavAlani\OyunSinavAlaniBaseActivity.cs" />
     <Compile Include="Oyun\OyunSinavAlani\OyunSinavAlaniParcaFragment.cs" />
     <Compile Include="Profil\ArkadasiniDavetEt\ArkadasiniDavetEtBaseActivity.cs" />
+    <Compile Include="Profil\Ayarlar\AyarlarBaseActivity.cs" />
     <Compile Include="Profil\DersProgrami\DersProgramiBaseActivity.cs" />
     <Compile Include="Profil\DersProgrami\DersProgramiEkleBaseActivity.cs" />
     <Compile Include="Profil\DersProgrami\DersProgramiListeAdapter.cs" />
@@ -1292,6 +1293,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\ArkadasOyunSec_Gelen.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\AyarlarBaseActivity.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

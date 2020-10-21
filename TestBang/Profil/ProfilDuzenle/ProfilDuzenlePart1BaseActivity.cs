@@ -50,9 +50,9 @@ namespace TestBang.Profil.ProfilDuzenle
             MailAdresiText.Text = UserInfo.email;
             CinsiyetIcon.SetImageResource((bool)UserInfo.gender ? Resource.Mipmap.maleimg1 : Resource.Mipmap.femaleimg1);
 
-            if (!string.IsNullOrEmpty(UserInfo.schollId))
+            if (UserInfo.schollId!=null)
             {
-                GetOkulInfo(UserInfo.schollId);
+                GetOkulInfo(UserInfo.schollId.ToString());
             }
 
         }

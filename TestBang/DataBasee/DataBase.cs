@@ -35,6 +35,7 @@ namespace TestBang.DataBasee
             conn.CreateTable<ODEME_GECMISI>();
             conn.CreateTable<BILDIRIMLER>();
             conn.CreateTable<ARKADAS_OYUNU>();
+            conn.CreateTable<AYARLAR>();
             conn.Close();
         }
 
@@ -516,7 +517,7 @@ namespace TestBang.DataBasee
             try
             {
                 var conn = new SQLiteConnection(System.IO.Path.Combine(documentsFolder(), "TestBang.db"), false);
-                conn.Query<ODEME_GECMISI>("Delete From ARKADAS_OYUNU");
+                conn.Query<ARKADAS_OYUNU>("Delete From ARKADAS_OYUNU");
                 conn.Close();
                 return true;
             }
@@ -527,7 +528,76 @@ namespace TestBang.DataBasee
             }
 
         }
-        public static bool ARKADAS_OYUNU_Guncelle(BILDIRIMLER Tablo)
+        public static bool ARKADAS_OYUNU_Guncelle(ARKADAS_OYUNU Tablo)
+        {
+            try
+            {
+                var conn = new SQLiteConnection(System.IO.Path.Combine(documentsFolder(), "TestBang.db"), false);
+                conn.Update(Tablo);
+                conn.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                string ee = e.ToString();
+                return false;
+            }
+
+        }
+        #endregion
+
+        #region AYARLAR
+        public static bool AYARLAR_EKLE(AYARLAR GelenDoluTablo)
+        {
+            try
+            {
+                var conn = new SQLiteConnection(System.IO.Path.Combine(documentsFolder(), "TestBang.db"), false);
+                conn.Insert(GelenDoluTablo);
+                conn.Close();
+                return true;
+            }
+            catch (Exception Ex)
+            {
+                var aa = Ex.Message;
+                return false;
+            }
+        }
+        public static List<AYARLAR> AYARLAR_GETIR()
+        {
+            Atla:
+            try
+            {
+                var conn = new SQLiteConnection(System.IO.Path.Combine(documentsFolder(), "TestBang.db"), false);
+                var gelenler = conn.Query<AYARLAR>("Select * From AYARLAR");
+                conn.Close();
+                return gelenler;
+            }
+            catch (Exception Ex)
+            {
+                goto Atla;
+                var aa = Ex.Message;
+                return null;
+            }
+        }
+
+
+        public static bool AYARLAR_TEMIZLE()
+        {
+            try
+            {
+                var conn = new SQLiteConnection(System.IO.Path.Combine(documentsFolder(), "TestBang.db"), false);
+                conn.Query<AYARLAR>("Delete From AYARLAR");
+                conn.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                string ee = e.ToString();
+                return false;
+            }
+
+        }
+        public static bool AYARLAR_Guncelle(AYARLAR Tablo)
         {
             try
             {

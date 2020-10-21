@@ -67,14 +67,14 @@ namespace TestBang.Test.TestSinavAlani
             AcKapat();//KapaliGetir
         }
 
-
+        CizimYapDialogFragment CizimYapDialogFragment1;
         bool Actinmi = false;
         protected override void OnStart()
         {
             base.OnStart();
             if (!Actinmi)
             {
-                CizimYapDialogFragment CizimYapDialogFragment1 = new CizimYapDialogFragment(CizimYapButton_Click);
+                CizimYapDialogFragment1 = new CizimYapDialogFragment(CizimYapButton_Click);
                 ft = this.SupportFragmentManager.BeginTransaction();
                 ft.AddToBackStack(null);
                 ft.Replace(Resource.Id.cizimhazne, CizimYapDialogFragment1);//
@@ -93,8 +93,9 @@ namespace TestBang.Test.TestSinavAlani
         public void AcKapat()
         {
             int sayac1 = CizimHaznesi.Height;
-            if (durum == false)
+            if (durum == false) //kapalı
             {
+                
                 CizimHaznesi.Visibility = ViewStates.Visible;
                 int widthSpec = View.MeasureSpec.MakeMeasureSpec(0, MeasureSpecMode.Unspecified);
                 int heightSpec = View.MeasureSpec.MakeMeasureSpec(0, MeasureSpecMode.Unspecified);
@@ -104,14 +105,18 @@ namespace TestBang.Test.TestSinavAlani
                 WindowManager.DefaultDisplay.GetMetrics(displayMetrics);
                 int screenheight = displayMetrics.HeightPixels;
                 ValueAnimator mAnimator = slideAnimator(0, screenheight);
+                mAnimator.AnimationStart += MAnimator_AnimationStart;
+                mAnimator.AnimationEnd += MAnimator_AnimationEnd;
                 mAnimator.Start();
+                
                 durum = true;
             }
-            else if (durum == true)
+            else if (durum == true)//Acik
             {
                 int finalHeight = CizimHaznesi.Height;
 
                 ValueAnimator mAnimator = slideAnimator(finalHeight, 0);
+                mAnimator.AnimationStart += MAnimator_AnimationStart1;
                 mAnimator.Start();
                 mAnimator.AnimationEnd += (object IntentSender, EventArgs arg) =>
                 {
@@ -121,6 +126,22 @@ namespace TestBang.Test.TestSinavAlani
             }
 
         }
+
+        private void MAnimator_AnimationStart1(object sender, EventArgs e)
+        {
+            CizimHaznesi.Visibility = ViewStates.Gone;
+        }
+
+        private void MAnimator_AnimationStart(object sender, EventArgs e)
+        {
+            CizimHaznesi.Visibility = ViewStates.Invisible;
+        }
+
+        private void MAnimator_AnimationEnd(object sender, EventArgs e)
+        {
+            CizimHaznesi.Visibility = ViewStates.Visible;
+        }
+
         private ValueAnimator slideAnimator(int start, int end)
         {
 
@@ -191,6 +212,7 @@ namespace TestBang.Test.TestSinavAlani
         private void OncekiSoruButton_Click(object sender, EventArgs e)
         {
             viewPager.CurrentItem = viewPager.CurrentItem -1;
+            
         }
 
         private void ViewPager_PageSelected(object sender, ViewPager.PageSelectedEventArgs e)
@@ -203,6 +225,7 @@ namespace TestBang.Test.TestSinavAlani
             {
                 SonrakiSoru.Text = "SONRAKİ SORU";
             }
+            CizimYapDialogFragment1.SormadanTemizle();
         }
         DinamikAdresSec DinamikActionSheet1;
         List<Buttons_Image_DataModels> Butonlarr = new List<Buttons_Image_DataModels>();

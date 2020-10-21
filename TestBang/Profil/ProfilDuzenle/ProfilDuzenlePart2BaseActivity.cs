@@ -169,10 +169,13 @@ namespace TestBang.Profil.ProfilDuzenle
                     Icerik.password = SifreText.Text;
                     Icerik.townId = IlceDTO1[IlceSpin.SelectedItemPosition].id;
                     Icerik.gender = UserInfo.gender;
-                    Icerik.alan = (string)AlanSpin.GetItemAtPosition(AlanSpin.SelectedItemPosition);
+                    if (AlanSpin.SelectedItemPosition > 0)//Alan
+                    {
+                        Icerik.alan = (string)AlanSpin.GetItemAtPosition(AlanSpin.SelectedItemPosition);
+                    }
                     if (OkulSpin.SelectedItemPosition > 0)
                     {
-                        Icerik.schollId = SchoolDTO1[OkulSpin.SelectedItemPosition].id.ToString();
+                        Icerik.schollId = SchoolDTO1[OkulSpin.SelectedItemPosition].id;
                     }
 
                     string jsonString = JsonConvert.SerializeObject(Icerik);
@@ -378,9 +381,9 @@ namespace TestBang.Profil.ProfilDuzenle
                                 name = "Okul"
                             });
                             OkulSpin.Adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, SchoolDTO1.Select(item => item.name).ToArray());
-                            if (!string.IsNullOrEmpty(UserInfo.schollId))
+                            if (UserInfo.schollId!=null)
                             {
-                                var Inn = SchoolDTO1.FindIndex(item => item.id.ToString() == UserInfo.schollId);
+                                var Inn = SchoolDTO1.FindIndex(item => item.id == (int)UserInfo.schollId);
                                 if (Inn != -1)
                                 {
                                     OkulSpin.SetSelection(Inn);
