@@ -39,6 +39,8 @@ namespace TestBang.MainPage
         MEMBER_DATA Me = DataBase.MEMBER_DATA_GETIR()[0];
         TextView Bildirimcount;
         #endregion
+
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -58,7 +60,6 @@ namespace TestBang.MainPage
             MainPageBaseActivity_Helperr.MainPageBaseActivity1 = this;
             DefaultAyarlariYukle();
         }
-
         private void ViewPager_PageSelected(object sender, ViewPager.PageSelectedEventArgs e)
         {
             switch (e.Position)
@@ -92,12 +93,10 @@ namespace TestBang.MainPage
                     break;
             }
         }
-
         private void MainPageBaseActivity_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(BildirimlerBaseActivity));
         }
-
         protected override void OnStart()
         {
             base.OnStart();
@@ -143,7 +142,6 @@ namespace TestBang.MainPage
 
             //((TextView)tabLayout.GetTabAt(0).CustomView).SetTextSize(Android.Util.ComplexUnitType.Dip, 8);
         }
-
         public static void setTextViewsCapsOff(View view)
         {
             if (!(view is ViewGroup))
@@ -161,7 +159,6 @@ namespace TestBang.MainPage
                 }
             }
         }
-
         #region BildirimKontrol
         void BildirimleriKontrolEt()
         {
@@ -222,7 +219,6 @@ namespace TestBang.MainPage
             })).Start();
         }
         #endregion
-
         void UpdateFireBaseToken()
         {
             var MyToken = FirebaseInstanceId.Instance.Token;
@@ -252,13 +248,11 @@ namespace TestBang.MainPage
                 }
             })).Start();
         }
-
         public override void OnBackPressed()
         {
             viewPager.CurrentItem = 0;
 
         }
-
         void DefaultAyarlariYukle()
         {
             var Ayarlarr = DataBase.AYARLAR_GETIR();

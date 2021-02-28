@@ -63,6 +63,28 @@ namespace TestBang.Profil.Transkript
                         TranskriptListDTO1[i].TanskriptNo = i + 1;
                     }
                     TranskriptListDTO1.Reverse();
+                    
+                    var Donus2 = webService.OkuGetir("user-trial-results/user", UsePoll: true);// For orders
+                    if (Donus2 != null)
+                    {
+                        var Icerik = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DenemeSonuclariPaunDTO>>(Donus.ToString());
+
+                        TranskriptListDTO1.ForEach(item => {
+                            var araa = Icerik.Find(item2 => item2.trialId == item.id);
+                            if (araa!=null)
+                            {
+                                if (araa.order!=null)
+                                {
+                                    item.order = araa.order;
+                                }
+                                else
+                                {
+                                    item.order = null;
+                                }
+                            }
+                        });
+                    }
+
                     this.RunOnUiThread(delegate
                     {
                         mViewAdapter = new TranskriptListRecyclerViewAdapter(TranskriptListDTO1, this);
@@ -100,6 +122,8 @@ namespace TestBang.Profil.Transkript
             public double? sayPoint { get; set; }
             public double? sozPoint { get; set; }
             public double? eaPoint { get; set; }
+            //custom
+            public string order { get; set; }
         }
     }
 }

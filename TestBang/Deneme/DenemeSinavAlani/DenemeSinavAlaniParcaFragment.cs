@@ -118,7 +118,7 @@ namespace TestBang.Deneme.DenemeSinavAlani
             Relative_E.Click += Answer_E_Button_Click;
 
 
-            //Otomatik Seçim
+           // Otomatik Seçim
             //switch (GetRandomCurrectAnswer())
             //{
             //    case "A":

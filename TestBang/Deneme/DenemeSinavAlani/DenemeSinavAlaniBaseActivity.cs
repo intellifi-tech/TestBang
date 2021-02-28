@@ -214,8 +214,15 @@ namespace TestBang.Deneme.DenemeSinavAlani
                 else
                 {
                     this.RunOnUiThread(delegate () {
-                        var nt = BitisZamani.AddHours(-1 * SifirBaslangic.Hour).AddMinutes(-1 * SifirBaslangic.Minute).AddSeconds(-1 * SifirBaslangic.Second);
-                        SureText.Text = nt.ToLongTimeString();
+                        try
+                        {
+                            var nt = BitisZamani.AddHours(-1 * SifirBaslangic.Hour).AddMinutes(-1 * SifirBaslangic.Minute).AddSeconds(-1 * SifirBaslangic.Second);
+                            SureText.Text = nt.ToLongTimeString();
+                        }
+                        catch 
+                        {
+                        }
+                        
                         //SureText.Text = SifirBaslangic.ToLongTimeString();
                     });
                 }

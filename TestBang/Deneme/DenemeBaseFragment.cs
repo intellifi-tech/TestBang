@@ -32,6 +32,7 @@ namespace TestBang.Deneme
         TabLayout tabLayout;
         ViewPager viewPager;
         LinearLayout ButtonsHazne;
+        TextView MevcutSiralamaText, EnYuksekSiralamaText;
 
         RecyclerView mRecyclerView;
         LinearLayoutManager mLayoutManager;
@@ -41,9 +42,9 @@ namespace TestBang.Deneme
 
 
 
-        Button GecmisDenemeSinavlariButton, GelecekDenemeSinavlariButton,DenemeSinavinaKatilButton;
+        Button GecmisDenemeSinavlariButton, GelecekDenemeSinavlariButton, DenemeSinavinaKatilButton;
 
-        TextView AdText,IlIlceText;
+        TextView AdText, IlIlceText;
         List<UzakSunucuTakvimDTO> UzakSunucuTakvimDTO1 = new List<UzakSunucuTakvimDTO>();
         List<KullanicininGirdigiDenemelerDTO> KullanicininGirdigiDenemelerDTO1 = new List<KullanicininGirdigiDenemelerDTO>();
         public override void OnCreate(Bundle savedInstanceState)
@@ -53,7 +54,7 @@ namespace TestBang.Deneme
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            View Vieww= inflater.Inflate(Resource.Layout.DenemeBaseFragment, container, false);
+            View Vieww = inflater.Inflate(Resource.Layout.DenemeBaseFragment, container, false);
             tabLayout = Vieww.FindViewById<TabLayout>(Resource.Id.tabLayoutchart);
             viewPager = Vieww.FindViewById<ViewPager>(Resource.Id.viewPager1chart);
             ButtonsHazne = Vieww.FindViewById<LinearLayout>(Resource.Id.buttonsHazne);
@@ -63,26 +64,36 @@ namespace TestBang.Deneme
             DenemeSinavinaKatilButton = Vieww.FindViewById<Button>(Resource.Id.button3);
             AdText = Vieww.FindViewById<TextView>(Resource.Id.adsoyadtext);
             IlIlceText = Vieww.FindViewById<TextView>(Resource.Id.ililcetext);
+            MevcutSiralamaText = Vieww.FindViewById<TextView>(Resource.Id.textView1);
+            EnYuksekSiralamaText = Vieww.FindViewById<TextView>(Resource.Id.textView2);
             GecmisDenemeSinavlariButton.Click += GecmisDenemeSinavlariButton_Click;
             GelecekDenemeSinavlariButton.Click += GelecekDenemeSinavlariButton_Click;
             DenemeSinavinaKatilButton.Click += DenemeSinavinaKatilButton_Click;
 
             ButtonsHazne.ClipToOutline = true;
-            
+
+
+
+
+
             return Vieww;
         }
 
+
+
+
+
         private void DenemeSinavinaKatilButton_Click(object sender, EventArgs e)
         {
-            var TumDenemeler= UzakSunucuTakvimDTO1.FindAll(item => !string.IsNullOrEmpty(item.trialId));
-            if (TumDenemeler.Count>0)
+            var TumDenemeler = UzakSunucuTakvimDTO1.FindAll(item => !string.IsNullOrEmpty(item.trialId));
+            if (TumDenemeler.Count > 0)
             {
                 var GelecekDenemeler = TumDenemeler.FindAll(item => item.date > DateTime.Now);
-                if (GelecekDenemeler.Count>0)
+                if (GelecekDenemeler.Count > 0)
                 {
                     DersProgramiBaseActivityHelper.SecilenTarih = (DateTime)GelecekDenemeler[0].date;
                     var EnYakinDeneme = DenemeGetir(GelecekDenemeler[0].trialId);
-                    if (EnYakinDeneme!=null)
+                    if (EnYakinDeneme != null)
                     {
                         DersProgramiBaseActivityHelper.SecilenDeneme = EnYakinDeneme;
                         var TakvimeKayitlimi = UzakSunucuTakvimDTO1.Find(item => item.trialId == DersProgramiBaseActivityHelper.SecilenDeneme.id);
@@ -130,7 +141,7 @@ namespace TestBang.Deneme
         private void GelecekDenemeSinavlariButton_Click(object sender, EventArgs e)
         {
             this.Activity.StartActivity(typeof(DersProgramiBaseActivity));
-            
+
         }
 
         private void GecmisDenemeSinavlariButton_Click(object sender, EventArgs e)
@@ -147,7 +158,7 @@ namespace TestBang.Deneme
             new System.Threading.Thread(new System.Threading.ThreadStart(delegate
             {
                 KullanicininDenemeleriniGetir();
-                
+
             })).Start();
         }
 
@@ -156,12 +167,12 @@ namespace TestBang.Deneme
         {
             DenemeDersAnalizDTO1_Gruplar = new List<List<DenemeDersAnalizDTO>>();
             WebService webService = new WebService();
-            var Donus = webService.OkuGetir("trials/user",UsePoll:true);
+            var Donus = webService.OkuGetir("trials/user", UsePoll: true);
 
             if (Donus != null)
             {
                 KullanicininGirdigiDenemelerDTO1 = Newtonsoft.Json.JsonConvert.DeserializeObject<List<KullanicininGirdigiDenemelerDTO>>(Donus.ToString());
-                if (KullanicininGirdigiDenemelerDTO1!=null)
+                if (KullanicininGirdigiDenemelerDTO1 != null)
                 {
                     if (KullanicininGirdigiDenemelerDTO1.Count > 0)
                     {
@@ -216,7 +227,7 @@ namespace TestBang.Deneme
             }
 
         }
-        
+
         void FillDataModel()
         {
             this.Activity.RunOnUiThread(delegate ()
@@ -253,6 +264,36 @@ namespace TestBang.Deneme
                 var Icerik = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DenemeSonuclariPaunDTO>>(Donus.ToString());
                 IcerikTYT = Icerik.FindAll(item => item.trialType == "TYT");
                 IcerikAYT = Icerik.FindAll(item => item.trialType == "AYT");
+
+                if (Icerik.Count > 0)
+                {
+                    if (Icerik[Icerik.Count - 1].order != null)
+                    {
+                        MevcutSiralamaText.Text = Icerik[Icerik.Count - 1].order.ToString();
+                    }
+
+                    try
+                    {
+                        var EnYusegiBul = Icerik;
+                        var NullOlmayanlar = EnYusegiBul.FindAll(item => item.order != null).ToList();
+                        if (NullOlmayanlar.Count > 0)
+                        {
+                            List<int> Siralamalar = new List<int>();
+                            for (int i = 0; i < NullOlmayanlar.Count; i++)
+                            {
+                                Siralamalar.Add(Convert.ToInt32(NullOlmayanlar[i].order));
+                            }
+
+                            Siralamalar.Sort();
+                            EnYuksekSiralamaText.Text = Siralamalar.Last().ToString();
+                        }
+                    }
+                    catch (Exception exx)
+                    {
+                        string aaa = exx.Message;
+                    }
+
+                }
             }
 
 
@@ -290,9 +331,10 @@ namespace TestBang.Deneme
                 if (Donus != null)
                 {
                     var Icerik = Newtonsoft.Json.JsonConvert.DeserializeObject<TownDTO>(Donus.ToString());
-                    if (Icerik!=null)
+                    if (Icerik != null)
                     {
-                        this.Activity.RunOnUiThread(delegate () {
+                        this.Activity.RunOnUiThread(delegate ()
+                        {
                             IlIlceText.Text = Icerik.name + ", " + Icerik.cityName;
                         });
                     }
@@ -376,14 +418,12 @@ namespace TestBang.Deneme
             public double? net { get; set; }
         }
 
-
-
         public class DenemeChartFragment_TYT : Android.Support.V4.App.Fragment
         {
             ChartView ChartView1;
             List<DenemeSonuclariPaunDTO> DenemeSonuclariDTO1;
             List<KullanicininGirdigiDenemelerDTO> KullanicininGirdigiDenemelerDTO1;
-            public DenemeChartFragment_TYT(List<KullanicininGirdigiDenemelerDTO> KullanicininGirdigiDenemelerDTO2,List<DenemeSonuclariPaunDTO> DenemeSonuclariDTO2)
+            public DenemeChartFragment_TYT(List<KullanicininGirdigiDenemelerDTO> KullanicininGirdigiDenemelerDTO2, List<DenemeSonuclariPaunDTO> DenemeSonuclariDTO2)
             {
                 KullanicininGirdigiDenemelerDTO1 = KullanicininGirdigiDenemelerDTO2;
                 DenemeSonuclariDTO1 = DenemeSonuclariDTO2;
@@ -414,7 +454,7 @@ namespace TestBang.Deneme
                     DenemeSonuclariDTO1 = DenemeSonuclariDTO1.TakeLast(10).ToList();
                     CreateChart();
                 }
-                
+
             }
             void CreateChart()
             {
@@ -423,11 +463,12 @@ namespace TestBang.Deneme
                 {
                     var DenemeDtosu = KullanicininGirdigiDenemelerDTO1.Find(item => item.id == DenemeSonuclariDTO1[i].trialId);
                     string DenemeAdi = "";
-                    if (DenemeDtosu!=null)
+                    if (DenemeDtosu != null)
                     {
                         DenemeAdi = DenemeDtosu.name;
                     }
-                    entries.Add(new Entry(Convert.ToSingle(Math.Round((double)DenemeSonuclariDTO1[i].point,5)+100)) {
+                    entries.Add(new Entry(Convert.ToSingle(Math.Round((double)DenemeSonuclariDTO1[i].point, 5) + 100))
+                    {
 
                         Label = DenemeAdi,
                         ValueLabel = (DenemeSonuclariDTO1[i].point + 100).ToString(),
@@ -435,7 +476,7 @@ namespace TestBang.Deneme
 
                     });
                 }
-              
+
                 var lineChart = new LineChart() { Entries = entries.ToArray() };
                 lineChart.Margin = 15f;
                 //chart.PointAreaAlpha = 0;
@@ -508,7 +549,7 @@ namespace TestBang.Deneme
                 //chart.PointAreaAlpha = 0;
                 chart.LineAreaAlpha = 0;
                 chart.LineSize = 3f;
-                
+
                 ChartView1.Chart = chart;
             }
 
@@ -521,7 +562,7 @@ namespace TestBang.Deneme
                     switch (index)
                     {
                         case 0:
-                            Puann =  Convert.ToSingle(Math.Round((double)DenemeSonuclariDTO1[i].sayPoint, 5));
+                            Puann = Convert.ToSingle(Math.Round((double)DenemeSonuclariDTO1[i].sayPoint, 5));
                             break;
                         case 1:
                             Puann = Convert.ToSingle(Math.Round((double)DenemeSonuclariDTO1[i].sozPoint, 5));

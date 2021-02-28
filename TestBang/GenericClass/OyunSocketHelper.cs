@@ -254,6 +254,8 @@ namespace TestBang.GenericClass
             sub4["destination"] = "/user/" + MeId.login + "/ended"; //Oyun bittiyse buradan düşer
             ws.Send(serializer.Serialize(sub4));
 
+
+            //Arkadas oyunu ise ekstra olarak ;
             if (GelenBase is ArkadasOyunSec_Gonderen || GelenBase is ArkadasOyunSec_Gelen)
             {
                 var sub5 = new StompMessage(StompFrame.SUBSCRIBE);
@@ -393,7 +395,20 @@ namespace TestBang.GenericClass
         #endregion
 
         #region QuestionsDTO
-        // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
+
+
+
+
+        public class ChatRoom
+        {
+            public string roomName { get; set; }
+            public List<User> users { get; set; }
+            public string roomCaetory { get; set; }
+            public GameResult gameResult;
+            public bool left;
+            public bool right;
+        }
+
         public class User
         {
             public string userName { get; set; }
@@ -402,17 +417,7 @@ namespace TestBang.GenericClass
             public string userQuestionIndex { get; set; }
             public List<string> filters { get; set; }
         }
-
-        public class ChatRoom
-        {
-            public string roomName { get; set; }
-            public List<User> users { get; set; }
-            public string roomCaetory { get; set; }
-            public GameResult gameResult;
-
-            public bool left;
-            public bool right;
-        }
+       
         public class GameResult
         {
             public string userName;
@@ -422,7 +427,7 @@ namespace TestBang.GenericClass
             public bool isEquel;
         }
 
-    public class Answer
+        public class Answer
         {
             public string id { get; set; }
             public string index { get; set; }

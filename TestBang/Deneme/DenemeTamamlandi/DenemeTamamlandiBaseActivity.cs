@@ -90,7 +90,6 @@ namespace TestBang.Deneme.DenemeTamamlandi
                 }
             }
         }
-
         string GetCity(int TownID)
         {
             WebService webService = new WebService();
@@ -116,8 +115,6 @@ namespace TestBang.Deneme.DenemeTamamlandi
             public string name { get; set; }
             public string token { get; set; }
         }
-
-
         public class TownDTO
         {
             public int cityId { get; set; }

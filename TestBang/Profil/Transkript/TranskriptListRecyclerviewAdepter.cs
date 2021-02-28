@@ -75,7 +75,15 @@ namespace TestBang.Profil.Transkript
             {
                 viewholder.Desctxt.Text = "Açıklama Yok.";//
             }
-            viewholder.Siratxt.Text = "1.453";
+            if (item.order!=null)
+            {
+                viewholder.Siratxt.Text = item.order;
+            }
+            else
+            {
+                viewholder.Siratxt.Text = "";
+            }
+            
             viewholder.Tarihtxt.Text = ((DateTime)item.startDate).ToShortDateString();
             viewholder.Turtxt.Text = item.type;
         }

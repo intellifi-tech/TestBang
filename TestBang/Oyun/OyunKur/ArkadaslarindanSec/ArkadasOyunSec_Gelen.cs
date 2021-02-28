@@ -171,7 +171,6 @@ namespace TestBang.Oyun.OyunKur.ArkadaslarindanSec
 
         }
 
-
         void OyunuKabulEt()
         {
             ShowLoading.Show(this, "Lütfen Bekleyin...");

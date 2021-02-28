@@ -423,21 +423,21 @@ namespace TestBang.Profil.DersProgrami
                         {
                             holder3.TarihLabel.SetTextColor(Color.Rgb(240, 81, 113));
                         }
-                        if (((DateTime)GelenDTO.Tarih).Date == DateTime.Today)
+                        if (((DateTime)GelenDTO.Tarih).Date == DateTime.Today)//Bugun
                         {
                             holder3.TarihLabel.SetBackgroundResource(Resource.Drawable.takvim_gun_gosterge);
                         }
-                        if (GelenDTO.DenemeSinaviVami)
+                        if (GelenDTO.DenemeSinaviVami)//Denemesinavi
                         {
                             holder3.TarihLabel.SetBackgroundResource(Resource.Drawable.takvim_deneme_sinavi_gosterge);
                             holder3.TarihLabel.SetTextColor(Color.White);
                         }
-                        if (GelenDTO.KisiselTestVarmi)
+                        if (GelenDTO.KisiselTestVarmi)//test
                         {
                             holder3.TarihLabel.SetBackgroundResource(Resource.Drawable.takvim_kisisel_test_gosterge);
                             holder3.TarihLabel.SetTextColor(Color.White);
                         }
-                        if (GelenDTO.KisiselTestVarmi == true && GelenDTO.DenemeSinaviVami == true)
+                        if (GelenDTO.KisiselTestVarmi == true && GelenDTO.DenemeSinaviVami == true)//ikiside
                         {
                             holder3.TarihLabel.SetBackgroundResource(Resource.Drawable.takvim_deneme_ve_test_gosterge);
                             holder3.TarihLabel.SetTextColor(Color.White);

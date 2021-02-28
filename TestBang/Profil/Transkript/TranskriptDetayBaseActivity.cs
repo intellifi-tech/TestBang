@@ -39,7 +39,7 @@ namespace TestBang.Profil.Transkript
         RecyclerView.LayoutManager mLayoutManager;
         TranskriptDetayRecyclerViewAdapter mViewAdapter;
         List<DenemeCozumKonuDetayDTO> DenemeCozumKonuDetayDTO1 = new List<DenemeCozumKonuDetayDTO>();
-        TextView AdSoyadText, DenemeDetayText;
+        TextView AdSoyadText, DenemeDetayText,SiralamaText;
         MEMBER_DATA Me = DataBase.MEMBER_DATA_GETIR()[0];
 
 
@@ -62,6 +62,11 @@ namespace TestBang.Profil.Transkript
             mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView1);
             SiralamaHaznesi = FindViewById<RelativeLayout>(Resource.Id.relativeLayout5);
             TranskriptPaylas = FindViewById<Button>(Resource.Id.button3);
+            SiralamaText = FindViewById<TextView>(Resource.Id.siralamatextt);
+            if (TranskriptDetayBaseActivity_Helper.SecilenDeneme.order!=null)
+            {
+                SiralamaText.Text = TranskriptDetayBaseActivity_Helper.SecilenDeneme.order;
+            }
             TranskriptPaylas.Click += TranskriptPaylas_Click;
 
             mRecyclerView.HasFixedSize = true;
