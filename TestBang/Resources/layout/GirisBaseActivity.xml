@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#11122E"
     android:layout_width="match_parent"
@@ -17,15 +18,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/linearLayout4" >
-            <ImageView
-                android:scaleType="centerInside"
-                android:src="@mipmap/loginpage_icon1"
-                android:layout_width="match_parent"
-                android:layout_height="139.0dp"
-                android:minWidth="25px"
-                android:minHeight="25px"
-                android:id="@+id/ımageView1"
-                android:layout_marginTop="37.0dp" />
+           <com.airbnb.lottie.LottieAnimationView
+            android:layout_marginTop="37.0dp"    
+            android:scaleType="centerInside"
+            android:layout_centerInParent="true"
+            android:layout_above="@+id/linearLayout1"
+            android:id="@+id/follow_icon2"
+            android:layout_width="match_parent"
+            android:layout_height="139.0dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_fileName="testBang_05_Login.json"/>
             <TextView
                 android:fontFamily="@font/monserratfont"
                 android:textSize="18dp"

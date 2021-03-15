@@ -120,7 +120,7 @@ namespace TestBang.GirisKayit
                     }
                     if (OkulSpin.SelectedItemPosition > 0)//Okul
                     {
-                        kayitIcinRoot.schoolId = SchoolDTO1[OkulSpin.SelectedItemPosition].id;
+                        kayitIcinRoot.schoolId = (int)SchoolDTO1[OkulSpin.SelectedItemPosition].id;
                     }
                     string jsonString = JsonConvert.SerializeObject(kayitIcinRoot);
                     var Responsee = webService.ServisIslem("register", jsonString, true);
@@ -189,7 +189,6 @@ namespace TestBang.GirisKayit
             if (JSONData != null)
             {
                 var JsonSting = JSONData.ToString();
-
                 var Icerik = Newtonsoft.Json.JsonConvert.DeserializeObject<MEMBER_DATA>(JSONData.ToString());
                 Icerik.API_TOKEN = APITOKEN.TOKEN;
                 Icerik.password = SifreText.Text;
@@ -369,12 +368,12 @@ namespace TestBang.GirisKayit
 
         public class SchoolDTO
         {
-            public string corpColor { get; set; }
-            public int id { get; set; }
-            public string logoPath { get; set; }
+            public int? id { get; set; }
             public string name { get; set; }
             public string token { get; set; }
-            public int townId { get; set; }
+            public string logoPath { get; set; }
+            public string corpColor { get; set; }
+            public int? townId { get; set; }
         }
 
 

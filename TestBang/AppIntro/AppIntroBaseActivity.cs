@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Support.V4.View;
 using Android.Views;
 using Android.Widget;
+using Com.Airbnb.Lottie;
 using DK.Ostebaronen.Droid.ViewPagerIndicator;
 using TestBang.GenericClass;
 using TestBang.GirisKayit;
@@ -53,9 +54,9 @@ namespace TestBang.AppIntro
         Android.Support.V4.App.Fragment[] fragments;
         void viepageratama()
         {
-            var ss1 = new IntroFragment("Artık Testleri Tam Kalbinden", "VURMA ZAMANI", "Testbang’de eğitimde Hedefi yükseltme zamanı!\nİstediğin zaman, istediğin yerde\nistediğin konu ve seviyede soru çöz.", Resource.Mipmap.appintro1, false);
-            var ss2 = new IntroFragment("Sınava Hazırlıkta Rekabet", "YENİ SEVİYEYE ULAŞTI", "Senin de dünyan artık dijitalse, eğitimde\nrekabeti artık internette yaşa.Seviyeni okuluna,\niline, ya da tüm Türkiye’ye karşı gör.", Resource.Mipmap.appintro2, false);
-            var ss3 = new IntroFragment("Sınavların Sosyal Olma", "VAKTİ GELDİ", "İstersen arkadaşlarınla kapış, bilgini konuştur.\nİstersen Türkiye’nin dört bir yanındaki\nTestbang kullanıcılarıyla tanış ve yarış.", Resource.Mipmap.appintro3, true);
+            var ss1 = new IntroFragment("Artık Testleri Tam Kalbinden", "VURMA ZAMANI", "Testbang’de eğitimde Hedefi yükseltme zamanı!\nİstediğin zaman, istediğin yerde\nistediğin konu ve seviyede soru çöz.", "testBang_02_Splash.json", false);
+            var ss2 = new IntroFragment("Sınava Hazırlıkta Rekabet", "YENİ SEVİYEYE ULAŞTI", "Senin de dünyan artık dijitalse, eğitimde\nrekabeti artık internette yaşa.Seviyeni okuluna,\niline, ya da tüm Türkiye’ye karşı gör.", "testBang_03_Splash.json", false);
+            var ss3 = new IntroFragment("Sınavların Sosyal Olma", "VAKTİ GELDİ", "İstersen arkadaşlarınla kapış, bilgini konuştur.\nİstersen Türkiye’nin dört bir yanındaki\nTestbang kullanıcılarıyla tanış ve yarış.", "testBang_04_Splash.json", true);
 
             //Fragment array
             fragments = new Android.Support.V4.App.Fragment[]
@@ -83,12 +84,12 @@ namespace TestBang.AppIntro
         public class IntroFragment : Android.Support.V4.App.Fragment
         {
             string Metin1, Metin2, Metin3;
-            int imageid;
+            string imageid;
             bool buttondurum;
             TextView MetinText1,MetinText2,MetinText3;
-            ImageView imageview;
             Button devamet;
-            public IntroFragment(string metin1,string metin2,string metin3, int gelenimageid, bool buttonolsunmu)
+            LottieAnimationView animationView;
+            public IntroFragment(string metin1,string metin2,string metin3, string gelenimageid, bool buttonolsunmu)
             {
                 Metin1 = metin1;
                 Metin2 = metin2;
@@ -99,13 +100,12 @@ namespace TestBang.AppIntro
             public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
             {
                 View view = inflater.Inflate(Resource.Layout.AppIntroParcaFragment, container, false);
-                imageview = view.FindViewById<ImageView>(Resource.Id.ımageView1);
                 devamet = view.FindViewById<Button>(Resource.Id.button1);
                 MetinText1 = view.FindViewById<TextView>(Resource.Id.textView1);
                 MetinText2 = view.FindViewById<TextView>(Resource.Id.textView2);
                 MetinText3 = view.FindViewById<TextView>(Resource.Id.textView3);
-                
-                imageview.SetImageResource(imageid);
+                animationView = view.FindViewById<LottieAnimationView>(Resource.Id.follow_icon2);
+
 
                 MetinText1.Text = Metin1;
                 MetinText2.Text = Metin2;
@@ -116,6 +116,11 @@ namespace TestBang.AppIntro
                     devamet.Visibility = ViewStates.Invisible;
                 else
                     devamet.Click += Devamet_Click;
+
+
+                animationView.SetAnimation(imageid);
+                animationView.PlayAnimation();
+
                 return view;
 
             }

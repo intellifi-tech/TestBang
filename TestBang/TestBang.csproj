@@ -182,6 +182,13 @@
     <AndroidAsset Include="Assets\rasgelerakip1.json" />
     <AndroidAsset Include="Assets\rasgelerakip2.json" />
     <GoogleServicesJson Include="google-services.json" />
+    <AndroidAsset Include="Assets\testBang_07_Loading.json" />
+    <AndroidAsset Include="Assets\testBang_01_Splash.json" />
+    <AndroidAsset Include="Assets\testBang_02_Splash.json" />
+    <AndroidAsset Include="Assets\testBang_03_Splash.json" />
+    <AndroidAsset Include="Assets\testBang_04_Splash.json" />
+    <AndroidAsset Include="Assets\testBang_05_Login.json" />
+    <AndroidAsset Include="Assets\testBang_06_Giris_Yap.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />

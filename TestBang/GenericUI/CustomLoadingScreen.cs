@@ -20,7 +20,7 @@ namespace TestBang.GenericUI
         #region Tanitim
         string Des1;
         TextView DesText;
-        ProgressBar progresss;
+       // ProgressBar progresss;
         Typeface normall, boldd;
         #endregion
         public override void OnActivityCreated(Bundle savedInstanceState)
@@ -43,8 +43,8 @@ namespace TestBang.GenericUI
             //Dialog.Window.SetGravity(GravityFlags.FillHorizontal | GravityFlags.CenterHorizontal | GravityFlags.CenterVertical);
             DesText = rootView.FindViewById<TextView>(Resource.Id.textView1);
             DesText.Text = Des1;
-            progresss = rootView.FindViewById<ProgressBar>(Resource.Id.progressBar1);
-            progresss.ProgressBackgroundTintList = ColorStateList.ValueOf(Color.Black);
+            //progresss = rootView.FindViewById<ProgressBar>(Resource.Id.progressBar1);
+            //progresss.ProgressBackgroundTintList = ColorStateList.ValueOf(Color.Black);
             //boldd = Typeface.CreateFromAsset(this.Activity.Assets, "Fonts/muliBold.ttf");
             //normall = Typeface.CreateFromAsset(this.Activity.Assets, "Fonts/muliRegular.ttf");
             DesText.SetTypeface(normall, TypefaceStyle.Normal);

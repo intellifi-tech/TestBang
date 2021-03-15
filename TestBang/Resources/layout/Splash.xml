@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ImageView
-        android:scaleType="centerCrop"
-        android:background="#F05070"
-        android:src="@mipmap/splash_img"
+    <com.airbnb.lottie.LottieAnimationView
+        android:scaleType="fitXY"
+        android:layout_centerInParent="true"
+        android:layout_above="@+id/linearLayout1"
+        android:id="@+id/follow_icon2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:id="@+id/ımageView1" />
-
+        app:lottie_fileName="testBang_01_Splash.json"/>
 </LinearLayout>
